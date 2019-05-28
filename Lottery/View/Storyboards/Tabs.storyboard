@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lG1-dW-elm">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Controller-->
+        <scene sceneID="1zV-8y-ONO">
+            <objects>
+                <tabBarController id="lG1-dW-elm" userLabel="Tab Controller" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GCm-Jc-WMD" customClass="TabBar" customModule="PointBasedShop" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="smj-Ll-L0q" kind="relationship" relationship="viewControllers" id="Tut-go-rOO"/>
+                        <segue destination="Vy9-q1-InU" kind="relationship" relationship="viewControllers" id="j4i-gZ-NHQ"/>
+                        <segue destination="Zb5-u3-K5B" kind="relationship" relationship="viewControllers" id="laB-pQ-2DJ"/>
+                        <segue destination="b3J-r6-u68" kind="relationship" relationship="viewControllers" id="8EW-Yg-oCb"/>
+                        <segue destination="fWA-WM-9Gz" kind="relationship" relationship="viewControllers" id="pJE-Ht-mwh"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jp2-Rh-aPu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-711" y="-254"/>
+        </scene>
+        <!--Home Navigation Controller-->
+        <scene sceneID="1vx-EA-N7N">
+            <objects>
+                <navigationController id="smj-Ll-L0q" userLabel="Home Navigation Controller" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="home" id="2xa-rr-V40" userLabel="Tab Item" customClass="TabItem" customModule="PointBasedShop" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="firstTitle" value="home"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vJI-H6-vZl" customClass="NavigationBar" customModule="PointBasedShop" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Osd-8n-ZkM" kind="relationship" relationship="rootViewController" id="lg5-Ti-LeS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jvE-iL-Bgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="351" y="-1768"/>
+        </scene>
+        <!--Favorites Navigation Controller-->
+        <scene sceneID="XtH-Lf-jFy">
+            <objects>
+                <navigationController id="Vy9-q1-InU" userLabel="Favorites Navigation Controller" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="favorites" id="qvL-PO-6P9" userLabel="Tab Item" customClass="TabItem" customModule="PointBasedShop" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="firstTitle" value="favorites"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0oB-aL-MZf" customClass="NavigationBar" customModule="PointBasedShop" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CS5-Hc-5EA" kind="relationship" relationship="rootViewController" id="aQU-6L-maL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q8p-t2-sXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="351" y="-1010"/>
+        </scene>
+        <!--Cart Navigation Controller-->
+        <scene sceneID="YjL-hA-9PW">
+            <objects>
+                <navigationController id="Zb5-u3-K5B" userLabel="Cart Navigation Controller" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="cart" id="KU7-eT-Tq4" userLabel="Tab Item" customClass="TabItem" customModule="PointBasedShop" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="firstTitle" value="cart"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5gk-Qs-WfK" customClass="NavigationBar" customModule="PointBasedShop" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="St0-sG-hHt" kind="relationship" relationship="rootViewController" id="A3n-dZ-nTt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JZj-Yo-x2T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="351" y="-254"/>
+        </scene>
+        <!--Orders Navigation Controller-->
+        <scene sceneID="IT9-Zl-Zo3">
+            <objects>
+                <navigationController id="b3J-r6-u68" userLabel="Orders Navigation Controller" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="orders" id="J8K-NY-5rq" userLabel="Tab Item" customClass="TabItem" customModule="PointBasedShop" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="firstTitle" value="orders"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pFA-0F-mud" customClass="NavigationBar" customModule="PointBasedShop" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JWl-1e-dec" kind="relationship" relationship="rootViewController" id="kc8-Eu-ZRK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="amV-40-MS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="351" y="511"/>
+        </scene>
+        <!--Profile Navigation Controller-->
+        <scene sceneID="QYZ-OX-U1o">
+            <objects>
+                <navigationController id="fWA-WM-9Gz" userLabel="Profile Navigation Controller" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="profile" id="FSp-0J-JvI" userLabel="Tab Item" customClass="TabItem" customModule="PointBasedShop" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="firstTitle" value="profile"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NEg-qt-Ibl" customClass="NavigationBar" customModule="PointBasedShop" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Jmw-4F-BtK" kind="relationship" relationship="rootViewController" id="B6U-hO-7B0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IEN-En-eZv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="351" y="1283"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="rgq-Je-AIk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="Osd-8n-ZkM" userLabel="Home View Controller" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Vh8-KO-roM" customClass="NavigationItem" customModule="PointBasedShop" customModuleProvider="target"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ps-bu-ZpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1249" y="-1769"/>
+        </scene>
+        <!--Favorites View Controller-->
+        <scene sceneID="6jo-Sm-nfB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Favorites" id="CS5-Hc-5EA" userLabel="Favorites View Controller" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Cvh-tW-3Wn" customClass="NavigationItem" customModule="PointBasedShop" customModuleProvider="target"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zrE-MZ-z5h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1262" y="-1010"/>
+        </scene>
+        <!--Cart View Controller-->
+        <scene sceneID="vIo-3O-MU4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Cart" id="St0-sG-hHt" userLabel="Cart View Controller" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Q0C-ha-7I8" customClass="NavigationItem" customModule="PointBasedShop" customModuleProvider="target"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eyq-jf-6nU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1263" y="-254"/>
+        </scene>
+        <!--Orders View Controller-->
+        <scene sceneID="E98-1C-Tba">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Orders" id="JWl-1e-dec" userLabel="Orders View Controller" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QOM-2V-ZBp" customClass="NavigationItem" customModule="PointBasedShop" customModuleProvider="target"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qOk-Fc-OCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1263" y="511"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="L4a-yv-gyn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="Jmw-4F-BtK" userLabel="Profile View Controller" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="aN1-wQ-Oju" customClass="NavigationItem" customModule="PointBasedShop" customModuleProvider="target"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QXC-qs-sTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1249" y="1282"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cart" width="24" height="24"/>
+        <image name="favorites" width="24" height="24"/>
+        <image name="home" width="24" height="24"/>
+        <image name="orders" width="24" height="24"/>
+        <image name="profile" width="24" height="24"/>
+    </resources>
+</document>

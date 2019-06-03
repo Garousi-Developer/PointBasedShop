@@ -18,6 +18,7 @@ PODS:
   - CHIPageControl/Paprika (0.1.7)
   - CHIPageControl/Puya (0.1.7)
   - FSPagerView (0.8.2)
+  - Hero (1.4.0)
   - Kingfisher (5.2.0)
   - NVActivityIndicatorView (4.6.1):
     - NVActivityIndicatorView/Presenter (= 4.6.1)
@@ -28,32 +29,39 @@ PODS:
   - PhoneNumberKit/PhoneNumberKitCore (2.6.0)
   - PhoneNumberKit/UIKit (2.6.0):
     - PhoneNumberKit/PhoneNumberKitCore
+  - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - Alamofire
   - CHIPageControl
   - FSPagerView
+  - Hero
   - Kingfisher
   - NVActivityIndicatorView
   - PhoneNumberKit
+  - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - CHIPageControl
     - FSPagerView
+    - Hero
     - Kingfisher
     - NVActivityIndicatorView
     - PhoneNumberKit
+    - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   CHIPageControl: bbe1ddd0c688c02ec65b7f7e7d34551a3d16f37c
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
   PhoneNumberKit: 167ee1f0bbb6efce7c62559e620eae745595532f
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: f40eb7730be447e9d1aae22cc8e82a597e73f801
+PODFILE CHECKSUM: 933e87a789e18642d8e0290f74586895380fe714
 
 COCOAPODS: 1.6.1

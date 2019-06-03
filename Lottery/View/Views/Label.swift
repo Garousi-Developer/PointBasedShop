@@ -58,14 +58,22 @@ class Label: UILabel {
         }
     }
     
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
-    var firstRealNumberOfLines: Int {
+    var firstTextHeight: CGFloat {
         let maxSize = CGSize(width: bounds.width, height: .greatestFiniteMagnitude)
         let textHeight = sizeThatFits(maxSize).height
+        
+        return textHeight
+    }
+    var firstRealNumberOfLines: Int {
         let lineHeight = font.lineHeight
-        let firstNumberOfLines = lround(Double(textHeight / lineHeight))
+        let firstNumberOfLines = lround(Double(firstTextHeight / lineHeight))
         
         return firstNumberOfLines
     }

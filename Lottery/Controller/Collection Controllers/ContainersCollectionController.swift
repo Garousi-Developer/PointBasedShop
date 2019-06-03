@@ -26,7 +26,7 @@ class ContainersCollectionController: CollectionController {
         else {
             castedCell.pictureImageView.setBorderStyle(.thick)
             castedCell.pictureImageView.contentMode = .scaleAspectFit
-            castedCell.pictureImageView.image = container.picture.withInsets(UIEdgeInsets(
+            castedCell.pictureImageView.image = container.logoPicture.withInsets(UIEdgeInsets(
                 top: 16,
                 left: 16,
                 bottom: 16,
@@ -35,5 +35,13 @@ class ContainersCollectionController: CollectionController {
         }
         
         castedCell.titleLabel.text = container.name
+    }
+    override func itemDidSelect(atIndexPath indexPath: IndexPath) {
+        super.itemDidSelect(atIndexPath: indexPath)
+        
+        viewController.navigateTo(
+            .container,
+            transferringData: containers[indexPath.item]
+        )
     }
 }

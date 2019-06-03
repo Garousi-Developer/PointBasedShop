@@ -1,6 +1,6 @@
 import UIKit
 
-func color(ofProgress progress: CGFloat) -> UIColor {
+func color(ofProgress progress: Float) -> UIColor {
     if progress < 1/3 {
         return colors(.green)
     }

@@ -8,10 +8,13 @@ func durations(_ duration: Duration) -> TimeInterval {
         return 0.2
     case .textField:
         return 0.35
+    case .springTextField:
+        return 2 * durations(.textField)
     }
 }
 enum Duration: String {
     case epsilon
     case interaction
     case textField
+    case springTextField
 }

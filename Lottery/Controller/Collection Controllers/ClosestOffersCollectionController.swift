@@ -71,11 +71,11 @@ class ClosestOffersCollectionController: CollectionController {
     }
     
     override func itemHeight() -> CGFloat {
-        let firstSpacings: CGFloat = 2 * 18 + 3 * 12
-        let secondSpacings: CGFloat = 2 * 6 + 3
+        let firstSpacings: CGFloat = 3 * 18 + 2 * 12
+        let secondSpacings: CGFloat = 4 * 6 + 3
         let constantHeights: CGFloat = 36
         let staticHeights: CGFloat = 120 + 40 + 35 + 5
-        let dynamicHeights = 2 * fonts(.medium).firstLineHeight
+        let dynamicHeights = 4 * fonts(.medium).firstLineHeight
         
         return constantHeights + scale * (firstSpacings + secondSpacings + staticHeights) + dynamicHeights
     }
@@ -90,16 +90,23 @@ class ClosestOffersCollectionController: CollectionController {
         
         let castedCell = cell as! ClosestOfferCollectionCell
         let product = closestProducts[indexPath.item]
-        let progress = CGFloat(product.numberOfSoldProducts) / CGFloat(product.numberOfProducts)
+        let progress = Float(product.numberOfSoldProducts) / Float(product.numberOfProducts)
         
         castedCell.requiredPointsLabel.text = "\(product.requiredPoints) \(texts(.points))"
         castedCell.pictureImageView.image = product.picture
+        castedCell.nameLabel.text = product.name
+        castedCell.discountedPriceLabel.text = "\(product.discountedPrice.priceFormatted) \(texts(.currency))"
         castedCell.brandImageView.image = product.brandLogo
         castedCell.orderCountButton.setTitle(
             "\(product.orderCount)",
             for: .normal
         )
         castedCell.numberOfSoldProductsLabel.text = "\(product.numberOfSoldProducts) \(texts(.number)) \(texts(.sold))"
+        castedCell.progressView.setProgress(
+            progress,
+            animated: false
+        )
+        castedCell.progressView.progressTintColor = color(ofProgress: progress)
         castedCell.numberOfProductsLabel.text = "\(texts(.outOf)) \(product.numberOfProducts) \(texts(.number))"
         
         if product.isFavorite {
@@ -118,7 +125,6 @@ class ClosestOffersCollectionController: CollectionController {
         }
         
         setupPriceLabel(castedCell, product)
-        setupProgressView(castedCell, progress)
         
         castedCell.favoriteButton.tag = indexPath.item
         castedCell.addToCartButton.tag = indexPath.item
@@ -149,37 +155,12 @@ class ClosestOffersCollectionController: CollectionController {
 
 extension ClosestOffersCollectionController {
     private func setupPriceLabel(_ castedCell: ClosestOfferCollectionCell, _ product: Product) {
-        let attributedText = NSMutableAttributedString()
-        attributedText.append(NSAttributedString(
-            string: product.name
-        ))
-        attributedText.append(NSAttributedString(
-            string: " "
-        ))
-        attributedText.append(NSAttributedString(
+        castedCell.priceLabel.attributedText = NSAttributedString(
             string: "\(product.price.priceFormatted) \(texts(.currency))",
             attributes: [
-                NSAttributedString.Key.foregroundColor: colors(.lightAsset),
                 NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
                 NSAttributedString.Key.strikethroughColor: colors(.red)
             ]
-        ))
-        attributedText.append(NSAttributedString(
-            string: "  "
-        ))
-        attributedText.append(NSAttributedString(
-            string: "\(product.discountedPrice.priceFormatted) \(texts(.currency))",
-            attributes: [
-                NSAttributedString.Key.foregroundColor: colors(.green)
-            ]
-        ))
-        
-        castedCell.priceLabel.attributedText = attributedText
-    }
-    private func setupProgressView(_ castedCell: ClosestOfferCollectionCell, _ progress: CGFloat) {
-        castedCell.progressView.widthConstraint.constant = progress * castedCell.progressPlaceholderView.bounds.width
-        castedCell.progressView.layoutIfNeeded()
-        castedCell.progressView.setCornerRadius(.half)
-        castedCell.progressView.backgroundColor = color(ofProgress: progress)
+        )
     }
 }

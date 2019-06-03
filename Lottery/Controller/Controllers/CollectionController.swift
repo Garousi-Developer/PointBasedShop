@@ -19,6 +19,9 @@ class CollectionController: SecondaryController {
     func willDisplay(cell: CollectionCell, atIndexPath indexPath: IndexPath) {
         
     }
+    func itemDidSelect(atIndexPath indexPath: IndexPath) {
+        
+    }
     
     init(viewController: ViewController, collectionView: CollectionView) {
         super.init(viewController: viewController)
@@ -99,5 +102,10 @@ extension CollectionController: UICollectionViewDelegateFlowLayout {
             width: itemWidth,
             height: itemHeight()
         )
+    }
+}
+extension CollectionController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        itemDidSelect(atIndexPath: indexPath)
     }
 }

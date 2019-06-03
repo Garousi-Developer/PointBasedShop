@@ -49,13 +49,13 @@ class TextField: PhoneNumberTextField {
     @IBInspectable var firstInsecureEntryIcon: UIImage!
     
     var firstSmartKeyboardType: UIKeyboardType {
-        switch textContentType! {
-        case .password:
+        switch textContentType {
+        case UITextContentType.password:
             return .asciiCapable
-        case .telephoneNumber:
+        case UITextContentType.telephoneNumber:
             return .asciiCapableNumberPad
         default:
-            return .default
+            return .asciiCapableNumberPad
         }
     }
     var firstCommonMobileNumber: String! {
@@ -97,14 +97,6 @@ class TextField: PhoneNumberTextField {
         super.prepareForInterfaceBuilder()
         setup()
     }
-    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if returnKeyType == .next {
-            let nextTextField = superview!.viewWithTag(tag + 1) as! TextField
-            nextTextField.becomeFirstResponder()
-        }
-        
-        return true
-    }
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -115,6 +107,14 @@ class TextField: PhoneNumberTextField {
                 setCornerRadius(CornerRadius(rawValue: firstCornerRadius)!)
             }
         }
+    }
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if returnKeyType == .next {
+            let nextTextField = superview!.viewWithTag(tag + 1) as! TextField
+            nextTextField.becomeFirstResponder()
+        }
+        
+        return true
     }
 }
 
@@ -131,8 +131,6 @@ extension TextField {
         if textContentType != .telephoneNumber {
             isPartialFormatterEnabled = false
         }
-        
-        
     }
     private func setupSecurityToggleButton() {
         firstSecurityToggleButton = Button(type: .custom)

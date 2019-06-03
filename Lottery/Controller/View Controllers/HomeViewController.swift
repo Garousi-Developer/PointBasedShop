@@ -114,30 +114,37 @@ class HomeViewController: ViewController {
                         containers: [
                             Container(
                                 picture: #imageLiteral(resourceName: "testCity1"),
+                                logoPicture: nil,
                                 name: "تهران"
                             ),
                             Container(
                                 picture: #imageLiteral(resourceName: "testCity2"),
+                                logoPicture: nil,
                                 name: "اهواز"
                             ),
                             Container(
                                 picture: #imageLiteral(resourceName: "testCity3"),
+                                logoPicture: nil,
                                 name: "اصفهان"
                             ),
                             Container(
                                 picture: #imageLiteral(resourceName: "testCity4"),
+                                logoPicture: nil,
                                 name: "مشهد"
                             ),
                             Container(
                                 picture: #imageLiteral(resourceName: "testCity5"),
+                                logoPicture: nil,
                                 name: "شیراز"
                             ),
                             Container(
                                 picture: #imageLiteral(resourceName: "testCity6"),
+                                logoPicture: nil,
                                 name: "ساری"
                             ),
                             Container(
                                 picture: #imageLiteral(resourceName: "testCity7"),
+                                logoPicture: nil,
                                 name: "تبریز"
                             )
                         ]
@@ -146,23 +153,28 @@ class HomeViewController: ViewController {
                         title: texts(.topShoppingCenters),
                         containers: [
                             Container(
-                                picture: #imageLiteral(resourceName: "testTopShoppingCenter1"),
+                                picture: nil,
+                                logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter1"),
                                 name: "سام سنتر"
                             ),
                             Container(
-                                picture: #imageLiteral(resourceName: "testTopShoppingCenter2"),
+                                picture: nil,
+                                logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter2"),
                                 name: "پالادیوم"
                             ),
                             Container(
-                                picture: #imageLiteral(resourceName: "testTopShoppingCenter3"),
+                                picture: nil,
+                                logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter3"),
                                 name: "مدرن الهیه"
                             ),
                             Container(
-                                picture: #imageLiteral(resourceName: "testTopShoppingCenter4"),
+                                picture: nil,
+                                logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter4"),
                                 name: "کوروش"
                             ),
                             Container(
-                                picture: #imageLiteral(resourceName: "testTopShoppingCenter5"),
+                                picture: nil,
+                                logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter5"),
                                 name: "خلیج فارس"
                             )
                         ]
@@ -171,23 +183,28 @@ class HomeViewController: ViewController {
                         title: texts(.topBrands),
                         containers: [
                             Container(
-                                picture: #imageLiteral(resourceName: "testProductBrand1"),
+                                picture: nil,
+                                logoPicture: #imageLiteral(resourceName: "testProductBrand1"),
                                 name: "پینارلو"
                             ),
                             Container(
-                                picture: #imageLiteral(resourceName: "testProductBrand2"),
+                                picture: nil,
+                                logoPicture: #imageLiteral(resourceName: "testProductBrand2"),
                                 name: "گیونچای"
                             ),
                             Container(
-                                picture: #imageLiteral(resourceName: "testProductBrand3"),
+                                picture: nil,
+                                logoPicture: #imageLiteral(resourceName: "testProductBrand3"),
                                 name: "بنز"
                             ),
                             Container(
-                                picture: #imageLiteral(resourceName: "testProductBrand4"),
+                                picture: nil,
+                                logoPicture: #imageLiteral(resourceName: "testProductBrand4"),
                                 name: "لومیناکس"
                             ),
                             Container(
-                                picture: #imageLiteral(resourceName: "testProductBrand5"),
+                                picture: nil,
+                                logoPicture: #imageLiteral(resourceName: "testProductBrand5"),
                                 name: "سامسونگ"
                             )
                         ]

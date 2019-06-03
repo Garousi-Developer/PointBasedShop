@@ -1,23 +1,23 @@
 import UIKit
 
 extension UIView {
-    func fadeIn(didFinish: (() -> Void)? = nil) {
+    func fadeIn(didComplete: (() -> Void)? = nil) {
         UIView.animate(withDuration: durations(.textField), animations: {
             self.alpha = 1
         })
         { _ in
-            if let didFinish = didFinish {
-                didFinish()
+            if let didComplete = didComplete {
+                didComplete()
             }
         }
     }
-    func fadeOut(didFinish: (() -> Void)? = nil) {
+    func fadeOut(didComplete: (() -> Void)? = nil) {
         UIView.animate(withDuration: durations(.textField), animations: {
             self.alpha = 0
         })
         { _ in
-            if let didFinish = didFinish {
-                didFinish()
+            if let didComplete = didComplete {
+                didComplete()
             }
         }
     }

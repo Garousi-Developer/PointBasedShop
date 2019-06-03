@@ -63,6 +63,31 @@ func texts(_ text: Text) -> String {
     // Profile:
     case .profile:
         return "پروفایل"
+    
+    // Awards:
+    case .welcomeToXShoppingCenter:
+        return "به مرکز خرید نام مرکز خرید خوش آمدید"
+    case .tapCheckInToClaimXLoyaltyPoints:
+        return "برای کسب مقدار امتیاز امتیاز وفاداری دکمه ثبت حضور را بزنید"
+    case .checkIn:
+        return "ثبت حضور"
+    case .takeYourTodaysInvoicesToXShoppingCenterCounter:
+        return """
+        فاکتورهای امروز خود را به پیشخوان مرکز خرید نام مرکز خرید ببرید
+        و مقدار درصد درصد کل مبلغ خرید خود را به عنوان امتیاز کسب کنید
+        """
+    case .claimPoints:
+        return "کسب امتیاز"
+    
+    // Claim Points:
+    case .pleaseHaveAllYourTodaysInvoicesStampedBySalesman:
+        return "لطفا همه فاکتورهای امروز خود را توسط فروشنده مهر کنید و اجازه دهید مبلغ خرید و کد خود را وارد کند تا امتیازتان را کسب کنید"
+    case .purchaseAmountInTomans:
+        return "مبلغ خرید به تومان"
+    case .employeeId:
+        return "شناسه کارمند"
+    case .submit:
+        return "تایید"
     }
 }
 enum Text: String {
@@ -104,4 +129,17 @@ enum Text: String {
     
     // Profile:
     case profile
+    
+    // Awards:
+    case welcomeToXShoppingCenter
+    case tapCheckInToClaimXLoyaltyPoints
+    case checkIn
+    case takeYourTodaysInvoicesToXShoppingCenterCounter
+    case claimPoints
+    
+    // Claim Points:
+    case pleaseHaveAllYourTodaysInvoicesStampedBySalesman
+    case purchaseAmountInTomans
+    case employeeId
+    case submit
 }

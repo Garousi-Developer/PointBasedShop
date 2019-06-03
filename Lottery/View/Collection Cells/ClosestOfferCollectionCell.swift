@@ -3,7 +3,9 @@ class ClosestOfferCollectionCell: CollectionCell {
     @IBOutlet weak var requiredPointsLabel: Label!
     @IBOutlet weak var favoriteButton: Button!
     @IBOutlet weak var pictureImageView: ImageView!
+    @IBOutlet weak var nameLabel: Label!
     @IBOutlet weak var priceLabel: Label!
+    @IBOutlet weak var discountedPriceLabel: Label!
     @IBOutlet weak var brandImageView: ImageView!
     @IBOutlet weak var postableLabel: Label!
     @IBOutlet weak var addToCartButton: Button!
@@ -12,7 +14,6 @@ class ClosestOfferCollectionCell: CollectionCell {
     @IBOutlet weak var orderCountButton: Button!
     @IBOutlet weak var incrementButton: Button!
     @IBOutlet weak var numberOfSoldProductsLabel: Label!
-    @IBOutlet weak var progressPlaceholderView: View!
-    @IBOutlet weak var progressView: View!
+    @IBOutlet weak var progressView: ProgressView!
     @IBOutlet weak var numberOfProductsLabel: Label!
 }

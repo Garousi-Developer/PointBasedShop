@@ -1,4 +1,5 @@
 PODS:
+  - ActiveLabel (1.0.1)
   - Alamofire (4.8.1)
   - CHIPageControl (0.1.7):
     - CHIPageControl/Aji (= 0.1.7)
@@ -30,8 +31,10 @@ PODS:
   - PhoneNumberKit/UIKit (2.6.0):
     - PhoneNumberKit/PhoneNumberKitCore
   - SnapKit (4.2.0)
+  - SVPinView (1.0.6)
 
 DEPENDENCIES:
+  - ActiveLabel
   - Alamofire
   - CHIPageControl
   - FSPagerView
@@ -40,9 +43,11 @@ DEPENDENCIES:
   - NVActivityIndicatorView
   - PhoneNumberKit
   - SnapKit
+  - SVPinView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ActiveLabel
     - Alamofire
     - CHIPageControl
     - FSPagerView
@@ -51,8 +56,10 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - PhoneNumberKit
     - SnapKit
+    - SVPinView
 
 SPEC CHECKSUMS:
+  ActiveLabel: b8b2396fe25308d563601437d6605bf691c3b5db
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   CHIPageControl: bbe1ddd0c688c02ec65b7f7e7d34551a3d16f37c
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
@@ -61,7 +68,8 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
   PhoneNumberKit: 167ee1f0bbb6efce7c62559e620eae745595532f
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SVPinView: 3dda372c7a1c051b41788f07bf7a8339aa19083e
 
-PODFILE CHECKSUM: 933e87a789e18642d8e0290f74586895380fe714
+PODFILE CHECKSUM: 18d3c10cf84bb45a72d25de2e0aa68cb04c48ce2
 
 COCOAPODS: 1.6.1

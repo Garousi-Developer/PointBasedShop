@@ -1,6 +1,7 @@
 import UIKit
 
 struct Product {
+    let isUnlocked: Bool
     let requiredPoints: Int
     var isFavorite: Bool
     let picture: UIImage

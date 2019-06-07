@@ -22,10 +22,12 @@ class FirstTextField: TextField {
     @objc override func textDidChange() {
         super.textDidChange()
         
-        switch textContentType! {
-        case .password:
+        switch textContentType {
+        case UITextContentType.emailAddress:
+            validateEmail()
+        case UITextContentType.password:
             validatePassword()
-        case .telephoneNumber:
+        case UITextContentType.telephoneNumber:
             validateMobileNumber()
         default:
             break
@@ -86,7 +88,7 @@ class FirstTextField: TextField {
         }
         
         animatePlaceholderColor(isReversed: true)
-        firstSecurityToggleButton?.tintColor = colors(.asset)
+        firstSecurityToggleButton?.tintColor = colors(.lightAsset)
         animateFocusedLine(isReversed: true)
     }
 }
@@ -215,10 +217,38 @@ extension FirstTextField {
         focusedLineLayer.add(animation, forKey: "strokeEnd")
     }
     
-    private func validateMobileNumber() {
+    private func validateEmail() {
+        let emailRegex = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,64}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         
+        if text!.isEmpty {
+            verify()
+        }
+        else {
+            if emailPredicate.evaluate(with: text!) {
+                verify()
+            }
+            else {
+                showError(texts(.invalidEmail))
+            }
+        }
+    }
+    private func validateMobileNumber() {
+        let parsedMobileNumber = try? phoneNumberKit.parse(text!)
+        
+        if let parsedMobileNumber = parsedMobileNumber, parsedMobileNumber.type == .mobile {
+            verify()
+        }
+        else {
+            showError(texts(.invalidMobileNumber))
+        }
     }
     private func validatePassword() {
-        
+        if text!.count >= 4 {
+            verify()
+        }
+        else {
+            showError(texts(.shortPassword))
+        }
     }
 }

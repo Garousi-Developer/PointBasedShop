@@ -7,6 +7,16 @@ class NavigationItem: UINavigationItem {
             title = texts(Text(rawValue: firstTitle)!)
         }
     }
+    @IBInspectable var firstBackButton: String = Text.empty.rawValue {
+        didSet {
+            backBarButtonItem = UIBarButtonItem(
+                title: texts(Text(rawValue: firstBackButton)!),
+                style: .plain,
+                target: nil,
+                action: nil
+            )
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

@@ -15,5 +15,7 @@ class BasicAnimation: CABasicAnimation {
 extension BasicAnimation {
     private func setup() {
         timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+//        isRemovedOnCompletion = false
+//        fillMode = .forwards
     }
 }

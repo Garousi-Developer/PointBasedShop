@@ -40,7 +40,7 @@ func texts(_ text: Text) -> String {
     case .topBrands:
         return "برترین برندها"
     
-    // City:
+    // Container:
     case .viewMore:
         return "مشاهده بیشتر"
     case .viewLess:
@@ -65,16 +65,23 @@ func texts(_ text: Text) -> String {
         return "پروفایل"
     
     // Awards:
+    case .shoppingCenterName:
+        return "نام مرکز خرید"
+    case .pointsAmount:
+        return "مقدار امتیاز"
+    case .percentageAmount:
+        return "مقدار درصد"
+    
     case .welcomeToXShoppingCenter:
-        return "به مرکز خرید نام مرکز خرید خوش آمدید"
+        return "به مرکز خرید \(texts(.shoppingCenterName)) خوش آمدید"
     case .tapCheckInToClaimXLoyaltyPoints:
-        return "برای کسب مقدار امتیاز امتیاز وفاداری دکمه ثبت حضور را بزنید"
+        return "برای کسب \(texts(.pointsAmount)) امتیاز وفاداری دکمه ثبت حضور را بزنید"
     case .checkIn:
         return "ثبت حضور"
     case .takeYourTodaysInvoicesToXShoppingCenterCounter:
         return """
-        فاکتورهای امروز خود را به پیشخوان مرکز خرید نام مرکز خرید ببرید
-        و مقدار درصد درصد کل مبلغ خرید خود را به عنوان امتیاز کسب کنید
+        فاکتورهای امروز خود را به پیشخوان مرکز خرید \(texts(.shoppingCenterName)) ببرید
+        و \(texts(.percentageAmount)) درصد کل مبلغ خرید خود را به عنوان امتیاز کسب کنید
         """
     case .claimPoints:
         return "کسب امتیاز"
@@ -86,8 +93,77 @@ func texts(_ text: Text) -> String {
         return "مبلغ خرید به تومان"
     case .employeeId:
         return "شناسه کارمند"
+    case .secretToken:
+        return "کد محرمانه"
     case .submit:
         return "تایید"
+    
+    // Login:
+    case .login:
+        return "ورود"
+    case .mobileNumber:
+        return "شماره موبایل"
+    case .invalidMobileNumber:
+        return "شماره موبایل معتبر نیست"
+    case .password:
+        return "رمز عبور"
+    case .shortPassword:
+        return "رمز عبور باید حداقل ۴ کاراکتر باشد"
+    case .register:
+        return "عضویت"
+    
+    // Retrieve Password First Step:
+    case .retrievePassword:
+        return "بازیابی رمز عبور"
+    case .firstStepOfRetrievePassword:
+        return "مرحله اول بازیابی رمز"
+    case .firstStep:
+        return "مرحله اول"
+    case .retrieveCode:
+        return "بازیابی رمز"
+    
+    // Retrieve Password Second Step:
+    case .secondStepOfRetrievePassword:
+        return "مرحله دوم بازیابی رمز"
+    case .verificationCode:
+        return "کد تایید"
+    case .invalidVerificationCode:
+        return "کد تایید باید ۶ رقم باشد"
+    case .secondStep:
+        return "مرحله دوم"
+    
+    // Retrieve Password Third Step:
+    case .thirdStepOfRetrievePassword:
+        return "مرحله سوم بازیابی رمز"
+    
+    //  Register First Step:
+    case .firstStepOfRegister:
+        return "مرحله اول عضویت"
+    case .nextStep:
+        return "مرحله بعد"
+    
+    //  Register Second Step:
+    case .secondStepOfRegister:
+        return "مرحله دوم عضویت"
+    
+    //  Register Third Step:
+    case .userAgreement:
+        return "توافق نامه کاربری"
+    case .privacyPolicy:
+        return "سیاست حفظ حریم خصوصی"
+    
+    case .thirdStepOfRegister:
+        return "مرحله سوم عضویت"
+    case .optionalFirstName:
+        return "نام (اختیاری)"
+    case .optionalLastName:
+        return "نام خانوادگی (اختیاری)"
+    case .optionalEmail:
+        return "ایمیل (اختیاری)"
+    case .invalidEmail:
+        return "ایمیل معتبر نیست"
+    case .iHaveReadAndAcceptUserAgreementAndPrivacyPolicy:
+        return "\(texts(.userAgreement)) و \(texts(.privacyPolicy)) را خوانده و قبول دارم"
     }
 }
 enum Text: String {
@@ -113,7 +189,7 @@ enum Text: String {
     case topShoppingCenters
     case topBrands
     
-    // City:
+    // Container:
     case viewMore
     case viewLess
     case hottestOffers
@@ -131,6 +207,10 @@ enum Text: String {
     case profile
     
     // Awards:
+    case shoppingCenterName
+    case pointsAmount
+    case percentageAmount
+    
     case welcomeToXShoppingCenter
     case tapCheckInToClaimXLoyaltyPoints
     case checkIn
@@ -141,5 +221,47 @@ enum Text: String {
     case pleaseHaveAllYourTodaysInvoicesStampedBySalesman
     case purchaseAmountInTomans
     case employeeId
+    case secretToken
     case submit
+    
+    // Login:
+    case login
+    case mobileNumber
+    case invalidMobileNumber
+    case password
+    case shortPassword
+    case register
+    
+    // Retrieve Password First Step:
+    case retrievePassword
+    case firstStepOfRetrievePassword
+    case firstStep
+    case retrieveCode
+    
+    // Retrieve Password Second Step:
+    case secondStepOfRetrievePassword
+    case verificationCode
+    case invalidVerificationCode
+    case secondStep
+    
+    // Retrieve Password Third Step:
+    case thirdStepOfRetrievePassword
+    
+    // Register First Step:
+    case firstStepOfRegister
+    case nextStep
+    
+    // Register Second Step:
+    case secondStepOfRegister
+    
+    // Register Third Step:
+    case userAgreement
+    case privacyPolicy
+    
+    case thirdStepOfRegister
+    case optionalFirstName
+    case optionalLastName
+    case optionalEmail
+    case invalidEmail
+    case iHaveReadAndAcceptUserAgreementAndPrivacyPolicy
 }

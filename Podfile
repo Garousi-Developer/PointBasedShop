@@ -3,6 +3,7 @@ platform :ios, '11.0'
 target 'PointBasedShop' do
     use_frameworks!
 
+    pod 'ActiveLabel'
     pod 'Alamofire'
     pod 'CHIPageControl'
     pod 'FSPagerView'
@@ -11,4 +12,5 @@ target 'PointBasedShop' do
     pod 'NVActivityIndicatorView'
     pod 'PhoneNumberKit'
     pod 'SnapKit'
+    pod 'SVPinView'
 end

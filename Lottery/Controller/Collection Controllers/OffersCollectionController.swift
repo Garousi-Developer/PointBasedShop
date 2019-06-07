@@ -1,6 +1,6 @@
 import UIKit
 
-class ClosestOffersCollectionController: CollectionController {
+class OffersCollectionController: CollectionController {
     var closestProducts: [Product] = []
     var isFirstTime = true
     
@@ -97,18 +97,20 @@ class ClosestOffersCollectionController: CollectionController {
         castedCell.nameLabel.text = product.name
         castedCell.discountedPriceLabel.text = "\(product.discountedPrice.priceFormatted) \(texts(.currency))"
         castedCell.brandImageView.image = product.brandLogo
-        castedCell.orderCountButton.setTitle(
-            "\(product.orderCount)",
-            for: .normal
-        )
+        castedCell.orderCountButton.setTitle("\(product.orderCount)", for: .normal)
         castedCell.numberOfSoldProductsLabel.text = "\(product.numberOfSoldProducts) \(texts(.number)) \(texts(.sold))"
-        castedCell.progressView.setProgress(
-            progress,
-            animated: false
-        )
+        castedCell.progressView.setProgress(progress, animated: false)
         castedCell.progressView.progressTintColor = color(ofProgress: progress)
         castedCell.numberOfProductsLabel.text = "\(texts(.outOf)) \(product.numberOfProducts) \(texts(.number))"
         
+        if product.isUnlocked {
+            castedCell.lockStateButton.tintColor = colors(.green)
+            castedCell.lockStateButton.setImage(#imageLiteral(resourceName: "unlocked"), for: .normal)
+        }
+        else {
+            castedCell.lockStateButton.tintColor = colors(.highlightedAsset)
+            castedCell.lockStateButton.setImage(#imageLiteral(resourceName: "locked"), for: .normal)
+        }
         if product.isFavorite {
             castedCell.favoriteButton.tintColor = colors(.red)
         }
@@ -130,30 +132,14 @@ class ClosestOffersCollectionController: CollectionController {
         castedCell.addToCartButton.tag = indexPath.item
         castedCell.decrementButton.tag = indexPath.item
         castedCell.incrementButton.tag = indexPath.item
-        castedCell.favoriteButton.addTarget(
-            self,
-            action: #selector(toggleFavoriteState),
-            for: .touchUpInside
-        )
-        castedCell.addToCartButton.addTarget(
-            self,
-            action: #selector(addToCart),
-            for: .touchUpInside
-        )
-        castedCell.decrementButton.addTarget(
-            self,
-            action: #selector(decrement),
-            for: .touchUpInside
-        )
-        castedCell.incrementButton.addTarget(
-            self,
-            action: #selector(increment),
-            for: .touchUpInside
-        )
+        castedCell.favoriteButton.addTarget(self, action: #selector(toggleFavoriteState), for: .touchUpInside)
+        castedCell.addToCartButton.addTarget(self, action: #selector(addToCart), for: .touchUpInside)
+        castedCell.decrementButton.addTarget(self, action: #selector(decrement), for: .touchUpInside)
+        castedCell.incrementButton.addTarget(self, action: #selector(increment), for: .touchUpInside)
     }
 }
 
-extension ClosestOffersCollectionController {
+extension OffersCollectionController {
     private func setupPriceLabel(_ castedCell: ClosestOfferCollectionCell, _ product: Product) {
         castedCell.priceLabel.attributedText = NSAttributedString(
             string: "\(product.price.priceFormatted) \(texts(.currency))",

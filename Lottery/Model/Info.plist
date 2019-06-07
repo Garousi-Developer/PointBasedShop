@@ -33,9 +33,9 @@
 		<string>iranSansMobilePersianNumerals.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>Container</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Tabs</string>
+	<string>Login</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

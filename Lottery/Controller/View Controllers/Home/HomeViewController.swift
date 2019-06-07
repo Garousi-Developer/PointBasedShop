@@ -45,6 +45,7 @@ class HomeViewController: ViewController {
                 ],
                 closestProducts: [
                     Product(
+                        isUnlocked: true,
                         requiredPoints: 85,
                         isFavorite: false,
                         picture: #imageLiteral(resourceName: "testProduct1"),
@@ -57,6 +58,7 @@ class HomeViewController: ViewController {
                         numberOfProducts: 375
                     ),
                     Product(
+                        isUnlocked: true,
                         requiredPoints: 20,
                         isFavorite: false,
                         picture: #imageLiteral(resourceName: "testProduct2"),
@@ -69,6 +71,7 @@ class HomeViewController: ViewController {
                         numberOfProducts: 385
                     ),
                     Product(
+                        isUnlocked: true,
                         requiredPoints: 85,
                         isFavorite: true,
                         picture: #imageLiteral(resourceName: "testProduct3"),
@@ -81,6 +84,7 @@ class HomeViewController: ViewController {
                         numberOfProducts: 1125
                     ),
                     Product(
+                        isUnlocked: true,
                         requiredPoints: 45,
                         isFavorite: false,
                         picture: #imageLiteral(resourceName: "testProduct4"),
@@ -93,6 +97,7 @@ class HomeViewController: ViewController {
                         numberOfProducts: 175
                     ),
                     Product(
+                        isUnlocked: true,
                         requiredPoints: 75,
                         isFavorite: true,
                         picture: #imageLiteral(resourceName: "testProduct5"),

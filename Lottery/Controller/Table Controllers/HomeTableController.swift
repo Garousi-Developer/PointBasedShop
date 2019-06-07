@@ -6,7 +6,7 @@ class HomeTableController: TableController {
     
     var sliderPagerController: SliderPagerController!
     var categoriesCollectionController: CategoriesCollectionController!
-    var closestOffersCollectionController: ClosestOffersCollectionController!
+    var closestOffersCollectionController: OffersCollectionController!
     var containersCollectionController: ContainersCollectionController!
     
     override func numberOfRows() -> Int {
@@ -43,7 +43,7 @@ class HomeTableController: TableController {
             categoriesCollectionView.dataSource = categoriesCollectionController
             categoriesCollectionView.delegate = categoriesCollectionController
             
-            closestOffersCollectionController = ClosestOffersCollectionController(
+            closestOffersCollectionController = OffersCollectionController(
                 viewController: viewController,
                 collectionView: closestOffersCollectionView
             )

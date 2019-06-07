@@ -34,8 +34,12 @@ func colors(_ color: Color) -> UIColor {
         return MaterialColors.primaryGrey
     
     case .line:
-        return MaterialColors.grey200
+        return MaterialColors.grey300
+    case .semiDarkLine:
+        return MaterialColors.grey400
     
+    case .lightPlaceholder:
+        return MaterialColors.grey100
     case .placeholder:
         return MaterialColors.grey200
     
@@ -76,7 +80,9 @@ enum Color: String {
     case grey
     
     case line
+    case semiDarkLine
     
+    case lightPlaceholder
     case placeholder
     
     case highlightedPrimary

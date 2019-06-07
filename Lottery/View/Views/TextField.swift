@@ -37,7 +37,7 @@ class TextField: PhoneNumberTextField {
         didSet {
             attributedPlaceholder = NSAttributedString(
                 string: texts(Text(rawValue: firstPlaceholder)!),
-                attributes: [NSAttributedString.Key.foregroundColor: colors(.asset)]
+                attributes: [NSAttributedString.Key.foregroundColor: colors(.lightAsset)]
             )
         }
     }
@@ -50,6 +50,10 @@ class TextField: PhoneNumberTextField {
     
     var firstSmartKeyboardType: UIKeyboardType {
         switch textContentType {
+        case UITextContentType.emailAddress:
+            return .emailAddress
+        case UITextContentType.name, UITextContentType.givenName, UITextContentType.familyName:
+            return .default
         case UITextContentType.password:
             return .asciiCapable
         case UITextContentType.telephoneNumber:
@@ -128,15 +132,24 @@ extension TextField {
         font = fonts(.medium)
         minimumFontSize = fonts(.small).pointSize
         textColor = colors(.darkAsset)
+        
+        if textContentType == .password {
+            isSecureTextEntry = true
+        }
         if textContentType != .telephoneNumber {
             isPartialFormatterEnabled = false
         }
+        
+        addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
     private func setupSecurityToggleButton() {
         firstSecurityToggleButton = Button(type: .custom)
-        firstSecurityToggleButton.frame = CGRect(x: 0, y: 0, width: 18, height: 18)
-        firstSecurityToggleButton.tintColor = colors(.asset)
+        firstSecurityToggleButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        firstSecurityToggleButton.setCornerRadius(.half)
+        firstSecurityToggleButton.imageView?.contentMode = .scaleAspectFit
+        firstSecurityToggleButton.tintColor = colors(.lightAsset)
         firstSecurityToggleButton.setImage(firstSecureEntryIcon, for: .normal)
+        firstSecurityToggleButton.firstInteractionAnimationType = .glow
         firstSecurityToggleButton.addTarget(self, action: #selector(firstToggleSecurity), for: .touchDown)
         
         leftViewMode = .always

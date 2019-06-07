@@ -3,6 +3,37 @@ import FSPagerView
 
 @IBDesignable
 class PagerCell: FSPagerViewCell {
+    @IBInspectable var firstShadowStyle: String! {
+        didSet {
+            setShadowStyle(ShadowStyle(rawValue: firstShadowStyle)!)
+        }
+    }
+    @IBInspectable var firstBorderStyle: String! {
+        didSet {
+            setBorderStyle(BorderStyle(rawValue: firstBorderStyle)!)
+        }
+    }
+    @IBInspectable var firstMaskedCorners: String! {
+        didSet {
+            layer.maskedCorners = maskedCornerses(MaskedCorners(rawValue: firstMaskedCorners)!)
+        }
+    }
+    @IBInspectable var firstCornerRadius: String! {
+        didSet {
+            setCornerRadius(CornerRadius(rawValue: firstCornerRadius)!)
+        }
+    }
+    @IBInspectable var firstBackgroundColor: String! {
+        didSet {
+            backgroundColor = colors(Color(rawValue: firstBackgroundColor)!)
+        }
+    }
+    @IBInspectable var firstTintColor: String! {
+        didSet {
+            tintColor = colors(Color(rawValue: firstTintColor)!)
+        }
+    }
+    
     var pagerController: PagerController!
     
     required init?(coder aDecoder: NSCoder) {

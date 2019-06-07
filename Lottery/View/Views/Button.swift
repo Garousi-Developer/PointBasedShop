@@ -60,6 +60,13 @@ class Button: UIButton {
             )
         }
     }
+    @IBInspectable var firstInitiallyDisable: Bool = false {
+        didSet {
+            if firstInitiallyDisable {
+                disable(animated: false)
+            }
+        }
+    }
     @IBInspectable var firstInteractionAnimation: Bool = true {
         didSet {
             removeTarget(
@@ -81,6 +88,7 @@ class Button: UIButton {
     var firstReverseInteractionAnimator: UIViewPropertyAnimator!
     var firstImageAfterInteractionAnimation: UIImage?
     var firstBackgroundColorHolder: UIColor!
+    var firstTintColorHolder: UIColor!
     var firstIsFirstLayout = true
     
     @objc func firstAnimateInteraction() {
@@ -224,7 +232,7 @@ extension Button {
                 }
                 
                 self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-                self.backgroundColor = self.backgroundColor!.highlighted
+                self.backgroundColor = self.backgroundColor?.highlighted
             case .glow:
                 let dominantColor = self.image(for: .normal) != nil ?
                     self.tintColor! :

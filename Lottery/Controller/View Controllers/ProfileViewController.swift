@@ -22,11 +22,11 @@ class ProfileViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        welcomeLabel.text = texts(.welcomeToXShoppingCenter).replacingOccurrences(of: "نام مرکز خرید", with: "سام سنتر")
-        checkInDescriptionLabel.text = texts(.tapCheckInToClaimXLoyaltyPoints).replacingOccurrences(of: "مقدار امتیاز", with: "۵")
+        welcomeLabel.text = texts(.welcomeToXShoppingCenter).replacingOccurrences(of: texts(.shoppingCenterName), with: "سام سنتر")
+        checkInDescriptionLabel.text = texts(.tapCheckInToClaimXLoyaltyPoints).replacingOccurrences(of: texts(.pointsAmount), with: "۵")
         claimPointsDescriptionLabel.text = texts(.takeYourTodaysInvoicesToXShoppingCenterCounter)
-            .replacingOccurrences(of: "نام مرکز خرید", with: "سام سنتر")
-            .replacingOccurrences(of: "مقدار درصد", with: "۲۰")
+            .replacingOccurrences(of: texts(.shoppingCenterName), with: "سام سنتر")
+            .replacingOccurrences(of: texts(.percentageAmount), with: "۲۰")
         
         awardsScrollController = AwardsScrollController(viewController: self, scrollView: scrollView)
         scrollView.delegate = awardsScrollController

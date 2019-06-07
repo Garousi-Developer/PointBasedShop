@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xn5-Yl-IWL" userLabel="Content View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="694.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="750.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testShoppingCenter" translatesAutoresizingMaskIntoConstraints="NO" id="jBx-dK-fbt" userLabel="Shopping Center Picture Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="217"/>
@@ -31,7 +31,7 @@
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zw0-yz-jpN" userLabel="Submit View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="181" width="390" height="279"/>
+                                                <rect key="frame" x="12" y="181" width="390" height="335"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="300" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b83-Xa-2ms" userLabel="Welcome Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
                                                         <rect key="frame" x="51" y="12" width="288" height="23"/>
@@ -69,6 +69,9 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="purchaseAmountInTomans"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="purchaseAmountDidChange" destination="j6E-hu-kSX" eventType="editingChanged" id="MQw-uX-F7t"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zN8-9r-orM" userLabel="Employee Id Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
                                                         <rect key="frame" x="24" y="184" width="342" height="30"/>
@@ -82,8 +85,25 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="employeeId"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYx-B3-BJC" userLabel="Secret Token Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
+                                                        <rect key="frame" x="296.5" y="256" width="69.5" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="firstTextColor" value="lightAsset"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="secretToken"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cf5-s7-hTu" userLabel="Pin View" customClass="PinView" customModule="PointBasedShop" customModuleProvider="target">
+                                                        <rect key="frame" x="24" y="239.5" width="260.5" height="30"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="ivu-IF-2fp" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                        </constraints>
+                                                    </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJS-8v-3U8" userLabel="Submit Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="135" y="232" width="120" height="35"/>
+                                                        <rect key="frame" x="135" y="288" width="120" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="120" id="67k-Re-3qu" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                             <constraint firstAttribute="height" constant="35" id="dcM-hc-F8Y" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -100,9 +120,10 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="b83-Xa-2ms" firstAttribute="centerX" secondItem="zw0-yz-jpN" secondAttribute="centerX" id="6OX-3w-KKt" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                                    <constraint firstItem="IJS-8v-3U8" firstAttribute="top" secondItem="zN8-9r-orM" secondAttribute="bottom" constant="18" id="AzG-s5-d4o" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     <constraint firstAttribute="trailing" secondItem="g7I-sR-N2T" secondAttribute="trailing" constant="24" id="DW1-NP-KiX" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     <constraint firstAttribute="trailing" secondItem="zN8-9r-orM" secondAttribute="trailing" constant="24" id="I50-ii-7Ei" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                    <constraint firstItem="Cf5-s7-hTu" firstAttribute="baseline" secondItem="dYx-B3-BJC" secondAttribute="baseline" id="IFZ-Hc-InZ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                    <constraint firstItem="dYx-B3-BJC" firstAttribute="leading" secondItem="Cf5-s7-hTu" secondAttribute="trailing" constant="12" id="OvE-sx-qUM" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     <constraint firstItem="mXi-Dx-JXg" firstAttribute="top" secondItem="b83-Xa-2ms" secondAttribute="bottom" constant="18" id="PbT-zi-Awm" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     <constraint firstAttribute="bottom" secondItem="IJS-8v-3U8" secondAttribute="bottom" constant="12" id="RDr-mT-ddp" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     <constraint firstItem="zN8-9r-orM" firstAttribute="leading" secondItem="zw0-yz-jpN" secondAttribute="leading" constant="24" id="RRV-7h-6wo" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -110,9 +131,13 @@
                                                     <constraint firstItem="mXi-Dx-JXg" firstAttribute="leading" secondItem="zw0-yz-jpN" secondAttribute="leading" constant="12" id="T49-Lc-9Qm" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     <constraint firstItem="g7I-sR-N2T" firstAttribute="top" secondItem="mXi-Dx-JXg" secondAttribute="bottom" constant="30" id="USQ-rl-mej" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     <constraint firstItem="g7I-sR-N2T" firstAttribute="leading" secondItem="zw0-yz-jpN" secondAttribute="leading" constant="24" id="WFg-sS-Q9b" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                    <constraint firstItem="IJS-8v-3U8" firstAttribute="top" secondItem="dYx-B3-BJC" secondAttribute="bottom" constant="12" id="bUO-69-8Oq" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     <constraint firstAttribute="trailing" secondItem="mXi-Dx-JXg" secondAttribute="trailing" constant="12" id="bhM-Ku-QZb" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dYx-B3-BJC" secondAttribute="trailing" constant="24" id="ffQ-qr-Qnl" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     <constraint firstItem="b83-Xa-2ms" firstAttribute="top" secondItem="zw0-yz-jpN" secondAttribute="top" constant="12" id="iEX-IT-7Hr" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                    <constraint firstItem="dYx-B3-BJC" firstAttribute="top" secondItem="zN8-9r-orM" secondAttribute="bottom" constant="42" id="n0b-17-gaB" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     <constraint firstItem="zN8-9r-orM" firstAttribute="top" secondItem="g7I-sR-N2T" secondAttribute="bottom" constant="30" id="sq3-Wb-8sQ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                    <constraint firstItem="Cf5-s7-hTu" firstAttribute="leading" secondItem="zw0-yz-jpN" secondAttribute="leading" constant="24" id="sql-jB-rBe" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
@@ -123,7 +148,7 @@
                                                 </connections>
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testAd2" translatesAutoresizingMaskIntoConstraints="NO" id="gQ6-uZ-q7S" userLabel="Ad Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="478" width="390" height="204.5"/>
+                                                <rect key="frame" x="12" y="534" width="390" height="204.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="gQ6-uZ-q7S" secondAttribute="height" multiplier="1242:651" id="oXg-Xv-vMw" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                 </constraints>
@@ -184,7 +209,11 @@
                     <connections>
                         <outlet property="adImageView" destination="gQ6-uZ-q7S" id="FHR-fg-MwA"/>
                         <outlet property="descriptionLabel" destination="mXi-Dx-JXg" id="34d-3G-e6t"/>
+                        <outlet property="employeeIdTextField" destination="zN8-9r-orM" id="UPH-FY-Hfb"/>
+                        <outlet property="pinView" destination="Cf5-s7-hTu" id="a3r-Ip-Ms7"/>
+                        <outlet property="purchaseAmountTextField" destination="g7I-sR-N2T" id="i5V-bt-zYT"/>
                         <outlet property="scrollView" destination="x1I-KH-9hx" id="kng-aj-Vb8"/>
+                        <outlet property="secretTokenLabel" destination="dYx-B3-BJC" id="8Kj-sa-Gbw"/>
                         <outlet property="shoppingCenterPictureImageView" destination="jBx-dK-fbt" id="nyz-QK-49z"/>
                         <outlet property="submitButton" destination="IJS-8v-3U8" id="VQD-c7-WVG"/>
                         <outlet property="submitView" destination="zw0-yz-jpN" id="dXD-OG-hZ9"/>

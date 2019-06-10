@@ -1,3 +1,3 @@
 struct DynamicHome {
-    let sections: [Section]
+    let sections: [DynamicHomeSection]
 }

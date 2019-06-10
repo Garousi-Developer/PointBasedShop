@@ -5,6 +5,7 @@ class LoginViewController: ViewController {
     @IBOutlet weak var mobileNumberTextField: FirstTextField!
     @IBOutlet weak var passwordTextField: FirstTextField!
     @IBOutlet weak var loginButton: Button!
+    @IBOutlet weak var loginWithoutRegisterButton: Button!
     @IBOutlet weak var retrievePasswordButton: Button!
     @IBOutlet weak var registerButton: Button!
     
@@ -21,6 +22,9 @@ class LoginViewController: ViewController {
     }
     @IBAction func login() {
         
+    }
+    @IBAction func loginWithoutRegister() {
+        navigateTo(.tabs, presenting: true)
     }
     @IBAction func retrievePassword() {
         navigateTo(.retrievePasswordFirstStep)

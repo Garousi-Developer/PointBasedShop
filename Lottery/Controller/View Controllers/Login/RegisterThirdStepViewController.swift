@@ -8,6 +8,7 @@ class RegisterThirdStepViewController: ViewController {
     @IBOutlet weak var agreementSwitch: UISwitch!
     @IBOutlet weak var agreementLabel: Label!
     @IBOutlet weak var registerButton: Button!
+    @IBOutlet weak var cancelRegisterAndLoginButton: Button!
     
     @IBAction func emailDidChange() {
         handleRegisterAbility()
@@ -22,6 +23,11 @@ class RegisterThirdStepViewController: ViewController {
     }
     @IBAction func register() {
         
+    }
+    @IBAction func cancelRegisterAndLogin() {
+        delay(durations(.interaction)) {
+            self.navigateBackToRoot()
+        }
     }
     
     override func viewDidLoad() {

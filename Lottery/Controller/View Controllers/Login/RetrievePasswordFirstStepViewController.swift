@@ -3,24 +3,26 @@ import UIKit
 class RetrievePasswordFirstStepViewController: ViewController {
     @IBOutlet weak var logoImageView: ImageView!
     @IBOutlet weak var mobileNumberTextField: FirstTextField!
-    @IBOutlet weak var retrievePasswordButton: Button!
+    @IBOutlet weak var nextStepButton: Button!
     @IBOutlet weak var registerButton: Button!
     
     @IBAction func mobileNumberDidChange() {
-        handleRetrievePasswordAbility()
+        handleGoNextStepAbility()
     }
     @IBAction func mobileNumberDidTriggerAction() {
-        if retrievePasswordButton.isEnabled {
-            retrievePassword()
+        if nextStepButton.isEnabled {
+            goNextStep()
         }
     }
-    @IBAction func retrievePassword() {
+    @IBAction func goNextStep() {
         navigationItem.backBarButtonItem = UIBarButtonItem(
             title: texts(.firstStep),
             style: .plain,
             target: nil,
             action: nil
         )
+        
+        navigateTo(.retrievePasswordSecondStep)
     }
     @IBAction func register() {
         navigationItem.backBarButtonItem = UIBarButtonItem(
@@ -35,12 +37,12 @@ class RetrievePasswordFirstStepViewController: ViewController {
 }
 
 extension RetrievePasswordFirstStepViewController {
-    private func handleRetrievePasswordAbility() {
+    private func handleGoNextStepAbility() {
         if mobileNumberTextField.isVerified {
-            retrievePasswordButton.enable()
+            nextStepButton.enable()
         }
         else {
-            retrievePasswordButton.disable()
+            nextStepButton.disable()
         }
     }
 }

@@ -57,6 +57,10 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstFont" value="semiSmall"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="pleaseHaveAllYourTodaysInvoicesStampedBySalesman"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="leadingConstraint" destination="T49-Lc-9Qm" id="ybf-Mq-BvA"/>
+                                                            <outlet property="trailingConstraint" destination="bhM-Ku-QZb" id="yJi-PF-EYI"/>
+                                                        </connections>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g7I-sR-N2T" userLabel="Purchase Amount Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
                                                         <rect key="frame" x="24" y="124" width="342" height="30"/>
@@ -71,6 +75,8 @@
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="purchaseAmountDidChange" destination="j6E-hu-kSX" eventType="editingChanged" id="MQw-uX-F7t"/>
+                                                            <outlet property="leadingConstraint" destination="WFg-sS-Q9b" id="gip-SS-de9"/>
+                                                            <outlet property="trailingConstraint" destination="DW1-NP-KiX" id="XVn-Ee-HzE"/>
                                                         </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zN8-9r-orM" userLabel="Employee Id Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
@@ -84,6 +90,10 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="employeeId"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="leadingConstraint" destination="RRV-7h-6wo" id="Z79-aU-rhJ"/>
+                                                            <outlet property="trailingConstraint" destination="I50-ii-7Ei" id="vOM-38-zIg"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYx-B3-BJC" userLabel="Secret Token Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
                                                         <rect key="frame" x="296.5" y="256" width="69.5" height="20"/>
@@ -94,6 +104,9 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstTextColor" value="lightAsset"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="secretToken"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="trailingConstraint" destination="ffQ-qr-Qnl" id="pcU-7y-6Nx"/>
+                                                        </connections>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cf5-s7-hTu" userLabel="Pin View" customClass="PinView" customModule="PointBasedShop" customModuleProvider="target">
                                                         <rect key="frame" x="24" y="239.5" width="260.5" height="30"/>
@@ -101,6 +114,9 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="ivu-IF-2fp" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <outlet property="leadingConstraint" destination="sql-jB-rBe" id="xJg-aA-Z3m"/>
+                                                        </connections>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJS-8v-3U8" userLabel="Submit Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
                                                         <rect key="frame" x="135" y="288" width="120" height="35"/>

@@ -1,4 +1,5 @@
 import UIKit
+import SnapKit
 
 class ContainerViewController: ViewController {
     @IBOutlet weak var scrollView: ScrollView!
@@ -17,12 +18,11 @@ class ContainerViewController: ViewController {
     @IBOutlet weak var adImageView: ImageView!
     
     var container: Container!
-    var isCity: Bool!
     var details: ContainerDetails!
     
     var containerScrollController: ContainerScrollController!
     var topContentsCollectionController: ContainersCollectionController!
-    var hottestOffersCollectionController: OffersCollectionController!
+    var hottestOffersCollectionController: ProductsCollectionController!
     
     var initialDescriptionHeight: CGFloat!
     var finalDescriptionHeight: CGFloat!
@@ -75,73 +75,89 @@ class ContainerViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let isCity = container.picture != nil
         let picture: UIImage
-        let topContents: [Container]
-        if isCity {
+        let containerName: String
+        let topContents: [Container]!
+        switch container.type {
+        case .city:
             picture = container.picture
+            containerName = ""
             topContents = [
                 Container(
+                    type: .shoppingCenter,
                     picture: nil,
                     logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter1"),
                     name: "سام سنتر"
                 ),
                 Container(
+                    type: .shoppingCenter,
                     picture: nil,
                     logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter2"),
                     name: "پالادیوم"
                 ),
                 Container(
+                    type: .shoppingCenter,
                     picture: nil,
                     logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter3"),
                     name: "مدرن الهیه"
                 ),
                 Container(
+                    type: .shoppingCenter,
                     picture: nil,
                     logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter4"),
                     name: "کوروش"
                 ),
                 Container(
+                    type: .shoppingCenter,
                     picture: nil,
                     logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter5"),
                     name: "خلیج فارس"
                 )
             ]
-        }
-        else {
+        case .shoppingCenter:
             picture = #imageLiteral(resourceName: "testShoppingCenter")
+            containerName = "تهران"
             topContents = [
                 Container(
+                    type: .brand,
                     picture: nil,
                     logoPicture: #imageLiteral(resourceName: "testProductBrand1"),
                     name: "پینارلو"
                 ),
                 Container(
+                    type: .brand,
                     picture: nil,
                     logoPicture: #imageLiteral(resourceName: "testProductBrand2"),
                     name: "گیونچای"
                 ),
                 Container(
+                    type: .brand,
                     picture: nil,
                     logoPicture: #imageLiteral(resourceName: "testProductBrand3"),
                     name: "بنز"
                 ),
                 Container(
+                    type: .brand,
                     picture: nil,
                     logoPicture: #imageLiteral(resourceName: "testProductBrand4"),
                     name: "لومیناکس"
                 ),
                 Container(
+                    type: .brand,
                     picture: nil,
                     logoPicture: #imageLiteral(resourceName: "testProductBrand5"),
                     name: "سامسونگ"
                 )
             ]
+        case .brand:
+            picture = #imageLiteral(resourceName: "testBrand")
+            containerName = "سام سنتر"
+            topContents = nil
         }
         details = ContainerDetails(
             name: container.name,
             picture: picture,
-            containerName: "تهران",
+            containerName: containerName,
             description: descriptionLabel.text!,
             topContents: topContents,
             locationPicture: #imageLiteral(resourceName: "testMap"),
@@ -224,39 +240,54 @@ class ContainerViewController: ViewController {
         mapImageView.image = details.locationPicture
         adImageView.image = details.ad.picture
         
-        if !isCity {
-            containerNameLabel.text = " \(details.containerName)"
-        }
-        if isCity {
+        containerNameLabel.text = " \(details.containerName)"
+        switch container.type {
+        case .city:
             topContentsLabel.text = texts(.topShoppingCenters)
-        }
-        else {
+        case .shoppingCenter:
             topContentsLabel.text = texts(.topBrands)
+        case .brand:
+            topContentsLabel.removeFromSuperview()
         }
         
         containerScrollController = ContainerScrollController(viewController: self, scrollView: scrollView)
         scrollView.delegate = containerScrollController
         
-        topContentsCollectionController = ContainersCollectionController(
-            viewController: self,
-            collectionView: topContentsCollectionView
-        )
-        topContentsCollectionController.index = 1
-        topContentsCollectionController.sharedData = [
-            [],
-            details.topContents
-        ]
-        topContentsCollectionView.dataSource = topContentsCollectionController
-        topContentsCollectionView.delegate = topContentsCollectionController
-        
-        hottestOffersCollectionController = OffersCollectionController(
-            viewController: self,
-            collectionView: hottestOffersCollectionView
-        )
-        hottestOffersCollectionController.index = 0
-        hottestOffersCollectionController.sharedData = [details.hottestOffers]
-        hottestOffersCollectionView.dataSource = hottestOffersCollectionController
-        hottestOffersCollectionView.delegate = hottestOffersCollectionController
+        if container.type == .brand {
+            topContentsCollectionView.removeFromSuperview()
+            hottestOffersLabel.removeFromSuperview()
+            moreButton.removeFromSuperview()
+            hottestOffersCollectionView.removeFromSuperview()
+            
+            mapImageView.snp.makeConstraints { (make) in
+                make.top.equalTo(descriptionView.snp.bottom).offset(scale * 12)
+            }
+            adImageView.snp.makeConstraints { (make) in
+                make.top.equalTo(mapImageView.snp.bottom).offset(scale * 24)
+            }
+        }
+        else {
+            topContentsCollectionController = ContainersCollectionController(
+                viewController: self,
+                collectionView: topContentsCollectionView
+            )
+            topContentsCollectionController.index = 1
+            topContentsCollectionController.sharedData = [
+                [],
+                details.topContents
+            ]
+            topContentsCollectionView.dataSource = topContentsCollectionController
+            topContentsCollectionView.delegate = topContentsCollectionController
+            
+            hottestOffersCollectionController = ProductsCollectionController(
+                viewController: self,
+                collectionView: hottestOffersCollectionView
+            )
+            hottestOffersCollectionController.index = 0
+            hottestOffersCollectionController.sharedData = [details.hottestOffers]
+            hottestOffersCollectionView.dataSource = hottestOffersCollectionController
+            hottestOffersCollectionView.delegate = hottestOffersCollectionController
+        }
         
         descriptionLabel.numberOfLines = 7
         initialDescriptionHeight = descriptionLabel.firstTextHeight

@@ -23,7 +23,7 @@ class Button: UIButton {
             setCornerRadius(CornerRadius(rawValue: firstCornerRadius)!)
         }
     }
-    @IBInspectable var firstBackgroundColor: String! {
+    @IBInspectable var firstBackgroundColor: String = Color.white.rawValue {
         didSet {
             backgroundColor = colors(Color(rawValue: firstBackgroundColor)!)
         }
@@ -171,6 +171,7 @@ extension Button {
     private func setup() {
         let templateImage = image(for: .normal)?.withRenderingMode(.alwaysTemplate)
         
+        backgroundColor = colors(Color(rawValue: firstBackgroundColor)!)
         semanticContentAttribute = .forceRightToLeft
         setImage(templateImage, for: .normal)
         titleLabel!.font = fonts(Font(rawValue: firstFont)!)
@@ -216,11 +217,11 @@ extension Button {
         }
     }
     private func setFirstInteractionAnimationType() {
-        if backgroundColor != nil {
-            firstInteractionAnimationType = .bounce
+        if backgroundColor == colors(.white) {
+            firstInteractionAnimationType = .glow
         }
         else {
-            firstInteractionAnimationType = .glow
+            firstInteractionAnimationType = .bounce
         }
     }
     private func setFirstInteractionAnimator() {

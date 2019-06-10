@@ -43,6 +43,8 @@ extension NavigationItem {
             [NSAttributedString.Key.font: fonts(.medium)],
             for: .highlighted
         )
-        firstTitle = Text.empty.rawValue
+        if title == "Title" {
+            firstTitle = Text.empty.rawValue
+        }
     }
 }

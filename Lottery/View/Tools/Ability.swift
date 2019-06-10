@@ -28,29 +28,29 @@ extension Button {
     
     fileprivate func disable() {
         if isEnabled {
-            if backgroundColor != nil {
-                if firstBackgroundColorHolder == nil {
-                    firstBackgroundColorHolder = backgroundColor
-                }
-                
-                backgroundColor = colors(.disabled)
-            }
-            else {
+            if backgroundColor == colors(.white) {
                 if firstTintColorHolder == nil {
                     firstTintColorHolder = tintColor
                 }
                 
                 tintColor = colors(.disabled)
             }
+            else {
+                if firstBackgroundColorHolder == nil {
+                    firstBackgroundColorHolder = backgroundColor
+                }
+                
+                backgroundColor = colors(.disabled)
+            }
         }
     }
     fileprivate func enable() {
         if !isEnabled {
-            if backgroundColor != nil {
-                backgroundColor = firstBackgroundColorHolder
+            if backgroundColor == colors(.white) {
+                tintColor = firstTintColorHolder
             }
             else {
-                tintColor = firstTintColorHolder
+                backgroundColor = firstBackgroundColorHolder
             }
         }
     }

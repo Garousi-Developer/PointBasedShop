@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6mF-SH-COy">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="W1g-y9-rT6">
+            <objects>
+                <viewController id="6mF-SH-COy" userLabel="View Controller" customClass="FilterViewController" customModule="PointBasedShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LtU-Ma-bMR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsJ-cR-DTA" userLabel="Categories Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
+                                <rect key="frame" x="12" y="56" width="390" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTextAlignment" value="center"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstFont" value="semiLarge"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTextColor" value="darkAsset"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="categories"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OYk-uh-Gfy" userLabel="Categories Collection View" customClass="CollectionView" customModule="PointBasedShop" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="103" width="414" height="125"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="Iev-hn-9JL"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="dxG-DH-M20" userLabel="Flow Layout">
+                                    <size key="itemSize" width="183" height="31"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reusable" id="24e-iU-DeX" userLabel="Cell" customClass="SimpleCategoryCollectionCell" customModule="PointBasedShop" customModuleProvider="target">
+                                        <rect key="frame" x="215" y="0.0" width="183" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="183" height="31"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="S2A-7I-8oR" userLabel="Selected Switch" customClass="Switch" customModule="PointBasedShop" customModuleProvider="target">
+                                                    <rect key="frame" x="134" y="0.0" width="51" height="31"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="firstOnTintColor" value="primary"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عنوان دسته بندی" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZH-5G-8bc" userLabel="Title Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="5.6666666666666661" width="128" height="19.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="S2A-7I-8oR" firstAttribute="top" secondItem="24e-iU-DeX" secondAttribute="top" id="1xi-Fx-cGg" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="S2A-7I-8oR" firstAttribute="trailing" secondItem="GZH-5G-8bc" secondAttribute="leading" constant="-6" id="TAV-to-v6F" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="GZH-5G-8bc" firstAttribute="centerY" secondItem="S2A-7I-8oR" secondAttribute="centerY" id="em5-gx-baL" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstAttribute="trailing" secondItem="GZH-5G-8bc" secondAttribute="trailing" id="j0a-w1-sbq" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="S2A-7I-8oR" firstAttribute="leading" secondItem="24e-iU-DeX" secondAttribute="leading" id="zAg-eW-DAt" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="selectedSwitch" destination="S2A-7I-8oR" id="ie9-Aa-tbe"/>
+                                            <outlet property="titleLabel" destination="GZH-5G-8bc" id="6wj-k8-15Q"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="firstCellsPerPage">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRx-7A-pgz" userLabel="First Separator View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
+                                <rect key="frame" x="12" y="240" width="390" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="rg2-Qm-6w2" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="line"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ad2-Wi-fBW" userLabel="Cities Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
+                                <rect key="frame" x="12" y="253" width="390" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTextAlignment" value="center"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstFont" value="semiLarge"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTextColor" value="darkAsset"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="cities"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xnQ-c3-4fy" userLabel="Cities Collection View" customClass="CollectionView" customModule="PointBasedShop" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="300" width="414" height="125"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="NJz-Tv-GUh"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="IU6-om-Gb9" userLabel="Flow Layout">
+                                    <size key="itemSize" width="183" height="31"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reusable" id="ceD-J4-bJb" userLabel="Cell" customClass="SimpleCityCollectionCell" customModule="PointBasedShop" customModuleProvider="target">
+                                        <rect key="frame" x="215" y="0.0" width="183" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="183" height="31"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="735-He-VLr" userLabel="Selected Switch" customClass="Switch" customModule="PointBasedShop" customModuleProvider="target">
+                                                    <rect key="frame" x="134" y="0.0" width="51" height="31"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="firstOnTintColor" value="primary"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عنوان دسته بندی" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="426-3L-5FL" userLabel="Name Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="5.6666666666666661" width="128" height="19.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="426-3L-5FL" firstAttribute="centerY" secondItem="735-He-VLr" secondAttribute="centerY" id="CCB-hv-RUu" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="735-He-VLr" firstAttribute="top" secondItem="ceD-J4-bJb" secondAttribute="top" id="Cwk-bU-uEb" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="735-He-VLr" firstAttribute="trailing" secondItem="426-3L-5FL" secondAttribute="leading" constant="-6" id="QTI-L5-J4d" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstAttribute="trailing" secondItem="426-3L-5FL" secondAttribute="trailing" id="W6y-2s-8wK" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="735-He-VLr" firstAttribute="leading" secondItem="ceD-J4-bJb" secondAttribute="leading" id="bqO-my-DsN" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="426-3L-5FL" id="585-9L-rjB"/>
+                                            <outlet property="selectedSwitch" destination="735-He-VLr" id="4RK-2D-a0K"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="firstCellsPerPage">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V58-4j-2Ur" userLabel="Second Separator View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
+                                <rect key="frame" x="12" y="437" width="390" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="gqr-08-siM" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="line"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="586-ti-ldb" userLabel="Lock Filters Stack View" customClass="StackView" customModule="PointBasedShop" customModuleProvider="target">
+                                <rect key="frame" x="45" y="450" width="324" height="31"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="St4-iu-4vj" userLabel="Unlocked Switch" customClass="Switch" customModule="PointBasedShop" customModuleProvider="target">
+                                        <rect key="frame" x="275" y="0.0" width="51" height="31"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="firstOnTintColor" value="primary"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="unlockedDidToggle" destination="6mF-SH-COy" eventType="valueChanged" id="j6N-a1-yJK"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh3-NJ-9r1" userLabel="Unlocked Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
+                                        <rect key="frame" x="220" y="5.6666666666666856" width="49" height="19.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="unlocked"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="S5M-xV-nU7" userLabel="Locked Switch" customClass="Switch" customModule="PointBasedShop" customModuleProvider="target">
+                                        <rect key="frame" x="165" y="0.0" width="51" height="31"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="firstOnTintColor" value="primary"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="lockedDidToggle" destination="6mF-SH-COy" eventType="valueChanged" id="URM-W3-ZWq"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylp-eJ-Fi5" userLabel="Locked Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
+                                        <rect key="frame" x="110" y="5.6666666666666856" width="49" height="19.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="locked"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LK6-9a-a0G" userLabel="All Switch" customClass="Switch" customModule="PointBasedShop" customModuleProvider="target">
+                                        <rect key="frame" x="55" y="0.0" width="51" height="31"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="firstOnTintColor" value="primary"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="allDidToggle" destination="6mF-SH-COy" eventType="valueChanged" id="XYR-rF-f0O"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLj-75-5BQ" userLabel="All Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="5.6666666666666856" width="49" height="19.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="all"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhu-Bd-baf" userLabel="Filter Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
+                                <rect key="frame" x="147" y="517" width="120" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="aS5-0n-pPW" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                    <constraint firstAttribute="width" constant="120" id="nku-xE-gxl" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="primary"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="filter"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ApplyFilter" destination="6mF-SH-COy" eventType="touchUpInside" id="POj-KE-5lw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OYk-uh-Gfy" firstAttribute="top" secondItem="zsJ-cR-DTA" secondAttribute="bottom" constant="24" id="5SL-4W-M6l" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="Ad2-Wi-fBW" firstAttribute="leading" secondItem="uTe-jM-Q6H" secondAttribute="leading" constant="12" id="77W-Qm-4QP" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="xnQ-c3-4fy" firstAttribute="top" secondItem="Ad2-Wi-fBW" secondAttribute="bottom" constant="24" id="7S8-fw-3TF" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="zhu-Bd-baf" firstAttribute="centerX" secondItem="LtU-Ma-bMR" secondAttribute="centerX" id="BPn-xq-cxR" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="CRx-7A-pgz" firstAttribute="top" secondItem="OYk-uh-Gfy" secondAttribute="bottom" constant="12" id="C9B-Ms-KnU" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="V58-4j-2Ur" firstAttribute="top" secondItem="xnQ-c3-4fy" secondAttribute="bottom" constant="12" id="ErC-F6-NJQ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="OYk-uh-Gfy" firstAttribute="leading" secondItem="uTe-jM-Q6H" secondAttribute="leading" id="EzB-tQ-PE1" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="uTe-jM-Q6H" firstAttribute="trailing" secondItem="zsJ-cR-DTA" secondAttribute="trailing" constant="12" id="Gxl-iU-37O" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="zhu-Bd-baf" firstAttribute="top" secondItem="586-ti-ldb" secondAttribute="bottom" constant="36" id="QsB-bV-bgV" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="Ad2-Wi-fBW" firstAttribute="top" secondItem="CRx-7A-pgz" secondAttribute="bottom" constant="12" id="Rr0-3J-tQU" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="uTe-jM-Q6H" firstAttribute="trailing" secondItem="Ad2-Wi-fBW" secondAttribute="trailing" constant="12" id="Si1-1o-hhK" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="zsJ-cR-DTA" firstAttribute="top" secondItem="uTe-jM-Q6H" secondAttribute="top" constant="12" id="YQ0-ip-cP5" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="586-ti-ldb" firstAttribute="top" secondItem="V58-4j-2Ur" secondAttribute="bottom" constant="12" id="ahD-Fx-BiJ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstAttribute="trailing" secondItem="V58-4j-2Ur" secondAttribute="trailing" constant="12" id="cea-fs-Kp1" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="zsJ-cR-DTA" firstAttribute="leading" secondItem="uTe-jM-Q6H" secondAttribute="leading" constant="12" id="dyZ-ie-G5Y" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="xnQ-c3-4fy" firstAttribute="leading" secondItem="uTe-jM-Q6H" secondAttribute="leading" id="fgn-no-J68" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="V58-4j-2Ur" firstAttribute="leading" secondItem="LtU-Ma-bMR" secondAttribute="leading" constant="12" id="gSQ-Kv-zKx" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="uTe-jM-Q6H" firstAttribute="trailing" secondItem="CRx-7A-pgz" secondAttribute="trailing" constant="12" id="hsa-Db-5mP" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="CRx-7A-pgz" firstAttribute="leading" secondItem="uTe-jM-Q6H" secondAttribute="leading" constant="12" id="mKX-sc-fAh" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="586-ti-ldb" firstAttribute="centerX" secondItem="LtU-Ma-bMR" secondAttribute="centerX" id="okb-9q-tYI" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="uTe-jM-Q6H" firstAttribute="trailing" secondItem="OYk-uh-Gfy" secondAttribute="trailing" id="siH-2N-4vd" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="xnQ-c3-4fy" firstAttribute="trailing" secondItem="uTe-jM-Q6H" secondAttribute="trailing" id="xZt-IJ-5Cq" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uTe-jM-Q6H"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="RSP-T3-4Lr" userLabel="Navigation Item" customClass="NavigationItem" customModule="PointBasedShop" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="firstTitle" value="filter"/>
+                        </userDefinedRuntimeAttributes>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="allLabel" destination="cLj-75-5BQ" id="ASA-jd-RWb"/>
+                        <outlet property="allSwitch" destination="LK6-9a-a0G" id="uoV-Xc-8bT"/>
+                        <outlet property="categoriesCollectionView" destination="OYk-uh-Gfy" id="M1w-hV-7zd"/>
+                        <outlet property="categoriesLabel" destination="zsJ-cR-DTA" id="9Qo-wn-eez"/>
+                        <outlet property="citiesCollectionView" destination="xnQ-c3-4fy" id="xzG-Ek-za0"/>
+                        <outlet property="citiesLabel" destination="Ad2-Wi-fBW" id="Tgv-cb-KEB"/>
+                        <outlet property="filterButton" destination="zhu-Bd-baf" id="aKS-Sw-fHi"/>
+                        <outlet property="lockedLabel" destination="Ylp-eJ-Fi5" id="s0C-DK-lfV"/>
+                        <outlet property="lockedSwitch" destination="S5M-xV-nU7" id="ad3-Da-N7W"/>
+                        <outlet property="unlockedLabel" destination="dh3-NJ-9r1" id="kgU-bI-fcu"/>
+                        <outlet property="unlockedSwitch" destination="St4-iu-4vj" id="LGo-aT-C4f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UK1-mm-zsL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="282.60869565217394" y="37.5"/>
+        </scene>
+    </scenes>
+</document>

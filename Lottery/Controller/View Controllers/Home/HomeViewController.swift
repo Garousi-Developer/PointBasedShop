@@ -114,100 +114,117 @@ class HomeViewController: ViewController {
             ),
             DynamicHome(
                 sections: [
-                    Section(
+                    DynamicHomeSection(
                         title: texts(.cities),
                         containers: [
                             Container(
+                                type: .city,
                                 picture: #imageLiteral(resourceName: "testCity1"),
                                 logoPicture: nil,
                                 name: "تهران"
                             ),
                             Container(
+                                type: .city,
                                 picture: #imageLiteral(resourceName: "testCity2"),
                                 logoPicture: nil,
                                 name: "اهواز"
                             ),
                             Container(
+                                type: .city,
                                 picture: #imageLiteral(resourceName: "testCity3"),
                                 logoPicture: nil,
                                 name: "اصفهان"
                             ),
                             Container(
+                                type: .city,
                                 picture: #imageLiteral(resourceName: "testCity4"),
                                 logoPicture: nil,
                                 name: "مشهد"
                             ),
                             Container(
+                                type: .city,
                                 picture: #imageLiteral(resourceName: "testCity5"),
                                 logoPicture: nil,
                                 name: "شیراز"
                             ),
                             Container(
+                                type: .city,
                                 picture: #imageLiteral(resourceName: "testCity6"),
                                 logoPicture: nil,
                                 name: "ساری"
                             ),
                             Container(
+                                type: .city,
                                 picture: #imageLiteral(resourceName: "testCity7"),
                                 logoPicture: nil,
                                 name: "تبریز"
                             )
                         ]
                     ),
-                    Section(
+                    DynamicHomeSection(
                         title: texts(.topShoppingCenters),
                         containers: [
                             Container(
+                                type: .shoppingCenter,
                                 picture: nil,
                                 logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter1"),
                                 name: "سام سنتر"
                             ),
                             Container(
+                                type: .shoppingCenter,
                                 picture: nil,
                                 logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter2"),
                                 name: "پالادیوم"
                             ),
                             Container(
+                                type: .shoppingCenter,
                                 picture: nil,
                                 logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter3"),
                                 name: "مدرن الهیه"
                             ),
                             Container(
+                                type: .shoppingCenter,
                                 picture: nil,
                                 logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter4"),
                                 name: "کوروش"
                             ),
                             Container(
+                                type: .shoppingCenter,
                                 picture: nil,
                                 logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter5"),
                                 name: "خلیج فارس"
                             )
                         ]
                     ),
-                    Section(
+                    DynamicHomeSection(
                         title: texts(.topBrands),
                         containers: [
                             Container(
+                                type: .brand,
                                 picture: nil,
                                 logoPicture: #imageLiteral(resourceName: "testProductBrand1"),
                                 name: "پینارلو"
                             ),
                             Container(
+                                type: .brand,
                                 picture: nil,
                                 logoPicture: #imageLiteral(resourceName: "testProductBrand2"),
                                 name: "گیونچای"
                             ),
                             Container(
+                                type: .brand,
                                 picture: nil,
                                 logoPicture: #imageLiteral(resourceName: "testProductBrand3"),
                                 name: "بنز"
                             ),
                             Container(
+                                type: .brand,
                                 picture: nil,
                                 logoPicture: #imageLiteral(resourceName: "testProductBrand4"),
                                 name: "لومیناکس"
                             ),
                             Container(
+                                type: .brand,
                                 picture: nil,
                                 logoPicture: #imageLiteral(resourceName: "testProductBrand5"),
                                 name: "سامسونگ"

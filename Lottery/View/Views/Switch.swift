@@ -32,6 +32,11 @@ class Switch: UISwitch {
             tintColor = colors(Color(rawValue: firstTintColor)!)
         }
     }
+    @IBInspectable var firstOnTintColor: String = Color.green.rawValue {
+        didSet {
+            onTintColor = colors(Color(rawValue: firstOnTintColor)!)
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -52,6 +57,6 @@ extension Switch {
     private func setup() {
         tintColor = colors(.line)
         semanticContentAttribute = .forceRightToLeft
-        onTintColor = colors(.green)
+        onTintColor = colors(Color(rawValue: firstOnTintColor)!)
     }
 }

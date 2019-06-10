@@ -32,4 +32,29 @@ class StackView: UIStackView {
             tintColor = colors(Color(rawValue: firstTintColor)!)
         }
     }
+    @IBInspectable var firstIsRTL: Bool = true {
+        didSet {
+            semanticContentAttribute = firstIsRTL ? .forceRightToLeft : .forceLeftToRight
+        }
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setup()
+    }
+}
+
+extension StackView {
+    private func setup() {
+        semanticContentAttribute = firstIsRTL ? .forceRightToLeft : .forceLeftToRight
+    }
 }

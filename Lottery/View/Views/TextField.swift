@@ -48,6 +48,13 @@ class TextField: PhoneNumberTextField {
     }
     @IBInspectable var firstInsecureEntryIcon: UIImage!
     
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    
     var firstSmartKeyboardType: UIKeyboardType {
         switch textContentType {
         case UITextContentType.emailAddress:
@@ -144,9 +151,9 @@ extension TextField {
     }
     private func setupSecurityToggleButton() {
         firstSecurityToggleButton = Button(type: .custom)
-        firstSecurityToggleButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        firstSecurityToggleButton.frame.size.width = 30
+        firstSecurityToggleButton.frame.size.height = 30
         firstSecurityToggleButton.setCornerRadius(.half)
-        firstSecurityToggleButton.imageView?.contentMode = .scaleAspectFit
         firstSecurityToggleButton.tintColor = colors(.lightAsset)
         firstSecurityToggleButton.setImage(firstSecureEntryIcon, for: .normal)
         firstSecurityToggleButton.firstInteractionAnimationType = .glow

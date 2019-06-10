@@ -1,4 +1,4 @@
-class ClosestOfferCollectionCell: CollectionCell {
+class ProductCollectionCell: CollectionCell {
     @IBOutlet weak var lockStateButton: Button!
     @IBOutlet weak var requiredPointsLabel: Label!
     @IBOutlet weak var favoriteButton: Button!

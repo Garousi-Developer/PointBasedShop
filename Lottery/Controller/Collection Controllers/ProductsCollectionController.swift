@@ -1,6 +1,6 @@
 import UIKit
 
-class OffersCollectionController: CollectionController {
+class ProductsCollectionController: CollectionController {
     var closestProducts: [Product] = []
     var isFirstTime = true
     
@@ -25,7 +25,7 @@ class OffersCollectionController: CollectionController {
         let cell = collectionView.cellForItem(at: IndexPath(
             item: sender.tag,
             section: 0
-        )) as! ClosestOfferCollectionCell
+        )) as! ProductCollectionCell
         
         closestProducts[sender.tag].orderCount += 1
         
@@ -43,7 +43,7 @@ class OffersCollectionController: CollectionController {
         let cell = collectionView.cellForItem(at: IndexPath(
             item: sender.tag,
             section: 0
-        )) as! ClosestOfferCollectionCell
+        )) as! ProductCollectionCell
         
         closestProducts[sender.tag].orderCount -= 1
         
@@ -88,7 +88,7 @@ class OffersCollectionController: CollectionController {
             closestProducts = sharedData[index] as! [Product]
         }
         
-        let castedCell = cell as! ClosestOfferCollectionCell
+        let castedCell = cell as! ProductCollectionCell
         let product = closestProducts[indexPath.item]
         let progress = Float(product.numberOfSoldProducts) / Float(product.numberOfProducts)
         
@@ -139,8 +139,8 @@ class OffersCollectionController: CollectionController {
     }
 }
 
-extension OffersCollectionController {
-    private func setupPriceLabel(_ castedCell: ClosestOfferCollectionCell, _ product: Product) {
+extension ProductsCollectionController {
+    private func setupPriceLabel(_ castedCell: ProductCollectionCell, _ product: Product) {
         castedCell.priceLabel.attributedText = NSAttributedString(
             string: "\(product.price.priceFormatted) \(texts(.currency))",
             attributes: [

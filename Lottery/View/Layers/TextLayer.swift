@@ -22,7 +22,7 @@ class TextLayer: CATextLayer {
     }
     override func draw(in ctx: CGContext) {
         let verticalTranslation = bounds.height / 2 - uiFont.lineHeight / 2
-        
+
         ctx.saveGState()
         ctx.translateBy(x: 0, y: verticalTranslation)
         super.draw(in: ctx)

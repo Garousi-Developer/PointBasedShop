@@ -5,7 +5,7 @@ struct ContainerDetails {
     let picture: UIImage!
     let containerName: String
     let description: String
-    let topContents: [Container]
+    let topContents: [Container]!
     let locationPicture: UIImage
     let hottestOffers: [Product]
     let ad: Ad

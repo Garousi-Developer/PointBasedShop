@@ -76,6 +76,9 @@ class FirstTextField: TextField {
             animatePlaceholderPosition()
             animatePlaceholderSize()
         }
+        else {
+            holdPlaceholderSize()
+        }
         
         animatePlaceholderColor()
         firstSecurityToggleButton?.tintColor = colors(Color(rawValue: firstFocusedColor)!)
@@ -85,6 +88,9 @@ class FirstTextField: TextField {
         if text!.isEmpty {
             animatePlaceholderPosition(isReversed: true)
             animatePlaceholderSize(isReversed: true)
+        }
+        else {
+            holdPlaceholderSize()
         }
         
         animatePlaceholderColor(isReversed: true)
@@ -175,46 +181,66 @@ extension FirstTextField {
         }
     }
     private func animatePlaceholderSize(isReversed: Bool = false) {
-        let animation = BasicAnimation(keyPath: "fontSize")
         if isReversed {
-            animation.fromValue = fonts(.semiSmall).pointSize
+            let animation = BasicAnimation(keyPath: "fontSize")
             placeholderLayer.fontSize = fonts(.medium).pointSize
+            animation.fromValue = fonts(.semiSmall).pointSize
+            animation.duration = animationDuration
+            
+            placeholderLayer.add(animation, forKey: "reverseFontSize")
         }
         else {
-            animation.fromValue = fonts(.medium).pointSize
+            let animation = BasicAnimation(keyPath: "fontSize")
             placeholderLayer.fontSize = fonts(.semiSmall).pointSize
+            animation.fromValue = fonts(.medium).pointSize
+            animation.duration = animationDuration
+            
+            placeholderLayer.add(animation, forKey: "fontSize")
         }
+    }
+    private func animatePlaceholderColor(isReversed: Bool = false) {
+        if isReversed {
+            let animation = BasicAnimation(keyPath: "foregroundColor")
+            placeholderLayer.foregroundColor = colors(.lightAsset).cgColor
+            animation.fromValue = colors(Color(rawValue: firstFocusedColor)!).cgColor
+            animation.duration = animationDuration
+            
+            placeholderLayer.add(animation, forKey: "reverseForegroundColor")
+        }
+        else {
+            let animation = BasicAnimation(keyPath: "foregroundColor")
+            placeholderLayer.foregroundColor = colors(Color(rawValue: firstFocusedColor)!).cgColor
+            animation.fromValue = colors(.lightAsset).cgColor
+            animation.duration = animationDuration
+            
+            placeholderLayer.add(animation, forKey: "foregroundColor")
+        }
+    }
+    private func animateFocusedLine(isReversed: Bool = false) {
+        if isReversed {
+            let animation = BasicAnimation(keyPath: "strokeEnd")
+            focusedLineLayer.strokeEnd = 0
+            animation.fromValue = 1
+            animation.duration = animationDuration
+            
+            focusedLineLayer.add(animation, forKey: "reverseStrokeEnd")
+        }
+        else {
+            let animation = BasicAnimation(keyPath: "strokeEnd")
+            focusedLineLayer.strokeEnd = 1
+            animation.fromValue = 0
+            animation.duration = animationDuration
+            
+            focusedLineLayer.add(animation, forKey: "strokeEnd")
+        }
+    }
+    private func holdPlaceholderSize() {
+        let animation = BasicAnimation(keyPath: "fontSize")
+        placeholderLayer.fontSize = fonts(.semiSmall).pointSize
+        animation.fromValue = fonts(.semiSmall).pointSize
         animation.duration = animationDuration
         
         placeholderLayer.add(animation, forKey: "fontSize")
-    }
-    private func animatePlaceholderColor(isReversed: Bool = false) {
-        let animation = BasicAnimation(keyPath: "foregroundColor")
-        if isReversed {
-            animation.fromValue = colors(Color(rawValue: firstFocusedColor)!).cgColor
-            placeholderLayer.foregroundColor = colors(.lightAsset).cgColor
-        }
-        else {
-            animation.fromValue = colors(.lightAsset).cgColor
-            placeholderLayer.foregroundColor = colors(Color(rawValue: firstFocusedColor)!).cgColor
-        }
-        animation.duration = animationDuration
-        
-        placeholderLayer.add(animation, forKey: "foregroundColor")
-    }
-    private func animateFocusedLine(isReversed: Bool = false) {
-        let animation = BasicAnimation(keyPath: "strokeEnd")
-        if isReversed {
-            animation.fromValue = 1
-            focusedLineLayer.strokeEnd = 0
-        }
-        else {
-            animation.fromValue = 0
-            focusedLineLayer.strokeEnd = 1
-        }
-        animation.duration = animationDuration
-        
-        focusedLineLayer.add(animation, forKey: "strokeEnd")
     }
     
     private func validateEmail() {

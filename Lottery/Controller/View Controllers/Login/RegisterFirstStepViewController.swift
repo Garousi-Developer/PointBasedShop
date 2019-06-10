@@ -4,6 +4,7 @@ class RegisterFirstStepViewController: ViewController {
     @IBOutlet weak var logoImageView: ImageView!
     @IBOutlet weak var mobileNumberTextField: FirstTextField!
     @IBOutlet weak var passwordTextField: FirstTextField!
+    @IBOutlet weak var passwordRepeatTextField: FirstTextField!
     @IBOutlet weak var nextStepButton: Button!
     @IBOutlet weak var retrievePasswordButton: Button!
     
@@ -13,7 +14,10 @@ class RegisterFirstStepViewController: ViewController {
     @IBAction func passwordDidChange() {
         handleGoNextStepAbility()
     }
-    @IBAction func passwordDidTriggerAction() {
+    @IBAction func passwordRepeatDidChange() {
+        handleGoNextStepAbility()
+    }
+    @IBAction func passwordRepeatDidTriggerAction() {
         if nextStepButton.isEnabled {
             goNextStep()
         }

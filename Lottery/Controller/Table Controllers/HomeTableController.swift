@@ -6,7 +6,7 @@ class HomeTableController: TableController {
     
     var sliderPagerController: SliderPagerController!
     var categoriesCollectionController: CategoriesCollectionController!
-    var closestOffersCollectionController: OffersCollectionController!
+    var closestOffersCollectionController: ProductsCollectionController!
     var containersCollectionController: ContainersCollectionController!
     
     override func numberOfRows() -> Int {
@@ -43,7 +43,7 @@ class HomeTableController: TableController {
             categoriesCollectionView.dataSource = categoriesCollectionController
             categoriesCollectionView.delegate = categoriesCollectionController
             
-            closestOffersCollectionController = OffersCollectionController(
+            closestOffersCollectionController = ProductsCollectionController(
                 viewController: viewController,
                 collectionView: closestOffersCollectionView
             )
@@ -61,12 +61,12 @@ class HomeTableController: TableController {
             dynamicCell.tableController = self
             let containersCollectionView = dynamicCell.containersCollectionView!
             
-            let section = dynamicHome.sections[indexPath.row - 1]
-            let containersList = dynamicHome.sections.map { (category: Section) -> [Container] in
+            let dynamicHomeSection = dynamicHome.sections[indexPath.row - 1]
+            let containersList = dynamicHome.sections.map { (category: DynamicHomeSection) -> [Container] in
                 return category.containers
             }
             
-            dynamicCell.titleLabel.text = section.title
+            dynamicCell.titleLabel.text = dynamicHomeSection.title
             
             containersCollectionController = ContainersCollectionController(viewController: viewController, collectionView: containersCollectionView)
             containersCollectionController.index = indexPath.row - 1

@@ -27,9 +27,10 @@ class CollectionController: SecondaryController {
         super.init(viewController: viewController)
         
         let collectionViewLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let verticalSectionInsets = collectionViewLayout.sectionInset.top + collectionViewLayout.sectionInset.bottom
+//        let verticalConstraintConstants = (collectionView.topConstraint?.constant ?? 0) + (collectionView.bottomConstraint?.constant ?? 0)
         
-        collectionView.heightConstraint.constant =
-            itemHeight() + collectionViewLayout.sectionInset.top + collectionViewLayout.sectionInset.bottom + 1
+        collectionView.heightConstraint?.constant = itemHeight() + verticalSectionInsets + 1
         
         self.collectionView = collectionView
     }

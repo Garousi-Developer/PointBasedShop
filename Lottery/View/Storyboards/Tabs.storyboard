@@ -158,10 +158,10 @@
         <!--Awards View Controller-->
         <scene sceneID="m8o-Uk-VXu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A3c-pn-MIT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Awards" id="RMK-jH-3z6" userLabel="Awards View Controller" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="lT6-pn-0pj" customClass="NavigationItem" customModule="PointBasedShop" customModuleProvider="target"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A3c-pn-MIT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1262" y="-254"/>
         </scene>
@@ -187,7 +187,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="awards" width="16" height="16"/>
+        <image name="awards" width="24" height="24"/>
         <image name="cart" width="24" height="24"/>
         <image name="home" width="24" height="24"/>
         <image name="orders" width="24" height="24"/>

@@ -2,6 +2,7 @@ class ProductCollectionCell: CollectionCell {
     @IBOutlet weak var lockStateButton: Button!
     @IBOutlet weak var requiredPointsLabel: Label!
     @IBOutlet weak var favoriteButton: Button!
+    @IBOutlet weak var removeButton: Button!
     @IBOutlet weak var pictureImageView: ImageView!
     @IBOutlet weak var nameLabel: Label!
     @IBOutlet weak var priceLabel: Label!

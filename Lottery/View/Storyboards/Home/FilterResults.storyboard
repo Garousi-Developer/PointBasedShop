@@ -153,7 +153,7 @@
                                                     <rect key="frame" x="108" y="343.66666666666669" width="166" height="35"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Be1-5A-zxb" userLabel="Decrement Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                                            <rect key="frame" x="131" y="0.0" width="35" height="35"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="35" id="EJM-DX-dKV" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                             </constraints>
@@ -165,7 +165,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
                                                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRp-bn-Hsx" userLabel="Order Count Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                            <rect key="frame" x="43" y="0.0" width="35" height="35"/>
+                                                            <rect key="frame" x="88" y="0.0" width="35" height="35"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="35" id="CxZ-m2-rbk" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                             </constraints>
@@ -178,7 +178,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsO-Tg-axi" userLabel="Increment Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                            <rect key="frame" x="86" y="0.0" width="80" height="35"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="35"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="HEY-co-IGx" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                             </constraints>
@@ -261,7 +261,13 @@
                                             <constraint firstAttribute="trailing" secondItem="ZgN-R8-pXv" secondAttribute="trailing" constant="12" id="g1U-j7-epY" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="e5S-fq-U29" firstAttribute="bottom" secondItem="NJW-AF-KW3" secondAttribute="bottom" id="gTo-vH-FaI" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="e5S-fq-U29" firstAttribute="centerX" secondItem="PJA-94-XaL" secondAttribute="centerX" id="i7k-Zc-91c" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                            <constraint firstItem="5ud-7z-qN6" firstAttribute="leading" secondItem="PJA-94-XaL" secondAttribute="leading" constant="12" id="jIm-EN-W2y" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="5ud-7z-qN6" firstAttribute="leading" secondItem="PJA-94-XaL" secondAttribute="leading" constant="12" id="jIm-EN-W2y" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="firstConstant">
+                                                        <real key="value" value="36"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
                                             <constraint firstAttribute="trailing" secondItem="cmB-82-tfN" secondAttribute="trailing" id="jZM-ub-32r" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstAttribute="trailing" secondItem="RCg-eT-SPD" secondAttribute="trailing" constant="12" id="jcV-Nx-bgK" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="27t-3m-Gh6" firstAttribute="top" secondItem="PJA-94-XaL" secondAttribute="top" constant="3" id="jxM-c4-Nkh" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -326,6 +332,7 @@
                     </view>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="firstKeyboardHandler" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="firstNavigationShadow" value="NO"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="collectionView" destination="5MO-lJ-JHe" id="wpx-3W-xKV"/>

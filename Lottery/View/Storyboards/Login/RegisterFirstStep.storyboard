@@ -124,6 +124,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="lme-Wi-TsJ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="firstIsRTL" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZr-6q-DEP" userLabel="Retrieve Password Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
                                 <rect key="frame" x="147" y="467" width="120" height="35"/>

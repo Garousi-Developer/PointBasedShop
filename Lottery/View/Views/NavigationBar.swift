@@ -54,8 +54,6 @@ extension NavigationBar {
         shadowImage = UIImage()
         setBackgroundImage(UIImage(), for: .default)
         
-//        setShadowStyle(.navigationBar)
-//        backgroundColor = colors(.white)
         tintColor = colors(.asset)
         titleTextAttributes = [
             NSAttributedString.Key.font: fonts(.semiLarge),

@@ -30,8 +30,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="given-name"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="optionalFirstName"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="firstName"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="firstNameDidChange" destination="tUB-Aq-udQ" eventType="editingChanged" id="InD-TO-3z9"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jo8-QJ-ZyR" userLabel="Last Name Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
                                 <rect key="frame" x="24" y="187" width="366" height="30"/>
@@ -42,8 +45,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="family-name"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="optionalLastName"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="lastName"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="lastNameDidChange" destination="tUB-Aq-udQ" eventType="editingChanged" id="q4O-Mw-eji"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6IA-mk-clU" userLabel="Email Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
                                 <rect key="frame" x="24" y="259" width="366" height="30"/>
@@ -128,6 +134,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="chk-qR-O1J" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="firstIsRTL" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvE-uo-e8b" userLabel="Cancel Register And Login Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
                                 <rect key="frame" x="127" y="533" width="160" height="35"/>

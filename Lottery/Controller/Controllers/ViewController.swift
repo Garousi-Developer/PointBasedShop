@@ -1,6 +1,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBInspectable var firstNavigationShadow: Bool = true
     @IBInspectable var firstKeyboardHandler: Bool = false
     
     var tapRecognizer: UITapGestureRecognizer!
@@ -32,11 +33,11 @@ class ViewController: UIViewController {
             UIView.animate(withDuration: durations(.interaction), animations: {
                 if additionalSpace < 0 {
                     self.view.frame.origin.y = additionalSpace
-                    self.navigationShadowView.frame.origin.y = UIApplication.shared.statusBarFrame.origin.y - additionalSpace
+                    self.navigationShadowView?.frame.origin.y = UIApplication.shared.statusBarFrame.origin.y - additionalSpace
                 }
                 else {
                     self.view.frame.origin.y = 0
-                    self.navigationShadowView.frame.origin.y = UIApplication.shared.statusBarFrame.origin.y
+                    self.navigationShadowView?.frame.origin.y = UIApplication.shared.statusBarFrame.origin.y
                 }
             })
         }
@@ -55,11 +56,11 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: durations(.interaction), animations: {
             if additionalSpace < 0 {
                 self.view.frame.origin.y = additionalSpace
-                self.navigationShadowView.frame.origin.y = UIApplication.shared.statusBarFrame.origin.y - additionalSpace
+                self.navigationShadowView?.frame.origin.y = UIApplication.shared.statusBarFrame.origin.y - additionalSpace
             }
             else {
                 self.view.frame.origin.y = 0
-                self.navigationShadowView.frame.origin.y = UIApplication.shared.statusBarFrame.origin.y
+                self.navigationShadowView?.frame.origin.y = UIApplication.shared.statusBarFrame.origin.y
             }
         })
     }
@@ -97,14 +98,19 @@ class ViewController: UIViewController {
 
 extension ViewController {
     private func addNavigationShadowView() {
-        navigationShadowView = View(frame: CGRect(
-            x: UIApplication.shared.statusBarFrame.origin.x,
-            y: UIApplication.shared.statusBarFrame.origin.y,
-            width: UIApplication.shared.statusBarFrame.width,
-            height: UIApplication.shared.statusBarFrame.height + navigationController!.navigationBar.frame.height
-        ))
-        navigationShadowView.setShadowStyle(.navigationBar)
-        navigationShadowView.backgroundColor = colors(.white)
-        view.addSubview(navigationShadowView)
+        if let navigationController = navigationController {
+            navigationShadowView = View(frame: CGRect(
+                x: UIApplication.shared.statusBarFrame.origin.x,
+                y: UIApplication.shared.statusBarFrame.origin.y,
+                width: UIApplication.shared.statusBarFrame.width,
+                height: UIApplication.shared.statusBarFrame.height + navigationController.navigationBar.frame.height
+            ))
+            if firstNavigationShadow {
+                navigationShadowView.setShadowStyle(.navigationBar)
+            }
+            navigationShadowView.backgroundColor = colors(.white)
+            
+            view.addSubview(navigationShadowView)
+        }
     }
 }

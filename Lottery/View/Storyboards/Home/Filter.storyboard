@@ -51,13 +51,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="S2A-7I-8oR" userLabel="Selected Switch" customClass="Switch" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="134" y="0.0" width="51" height="31"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstOnTintColor" value="primary"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عنوان دسته بندی" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZH-5G-8bc" userLabel="Title Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="5.6666666666666661" width="128" height="19.666666666666671"/>
+                                                    <rect key="frame" x="55" y="5.6666666666666661" width="128" height="19.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -126,13 +126,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="735-He-VLr" userLabel="Selected Switch" customClass="Switch" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="134" y="0.0" width="51" height="31"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstOnTintColor" value="primary"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عنوان دسته بندی" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="426-3L-5FL" userLabel="Name Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="5.6666666666666661" width="128" height="19.666666666666671"/>
+                                                    <rect key="frame" x="55" y="5.6666666666666661" width="128" height="19.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -168,11 +168,14 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="line"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="586-ti-ldb" userLabel="Lock Filters Stack View" customClass="StackView" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="45" y="450" width="324" height="31"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="586-ti-ldb" userLabel="Lock Filters Stack View" customClass="StackView" customModule="PointBasedShop" customModuleProvider="target">
+                                <rect key="frame" x="66" y="450" width="282" height="31"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="St4-iu-4vj" userLabel="Unlocked Switch" customClass="Switch" customModule="PointBasedShop" customModuleProvider="target">
-                                        <rect key="frame" x="275" y="0.0" width="51" height="31"/>
+                                        <rect key="frame" x="233" y="0.0" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="49" id="Fhd-qi-R6O"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="firstOnTintColor" value="primary"/>
                                         </userDefinedRuntimeAttributes>
@@ -181,7 +184,10 @@
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh3-NJ-9r1" userLabel="Unlocked Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                        <rect key="frame" x="220" y="5.6666666666666856" width="49" height="19.666666666666668"/>
+                                        <rect key="frame" x="192" y="5.6666666666666856" width="35" height="19.666666666666668"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="IuZ-wf-ANo" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -190,7 +196,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="S5M-xV-nU7" userLabel="Locked Switch" customClass="Switch" customModule="PointBasedShop" customModuleProvider="target">
-                                        <rect key="frame" x="165" y="0.0" width="51" height="31"/>
+                                        <rect key="frame" x="137" y="0.0" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="49" id="fDM-Hy-PtW"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="firstOnTintColor" value="primary"/>
                                         </userDefinedRuntimeAttributes>
@@ -199,7 +208,10 @@
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylp-eJ-Fi5" userLabel="Locked Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                        <rect key="frame" x="110" y="5.6666666666666856" width="49" height="19.666666666666668"/>
+                                        <rect key="frame" x="96" y="5.6666666666666856" width="35" height="19.666666666666668"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="RTt-PK-8QN" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -208,7 +220,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LK6-9a-a0G" userLabel="All Switch" customClass="Switch" customModule="PointBasedShop" customModuleProvider="target">
-                                        <rect key="frame" x="55" y="0.0" width="51" height="31"/>
+                                        <rect key="frame" x="41" y="0.0" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="49" id="gH1-P3-qBb"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="firstOnTintColor" value="primary"/>
                                         </userDefinedRuntimeAttributes>
@@ -217,7 +232,10 @@
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLj-75-5BQ" userLabel="All Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="5.6666666666666856" width="49" height="19.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="5.6666666666666856" width="35" height="19.666666666666668"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="v9Q-GE-owh" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

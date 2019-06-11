@@ -82,10 +82,10 @@ func texts(_ text: Text) -> String {
         
     case .thirdStepOfRegister:
         return "مرحله سوم عضویت"
-    case .optionalFirstName:
-        return "نام (اختیاری)"
-    case .optionalLastName:
-        return "نام خانوادگی (اختیاری)"
+    case .firstName:
+        return "نام"
+    case .lastName:
+        return "نام خانوادگی"
     case .optionalEmail:
         return "ایمیل (اختیاری)"
     case .invalidEmail:
@@ -142,6 +142,20 @@ func texts(_ text: Text) -> String {
     // Cart:
     case .cart:
         return "سبد خرید"
+    case .numberOfProducts:
+        return "تعداد محصولات"
+    case .youWillEarnXPointsFromThisPurchase:
+        return "شما از این خرید مقدار امتیاز امتیاز به دست می آورید"
+    case .totalPrice:
+        return "قیمت کل"
+    case .pricesAreTaxInclusive:
+        return "قیمت ها با احتساب مالیات هستند"
+    case .iDonateAllPurchasedProductsToCharity:
+        return "همه محصولات خریداری شده را به خیریه اهدا می کنم"
+    case .selectOneOfYourAddresses:
+        return "یکی از آدرس های خود را انتخاب کنید"
+    case .pay:
+        return "پرداخت"
     
     // Awards:
     case .awards:
@@ -242,8 +256,8 @@ enum Text: String {
     case privacyPolicy
     
     case thirdStepOfRegister
-    case optionalFirstName
-    case optionalLastName
+    case firstName
+    case lastName
     case optionalEmail
     case invalidEmail
     case iHaveReadAndAcceptUserAgreementAndPrivacyPolicy
@@ -277,6 +291,13 @@ enum Text: String {
     
     // Cart:
     case cart
+    case numberOfProducts
+    case youWillEarnXPointsFromThisPurchase
+    case totalPrice
+    case pricesAreTaxInclusive
+    case iDonateAllPurchasedProductsToCharity
+    case selectOneOfYourAddresses
+    case pay
     
     // Awards:
     case awards

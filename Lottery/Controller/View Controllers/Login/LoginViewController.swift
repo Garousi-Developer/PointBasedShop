@@ -9,6 +9,9 @@ class LoginViewController: ViewController {
     @IBOutlet weak var retrievePasswordButton: Button!
     @IBOutlet weak var registerButton: Button!
     
+    var loginParameters: LoginParameters!
+    var responseController: LoginResponseController!
+    
     @IBAction func mobileNumberDidChange() {
         handleLoginAbility()
     }
@@ -21,7 +24,17 @@ class LoginViewController: ViewController {
         }
     }
     @IBAction func login() {
-        
+//        loginParameters = LoginParameters(
+//            mobileNumber: mobileNumberTextField.firstCommonMobileNumber,
+//            password: passwordTextField.text!
+//        )
+//        responseController = LoginResponseController(viewController: self)
+//
+//        request(RequestHolder(
+//            endPointName: .login(loginParameters: loginParameters),
+//            didSucceed: responseController.didSucceed,
+//            didFail: responseController.didFail
+//        ))
     }
     @IBAction func loginWithoutRegister() {
         navigateTo(.tabs, presenting: true)

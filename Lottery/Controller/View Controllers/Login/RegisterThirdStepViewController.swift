@@ -10,6 +10,12 @@ class RegisterThirdStepViewController: ViewController {
     @IBOutlet weak var registerButton: Button!
     @IBOutlet weak var cancelRegisterAndLoginButton: Button!
     
+    @IBAction func firstNameDidChange() {
+        handleRegisterAbility()
+    }
+    @IBAction func lastNameDidChange() {
+        handleRegisterAbility()
+    }
     @IBAction func emailDidChange() {
         handleRegisterAbility()
     }
@@ -39,7 +45,7 @@ class RegisterThirdStepViewController: ViewController {
 
 extension RegisterThirdStepViewController {
     private func handleRegisterAbility() {
-        if emailTextField.isVerified && agreementSwitch.isOn {
+        if !firstNameTextField.text!.isEmpty && !lastNameTextField.text!.isEmpty && emailTextField.isVerified && agreementSwitch.isOn {
             registerButton.enable()
         }
         else {

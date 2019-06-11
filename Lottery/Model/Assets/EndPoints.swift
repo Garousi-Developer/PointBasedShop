@@ -1,10 +1,18 @@
 import Alamofire
 
 func endPoints(_ endPointName: EndPointName) -> EndPoint {
-    return EndPoint(url: "")
+    switch endPointName {
+    case .login(let loginParameters):
+        return EndPoint(
+            method: .post,
+            parameters: loginParameters,
+            url: "/login",
+            response: User.self
+        )
+    }
 }
 enum EndPointName {
-    
+    case login(loginParameters: LoginParameters)
 }
 
 struct EndPoint {
@@ -32,4 +40,4 @@ struct EndPoint {
     }
 }
 
-private let baseURL = ""
+private let baseURL = "http://learngroup.ir/api/v1"

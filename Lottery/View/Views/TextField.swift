@@ -151,8 +151,8 @@ extension TextField {
     }
     private func setupSecurityToggleButton() {
         firstSecurityToggleButton = Button(type: .custom)
-        firstSecurityToggleButton.frame.size.width = 30
-        firstSecurityToggleButton.frame.size.height = 30
+        firstSecurityToggleButton.frame.size.width = 24
+        firstSecurityToggleButton.frame.size.height = 24
         firstSecurityToggleButton.setCornerRadius(.half)
         firstSecurityToggleButton.tintColor = colors(.lightAsset)
         firstSecurityToggleButton.setImage(firstSecureEntryIcon, for: .normal)

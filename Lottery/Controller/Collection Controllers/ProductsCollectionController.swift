@@ -21,6 +21,14 @@ class ProductsCollectionController: CollectionController {
             }
         }
     }
+    @objc func remove(sender: Button) {
+//        closestProducts.remove(at: sender.tag)
+//
+//        collectionView.deleteItems(at: [IndexPath(
+//            item: sender.tag,
+//            section: 0
+//        )])
+    }
     @objc func addToCart(sender: Button) {
         let cell = collectionView.cellForItem(at: IndexPath(
             item: sender.tag,
@@ -129,10 +137,12 @@ class ProductsCollectionController: CollectionController {
         setupPriceLabel(castedCell, product)
         
         castedCell.favoriteButton.tag = indexPath.item
+        castedCell.removeButton?.tag = indexPath.item
         castedCell.addToCartButton.tag = indexPath.item
         castedCell.decrementButton.tag = indexPath.item
         castedCell.incrementButton.tag = indexPath.item
         castedCell.favoriteButton.addTarget(self, action: #selector(toggleFavoriteState), for: .touchUpInside)
+        castedCell.removeButton?.addTarget(self, action: #selector(remove), for: .touchUpInside)
         castedCell.addToCartButton.addTarget(self, action: #selector(addToCart), for: .touchUpInside)
         castedCell.decrementButton.addTarget(self, action: #selector(decrement), for: .touchUpInside)
         castedCell.incrementButton.addTarget(self, action: #selector(increment), for: .touchUpInside)

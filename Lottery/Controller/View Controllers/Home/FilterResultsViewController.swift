@@ -5,9 +5,7 @@ class FilterResultsViewController: ViewController {
     @IBOutlet weak var collectionView: CollectionView!
     
     var filtersButton: Button!
-    
     var filterResults: FilterResults!
-    
     var collectionController: ProductsCollectionController!
     
     @objc func showFilters() {

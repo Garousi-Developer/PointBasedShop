@@ -22,7 +22,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="hG1-ob-nxE" userLabel="Navigation Item" customClass="NavigationItem" customModule="PointBasedShop" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="firstTitle" value="awards"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="firstTitle" value="profile"/>
                         </userDefinedRuntimeAttributes>
                     </navigationItem>
                 </viewController>

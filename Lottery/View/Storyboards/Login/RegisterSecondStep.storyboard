@@ -89,6 +89,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="ybp-yf-5oQ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="firstIsRTL" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dg6-GY-Dkx" userLabel="Cancel Register And Login Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
                                 <rect key="frame" x="127" y="323" width="160" height="35"/>

@@ -1,50 +1,55 @@
 import UIKit
 
 class ProductsCollectionController: CollectionController {
-    var closestProducts: [Product] = []
-    var isFirstTime = true
+    var products: [NewProduct] = []
     
     @objc func toggleFavoriteState(sender: Button) {
-        closestProducts[sender.tag].isFavorite.toggle()
-        
-        delay(durations(.interaction)) {
-            self.collectionView.reloadItems(at: [IndexPath(
-                item: sender.tag,
-                section: 0
-            )])
-            
-            if self.closestProducts[sender.tag].isFavorite {
-                sender.tintColor = colors(.red)
-            }
-            else {
-                sender.tintColor = colors(.asset)
-            }
-        }
+//        products[sender.tag].isFavorite.toggle()
+//
+//        delay(durations(.interaction)) {
+//            self.collectionView.reloadItems(at: [IndexPath(
+//                item: sender.tag,
+//                section: 0
+//            )])
+//
+//            if self.products[sender.tag].isFavorite {
+//                sender.tintColor = colors(.red)
+//            }
+//            else {
+//                sender.tintColor = colors(.asset)
+//            }
+//        }
     }
     @objc func remove(sender: Button) {
-//        closestProducts.remove(at: sender.tag)
-//
-//        collectionView.deleteItems(at: [IndexPath(
-//            item: sender.tag,
-//            section: 0
-//        )])
+//        let cartViewController = viewController as! CartViewController
+        let product = products[sender.tag]
+        
+        product.orderCount = 0
+        data.remove(at: sender.tag)
+        cart.remove(at: sender.tag)
+        
+//        if cart.isEmpty {
+//            cartViewController.addressView.fadeOut()
+//        }
     }
     @objc func addToCart(sender: Button) {
         let cell = collectionView.cellForItem(at: IndexPath(
             item: sender.tag,
             section: 0
         )) as! ProductCollectionCell
+        let product = products[sender.tag]
         
-        closestProducts[sender.tag].orderCount += 1
+        // Refer cart to products.
+        product.orderCount += 1
+//        cart.append(product)
         
         delay(durations(.interaction)) {
-            self.collectionView.reloadItems(at: [IndexPath(
-                item: sender.tag,
-                section: 0
-            )])
-            
             cell.addToCartButton.fadeOut()
             cell.orderCountStackView.fadeIn()
+            
+            delay(durations(.textField)) {
+                self.collectionView.reloadData()
+            }
         }
     }
     @objc func decrement(sender: Button) {
@@ -52,29 +57,43 @@ class ProductsCollectionController: CollectionController {
             item: sender.tag,
             section: 0
         )) as! ProductCollectionCell
+        let product = products[sender.tag]
+//        let cartProductIndex = cart.firstIndex { (cartProduct) in
+//            return cartProduct.name == product.persianTitle
+//        }!
         
-        closestProducts[sender.tag].orderCount -= 1
+        product.orderCount -= 1
         
         delay(durations(.interaction)) {
-            self.collectionView.reloadItems(at: [IndexPath(
-                item: sender.tag,
-                section: 0
-            )])
-            
-            if self.closestProducts[sender.tag].orderCount == 0 {
-                cell.orderCountStackView.fadeOut()
-                cell.addToCartButton.fadeIn()
+            if product.orderCount == 0 {
+                if self.viewController is CartViewController {
+                    self.remove(sender: Button())
+                }
+                else {
+//                    cart.remove(at: cartProductIndex)
+                    
+                    cell.orderCountStackView.fadeOut()
+                    cell.addToCartButton.fadeIn()
+                    
+                    delay(durations(.textField)) {
+                        self.collectionView.reloadData()
+                    }
+                }
+            }
+            else {
+                delay(durations(.interaction)) {
+                    self.collectionView.reloadData()
+                }
             }
         }
     }
     @objc func increment(sender: Button) {
-        closestProducts[sender.tag].orderCount += 1
+        let product = products[sender.tag]
         
-        delay(durations(.interaction)) {
-            self.collectionView.reloadItems(at: [IndexPath(
-                item: sender.tag,
-                section: 0
-            )])
+        product.orderCount += 1
+        
+        delay(2 * durations(.interaction)) {
+            self.collectionView.reloadData()
         }
     }
     
@@ -90,44 +109,49 @@ class ProductsCollectionController: CollectionController {
     override func item(forCell cell: CollectionCell, atIndexPath indexPath: IndexPath) {
         super.item(forCell: cell, atIndexPath: indexPath)
         
-        if isFirstTime {
-            isFirstTime = false
-            
-            closestProducts = sharedData[index] as! [Product]
-        }
-        
+        products = data as! [NewProduct]
         let castedCell = cell as! ProductCollectionCell
-        let product = closestProducts[indexPath.item]
-        let progress = Float(product.numberOfSoldProducts) / Float(product.numberOfProducts)
+        let product = products[indexPath.item]
+        let progress = Float(product.soldCount) / Float(product.count)
+        let cartProduct = cart.first { (cartProduct) in
+            return cartProduct.name == product.persianTitle
+        }
+        if let cartProduct = cartProduct {
+            product.orderCount = cartProduct.orderCount
+        }
         
         castedCell.requiredPointsLabel.text = "\(product.requiredPoints) \(texts(.points))"
-        castedCell.pictureImageView.image = product.picture
-        castedCell.nameLabel.text = product.name
+        castedCell.pictureImageView.downloadImageFrom(product.pictureURL)
+        castedCell.nameLabel.text = product.persianTitle
         castedCell.discountedPriceLabel.text = "\(product.discountedPrice.priceFormatted) \(texts(.currency))"
-        castedCell.brandImageView.image = product.brandLogo
+        castedCell.brandLogoImageView.downloadImageFrom(product.brand.logoURL)
+        castedCell.brandNameLabel.text = product.brand.persianTitle
         castedCell.orderCountButton.setTitle("\(product.orderCount)", for: .normal)
-        castedCell.numberOfSoldProductsLabel.text = "\(product.numberOfSoldProducts) \(texts(.number)) \(texts(.sold))"
+        castedCell.numberOfSoldProductsLabel.text = "\(product.soldCount) \(texts(.number)) \(texts(.sold))"
         castedCell.progressView.setProgress(progress, animated: false)
         castedCell.progressView.progressTintColor = color(ofProgress: progress)
-        castedCell.numberOfProductsLabel.text = "\(texts(.outOf)) \(product.numberOfProducts) \(texts(.number))"
+        castedCell.numberOfProductsLabel.text = "\(texts(.outOf)) \(product.count) \(texts(.number))"
         
-        if product.isUnlocked {
-            castedCell.lockStateButton.tintColor = colors(.green)
-            castedCell.lockStateButton.setImage(#imageLiteral(resourceName: "unlocked"), for: .normal)
-        }
-        else {
-            castedCell.lockStateButton.tintColor = colors(.highlightedAsset)
-            castedCell.lockStateButton.setImage(#imageLiteral(resourceName: "locked"), for: .normal)
-        }
-        if product.isFavorite {
-            castedCell.favoriteButton.tintColor = colors(.red)
-        }
-        else {
-            castedCell.favoriteButton.tintColor = colors(.asset)
+        if UserDefaults.standard.string(forKey: "token") != nil {
+            if product.isLocked {
+                castedCell.lockStateButton.tintColor = colors(.highlightedAsset)
+                castedCell.lockStateButton.setImage(#imageLiteral(resourceName: "locked"), for: .normal)
+            }
+            else {
+                castedCell.lockStateButton.tintColor = colors(.green)
+                castedCell.lockStateButton.setImage(#imageLiteral(resourceName: "unlocked"), for: .normal)
+            }
+            if product.isFavorite {
+                castedCell.favoriteButton.tintColor = colors(.red)
+            }
+            else {
+                castedCell.favoriteButton.tintColor = colors(.asset)
+            }
         }
         if product.orderCount == 0 {
             castedCell.addToCartButton.alpha = 1
             castedCell.orderCountStackView.alpha = 0
+            castedCell.orderCountButton.setTitle("1", for: .normal)
         }
         else {
             castedCell.addToCartButton.alpha = 0
@@ -147,10 +171,15 @@ class ProductsCollectionController: CollectionController {
         castedCell.decrementButton.addTarget(self, action: #selector(decrement), for: .touchUpInside)
         castedCell.incrementButton.addTarget(self, action: #selector(increment), for: .touchUpInside)
     }
+    override func itemDidSelect(atIndexPath indexPath: IndexPath) {
+        super.itemDidSelect(atIndexPath: indexPath)
+        
+//        viewController.navigateTo(.product)
+    }
 }
 
 extension ProductsCollectionController {
-    private func setupPriceLabel(_ castedCell: ProductCollectionCell, _ product: Product) {
+    private func setupPriceLabel(_ castedCell: ProductCollectionCell, _ product: NewProduct) {
         castedCell.priceLabel.attributedText = NSAttributedString(
             string: "\(product.price.priceFormatted) \(texts(.currency))",
             attributes: [

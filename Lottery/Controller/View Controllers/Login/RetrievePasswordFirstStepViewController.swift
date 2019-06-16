@@ -4,7 +4,6 @@ class RetrievePasswordFirstStepViewController: ViewController {
     @IBOutlet weak var logoImageView: ImageView!
     @IBOutlet weak var mobileNumberTextField: FirstTextField!
     @IBOutlet weak var nextStepButton: Button!
-    @IBOutlet weak var registerButton: Button!
     
     @IBAction func mobileNumberDidChange() {
         handleGoNextStepAbility()
@@ -23,16 +22,6 @@ class RetrievePasswordFirstStepViewController: ViewController {
         )
         
         navigateTo(.retrievePasswordSecondStep)
-    }
-    @IBAction func register() {
-        navigationItem.backBarButtonItem = UIBarButtonItem(
-            title: texts(.retrieveCode),
-            style: .plain,
-            target: nil,
-            action: nil
-        )
-        
-        navigateTo(.registerFirstStep)
     }
 }
 

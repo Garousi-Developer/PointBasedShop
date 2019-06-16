@@ -1,14 +1,12 @@
 import FSPagerView
 
 class PagerController: SecondaryController {
-    var index: Int!
     var pagerView: PagerView!
     var data: [Any] = [] {
         didSet {
             pagerView.reloadData()
         }
     }
-    var sharedData: [[Any]]!
     var pageControl: PageControl?
     
     func item(forCell cell: PagerCell, atIndex index: Int) {
@@ -26,10 +24,6 @@ class PagerController: SecondaryController {
 }
 extension PagerController: FSPagerViewDataSource {
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        if sharedData != nil {
-            return sharedData[index].count
-        }
-        
         return data.count
     }
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {

@@ -7,8 +7,8 @@ class ProductCollectionCell: CollectionCell {
     @IBOutlet weak var nameLabel: Label!
     @IBOutlet weak var priceLabel: Label!
     @IBOutlet weak var discountedPriceLabel: Label!
-    @IBOutlet weak var brandImageView: ImageView!
-    @IBOutlet weak var postableLabel: Label!
+    @IBOutlet weak var brandLogoImageView: ImageView!
+    @IBOutlet weak var brandNameLabel: Label!
     @IBOutlet weak var addToCartButton: Button!
     @IBOutlet weak var orderCountStackView: StackView!
     @IBOutlet weak var decrementButton: Button!

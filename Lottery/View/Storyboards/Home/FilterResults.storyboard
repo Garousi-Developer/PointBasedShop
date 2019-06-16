@@ -117,24 +117,23 @@
                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstTextColor" value="green"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testProductBrand1" translatesAutoresizingMaskIntoConstraints="NO" id="izb-Yz-eRj" userLabel="Brand Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testProductBrand1" translatesAutoresizingMaskIntoConstraints="NO" id="izb-Yz-eRj" userLabel="Brand Logo Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
                                                     <rect key="frame" x="12" y="260" width="358" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="xOZ-rn-1mH" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgN-R8-pXv" userLabel="Postable Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="12" y="306" width="358" height="19.666666666666686"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgN-R8-pXv" userLabel="Brand Name Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
+                                                    <rect key="frame" x="12" y="306" width="358" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstTextAlignment" value="center"/>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="countryWidePostable"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJW-AF-KW3" userLabel="Add To Cart Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="111" y="343.66666666666669" width="160" height="35"/>
+                                                    <rect key="frame" x="111" y="324" width="160" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="GY7-QG-rEC" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                         <constraint firstAttribute="width" constant="160" id="OMh-y6-Xsn" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -150,7 +149,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <stackView opaque="NO" alpha="0.0" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="e5S-fq-U29" userLabel="Order Count Stack View" customClass="StackView" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="108" y="343.66666666666669" width="166" height="35"/>
+                                                    <rect key="frame" x="108" y="324" width="166" height="35"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Be1-5A-zxb" userLabel="Decrement Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
                                                             <rect key="frame" x="131" y="0.0" width="35" height="35"/>
@@ -169,7 +168,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="35" id="CxZ-m2-rbk" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                             </constraints>
-                                                            <state key="normal" title="۰"/>
+                                                            <state key="normal" title="۱"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="asset"/>
@@ -195,7 +194,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" text="فروخته شده" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFu-75-cy3" userLabel="Number Of Sold Products Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="326.66666666666669" y="393.66666666666669" width="49.333333333333314" height="13.333333333333314"/>
+                                                    <rect key="frame" x="326.66666666666669" y="374" width="49.333333333333314" height="13.333333333333314"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -205,7 +204,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" horizontalCompressionResistancePriority="900" progress="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="FNc-UU-TWp" customClass="ProgressView" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="18" y="396.66666666666669" width="302.66666666666669" height="5"/>
+                                                    <rect key="frame" x="18" y="377" width="302.66666666666669" height="5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="5" id="wMH-2q-uQV" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     </constraints>
@@ -215,7 +214,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </progressView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="700" text="از" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iW5-Jd-Zlp" userLabel="Number Of Products Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="6" y="393.66666666666669" width="6" height="13.333333333333314"/>
+                                                    <rect key="frame" x="6" y="374" width="6" height="13.333333333333314"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -283,7 +282,8 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="addToCartButton" destination="NJW-AF-KW3" id="d7O-4x-9dj"/>
-                                            <outlet property="brandImageView" destination="izb-Yz-eRj" id="S8d-u3-IfL"/>
+                                            <outlet property="brandLogoImageView" destination="izb-Yz-eRj" id="S8d-u3-IfL"/>
+                                            <outlet property="brandNameLabel" destination="ZgN-R8-pXv" id="98s-9v-GI8"/>
                                             <outlet property="decrementButton" destination="Be1-5A-zxb" id="0cb-uh-Ln2"/>
                                             <outlet property="discountedPriceLabel" destination="STZ-yx-jeH" id="o7Q-lr-Mbc"/>
                                             <outlet property="favoriteButton" destination="27t-3m-Gh6" id="N6A-RL-dLT"/>
@@ -295,7 +295,6 @@
                                             <outlet property="orderCountButton" destination="eRp-bn-Hsx" id="kyh-oB-deg"/>
                                             <outlet property="orderCountStackView" destination="e5S-fq-U29" id="XTd-Tp-3uc"/>
                                             <outlet property="pictureImageView" destination="5ud-7z-qN6" id="HS8-sh-aom"/>
-                                            <outlet property="postableLabel" destination="ZgN-R8-pXv" id="98s-9v-GI8"/>
                                             <outlet property="priceLabel" destination="fkv-Fc-q4t" id="ML4-sH-LF4"/>
                                             <outlet property="progressView" destination="FNc-UU-TWp" id="LXT-dr-QGt"/>
                                             <outlet property="requiredPointsLabel" destination="TZj-gv-yfE" id="kQ3-t8-LRN"/>

@@ -17,12 +17,15 @@ class ContainerViewController: ViewController {
     @IBOutlet weak var hottestOffersCollectionView: CollectionView!
     @IBOutlet weak var adImageView: ImageView!
     
+    var cityId: Int!
     var container: Container!
-    var details: ContainerDetails!
     
     var containerScrollController: ContainerScrollController!
     var topContentsCollectionController: ContainersCollectionController!
     var hottestOffersCollectionController: ProductsCollectionController!
+    var cityResponseController: CityResponseController!
+    var shoppingCenterResponseController: ShoppingCenterResponseController!
+    var brandResponseController: CityResponseController!
     
     var initialDescriptionHeight: CGFloat!
     var finalDescriptionHeight: CGFloat!
@@ -75,172 +78,7 @@ class ContainerViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let picture: UIImage
-        let containerName: String
-        let topContents: [Container]!
-        switch container.type {
-        case .city:
-            picture = container.picture
-            containerName = ""
-            topContents = [
-                Container(
-                    type: .shoppingCenter,
-                    picture: nil,
-                    logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter1"),
-                    name: "سام سنتر"
-                ),
-                Container(
-                    type: .shoppingCenter,
-                    picture: nil,
-                    logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter2"),
-                    name: "پالادیوم"
-                ),
-                Container(
-                    type: .shoppingCenter,
-                    picture: nil,
-                    logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter3"),
-                    name: "مدرن الهیه"
-                ),
-                Container(
-                    type: .shoppingCenter,
-                    picture: nil,
-                    logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter4"),
-                    name: "کوروش"
-                ),
-                Container(
-                    type: .shoppingCenter,
-                    picture: nil,
-                    logoPicture: #imageLiteral(resourceName: "testTopShoppingCenter5"),
-                    name: "خلیج فارس"
-                )
-            ]
-        case .shoppingCenter:
-            picture = #imageLiteral(resourceName: "testShoppingCenter")
-            containerName = "تهران"
-            topContents = [
-                Container(
-                    type: .brand,
-                    picture: nil,
-                    logoPicture: #imageLiteral(resourceName: "testProductBrand1"),
-                    name: "پینارلو"
-                ),
-                Container(
-                    type: .brand,
-                    picture: nil,
-                    logoPicture: #imageLiteral(resourceName: "testProductBrand2"),
-                    name: "گیونچای"
-                ),
-                Container(
-                    type: .brand,
-                    picture: nil,
-                    logoPicture: #imageLiteral(resourceName: "testProductBrand3"),
-                    name: "بنز"
-                ),
-                Container(
-                    type: .brand,
-                    picture: nil,
-                    logoPicture: #imageLiteral(resourceName: "testProductBrand4"),
-                    name: "لومیناکس"
-                ),
-                Container(
-                    type: .brand,
-                    picture: nil,
-                    logoPicture: #imageLiteral(resourceName: "testProductBrand5"),
-                    name: "سامسونگ"
-                )
-            ]
-        case .brand:
-            picture = #imageLiteral(resourceName: "testBrand")
-            containerName = "سام سنتر"
-            topContents = nil
-        }
-        details = ContainerDetails(
-            name: container.name,
-            picture: picture,
-            containerName: containerName,
-            description: descriptionLabel.text!,
-            topContents: topContents,
-            locationPicture: #imageLiteral(resourceName: "testMap"),
-            hottestOffers: [
-                Product(
-                    isUnlocked: true,
-                    requiredPoints: 50,
-                    isFavorite: false,
-                    picture: #imageLiteral(resourceName: "testProduct1"),
-                    name: "دوچرخه",
-                    price: 6500000,
-                    discountedPrice: 5200000,
-                    brandLogo: #imageLiteral(resourceName: "testProductBrand1"),
-                    orderCount: 0,
-                    numberOfSoldProducts: 320,
-                    numberOfProducts: 375
-                ),
-                Product(
-                    isUnlocked: true,
-                    requiredPoints: 40,
-                    isFavorite: false,
-                    picture: #imageLiteral(resourceName: "testProduct2"),
-                    name: "کیف زنانه",
-                    price: 620000,
-                    discountedPrice: 500000,
-                    brandLogo: #imageLiteral(resourceName: "testProductBrand2"),
-                    orderCount: 0,
-                    numberOfSoldProducts: 249,
-                    numberOfProducts: 385
-                ),
-                Product(
-                    isUnlocked: true,
-                    requiredPoints: 110,
-                    isFavorite: true,
-                    picture: #imageLiteral(resourceName: "testProduct3"),
-                    name: "مرسدس بنز",
-                    price: 4000000000,
-                    discountedPrice: 3200000000,
-                    brandLogo: #imageLiteral(resourceName: "testProductBrand3"),
-                    orderCount: 0,
-                    numberOfSoldProducts: 339,
-                    numberOfProducts: 1125
-                ),
-                Product(
-                    isUnlocked: true,
-                    requiredPoints: 75,
-                    isFavorite: false,
-                    picture: #imageLiteral(resourceName: "testProduct4"),
-                    name: "ساعت مچی",
-                    price: 3400000,
-                    discountedPrice: 2700000,
-                    brandLogo: #imageLiteral(resourceName: "testProductBrand4"),
-                    orderCount: 0,
-                    numberOfSoldProducts: 97,
-                    numberOfProducts: 175
-                ),
-                Product(
-                    isUnlocked: false,
-                    requiredPoints: 150,
-                    isFavorite: true,
-                    picture: #imageLiteral(resourceName: "testProduct5"),
-                    name: "تلویزیون",
-                    price: 18000000,
-                    discountedPrice: 14000000,
-                    brandLogo: #imageLiteral(resourceName: "testProductBrand5"),
-                    orderCount: 0,
-                    numberOfSoldProducts: 102,
-                    numberOfProducts: 200
-                )
-            ],
-            ad: Ad(picture: #imageLiteral(resourceName: "testAd1")),
-            logoPicture: container.logoPicture
-        )
-        
-        navigationItem.title = details.name
-        pictureImageView.image = details.picture
-        nameLabel.text = details.name
-        descriptionLabel.text = details.description
-        hottestOffersLabel.text = "\(texts(.hottestOffers)) \(details.name)"
-        mapImageView.image = details.locationPicture
-        adImageView.image = details.ad.picture
-        
-        containerNameLabel.text = " \(details.containerName)"
+        navigationItem.title = container.name
         switch container.type {
         case .city:
             topContentsLabel.text = texts(.topShoppingCenters)
@@ -266,32 +104,35 @@ class ContainerViewController: ViewController {
                 make.top.equalTo(mapImageView.snp.bottom).offset(scale * 24)
             }
         }
-        else {
-            topContentsCollectionController = ContainersCollectionController(
-                viewController: self,
-                collectionView: topContentsCollectionView
-            )
-            topContentsCollectionController.index = 1
-            topContentsCollectionController.sharedData = [
-                [],
-                details.topContents
-            ]
-            topContentsCollectionView.dataSource = topContentsCollectionController
-            topContentsCollectionView.delegate = topContentsCollectionController
-            
-            hottestOffersCollectionController = ProductsCollectionController(
-                viewController: self,
-                collectionView: hottestOffersCollectionView
-            )
-            hottestOffersCollectionController.index = 0
-            hottestOffersCollectionController.sharedData = [details.hottestOffers]
-            hottestOffersCollectionView.dataSource = hottestOffersCollectionController
-            hottestOffersCollectionView.delegate = hottestOffersCollectionController
+        
+        setLoadingState(.loading)
+        switch container.type {
+        case .city:
+            cityResponseController = CityResponseController(viewController: self)
+            cityResponseController.requestHolder = request(RequestHolder(
+                endPointName: .city(id: cityId),
+                didSucceed: cityResponseController.didSucceed,
+                didFail: cityResponseController.didFail
+            ))
+        case .shoppingCenter:
+            shoppingCenterResponseController = ShoppingCenterResponseController(viewController: self)
+            shoppingCenterResponseController.requestHolder = request(RequestHolder(
+                endPointName: .shoppingCenter(id: cityId),
+                didSucceed: shoppingCenterResponseController.didSucceed,
+                didFail: shoppingCenterResponseController.didFail
+            ))
+        default:
+            break
         }
         
         descriptionLabel.numberOfLines = 7
         initialDescriptionHeight = descriptionLabel.firstTextHeight
         descriptionLabel.heightConstraint.constant = initialDescriptionHeight
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        hottestOffersCollectionView.reloadData()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

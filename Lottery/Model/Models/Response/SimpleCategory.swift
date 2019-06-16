@@ -1,4 +1,4 @@
 struct SimpleCategory {
-    var isSelected = false
     let title: String
+    var isSelected = false
 }

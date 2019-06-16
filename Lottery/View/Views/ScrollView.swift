@@ -50,6 +50,7 @@ class ScrollView: UIScrollView {
 
 extension ScrollView {
     private func setup() {
+        delaysContentTouches = false
         alwaysBounceVertical = true
     }
 }

@@ -14,11 +14,17 @@ func request(_ requestHolder: RequestHolder) -> RequestHolder {
     )
     
     if debuggingIsEnabled {
-        if endPoint.method == .get || endPoint.method == .delete {
-            print("Requesting \(dataRequest)...")
+//        if endPoint.method == .get || endPoint.method == .delete {
+//            print("Requesting \(dataRequest)...")
+//        }
+//        else {
+//
+//        }
+        if let endPointParameters = endPoint.parameters {
+            print("Requesting \(dataRequest) \(endPointParameters)...")
         }
         else {
-            print("Requesting \(dataRequest) \(endPoint.parameters!)...")
+            print("Requesting \(dataRequest)...")
         }
     }
     
@@ -37,8 +43,8 @@ func request(_ requestHolder: RequestHolder) -> RequestHolder {
                         print("Responded \(responseResponse.statusCode) \(responseJSON).")
                     }
                     else {
-                        let responseString = String(data: response.data!, encoding: .utf8)!
-                        print("Responded \(responseResponse.statusCode) \(responseString).")
+                        let responseString = String(data: response.data!, encoding: .utf8)
+                        print("Responded \(responseResponse.statusCode) \(responseString ?? "").")
                     }
                 }
                 else {

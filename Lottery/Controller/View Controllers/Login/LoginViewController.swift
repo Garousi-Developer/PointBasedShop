@@ -24,17 +24,17 @@ class LoginViewController: ViewController {
         }
     }
     @IBAction func login() {
-//        loginParameters = LoginParameters(
-//            mobileNumber: mobileNumberTextField.firstCommonMobileNumber,
-//            password: passwordTextField.text!
-//        )
-//        responseController = LoginResponseController(viewController: self)
-//
-//        request(RequestHolder(
-//            endPointName: .login(loginParameters: loginParameters),
-//            didSucceed: responseController.didSucceed,
-//            didFail: responseController.didFail
-//        ))
+        loginParameters = LoginParameters(
+            mobileNumber: mobileNumberTextField.firstCommonMobileNumber,
+            password: passwordTextField.text!
+        )
+        responseController = LoginResponseController(viewController: self)
+        
+        responseController.requestHolder = request(RequestHolder(
+            endPointName: .login(parameters: loginParameters),
+            didSucceed: responseController.didSucceed,
+            didFail: responseController.didFail
+        ))
     }
     @IBAction func loginWithoutRegister() {
         navigateTo(.tabs, presenting: true)

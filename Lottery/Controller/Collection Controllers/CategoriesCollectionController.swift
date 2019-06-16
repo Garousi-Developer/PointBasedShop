@@ -1,7 +1,7 @@
 import UIKit
 
 class CategoriesCollectionController: CollectionController {
-    var categories: [Category] = []
+    var categories: [NewCategory] = []
     
     override func itemHeight() -> CGFloat {
         let spacings: CGFloat = 3 * 12
@@ -13,12 +13,12 @@ class CategoriesCollectionController: CollectionController {
     override func item(forCell cell: CollectionCell, atIndexPath indexPath: IndexPath) {
         super.item(forCell: cell, atIndexPath: indexPath)
         
-        categories = sharedData[index] as! [Category]
+        categories = data as! [NewCategory]
         let castedCell = cell as! CategoryCollectionCell
         let category = categories[indexPath.item]
         
-        castedCell.pictureImageView.image = category.picture
-        castedCell.titleLabel.text = category.title
+        castedCell.pictureImageView.downloadImageFrom(category.pictureURL)
+        castedCell.titleLabel.text = category.persianTitle
     }
     override func itemDidSelect(atIndexPath indexPath: IndexPath) {
         super.itemDidSelect(atIndexPath: indexPath)
@@ -26,7 +26,7 @@ class CategoriesCollectionController: CollectionController {
         viewController.navigateTo(
             .filterResults,
             transferringData: FilterResults(
-                title: categories[indexPath.item].title,
+                title: categories[indexPath.item].persianTitle,
                 results: [
                     Product(
                         isUnlocked: true,
@@ -37,6 +37,7 @@ class CategoriesCollectionController: CollectionController {
                         price: 6500000,
                         discountedPrice: 5200000,
                         brandLogo: #imageLiteral(resourceName: "testProductBrand1"),
+                        brandName: "پینارلو",
                         orderCount: 0,
                         numberOfSoldProducts: 320,
                         numberOfProducts: 375
@@ -50,6 +51,7 @@ class CategoriesCollectionController: CollectionController {
                         price: 620000,
                         discountedPrice: 500000,
                         brandLogo: #imageLiteral(resourceName: "testProductBrand2"),
+                        brandName: "گیونچای",
                         orderCount: 0,
                         numberOfSoldProducts: 249,
                         numberOfProducts: 385
@@ -63,6 +65,7 @@ class CategoriesCollectionController: CollectionController {
                         price: 4000000000,
                         discountedPrice: 3200000000,
                         brandLogo: #imageLiteral(resourceName: "testProductBrand3"),
+                        brandName: "بنز",
                         orderCount: 0,
                         numberOfSoldProducts: 339,
                         numberOfProducts: 1125
@@ -76,6 +79,7 @@ class CategoriesCollectionController: CollectionController {
                         price: 3400000,
                         discountedPrice: 2700000,
                         brandLogo: #imageLiteral(resourceName: "testProductBrand4"),
+                        brandName: "لومیناکس",
                         orderCount: 0,
                         numberOfSoldProducts: 97,
                         numberOfProducts: 175
@@ -89,6 +93,7 @@ class CategoriesCollectionController: CollectionController {
                         price: 18000000,
                         discountedPrice: 14000000,
                         brandLogo: #imageLiteral(resourceName: "testProductBrand5"),
+                        brandName: "سامسونگ",
                         orderCount: 0,
                         numberOfSoldProducts: 102,
                         numberOfProducts: 200

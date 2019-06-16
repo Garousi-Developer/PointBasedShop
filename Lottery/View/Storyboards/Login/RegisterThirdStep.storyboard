@@ -14,174 +14,199 @@
         <scene sceneID="a97-N4-98F">
             <objects>
                 <viewController id="tUB-Aq-udQ" userLabel="View Controller" customClass="RegisterThirdStepViewController" customModule="PointBasedShop" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EDX-JX-gbK">
+                    <view key="view" contentMode="scaleToFill" id="Cmn-k1-VZi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="X5H-Dj-MKb" userLabel="Logo Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="135" y="56" width="144.33333333333337" height="29"/>
-                            </imageView>
-                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8U4-E5-3LW" userLabel="First Name Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="24" y="115" width="366" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="E3v-Ug-CK5" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="given-name"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="firstName"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="firstNameDidChange" destination="tUB-Aq-udQ" eventType="editingChanged" id="InD-TO-3z9"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jo8-QJ-ZyR" userLabel="Last Name Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="24" y="187" width="366" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="M6r-8Q-pBo" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="family-name"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="lastName"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="lastNameDidChange" destination="tUB-Aq-udQ" eventType="editingChanged" id="q4O-Mw-eji"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6IA-mk-clU" userLabel="Email Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="24" y="259" width="366" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Rzl-Y1-G3J" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="join" textContentType="email"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="optionalEmail"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="emailDidChange" destination="tUB-Aq-udQ" eventType="editingChanged" id="H8t-Cn-oSV"/>
-                                    <action selector="emailDidTriggerAction" destination="tUB-Aq-udQ" eventType="primaryActionTriggered" id="zVd-v1-aPB"/>
-                                </connections>
-                            </textField>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="800" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3IF-A6-ZTa" userLabel="Agreement Switch" customClass="Switch" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="353" y="339.66666666666669" width="51" height="31"/>
-                                <connections>
-                                    <action selector="agreementDidToggle" destination="tUB-Aq-udQ" eventType="valueChanged" id="PG8-sd-BYy"/>
-                                </connections>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="700" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLy-SH-ogf" userLabel="Agreement Label" customClass="FirstActiveLabel" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="12" y="331" width="335" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="iHaveReadAndAcceptUserAgreementAndPrivacyPolicy"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxE-ZI-MSb" userLabel="Register Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="147" y="397" width="120" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="A2U-1v-ahq" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                    <constraint firstAttribute="height" constant="35" id="On0-ey-S5L" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="primary"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="register"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="firstInitiallyDisable" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="register" destination="tUB-Aq-udQ" eventType="touchUpInside" id="2z2-Mz-flb"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="onE-le-pQm" userLabel="Progress Stack View" customClass="StackView" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="120" y="480" width="174" height="5"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjE-82-9RB" customClass="ScrollView" customModule="PointBasedShop" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZg-Ia-pW2" userLabel="First Step View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDX-JX-gbK" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="608"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="X5H-Dj-MKb" userLabel="Logo Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="135" y="48" width="144.33333333333337" height="29"/>
+                                            </imageView>
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8U4-E5-3LW" userLabel="First Name Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="24" y="107" width="366" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="E3v-Ug-CK5" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="given-name"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="firstName"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="firstNameDidChange" destination="tUB-Aq-udQ" eventType="editingChanged" id="InD-TO-3z9"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jo8-QJ-ZyR" userLabel="Last Name Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="24" y="179" width="366" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="M6r-8Q-pBo" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="family-name"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="lastName"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="lastNameDidChange" destination="tUB-Aq-udQ" eventType="editingChanged" id="q4O-Mw-eji"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6IA-mk-clU" userLabel="Email Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="24" y="251" width="366" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Rzl-Y1-G3J" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="join" textContentType="email"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="optionalEmail"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="emailDidChange" destination="tUB-Aq-udQ" eventType="editingChanged" id="H8t-Cn-oSV"/>
+                                                    <action selector="emailDidTriggerAction" destination="tUB-Aq-udQ" eventType="primaryActionTriggered" id="zVd-v1-aPB"/>
+                                                </connections>
+                                            </textField>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="800" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3IF-A6-ZTa" userLabel="Agreement Switch" customClass="Switch" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="353" y="331.66666666666669" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="agreementDidToggle" destination="tUB-Aq-udQ" eventType="valueChanged" id="PG8-sd-BYy"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="700" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLy-SH-ogf" userLabel="Agreement Label" customClass="FirstActiveLabel" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="12" y="323" width="335" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="iHaveReadAndAcceptUserAgreementAndPrivacyPolicy"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxE-ZI-MSb" userLabel="Register Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="147" y="389" width="120" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="A2U-1v-ahq" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                    <constraint firstAttribute="height" constant="35" id="On0-ey-S5L" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="primary"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="register"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="firstInitiallyDisable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="register" destination="tUB-Aq-udQ" eventType="touchUpInside" id="2z2-Mz-flb"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="onE-le-pQm" userLabel="Progress Stack View" customClass="StackView" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="120" y="472" width="174" height="5"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZg-Ia-pW2" userLabel="First Step View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="6yP-KV-LXp" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="green"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgd-TM-dbl" userLabel="Second Step View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
+                                                        <rect key="frame" x="62" y="0.0" width="50" height="5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="green"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAZ-q4-O3d" userLabel="Third Step View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
+                                                        <rect key="frame" x="124" y="0.0" width="50" height="5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="green"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="5" id="chk-qR-O1J" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="firstIsRTL" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvE-uo-e8b" userLabel="Cancel Register And Login Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="127" y="525" width="160" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="160" id="9Sl-FG-pks" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                    <constraint firstAttribute="height" constant="35" id="MbT-pZ-L00" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="asset"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="cancelRegisterAndLogin"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="cancelRegisterAndLogin" destination="tUB-Aq-udQ" eventType="touchUpInside" id="1qB-zI-YcF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="6yP-KV-LXp" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="jo8-QJ-ZyR" firstAttribute="top" secondItem="8U4-E5-3LW" secondAttribute="bottom" constant="42" id="1Hw-7l-uLD" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="6IA-mk-clU" firstAttribute="top" secondItem="jo8-QJ-ZyR" secondAttribute="bottom" constant="42" id="4IH-KL-4oJ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstAttribute="trailing" secondItem="jo8-QJ-ZyR" secondAttribute="trailing" constant="24" id="5tc-k8-7wi" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="onE-le-pQm" firstAttribute="centerX" secondItem="EDX-JX-gbK" secondAttribute="centerX" id="8CX-Ej-25z" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstAttribute="trailing" secondItem="3IF-A6-ZTa" secondAttribute="trailing" constant="12" id="CU4-1X-5ZN" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="8U4-E5-3LW" firstAttribute="top" secondItem="X5H-Dj-MKb" secondAttribute="bottom" constant="30" id="D65-wU-9ey" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstAttribute="trailing" secondItem="8U4-E5-3LW" secondAttribute="trailing" constant="24" id="DYD-4x-G3e" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="X5H-Dj-MKb" firstAttribute="top" secondItem="EDX-JX-gbK" secondAttribute="top" constant="48" id="E4m-6q-61y" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="oLy-SH-ogf" firstAttribute="centerY" secondItem="3IF-A6-ZTa" secondAttribute="centerY" id="GEG-rn-YOL" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="8U4-E5-3LW" firstAttribute="leading" secondItem="EDX-JX-gbK" secondAttribute="leading" constant="24" id="JB1-Wr-t3w" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="uvE-uo-e8b" firstAttribute="top" secondItem="onE-le-pQm" secondAttribute="bottom" constant="48" id="MoS-Nu-ol5" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="oLy-SH-ogf" firstAttribute="top" secondItem="6IA-mk-clU" secondAttribute="bottom" constant="42" id="QC1-el-I9w" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstAttribute="trailing" secondItem="6IA-mk-clU" secondAttribute="trailing" constant="24" id="QKY-9X-9aH" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="onE-le-pQm" firstAttribute="top" secondItem="KxE-ZI-MSb" secondAttribute="bottom" constant="48" id="QPF-DR-S2B" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="uvE-uo-e8b" firstAttribute="centerX" secondItem="EDX-JX-gbK" secondAttribute="centerX" id="Td6-SH-Beh" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="jo8-QJ-ZyR" firstAttribute="leading" secondItem="EDX-JX-gbK" secondAttribute="leading" constant="24" id="Ui9-Pf-jDk" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="X5H-Dj-MKb" firstAttribute="centerX" secondItem="EDX-JX-gbK" secondAttribute="centerX" id="g13-RG-tSh" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="KxE-ZI-MSb" firstAttribute="centerX" secondItem="EDX-JX-gbK" secondAttribute="centerX" id="j8z-0u-jYO" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstAttribute="bottom" secondItem="uvE-uo-e8b" secondAttribute="bottom" constant="48" id="lxh-TG-3fm"/>
+                                            <constraint firstItem="KxE-ZI-MSb" firstAttribute="top" secondItem="oLy-SH-ogf" secondAttribute="bottom" constant="18" id="o1q-Da-9K8" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="oLy-SH-ogf" firstAttribute="leading" secondItem="EDX-JX-gbK" secondAttribute="leading" constant="12" id="pon-Pj-7wz" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="6IA-mk-clU" firstAttribute="leading" secondItem="EDX-JX-gbK" secondAttribute="leading" constant="24" id="poq-G4-tdR" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="3IF-A6-ZTa" firstAttribute="leading" secondItem="oLy-SH-ogf" secondAttribute="trailing" constant="6" id="tBD-xh-fnF" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="green"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgd-TM-dbl" userLabel="Second Step View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
-                                        <rect key="frame" x="62" y="0.0" width="50" height="5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="green"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAZ-q4-O3d" userLabel="Third Step View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
-                                        <rect key="frame" x="124" y="0.0" width="50" height="5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="green"/>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="5" id="chk-qR-O1J" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                    <constraint firstAttribute="bottom" secondItem="EDX-JX-gbK" secondAttribute="bottom" id="5MT-IY-SEK"/>
+                                    <constraint firstAttribute="trailing" secondItem="EDX-JX-gbK" secondAttribute="trailing" id="Fz5-3t-Sqp"/>
+                                    <constraint firstItem="EDX-JX-gbK" firstAttribute="width" secondItem="zjE-82-9RB" secondAttribute="width" id="QjS-YN-11E"/>
+                                    <constraint firstItem="EDX-JX-gbK" firstAttribute="top" secondItem="zjE-82-9RB" secondAttribute="top" id="XRB-rG-n1y"/>
+                                    <constraint firstItem="EDX-JX-gbK" firstAttribute="leading" secondItem="zjE-82-9RB" secondAttribute="leading" id="vCt-Pw-Ana"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="firstIsRTL" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvE-uo-e8b" userLabel="Cancel Register And Login Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="127" y="533" width="160" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="9Sl-FG-pks" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                    <constraint firstAttribute="height" constant="35" id="MbT-pZ-L00" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="asset"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="cancelRegisterAndLogin"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="cancelRegisterAndLogin" destination="tUB-Aq-udQ" eventType="touchUpInside" id="1qB-zI-YcF"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jo8-QJ-ZyR" firstAttribute="top" secondItem="8U4-E5-3LW" secondAttribute="bottom" constant="42" id="1Hw-7l-uLD" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="6IA-mk-clU" firstAttribute="top" secondItem="jo8-QJ-ZyR" secondAttribute="bottom" constant="42" id="4IH-KL-4oJ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="6FY-Ma-dMy" firstAttribute="trailing" secondItem="jo8-QJ-ZyR" secondAttribute="trailing" constant="24" id="5tc-k8-7wi" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="onE-le-pQm" firstAttribute="centerX" secondItem="EDX-JX-gbK" secondAttribute="centerX" id="8CX-Ej-25z" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="6FY-Ma-dMy" firstAttribute="trailing" secondItem="3IF-A6-ZTa" secondAttribute="trailing" constant="12" id="CU4-1X-5ZN" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="8U4-E5-3LW" firstAttribute="top" secondItem="X5H-Dj-MKb" secondAttribute="bottom" constant="30" id="D65-wU-9ey" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="6FY-Ma-dMy" firstAttribute="trailing" secondItem="8U4-E5-3LW" secondAttribute="trailing" constant="24" id="DYD-4x-G3e" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="X5H-Dj-MKb" firstAttribute="top" secondItem="6FY-Ma-dMy" secondAttribute="top" constant="12" id="E4m-6q-61y" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="oLy-SH-ogf" firstAttribute="centerY" secondItem="3IF-A6-ZTa" secondAttribute="centerY" id="GEG-rn-YOL" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="8U4-E5-3LW" firstAttribute="leading" secondItem="6FY-Ma-dMy" secondAttribute="leading" constant="24" id="JB1-Wr-t3w" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="uvE-uo-e8b" firstAttribute="top" secondItem="onE-le-pQm" secondAttribute="bottom" constant="48" id="MoS-Nu-ol5" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="oLy-SH-ogf" firstAttribute="top" secondItem="6IA-mk-clU" secondAttribute="bottom" constant="42" id="QC1-el-I9w" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="6FY-Ma-dMy" firstAttribute="trailing" secondItem="6IA-mk-clU" secondAttribute="trailing" constant="24" id="QKY-9X-9aH" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="onE-le-pQm" firstAttribute="top" secondItem="KxE-ZI-MSb" secondAttribute="bottom" constant="48" id="QPF-DR-S2B" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="uvE-uo-e8b" firstAttribute="centerX" secondItem="EDX-JX-gbK" secondAttribute="centerX" id="Td6-SH-Beh" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="jo8-QJ-ZyR" firstAttribute="leading" secondItem="6FY-Ma-dMy" secondAttribute="leading" constant="24" id="Ui9-Pf-jDk" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="X5H-Dj-MKb" firstAttribute="centerX" secondItem="EDX-JX-gbK" secondAttribute="centerX" id="g13-RG-tSh" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="KxE-ZI-MSb" firstAttribute="centerX" secondItem="EDX-JX-gbK" secondAttribute="centerX" id="j8z-0u-jYO" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="KxE-ZI-MSb" firstAttribute="top" secondItem="oLy-SH-ogf" secondAttribute="bottom" constant="18" id="o1q-Da-9K8" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="oLy-SH-ogf" firstAttribute="leading" secondItem="EDX-JX-gbK" secondAttribute="leading" constant="12" id="pon-Pj-7wz" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="6IA-mk-clU" firstAttribute="leading" secondItem="6FY-Ma-dMy" secondAttribute="leading" constant="24" id="poq-G4-tdR" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="3IF-A6-ZTa" firstAttribute="leading" secondItem="oLy-SH-ogf" secondAttribute="trailing" constant="6" id="tBD-xh-fnF" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="zjE-82-9RB" firstAttribute="leading" secondItem="WXn-49-URN" secondAttribute="leading" id="19g-uU-yVB"/>
+                            <constraint firstItem="WXn-49-URN" firstAttribute="bottom" secondItem="zjE-82-9RB" secondAttribute="bottom" id="5GB-CD-2sq"/>
+                            <constraint firstItem="zjE-82-9RB" firstAttribute="top" secondItem="WXn-49-URN" secondAttribute="top" id="Cmu-cs-RnK"/>
+                            <constraint firstItem="WXn-49-URN" firstAttribute="trailing" secondItem="zjE-82-9RB" secondAttribute="trailing" id="jwF-HP-MVH"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6FY-Ma-dMy"/>
+                        <viewLayoutGuide key="safeArea" id="WXn-49-URN"/>
                     </view>
                     <navigationItem key="navigationItem" id="bsq-LV-TV0" customClass="NavigationItem" customModule="PointBasedShop" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>

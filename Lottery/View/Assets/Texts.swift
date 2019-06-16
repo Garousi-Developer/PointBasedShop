@@ -131,6 +131,12 @@ func texts(_ text: Text) -> String {
     case .locked:
         return "قفل"
     
+    // Product:
+    case .description:
+        return "توضیحات"
+    case .productDetails:
+        return "جزئیات محصول"
+    
     // Container:
     case .viewMore:
         return "مشاهده بیشتر"
@@ -176,7 +182,7 @@ func texts(_ text: Text) -> String {
     case .takeYourTodaysInvoicesToXShoppingCenterCounter:
         return """
         فاکتورهای امروز خود را به پیشخوان مرکز خرید \(texts(.shoppingCenterName)) ببرید
-        و \(texts(.percentageAmount)) درصد کل مبلغ خرید خود را به عنوان امتیاز کسب کنید
+        و با توجه به کل مبلغ خرید خود امتیاز کسب کنید
         """
     case .claimPoints:
         return "کسب امتیاز"
@@ -283,6 +289,10 @@ enum Text: String {
     case filter
     case unlocked
     case locked
+    
+    // Product:
+    case description
+    case productDetails
     
     // Container:
     case viewMore

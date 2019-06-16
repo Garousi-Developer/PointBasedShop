@@ -217,9 +217,9 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="primary"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstBorderStyle" value="thick"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="primary"/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="more"/>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
@@ -325,20 +325,19 @@
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstTextColor" value="green"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testProductBrand1" translatesAutoresizingMaskIntoConstraints="NO" id="CvM-tV-CDm" userLabel="Brand Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testProductBrand1" translatesAutoresizingMaskIntoConstraints="NO" id="CvM-tV-CDm" userLabel="Brand Logo Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
                                                                     <rect key="frame" x="12" y="261" width="342" height="40"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="40" id="R5N-jN-YWH" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbF-v9-hIL" userLabel="Postable Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نام برند" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbF-v9-hIL" userLabel="Brand Name Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
                                                                     <rect key="frame" x="12" y="307" width="342" height="20"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstTextAlignment" value="center"/>
-                                                                        <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="countryWidePostable"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Wf-Q7-CtP" userLabel="Add To Cart Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
@@ -377,7 +376,7 @@
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="35" id="Lc4-wI-9N0" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                             </constraints>
-                                                                            <state key="normal" title="۰"/>
+                                                                            <state key="normal" title="۱"/>
                                                                             <userDefinedRuntimeAttributes>
                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="asset"/>
@@ -491,7 +490,8 @@
                                                         </constraints>
                                                         <connections>
                                                             <outlet property="addToCartButton" destination="6Wf-Q7-CtP" id="W2n-km-6Hl"/>
-                                                            <outlet property="brandImageView" destination="CvM-tV-CDm" id="sb7-ms-l6d"/>
+                                                            <outlet property="brandLogoImageView" destination="CvM-tV-CDm" id="sb7-ms-l6d"/>
+                                                            <outlet property="brandNameLabel" destination="IbF-v9-hIL" id="CQN-EM-OBJ"/>
                                                             <outlet property="decrementButton" destination="KW8-ZR-hwd" id="hXx-qW-NTd"/>
                                                             <outlet property="discountedPriceLabel" destination="1R7-tp-0TS" id="B5h-pN-hva"/>
                                                             <outlet property="favoriteButton" destination="oaq-TC-0GF" id="YF4-gV-8mC"/>
@@ -503,7 +503,6 @@
                                                             <outlet property="orderCountButton" destination="ef1-av-322" id="FTV-VO-8ea"/>
                                                             <outlet property="orderCountStackView" destination="0et-XV-6Ug" id="aNp-FH-Gsl"/>
                                                             <outlet property="pictureImageView" destination="UUp-ye-DYg" id="mri-oq-ja2"/>
-                                                            <outlet property="postableLabel" destination="IbF-v9-hIL" id="CQN-EM-OBJ"/>
                                                             <outlet property="priceLabel" destination="fqs-8E-iG0" id="swq-ru-Gqp"/>
                                                             <outlet property="progressView" destination="rXY-yz-fyH" id="QAG-37-wBU"/>
                                                             <outlet property="requiredPointsLabel" destination="AQS-OJ-ETT" id="JWO-04-rCk"/>

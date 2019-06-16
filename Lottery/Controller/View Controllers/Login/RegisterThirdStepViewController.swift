@@ -5,10 +5,14 @@ class RegisterThirdStepViewController: ViewController {
     @IBOutlet weak var firstNameTextField: FirstTextField!
     @IBOutlet weak var lastNameTextField: FirstTextField!
     @IBOutlet weak var emailTextField: FirstTextField!
-    @IBOutlet weak var agreementSwitch: UISwitch!
+    @IBOutlet weak var agreementSwitch: Switch!
     @IBOutlet weak var agreementLabel: Label!
     @IBOutlet weak var registerButton: Button!
     @IBOutlet weak var cancelRegisterAndLoginButton: Button!
+    
+    var registerFirstStepParameters: RegisterFirstStepParameters!
+    var registerThirdStepParameters: RegisterThirdStepParameters!
+    var responseController: RegisterThirdStepResponseController!
     
     @IBAction func firstNameDidChange() {
         handleRegisterAbility()
@@ -28,7 +32,20 @@ class RegisterThirdStepViewController: ViewController {
         handleRegisterAbility()
     }
     @IBAction func register() {
+        registerThirdStepParameters = RegisterThirdStepParameters(
+            mobileNumber: registerFirstStepParameters.mobileNumber,
+            password: registerFirstStepParameters.password,
+            firstName: firstNameTextField.text!,
+            lastName: lastNameTextField.text!,
+            email: emailTextField.text!
+        )
+        responseController = RegisterThirdStepResponseController(viewController: self)
         
+        responseController.requestHolder = request(RequestHolder(
+            endPointName: .registerThirdStep(parameters: registerThirdStepParameters),
+            didSucceed: responseController.didSucceed,
+            didFail: responseController.didFail
+        ))
     }
     @IBAction func cancelRegisterAndLogin() {
         delay(durations(.interaction)) {

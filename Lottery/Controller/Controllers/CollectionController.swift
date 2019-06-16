@@ -1,14 +1,25 @@
 import UIKit
 
 class CollectionController: SecondaryController {
-    var index: Int!
     var collectionView: CollectionView!
     var data: [Any] = [] {
         didSet {
-            collectionView.reloadData()
+            if data.count < oldValue.count {
+                let deletedItemIndex = oldValue.indexOfDifferenceFrom(data)!
+                
+                collectionView.deleteItems(at: [IndexPath(
+                    item: deletedItemIndex,
+                    section: 0
+                )])
+            }
+            else if data.count == oldValue.count {
+                collectionView.reloadData()
+            }
+            else {
+                collectionView.reloadData()
+            }
         }
     }
-    var sharedData: [[Any]]!
     
     func itemHeight() -> CGFloat {
         return 0
@@ -28,19 +39,21 @@ class CollectionController: SecondaryController {
         
         let collectionViewLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let verticalSectionInsets = collectionViewLayout.sectionInset.top + collectionViewLayout.sectionInset.bottom
-//        let verticalConstraintConstants = (collectionView.topConstraint?.constant ?? 0) + (collectionView.bottomConstraint?.constant ?? 0)
         
-        collectionView.heightConstraint?.constant = itemHeight() + verticalSectionInsets + 1
+        switch collectionViewLayout.scrollDirection {
+        case .horizontal:
+            collectionView.heightConstraint?.constant = itemHeight() + verticalSectionInsets + 1
+        case .vertical:
+            collectionView.heightConstraint?.constant = itemHeight() + verticalSectionInsets + 1
+        @unknown default:
+            break
+        }
         
         self.collectionView = collectionView
     }
 }
 extension CollectionController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if sharedData != nil {
-            return sharedData[index].count
-        }
-        
         return data.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -75,21 +88,11 @@ extension CollectionController: UICollectionViewDelegateFlowLayout {
         let width = collectionView.bounds.width
         let horizontalInsets = layout.sectionInset.left + layout.sectionInset.right
         let interitemSpacings: CGFloat
-        if sharedData != nil {
-            if sharedData[index].count == 1 {
-                interitemSpacings = 0
-            }
-            else {
-                interitemSpacings = cellsPerRow * interitemSpacing
-            }
+        if data.count == 1 {
+            interitemSpacings = 0
         }
         else {
-            if data.count == 1 {
-                interitemSpacings = 0
-            }
-            else {
-                interitemSpacings = cellsPerRow * interitemSpacing
-            }
+            interitemSpacings = cellsPerRow * interitemSpacing
         }
         
         let itemWidth = CGFloat(Int(

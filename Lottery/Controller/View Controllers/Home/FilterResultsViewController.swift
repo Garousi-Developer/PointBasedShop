@@ -25,10 +25,14 @@ class FilterResultsViewController: ViewController {
             viewController: self,
             collectionView: collectionView
         )
-        collectionController.index = 0
-        collectionController.sharedData = [filterResults.results]
+        collectionController.data = filterResults.results
         collectionView.dataSource = collectionController
         collectionView.delegate = collectionController
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView.reloadData()
     }
 }
 

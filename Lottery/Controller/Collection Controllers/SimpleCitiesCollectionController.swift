@@ -9,12 +9,12 @@ class SimpleCitiesCollectionController: CollectionController {
     override func item(forCell cell: CollectionCell, atIndexPath indexPath: IndexPath) {
         super.item(forCell: cell, atIndexPath: indexPath)
         
-        cities = sharedData[index] as! [SimpleCity]
+        cities = data as! [SimpleCity]
         let castedCell = cell as! SimpleCityCollectionCell
         let city = cities[indexPath.item]
         
-        castedCell.selectedSwitch.setOn(city.isSelected, animated: false)
         castedCell.nameLabel.text = city.name
+        castedCell.selectedSwitch.setOn(city.isSelected, animated: false)
     }
     override func itemDidSelect(atIndexPath indexPath: IndexPath) {
         super.itemDidSelect(atIndexPath: indexPath)

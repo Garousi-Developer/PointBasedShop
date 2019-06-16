@@ -58,62 +58,62 @@ class FilterViewController: ViewController {
         filter = Filter(
             categories: [
                 SimpleCategory(
-                    isSelected: false,
-                    title: "دیجیتال"
+                    title: "دیجیتال",
+                    isSelected: false
                 ),
                 SimpleCategory(
-                    isSelected: false,
-                    title: "آرایشی"
+                    title: "آرایشی",
+                    isSelected: false
                 ),
                 SimpleCategory(
-                    isSelected: false,
-                    title: "خودرو"
+                    title: "خودرو",
+                    isSelected: false
                 ),
                 SimpleCategory(
-                    isSelected: false,
-                    title: "پوشاک"
+                    title: "پوشاک",
+                    isSelected: false
                 ),
                 SimpleCategory(
-                    isSelected: false,
-                    title: "لوازم خانگی"
+                    title: "لوازم خانگی",
+                    isSelected: false
                 ),
                 SimpleCategory(
-                    isSelected: false,
-                    title: "اسباب بازی"
+                    title: "اسباب بازی",
+                    isSelected: false
                 ),
                 SimpleCategory(
-                    isSelected: false,
-                    title: "ورزشی"
+                    title: "ورزشی",
+                    isSelected: false
                 )
             ],
             cities: [
                 SimpleCity(
-                    isSelected: false,
-                    name: "تهران"
+                    name: "تهران",
+                    isSelected: false
                 ),
                 SimpleCity(
-                    isSelected: false,
-                    name: "اهواز"
+                    name: "اهواز",
+                    isSelected: false
                 ),
                 SimpleCity(
-                    isSelected: false,
-                    name: "اصفهان"
+                    name: "اصفهان",
+                    isSelected: false
                 ),
                 SimpleCity(
-                    isSelected: false,
-                    name: "مشهد"
+                    name: "مشهد",
+                    isSelected: false
                 ),
                 SimpleCity(
-                    isSelected: false,
-                    name: "شیراز"
+                    name: "شیراز",
+                    isSelected: false
                 ),
                 SimpleCity(
-                    isSelected: false,
-                    name: "ساری"
+                    name: "ساری",
+                    isSelected: false
                 ),
                 SimpleCity(
-                    isSelected: false,
-                    name: "تبریز"
+                    name: "تبریز",
+                    isSelected: false
                 )
             ]
         )
@@ -122,8 +122,7 @@ class FilterViewController: ViewController {
             viewController: self,
             collectionView: categoriesCollectionView
         )
-        categoriesCollectionController.index = 0
-        categoriesCollectionController.sharedData = [filter.categories]
+        categoriesCollectionController.data = filter.categories
         categoriesCollectionView.dataSource = categoriesCollectionController
         categoriesCollectionView.delegate = categoriesCollectionController
         
@@ -131,8 +130,7 @@ class FilterViewController: ViewController {
             viewController: self,
             collectionView: citiesCollectionView
         )
-        citiesCollectionController.index = 0
-        citiesCollectionController.sharedData = [filter.cities]
+        citiesCollectionController.data = filter.cities
         citiesCollectionView.dataSource = citiesCollectionController
         citiesCollectionView.delegate = citiesCollectionController
     }

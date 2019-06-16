@@ -1,7 +1,9 @@
 import UIKit
 
 class ContainersCollectionController: CollectionController {
-    var containers: [Container] = []
+    var cities: [NewCity] = []
+    var shoppingCenters: [NewShoppingCenter] = []
+    var brands: [NewBrand] = []
     
     override func itemHeight() -> CGFloat {
         let spacings: CGFloat = 6
@@ -13,35 +15,83 @@ class ContainersCollectionController: CollectionController {
     override func item(forCell cell: CollectionCell, atIndexPath indexPath: IndexPath) {
         super.item(forCell: cell, atIndexPath: indexPath)
         
-        containers = sharedData[index] as! [Container]
-        
         let castedCell = cell as! ContainerCollectionCell
-        let container = containers[indexPath.item]
         
-        if index == 0 {
+        switch data[0] {
+        case is NewCity:
+            cities = data as! [NewCity]
+            let city = cities[indexPath.item]
+            
+            castedCell.pictureImageView.downloadImageFrom(city.pictureURL)
+            castedCell.titleLabel.text = city.persianTitle
+        case is NewShoppingCenter:
+            shoppingCenters = data as! [NewShoppingCenter]
+            let shoppingCenter = shoppingCenters[indexPath.item]
+            
+            castedCell.pictureImageView.downloadImageFrom(shoppingCenter.logoURL)
+            castedCell.titleLabel.text = shoppingCenter.persianTitle
+        case is NewBrand:
+            brands = data as! [NewBrand]
+            let brand = brands[indexPath.item]
+            
+            castedCell.pictureImageView.downloadImageFrom(brand.logoURL)
+            castedCell.titleLabel.text = brand.persianTitle
+        default:
+            return
+        }
+        
+        if data[0] is NewCity {
             castedCell.pictureImageView.setBorderStyle(.none)
             castedCell.pictureImageView.contentMode = .scaleAspectFill
-            castedCell.pictureImageView.image = container.picture
         }
         else {
             castedCell.pictureImageView.setBorderStyle(.thick)
             castedCell.pictureImageView.contentMode = .scaleAspectFit
-            castedCell.pictureImageView.image = container.logoPicture.withInsets(UIEdgeInsets(
-                top: 16,
-                left: 16,
-                bottom: 16,
-                right: 16
-            ))
+//            castedCell.pictureImageView.image = castedCell.pictureImageView.image?.withInsets(UIEdgeInsets(
+//                top: 16,
+//                left: 16,
+//                bottom: 16,
+//                right: 16
+//            ))
         }
-        
-        castedCell.titleLabel.text = container.name
     }
     override func itemDidSelect(atIndexPath indexPath: IndexPath) {
         super.itemDidSelect(atIndexPath: indexPath)
         
+        let container: Container
+        let containerId: Int
+        switch data[0] {
+        case is NewCity:
+            let city = cities[indexPath.item]
+            
+            container = Container(
+                type: .city,
+                name: city.persianTitle
+            )
+            containerId = city.id
+        case is NewShoppingCenter:
+            let shoppingCenter = shoppingCenters[indexPath.item]
+            
+            container = Container(
+                type: .shoppingCenter,
+                name: shoppingCenter.persianTitle
+            )
+            containerId = shoppingCenter.id
+        case is NewBrand:
+            let brand = brands[indexPath.item]
+            
+            container = Container(
+                type: .brand,
+                name: brand.persianTitle
+            )
+            containerId = brand.id
+        default:
+            return
+        }
+        
         viewController.navigateTo(
             .container,
-            transferringData: containers[indexPath.item]
+            transferringData: (container, containerId)
         )
     }
 }

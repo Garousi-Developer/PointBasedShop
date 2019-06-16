@@ -1,14 +1,14 @@
 import UIKit
 
 class SliderPagerController: PagerController {
-    var ads: [Ad] = []
+    var ads: [NewAd] = []
     
     override func item(forCell cell: PagerCell, atIndex index: Int) {
         super.item(forCell: cell, atIndex: index)
         
-        ads = sharedData[self.index] as! [Ad]
+        ads = data as! [NewAd]
         let ad = ads[index]
         
-        cell.imageView!.image = ad.picture
+        cell.imageView!.downloadImageFrom(ad.pictureURL)
     }
 }

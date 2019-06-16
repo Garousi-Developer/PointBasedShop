@@ -11,7 +11,7 @@ extension CALayer {
         case .none:
             self.cornerRadius = 0
         case .medium:
-            self.cornerRadius = 16
+            self.cornerRadius = 8
         case .large:
             self.cornerRadius = 24
         case .half:

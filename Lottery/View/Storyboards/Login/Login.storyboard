@@ -30,147 +30,172 @@
         <scene sceneID="Ktd-Ow-21w">
             <objects>
                 <viewController id="Nou-Av-vf7" userLabel="View Controller" customClass="LoginViewController" customModule="PointBasedShop" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8wT-td-VtL">
+                    <view key="view" contentMode="scaleToFill" id="T82-5g-Gjl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="hib-hB-154" userLabel="Logo Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="135" y="100" width="144" height="29"/>
-                            </imageView>
-                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ffa-kg-voJ" userLabel="Mobile Number Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="24" y="159" width="366" height="30"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fge-fE-hls" customClass="ScrollView" customModule="PointBasedShop" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8wT-td-VtL" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="506"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="hib-hB-154" userLabel="Logo Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="135" y="48" width="144" height="29"/>
+                                            </imageView>
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ffa-kg-voJ" userLabel="Mobile Number Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="24" y="107" width="366" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="0R5-RN-KHv" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="tel"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="mobileNumber"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="mobileNumberDidChange" destination="Nou-Av-vf7" eventType="editingChanged" id="HgK-uL-tXC"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WUn-eP-hEC" userLabel="Password Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="24" y="179" width="366" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="phO-k8-j9Q" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="join" textContentType="password"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="password"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="firstSecureEntryIcon" value="showPassword"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="firstInsecureEntryIcon" value="hidePassword"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="passwordDidChange" destination="Nou-Av-vf7" eventType="editingChanged" id="iMo-Jh-uQA"/>
+                                                    <action selector="passwordDidTriggerAction" destination="Nou-Av-vf7" eventType="primaryActionTriggered" id="j6O-CN-pGJ"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ry3-y0-Pys" userLabel="Login Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="147" y="251" width="120" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="3sb-F2-Dut" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                    <constraint firstAttribute="height" constant="35" id="azI-ji-HCF" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="primary"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="login"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="firstInitiallyDisable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="login" destination="Nou-Av-vf7" eventType="touchUpInside" id="JxV-6W-hCc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOy-N4-s4Q" userLabel="Login Without Register Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="147" y="334" width="120" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="cra-r8-ayT" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                    <constraint firstAttribute="width" constant="120" id="yak-Qb-j9f" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="asset"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="loginWithoutRegister"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="loginWithoutRegister" destination="Nou-Av-vf7" eventType="touchUpInside" id="jts-jV-nj8"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mm0-g7-qex" userLabel="Separator View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="147" y="375" width="120" height="1"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="TfU-rb-l5q" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                    <constraint firstAttribute="height" constant="1" id="wyB-66-chi" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="placeholder"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qft-fI-L73" userLabel="Retrieve Password Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="147" y="382" width="120" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="bht-MF-OHq" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                    <constraint firstAttribute="width" constant="120" id="sp3-EU-Yo6" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="primary"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="retrievePassword"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="retrievePassword" destination="Nou-Av-vf7" eventType="touchUpInside" id="byY-5O-z2f"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JB0-mF-wha" userLabel="Register Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="147" y="423" width="120" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="JNA-JY-xyK" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                    <constraint firstAttribute="height" constant="35" id="eQd-ky-lop" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="asset"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="register"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="register" destination="Nou-Av-vf7" eventType="touchUpInside" id="Bd5-oI-adq"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="WUn-eP-hEC" firstAttribute="leading" secondItem="8wT-td-VtL" secondAttribute="leading" constant="24" id="0BR-hh-7Ns" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="hib-hB-154" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="48I-no-tJB" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="YOy-N4-s4Q" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="4b7-E5-2GV" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="WUn-eP-hEC" firstAttribute="top" secondItem="ffa-kg-voJ" secondAttribute="bottom" constant="42" id="AVQ-bX-tt7" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="Mm0-g7-qex" firstAttribute="top" secondItem="YOy-N4-s4Q" secondAttribute="bottom" constant="6" id="Fch-e1-Xgc" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="ry3-y0-Pys" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="FoI-jm-G2Z" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstAttribute="trailing" secondItem="WUn-eP-hEC" secondAttribute="trailing" constant="24" id="GgU-yo-PxE" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstAttribute="trailing" secondItem="ffa-kg-voJ" secondAttribute="trailing" constant="24" id="Gnu-QO-rdy" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="Qft-fI-L73" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="JCg-Mp-xBY" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="hib-hB-154" firstAttribute="top" secondItem="8wT-td-VtL" secondAttribute="top" constant="48" id="Jjy-Zf-i76" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="Qft-fI-L73" firstAttribute="top" secondItem="Mm0-g7-qex" secondAttribute="bottom" constant="6" id="QhT-a0-Qdt" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstAttribute="bottom" secondItem="JB0-mF-wha" secondAttribute="bottom" constant="48" id="WqC-XZ-XQJ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="ry3-y0-Pys" firstAttribute="top" secondItem="WUn-eP-hEC" secondAttribute="bottom" constant="42" id="bWB-FU-kVZ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="ffa-kg-voJ" firstAttribute="top" secondItem="hib-hB-154" secondAttribute="bottom" constant="30" id="dPz-jo-4S7" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="JB0-mF-wha" firstAttribute="top" secondItem="Qft-fI-L73" secondAttribute="bottom" constant="6" id="mEU-z3-6w7" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="ffa-kg-voJ" firstAttribute="leading" secondItem="8wT-td-VtL" secondAttribute="leading" constant="24" id="oAW-1S-mHL" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="Mm0-g7-qex" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="qL7-N3-Ofu" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="YOy-N4-s4Q" firstAttribute="top" secondItem="ry3-y0-Pys" secondAttribute="bottom" constant="48" id="v0W-2P-ANq" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="JB0-mF-wha" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="z2h-su-eFF" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="0R5-RN-KHv" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                    <constraint firstItem="8wT-td-VtL" firstAttribute="top" secondItem="fge-fE-hls" secondAttribute="top" id="KLd-Ib-Kj4" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                    <constraint firstAttribute="trailing" secondItem="8wT-td-VtL" secondAttribute="trailing" id="dwR-0K-GNa" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                    <constraint firstAttribute="bottom" secondItem="8wT-td-VtL" secondAttribute="bottom" id="fEE-u4-I8w" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                    <constraint firstItem="8wT-td-VtL" firstAttribute="leading" secondItem="fge-fE-hls" secondAttribute="leading" id="fSU-h1-gIA" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                    <constraint firstItem="8wT-td-VtL" firstAttribute="width" secondItem="fge-fE-hls" secondAttribute="width" id="xby-jv-0LO" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="tel"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="mobileNumber"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="mobileNumberDidChange" destination="Nou-Av-vf7" eventType="editingChanged" id="HgK-uL-tXC"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WUn-eP-hEC" userLabel="Password Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="24" y="231" width="366" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="phO-k8-j9Q" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="join" textContentType="password"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstPlaceholder" value="password"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="firstSecureEntryIcon" value="showPassword"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="firstInsecureEntryIcon" value="hidePassword"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="passwordDidChange" destination="Nou-Av-vf7" eventType="editingChanged" id="iMo-Jh-uQA"/>
-                                    <action selector="passwordDidTriggerAction" destination="Nou-Av-vf7" eventType="primaryActionTriggered" id="j6O-CN-pGJ"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ry3-y0-Pys" userLabel="Login Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="147" y="303" width="120" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="3sb-F2-Dut" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                    <constraint firstAttribute="height" constant="35" id="azI-ji-HCF" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="primary"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="login"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="firstInitiallyDisable" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="login" destination="Nou-Av-vf7" eventType="touchUpInside" id="JxV-6W-hCc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOy-N4-s4Q" userLabel="Login Without Register Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="147" y="380" width="120" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="cra-r8-ayT" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                    <constraint firstAttribute="width" constant="120" id="yak-Qb-j9f" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="asset"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="loginWithoutRegister"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="loginWithoutRegister" destination="Nou-Av-vf7" eventType="touchUpInside" id="jts-jV-nj8"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mm0-g7-qex" userLabel="Separator View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="147" y="421" width="120" height="1"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="TfU-rb-l5q" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                    <constraint firstAttribute="height" constant="1" id="wyB-66-chi" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="placeholder"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qft-fI-L73" userLabel="Retrieve Password Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="147" y="428" width="120" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="bht-MF-OHq" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                    <constraint firstAttribute="width" constant="120" id="sp3-EU-Yo6" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="primary"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="retrievePassword"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="retrievePassword" destination="Nou-Av-vf7" eventType="touchUpInside" id="byY-5O-z2f"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JB0-mF-wha" userLabel="Register Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="147" y="469" width="120" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="JNA-JY-xyK" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                    <constraint firstAttribute="height" constant="35" id="eQd-ky-lop" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="asset"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="register"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="register" destination="Nou-Av-vf7" eventType="touchUpInside" id="Bd5-oI-adq"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="WUn-eP-hEC" firstAttribute="leading" secondItem="iic-li-PtW" secondAttribute="leading" constant="24" id="0BR-hh-7Ns" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="hib-hB-154" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="48I-no-tJB" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="YOy-N4-s4Q" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="4b7-E5-2GV" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="WUn-eP-hEC" firstAttribute="top" secondItem="ffa-kg-voJ" secondAttribute="bottom" constant="42" id="AVQ-bX-tt7" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="Mm0-g7-qex" firstAttribute="top" secondItem="YOy-N4-s4Q" secondAttribute="bottom" constant="6" id="Fch-e1-Xgc" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="ry3-y0-Pys" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="FoI-jm-G2Z" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="iic-li-PtW" firstAttribute="trailing" secondItem="WUn-eP-hEC" secondAttribute="trailing" constant="24" id="GgU-yo-PxE" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="iic-li-PtW" firstAttribute="trailing" secondItem="ffa-kg-voJ" secondAttribute="trailing" constant="24" id="Gnu-QO-rdy" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="Qft-fI-L73" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="JCg-Mp-xBY" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="hib-hB-154" firstAttribute="top" secondItem="iic-li-PtW" secondAttribute="top" constant="12" id="Jjy-Zf-i76" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="Qft-fI-L73" firstAttribute="top" secondItem="Mm0-g7-qex" secondAttribute="bottom" constant="6" id="QhT-a0-Qdt" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="ry3-y0-Pys" firstAttribute="top" secondItem="WUn-eP-hEC" secondAttribute="bottom" constant="42" id="bWB-FU-kVZ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="ffa-kg-voJ" firstAttribute="top" secondItem="hib-hB-154" secondAttribute="bottom" constant="30" id="dPz-jo-4S7" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="JB0-mF-wha" firstAttribute="top" secondItem="Qft-fI-L73" secondAttribute="bottom" constant="6" id="mEU-z3-6w7" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="ffa-kg-voJ" firstAttribute="leading" secondItem="iic-li-PtW" secondAttribute="leading" constant="24" id="oAW-1S-mHL" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="Mm0-g7-qex" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="qL7-N3-Ofu" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="YOy-N4-s4Q" firstAttribute="top" secondItem="ry3-y0-Pys" secondAttribute="bottom" constant="42" id="v0W-2P-ANq" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="JB0-mF-wha" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="z2h-su-eFF" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="fge-fE-hls" firstAttribute="leading" secondItem="cHt-4Z-Ka2" secondAttribute="leading" id="5Vi-q0-PNa" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="fge-fE-hls" firstAttribute="top" secondItem="cHt-4Z-Ka2" secondAttribute="top" id="EcU-h8-pXa" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="cHt-4Z-Ka2" firstAttribute="trailing" secondItem="fge-fE-hls" secondAttribute="trailing" id="oJa-qQ-smd" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="cHt-4Z-Ka2" firstAttribute="bottom" secondItem="fge-fE-hls" secondAttribute="bottom" id="peT-JC-GbK" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="iic-li-PtW"/>
+                        <viewLayoutGuide key="safeArea" id="cHt-4Z-Ka2"/>
                     </view>
                     <navigationItem key="navigationItem" id="uwR-Hn-it7" customClass="NavigationItem" customModule="PointBasedShop" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>

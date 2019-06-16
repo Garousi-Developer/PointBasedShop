@@ -9,12 +9,12 @@ class SimpleCategoriesCollectionController: CollectionController {
     override func item(forCell cell: CollectionCell, atIndexPath indexPath: IndexPath) {
         super.item(forCell: cell, atIndexPath: indexPath)
         
-        categories = sharedData[index] as! [SimpleCategory]
+        categories = data as! [SimpleCategory]
         let castedCell = cell as! SimpleCategoryCollectionCell
         let category = categories[indexPath.item]
         
-        castedCell.selectedSwitch.setOn(category.isSelected, animated: false)
         castedCell.titleLabel.text = category.title
+        castedCell.selectedSwitch.setOn(category.isSelected, animated: false)
     }
     override func itemDidSelect(atIndexPath indexPath: IndexPath) {
         super.itemDidSelect(atIndexPath: indexPath)

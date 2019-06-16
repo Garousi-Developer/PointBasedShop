@@ -1,4 +1,4 @@
 struct SimpleCity {
-    var isSelected = false
     let name: String
+    var isSelected = false
 }

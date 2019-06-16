@@ -1,8 +1,8 @@
 import UIKit
 
 class HomeTableController: TableController {
-    var home: [Any] = []
-    var dynamicHome: DynamicHome!
+    var homeArray: [Home] = []
+    var home: Home!
     
     var sliderPagerController: SliderPagerController!
     var categoriesCollectionController: CategoriesCollectionController!
@@ -10,10 +10,12 @@ class HomeTableController: TableController {
     var containersCollectionController: ContainersCollectionController!
     
     override func numberOfRows() -> Int {
-        home = data
-        dynamicHome = home [1] as? DynamicHome
+        homeArray = data as! [Home]
+        if !homeArray.isEmpty {
+            home = homeArray[0]
+        }
         
-        return 1 + dynamicHome.sections.count + 1
+        return homeArray.isEmpty ? 0 : 5
     }
     override func cell(forTableView tableView: TableView, atIndexPath indexPath: IndexPath) -> TableCell {
         if indexPath.row == 0 {
@@ -21,15 +23,11 @@ class HomeTableController: TableController {
             topStaticCell.tableController = self
             let sliderPagerView = topStaticCell.sliderPagerView!
             let categoriesCollectionView = topStaticCell.categoriesCollectionView!
-            let closestOffersCollectionView = topStaticCell.closestOffersCollectionView!
             
-            let topStaticHome = home[0] as! TopStaticHome
-            
-            setupYourPointsLabel(topStaticCell: topStaticCell, topStaticHome: topStaticHome)
+            setupYourPointsLabel(topStaticCell: topStaticCell, home: home)
             
             sliderPagerController = SliderPagerController(viewController: viewController, pagerView: sliderPagerView)
-            sliderPagerController.index = 0
-            sliderPagerController.sharedData = [topStaticHome.sliderAds]
+            sliderPagerController.data = home.sliderAds
             sliderPagerView.register(PagerCell.self, forCellWithReuseIdentifier: "reusable")
             sliderPagerView.dataSource = sliderPagerController
             sliderPagerView.delegate = sliderPagerController
@@ -38,39 +36,26 @@ class HomeTableController: TableController {
                 viewController: viewController,
                 collectionView: categoriesCollectionView
             )
-            categoriesCollectionController.index = 0
-            categoriesCollectionController.sharedData = [topStaticHome.categories]
+            categoriesCollectionController.data = home.categories
             categoriesCollectionView.dataSource = categoriesCollectionController
             categoriesCollectionView.delegate = categoriesCollectionController
             
-            closestOffersCollectionController = ProductsCollectionController(
-                viewController: viewController,
-                collectionView: closestOffersCollectionView
-            )
-            closestOffersCollectionController.index = 0
-            closestOffersCollectionController.sharedData = [topStaticHome.closestProducts]
-            closestOffersCollectionView.dataSource = closestOffersCollectionController
-            closestOffersCollectionView.delegate = closestOffersCollectionController
-            
-            topStaticCell.adImageView.image = topStaticHome.ad.picture
+            topStaticCell.adImageView.downloadImageFrom(home.ads.first.pictureURL)
             
             return topStaticCell
         }
-        else if indexPath.row < 1 + dynamicHome.sections.count {
+        else if indexPath.row < 4 {
             let dynamicCell = tableView.dequeueReusableCell(withIdentifier: "dynamic", for: indexPath) as! DynamicTableCell
             dynamicCell.tableController = self
             let containersCollectionView = dynamicCell.containersCollectionView!
             
-            let dynamicHomeSection = dynamicHome.sections[indexPath.row - 1]
-            let containersList = dynamicHome.sections.map { (category: DynamicHomeSection) -> [Container] in
-                return category.containers
-            }
+            let sectionTitles = [texts(.cities), texts(.topShoppingCenters), texts(.topBrands)]
+            let sectionContainers: [[Any]] = [home.cities, home.topShoppingCenters, home.topBrands]
             
-            dynamicCell.titleLabel.text = dynamicHomeSection.title
+            dynamicCell.titleLabel.text = sectionTitles[indexPath.row - 1]
             
             containersCollectionController = ContainersCollectionController(viewController: viewController, collectionView: containersCollectionView)
-            containersCollectionController.index = indexPath.row - 1
-            containersCollectionController.sharedData = containersList
+            containersCollectionController.data = sectionContainers[indexPath.row - 1]
             containersCollectionView.dataSource = containersCollectionController
             containersCollectionView.delegate = containersCollectionController
             
@@ -80,9 +65,7 @@ class HomeTableController: TableController {
             let bottomStaticCell = tableView.dequeueReusableCell(withIdentifier: "bottomStatic", for: indexPath) as! BottomStaticTableCell
             bottomStaticCell.tableController = self
             
-            let bottomStaticHome = home[2] as! BottomStaticHome
-            
-            bottomStaticCell.adImageView.image = bottomStaticHome.ad.picture
+            bottomStaticCell.adImageView.downloadImageFrom(home.ads.second.pictureURL)
             
             return bottomStaticCell
         }
@@ -90,24 +73,31 @@ class HomeTableController: TableController {
 }
 
 extension HomeTableController {
-    private func setupYourPointsLabel(topStaticCell: TopStaticTableCell, topStaticHome: TopStaticHome) {
-        let attributedText = NSMutableAttributedString()
-        attributedText.append(NSAttributedString(
-            string: "\(texts(.yourPoints)) : "
-        ))
-        attributedText.append(NSAttributedString(
-            string: "\(topStaticHome.userPoints)",
-            attributes: [
-                NSAttributedString.Key.font: fonts(.large),
-                NSAttributedString.Key.foregroundColor: colors(.green)
-            ]
-        ))
-        attributedText.append(NSAttributedString(
-            string: " "
-        ))
-        attributedText.append(NSAttributedString(
-            string: "\(texts(.points))"
-        ))
-        topStaticCell.yourPointsLabel.attributedText = attributedText
+    private func setupYourPointsLabel(topStaticCell: TopStaticTableCell, home: Home) {
+        if UserDefaults.standard.string(forKey: "token") != nil {
+            topStaticCell.yourPointsLabel.isHidden = false
+            
+            let attributedText = NSMutableAttributedString()
+            attributedText.append(NSAttributedString(
+                string: "\(texts(.yourPoints)) : "
+            ))
+            attributedText.append(NSAttributedString(
+                string: "\(home.userPoints)",
+                attributes: [
+                    NSAttributedString.Key.font: fonts(.large),
+                    NSAttributedString.Key.foregroundColor: colors(.green)
+                ]
+            ))
+            attributedText.append(NSAttributedString(
+                string: " "
+            ))
+            attributedText.append(NSAttributedString(
+                string: "\(texts(.points))"
+            ))
+            topStaticCell.yourPointsLabel.attributedText = attributedText
+        }
+        else {
+            topStaticCell.yourPointsLabel.isHidden = true
+        }
     }
 }

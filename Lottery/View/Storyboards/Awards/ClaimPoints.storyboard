@@ -126,7 +126,7 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="primary"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="submit"/>

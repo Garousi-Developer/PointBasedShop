@@ -5,8 +5,11 @@ class RegisterFirstStepViewController: ViewController {
     @IBOutlet weak var mobileNumberTextField: FirstTextField!
     @IBOutlet weak var passwordTextField: FirstTextField!
     @IBOutlet weak var passwordRepeatTextField: FirstTextField!
+    @IBOutlet weak var clientErrorLabel: Label!
     @IBOutlet weak var nextStepButton: Button!
-    @IBOutlet weak var retrievePasswordButton: Button!
+    
+    var registerFirstStepParameters: RegisterFirstStepParameters!
+    var responseController: RegisterFirstStepResponseController!
     
     @IBAction func mobileNumberDidChange() {
         handleGoNextStepAbility()
@@ -30,24 +33,34 @@ class RegisterFirstStepViewController: ViewController {
             action: nil
         )
         
-        navigateTo(.registerSecondStep)
-    }
-    @IBAction func retrievePassword() {
-        navigationItem.backBarButtonItem = UIBarButtonItem(
-            title: texts(.register),
-            style: .plain,
-            target: nil,
-            action: nil
+        registerFirstStepParameters = RegisterFirstStepParameters(
+            mobileNumber: mobileNumberTextField.firstCommonMobileNumber,
+            password: passwordTextField.text!
         )
+        responseController = RegisterFirstStepResponseController(viewController: self)
         
-        navigateTo(.retrievePasswordFirstStep)
+        responseController.requestHolder = request(RequestHolder(
+            endPointName: .registerFirstStep(parameters: registerFirstStepParameters),
+            didSucceed: responseController.didSucceed,
+            didFail: responseController.didFail
+        ))
     }
 }
 
 extension RegisterFirstStepViewController {
     private func handleGoNextStepAbility() {
-        if mobileNumberTextField.isVerified && passwordTextField.isVerified {
-            nextStepButton.enable()
+        if mobileNumberTextField.isVerified && passwordTextField.isVerified && passwordRepeatTextField.isVerified {
+            if passwordRepeatTextField.text == passwordTextField.text {
+                clientErrorLabel.fadeOut()
+                
+                nextStepButton.enable()
+            }
+            else {
+                clientErrorLabel.text = texts(.unmatchedPasswords)
+                clientErrorLabel.fadeIn()
+                
+                nextStepButton.disable()
+            }
         }
         else {
             nextStepButton.disable()

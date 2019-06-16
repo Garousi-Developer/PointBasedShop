@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggf-OB-zQi" userLabel="Content View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="705.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="689.33333333333337"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testShoppingCenter" translatesAutoresizingMaskIntoConstraints="NO" id="sib-jj-n1f" userLabel="Shopping Center Picture Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="217"/>
@@ -31,10 +31,10 @@
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jft-N8-aDD" userLabel="Check In View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="181" width="390" height="144.33333333333337"/>
+                                                <rect key="frame" x="12" y="181" width="390" height="128.33333333333337"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="300" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgC-oh-rQe" userLabel="Welcome Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="51.333333333333343" y="12" width="287.66666666666663" height="31"/>
+                                                        <rect key="frame" x="51.333333333333343" y="12" width="287.66666666666663" height="23"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                                                         </connections>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbR-t9-U9u" userLabel="Check In Description Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="36.333333333333343" y="61.000000000000007" width="317.33333333333326" height="24.333333333333336"/>
+                                                        <rect key="frame" x="36.333333333333343" y="53" width="317.33333333333326" height="16.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -60,14 +60,14 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMk-SY-HnE" userLabel="Check In Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="135" y="97.333333333333314" width="120" height="35"/>
+                                                        <rect key="frame" x="135" y="81.333333333333314" width="120" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="Dvl-fK-eqX" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                             <constraint firstAttribute="width" constant="120" id="xcR-pC-5h9" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="primary"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="checkIn"/>
@@ -93,7 +93,7 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ae-tI-7ZG" userLabel="Separator View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="24" y="343.33333333333331" width="366" height="1"/>
+                                                <rect key="frame" x="24" y="327.33333333333331" width="366" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="ARy-Mk-d2U" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -103,7 +103,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhA-Cs-pfa" userLabel="Claim Points Description Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="33.666666666666657" y="371.33333333333331" width="347" height="40.666666666666686"/>
+                                                <rect key="frame" x="38" y="355.33333333333331" width="338.33333333333331" height="40.666666666666686"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -114,14 +114,14 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Dw-gw-wvq" userLabel="Claim Points Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="147" y="424" width="120" height="35"/>
+                                                <rect key="frame" x="147" y="408" width="120" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="5RY-Hj-atd" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     <constraint firstAttribute="width" constant="120" id="pwS-29-LoH" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="primary"/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="claimPoints"/>
@@ -131,7 +131,7 @@
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testAd2" translatesAutoresizingMaskIntoConstraints="NO" id="yDd-oU-YWq" userLabel="Ad Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="488.99999999999994" width="390" height="204.33333333333331"/>
+                                                <rect key="frame" x="12" y="472.99999999999994" width="390" height="204.33333333333331"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="yDd-oU-YWq" secondAttribute="height" multiplier="1242:651" id="Hfa-Mi-IFf" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                 </constraints>

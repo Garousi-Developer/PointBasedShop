@@ -4,12 +4,12 @@ class LoginResponseController: ResponseController {
     override func didSucceed(response: Decodable?) {
         super.didSucceed(response: response)
         
-        let loginViewController = viewController as! LoginViewController
+        let castedViewController = viewController as! LoginViewController
         let user = response as! User
         
         UserDefaults.standard.set(user.token, forKey: "token")
 //        loginViewController.loginButton.setLoadingState(.successful)
-        loginViewController.navigateTo(.tabs, presenting: true)
+        castedViewController.navigateTo(.tabs, presenting: true)
     }
     override func didFail(errorCode: URLError.Code?, statusCode: Int?, response: Decodable?) {
         super.didFail(errorCode: errorCode, statusCode: statusCode, response: response)

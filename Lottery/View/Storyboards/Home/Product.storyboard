@@ -88,7 +88,7 @@
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstTintColor" value="asset"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </button>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testProduct1" translatesAutoresizingMaskIntoConstraints="NO" id="ca7-ef-hfy" userLabel="Picture Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ca7-ef-hfy" userLabel="Picture Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
                                                                     <rect key="frame" x="12" y="43.666666666666657" width="342" height="120"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="120" id="6ao-lt-1e6" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -126,7 +126,7 @@
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstTextColor" value="green"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testProductBrand1" translatesAutoresizingMaskIntoConstraints="NO" id="qux-dW-ysj" userLabel="Brand Logo Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qux-dW-ysj" userLabel="Brand Logo Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
                                                                     <rect key="frame" x="12" y="252.66666666666663" width="342" height="40"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="40" id="RHu-DR-eqd" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -318,7 +318,7 @@
                                                 <rect key="frame" x="12" y="469" width="390" height="35"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgP-Tr-Q9P" userLabel="Description Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="201" y="0.0" width="189" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="189" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
@@ -327,7 +327,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAd-w0-s53" userLabel="Product Details Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="189" height="35"/>
+                                                        <rect key="frame" x="201" y="0.0" width="189" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
@@ -395,8 +395,6 @@
         <image name="cart" width="24" height="24"/>
         <image name="decrement" width="18" height="18"/>
         <image name="favorites" width="24" height="24"/>
-        <image name="testProduct1" width="400" height="372.66665649414062"/>
-        <image name="testProductBrand1" width="116.66666412353516" height="116.66666412353516"/>
         <image name="unlocked" width="18" height="18"/>
     </resources>
 </document>

@@ -22,37 +22,43 @@ class ContainersCollectionController: CollectionController {
             cities = data as! [NewCity]
             let city = cities[indexPath.item]
             
-            castedCell.pictureImageView.downloadImageFrom(city.pictureURL)
+            castedCell.pictureImageView.downloadImageFrom(city.pictureURL) { (image) in
+                castedCell.pictureImageView.setBorderStyle(.none)
+                castedCell.pictureImageView.contentMode = .scaleAspectFill
+            }
             castedCell.titleLabel.text = city.persianTitle
         case is NewShoppingCenter:
             shoppingCenters = data as! [NewShoppingCenter]
             let shoppingCenter = shoppingCenters[indexPath.item]
             
-            castedCell.pictureImageView.downloadImageFrom(shoppingCenter.logoURL)
+            castedCell.pictureImageView.downloadImageFrom(shoppingCenter.logoURL) { (image) in
+                castedCell.pictureImageView.setBorderStyle(.thick)
+                castedCell.pictureImageView.contentMode = .scaleAspectFit
+                castedCell.pictureImageView.image = image.withInsets(UIEdgeInsets(
+                    top: 16,
+                    left: 16,
+                    bottom: 16,
+                    right: 16
+                ))
+            }
             castedCell.titleLabel.text = shoppingCenter.persianTitle
         case is NewBrand:
             brands = data as! [NewBrand]
             let brand = brands[indexPath.item]
             
-            castedCell.pictureImageView.downloadImageFrom(brand.logoURL)
+            castedCell.pictureImageView.downloadImageFrom(brand.logoURL) { (image) in
+                castedCell.pictureImageView.setBorderStyle(.thick)
+                castedCell.pictureImageView.contentMode = .scaleAspectFit
+                castedCell.pictureImageView.image = castedCell.pictureImageView.image!.withInsets(UIEdgeInsets(
+                    top: 16,
+                    left: 16,
+                    bottom: 16,
+                    right: 16
+                ))
+            }
             castedCell.titleLabel.text = brand.persianTitle
         default:
             return
-        }
-        
-        if data[0] is NewCity {
-            castedCell.pictureImageView.setBorderStyle(.none)
-            castedCell.pictureImageView.contentMode = .scaleAspectFill
-        }
-        else {
-            castedCell.pictureImageView.setBorderStyle(.thick)
-            castedCell.pictureImageView.contentMode = .scaleAspectFit
-//            castedCell.pictureImageView.image = castedCell.pictureImageView.image?.withInsets(UIEdgeInsets(
-//                top: 16,
-//                left: 16,
-//                bottom: 16,
-//                right: 16
-//            ))
         }
     }
     override func itemDidSelect(atIndexPath indexPath: IndexPath) {

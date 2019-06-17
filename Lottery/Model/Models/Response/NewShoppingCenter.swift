@@ -10,16 +10,4 @@ class NewShoppingCenter: Decodable {
         case persianTitle = "fa_name"
         case englishTitle = "en_name"
     }
-    
-    init(
-        id: Int,
-        logoURL: String,
-        persianTitle: String,
-        englishTitle: String
-    ) {
-        self.id = id
-        self.logoURL = logoURL
-        self.persianTitle = persianTitle
-        self.englishTitle = englishTitle
-    }
 }

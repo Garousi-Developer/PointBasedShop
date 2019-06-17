@@ -13,18 +13,30 @@ class SimpleCategoriesCollectionController: CollectionController {
         let castedCell = cell as! SimpleCategoryCollectionCell
         let category = categories[indexPath.item]
         
-        castedCell.titleLabel.text = category.title
+        castedCell.titleLabel.text = category.persianTitle
         castedCell.selectedSwitch.setOn(category.isSelected, animated: false)
     }
     override func itemDidSelect(atIndexPath indexPath: IndexPath) {
         super.itemDidSelect(atIndexPath: indexPath)
         
-//        let castedCell = collectionView.cellForItem(at: indexPath) as! SimpleCategoryCollectionCell
-//
-//        categories[indexPath.item].isSelected.toggle()
-//        delay(durations(.interaction)) {
-//            self.collectionView.reloadItems(at: [indexPath])
-//            castedCell.selectedSwitch.setOn(self.categories[indexPath.item].isSelected, animated: false)
-//        }
+        let castedViewController = viewController as! FilterViewController
+        let castedCell = collectionView.cellForItem(at: indexPath) as! SimpleCategoryCollectionCell
+        
+        categories[indexPath.item].isSelected.toggle()
+        castedCell.selectedSwitch.setOn(categories[indexPath.item].isSelected, animated: true)
+        
+        var allCategoriesAreSelected = true
+        for category in categories {
+            if !category.isSelected {
+                allCategoriesAreSelected = false
+                break
+            }
+        }
+        if allCategoriesAreSelected {
+            castedViewController.allCategoriesSwitch.setOn(true, animated: true)
+        }
+        else {
+            castedViewController.allCategoriesSwitch.setOn(false, animated: true)
+        }
     }
 }

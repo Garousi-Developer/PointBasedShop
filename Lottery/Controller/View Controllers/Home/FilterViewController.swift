@@ -2,8 +2,10 @@ import UIKit
 
 class FilterViewController: ViewController {
     @IBOutlet weak var categoriesLabel: Label!
+    @IBOutlet weak var allCategoriesSwitch: Switch!
     @IBOutlet weak var categoriesCollectionView: CollectionView!
     @IBOutlet weak var citiesLabel: Label!
+    @IBOutlet weak var allCitiesSwitch: Switch!
     @IBOutlet weak var citiesCollectionView: CollectionView!
     @IBOutlet weak var unlockedLabel: Label!
     @IBOutlet weak var unlockedSwitch: Switch!
@@ -13,11 +15,58 @@ class FilterViewController: ViewController {
     @IBOutlet weak var allSwitch: Switch!
     @IBOutlet weak var filterButton: Button!
     
-    var filter: Filter!
+    var filterScopes: FilterScopes!
+    var filterScopesResponseController: FilterScopesResponseController!
+    var filterParameters: FilterParameters!
+    var applyFilterResponseController: ApplyFilterResponseController!
     
     var categoriesCollectionController: SimpleCategoriesCollectionController!
     var citiesCollectionController: SimpleCitiesCollectionController!
     
+    @IBAction func allCategoriesDidToggle() {
+        if allCategoriesSwitch.isOn {
+            for category in categoriesCollectionController.categories {
+                category.isSelected = true
+            }
+            for item in 0..<categoriesCollectionView.numberOfItems(inSection: 0) {
+                let simpleCategoryCollectionCell =
+                    categoriesCollectionView.cellForItem(at: IndexPath(item: item, section: 0)) as! SimpleCategoryCollectionCell
+                simpleCategoryCollectionCell.selectedSwitch.setOn(true, animated: true)
+            }
+        }
+        else {
+            for category in categoriesCollectionController.categories {
+                category.isSelected = false
+            }
+            for item in 0..<categoriesCollectionView.numberOfItems(inSection: 0) {
+                let simpleCategoryCollectionCell =
+                    categoriesCollectionView.cellForItem(at: IndexPath(item: item, section: 0)) as! SimpleCategoryCollectionCell
+                simpleCategoryCollectionCell.selectedSwitch.setOn(false, animated: true)
+            }
+        }
+    }
+    @IBAction func allCitiesDidToggle() {
+        if allCitiesSwitch.isOn {
+            for city in citiesCollectionController.cities {
+                city.isSelected = true
+            }
+            for item in 0..<citiesCollectionView.numberOfItems(inSection: 0) {
+                let simpleCityCollectionCell =
+                    citiesCollectionView.cellForItem(at: IndexPath(item: item, section: 0)) as! SimpleCityCollectionCell
+                simpleCityCollectionCell.selectedSwitch.setOn(true, animated: true)
+            }
+        }
+        else {
+            for city in citiesCollectionController.cities {
+                city.isSelected = false
+            }
+            for item in 0..<citiesCollectionView.numberOfItems(inSection: 0) {
+                let simpleCityCollectionCell =
+                    citiesCollectionView.cellForItem(at: IndexPath(item: item, section: 0)) as! SimpleCityCollectionCell
+                simpleCityCollectionCell.selectedSwitch.setOn(false, animated: true)
+            }
+        }
+    }
     @IBAction func unlockedDidToggle() {
         if unlockedSwitch.isOn {
             unlockedSwitch.setOn(true, animated: true)
@@ -49,89 +98,44 @@ class FilterViewController: ViewController {
         }
     }
     @IBAction func ApplyFilter() {
+        let selectedCategoryIds = categoriesCollectionController.categories
+            .filter { (category) in
+                return category.isSelected
+            }
+            .map { (category) -> Int in
+                return category.id
+            }
+        let selectedCityIds = citiesCollectionController.cities
+            .filter { (city) in
+                return city.isSelected
+            }
+            .map { (city) -> Int in
+                return city.id
+        }
         
+        filterParameters = FilterParameters(
+            categories: selectedCategoryIds,
+            cities: selectedCityIds,
+            searchedPhrase: filterParameters.searchedPhrase
+        )
+        
+        applyFilterResponseController = ApplyFilterResponseController(viewController: self)
+        applyFilterResponseController.requestHolder = request(RequestHolder(
+            endPointName: .filter(parameters: filterParameters),
+            didSucceed: applyFilterResponseController.didSucceed,
+            didFail: applyFilterResponseController.didFail
+        ))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        filter = Filter(
-            categories: [
-                SimpleCategory(
-                    title: "دیجیتال",
-                    isSelected: false
-                ),
-                SimpleCategory(
-                    title: "آرایشی",
-                    isSelected: false
-                ),
-                SimpleCategory(
-                    title: "خودرو",
-                    isSelected: false
-                ),
-                SimpleCategory(
-                    title: "پوشاک",
-                    isSelected: false
-                ),
-                SimpleCategory(
-                    title: "لوازم خانگی",
-                    isSelected: false
-                ),
-                SimpleCategory(
-                    title: "اسباب بازی",
-                    isSelected: false
-                ),
-                SimpleCategory(
-                    title: "ورزشی",
-                    isSelected: false
-                )
-            ],
-            cities: [
-                SimpleCity(
-                    name: "تهران",
-                    isSelected: false
-                ),
-                SimpleCity(
-                    name: "اهواز",
-                    isSelected: false
-                ),
-                SimpleCity(
-                    name: "اصفهان",
-                    isSelected: false
-                ),
-                SimpleCity(
-                    name: "مشهد",
-                    isSelected: false
-                ),
-                SimpleCity(
-                    name: "شیراز",
-                    isSelected: false
-                ),
-                SimpleCity(
-                    name: "ساری",
-                    isSelected: false
-                ),
-                SimpleCity(
-                    name: "تبریز",
-                    isSelected: false
-                )
-            ]
-        )
-        
-        categoriesCollectionController = SimpleCategoriesCollectionController(
-            viewController: self,
-            collectionView: categoriesCollectionView
-        )
-        categoriesCollectionController.data = filter.categories
-        categoriesCollectionView.dataSource = categoriesCollectionController
-        categoriesCollectionView.delegate = categoriesCollectionController
-        
-        citiesCollectionController = SimpleCitiesCollectionController(
-            viewController: self,
-            collectionView: citiesCollectionView
-        )
-        citiesCollectionController.data = filter.cities
-        citiesCollectionView.dataSource = citiesCollectionController
-        citiesCollectionView.delegate = citiesCollectionController
+        setLoadingState(.loading)
+        filterScopesResponseController = FilterScopesResponseController(viewController: self)
+        filterScopesResponseController.requestHolder = request(RequestHolder(
+            endPointName: .filterScopes,
+            didSucceed: filterScopesResponseController.didSucceed,
+            didFail: filterScopesResponseController.didFail
+        ))
     }
 }

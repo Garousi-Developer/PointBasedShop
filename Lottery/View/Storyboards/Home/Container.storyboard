@@ -22,9 +22,9 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZF-Bo-1hw" userLabel="Content View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1620.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1604.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testCity1" translatesAutoresizingMaskIntoConstraints="NO" id="cUj-EG-4kx" userLabel="Picture Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cUj-EG-4kx" userLabel="Picture Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="217"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="cUj-EG-4kx" secondAttribute="height" multiplier="1242:651" id="zQ4-0Z-gq7"/>
@@ -145,7 +145,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="110" height="100"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testTopShoppingCenter1" translatesAutoresizingMaskIntoConstraints="NO" id="urF-p7-Hpd" userLabel="Picture Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="urF-p7-Hpd" userLabel="Picture Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="110" height="60"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="60" id="VFc-o2-YIZ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -189,7 +189,7 @@
                                                     <outlet property="heightConstraint" destination="ghi-tL-0xd" id="k4P-LF-Gub"/>
                                                 </connections>
                                             </collectionView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testMap" translatesAutoresizingMaskIntoConstraints="NO" id="VJy-ZF-aQF" userLabel="Map Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VJy-ZF-aQF" userLabel="Map Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="670" width="390" height="195"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="VJy-ZF-aQF" secondAttribute="height" multiplier="2:1" id="VIq-9V-llh" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -287,7 +287,7 @@
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstTintColor" value="asset"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </button>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testProduct1" translatesAutoresizingMaskIntoConstraints="NO" id="UUp-ye-DYg" userLabel="Picture Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UUp-ye-DYg" userLabel="Picture Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
                                                                     <rect key="frame" x="12" y="51" width="342" height="120"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="120" id="BKH-x9-T6a" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -325,7 +325,7 @@
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstTextColor" value="green"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testProductBrand1" translatesAutoresizingMaskIntoConstraints="NO" id="CvM-tV-CDm" userLabel="Brand Logo Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CvM-tV-CDm" userLabel="Brand Logo Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
                                                                     <rect key="frame" x="12" y="261" width="342" height="40"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="40" id="R5N-jN-YWH" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -348,7 +348,7 @@
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="cart"/>
                                                                     <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="primary"/>
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstTintColor" value="white"/>
                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="firstRTLImage" value="YES"/>
@@ -366,7 +366,7 @@
                                                                             </constraints>
                                                                             <state key="normal" title="Button" image="decrement"/>
                                                                             <userDefinedRuntimeAttributes>
-                                                                                <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                                                                <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="asset"/>
                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstTintColor" value="white"/>
                                                                             </userDefinedRuntimeAttributes>
@@ -378,7 +378,7 @@
                                                                             </constraints>
                                                                             <state key="normal" title="۱"/>
                                                                             <userDefinedRuntimeAttributes>
-                                                                                <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                                                                <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="asset"/>
                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstFont" value="large"/>
                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
@@ -391,7 +391,7 @@
                                                                             </constraints>
                                                                             <state key="normal" title="Button" image="cart"/>
                                                                             <userDefinedRuntimeAttributes>
-                                                                                <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                                                                <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="primary"/>
                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstTintColor" value="white"/>
                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
@@ -513,8 +513,8 @@
                                                     <outlet property="heightConstraint" destination="PH1-zX-G2Z" id="a1z-85-OWn"/>
                                                 </connections>
                                             </collectionView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testAd1" translatesAutoresizingMaskIntoConstraints="NO" id="LEz-ik-zhR" userLabel="Ad Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="1404" width="390" height="204.5"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LEz-ik-zhR" userLabel="Ad Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="12" y="1388" width="390" height="204.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="LEz-ik-zhR" secondAttribute="height" multiplier="1242:651" id="3l5-Ma-VCe" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                 </constraints>
@@ -529,7 +529,7 @@
                                             <constraint firstItem="IbC-UN-iLQ" firstAttribute="leading" secondItem="sZF-Bo-1hw" secondAttribute="leading" id="24z-jP-uOe" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="JB8-mj-3cJ" firstAttribute="top" secondItem="YVb-dp-UV1" secondAttribute="bottom" id="45Z-Qj-Out" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="GPZ-Cp-0Cj" firstAttribute="leading" secondItem="c8P-c9-JaK" secondAttribute="trailing" constant="24" id="4Sf-dt-PEw" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                            <constraint firstItem="LEz-ik-zhR" firstAttribute="top" secondItem="IbC-UN-iLQ" secondAttribute="bottom" constant="16" id="9dw-o0-mNZ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="LEz-ik-zhR" firstAttribute="top" secondItem="IbC-UN-iLQ" secondAttribute="bottom" id="9dw-o0-mNZ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="VJy-ZF-aQF" firstAttribute="top" secondItem="JB8-mj-3cJ" secondAttribute="bottom" constant="24" id="Evm-cC-bye" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="TGp-r8-bAP" firstAttribute="top" secondItem="cUj-EG-4kx" secondAttribute="bottom" constant="-36" id="HFv-wJ-a9k" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstAttribute="trailing" secondItem="VJy-ZF-aQF" secondAttribute="trailing" constant="12" id="PSa-0o-tvE" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -607,12 +607,6 @@
         <image name="cart" width="24" height="24"/>
         <image name="decrement" width="18" height="18"/>
         <image name="favorites" width="24" height="24"/>
-        <image name="testAd1" width="414" height="217"/>
-        <image name="testCity1" width="158.66667175292969" height="105.66666412353516"/>
-        <image name="testMap" width="426.66665649414062" height="213.33332824707031"/>
-        <image name="testProduct1" width="400" height="372.66665649414062"/>
-        <image name="testProductBrand1" width="116.66666412353516" height="116.66666412353516"/>
-        <image name="testTopShoppingCenter1" width="804" height="826.66668701171875"/>
         <image name="unlocked" width="18" height="18"/>
         <image name="viewMore" width="24" height="24"/>
     </resources>

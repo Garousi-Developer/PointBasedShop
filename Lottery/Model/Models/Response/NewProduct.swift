@@ -7,7 +7,7 @@ class NewProduct: Decodable {
     let persianTitle: String
     let englishTitle: String
     let price: Int
-    let discountedPrice: Int
+    let discountedPrice: Double
     let brand: NewBrand
     var orderCount = 0
     var soldCount: Int

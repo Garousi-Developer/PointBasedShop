@@ -5,34 +5,64 @@ class FilterResultsViewController: ViewController {
     @IBOutlet weak var collectionView: CollectionView!
     
     var filtersButton: Button!
-    var filterResults: FilterResults!
+    var selectedCategory: NewCategory!
     var collectionController: ProductsCollectionController!
+    var filterParameters: FilterParameters!
+    var responseController: FilterResultsResponseController!
     
     @objc func showFilters() {
-//        delay(durations(.interaction)) {
-//            self.navigateTo(.filter)
-//        }
-        navigateTo(.filter)
+        navigateTo(.filter, transferringData: filterParameters)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = filterResults.title
+        navigationItem.title = selectedCategory.persianTitle
         setupFilterButton()
+        
+        searchBar.delegate = self
         
         collectionController = ProductsCollectionController(
             viewController: self,
             collectionView: collectionView
         )
-        collectionController.data = filterResults.results
         collectionView.dataSource = collectionController
         collectionView.delegate = collectionController
+        
+        filterParameters = FilterParameters(
+            categories: [selectedCategory.id],
+            cities: [],
+            searchedPhrase: ""
+        )
+        
+        setLoadingState(.loading)
+        responseController = FilterResultsResponseController(viewController: self)
+        responseController.requestHolder = request(RequestHolder(
+            endPointName: .filter(parameters: filterParameters),
+            didSucceed: responseController.didSucceed,
+            didFail: responseController.didFail
+        ))
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        collectionView.reloadData()
+//        collectionView.reloadData()
+    }
+}
+extension FilterResultsViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        filterParameters = FilterParameters(
+            categories: filterParameters.categories,
+            cities: filterParameters.cities,
+            searchedPhrase: searchBar.text!
+        )
+        
+        setLoadingState(.loading)
+        responseController.requestHolder = request(RequestHolder(
+            endPointName: .filter(parameters: filterParameters),
+            didSucceed: responseController.didSucceed,
+            didFail: responseController.didFail
+        ))
     }
 }
 

@@ -41,7 +41,19 @@ func endPoints(_ endPointName: EndPointName) -> EndPoint {
             method: .post,
             parameters: parameters,
             url: "/nearby-offers",
-            response: ClosestOffers.self
+            response: Products.self
+        )
+    case .filter(let parameters):
+        return EndPoint(
+            method: .post,
+            parameters: parameters,
+            url: "/search",
+            response: Products.self
+        )
+    case .filterScopes:
+        return EndPoint(
+            url: "/search",
+            response: FilterScopes.self
         )
     case .city(let id):
         return EndPoint(
@@ -83,6 +95,8 @@ enum EndPointName {
     // Home:
     case home
     case closestOffers(parameters: ClosestOffersParameters)
+    case filter(parameters: FilterParameters)
+    case filterScopes
     case city(id: Int)
     case shoppingCenter(id: Int)
     
@@ -129,5 +143,5 @@ struct EndPoint {
     }
 }
 
-private let loyaltyBaseURL = "http://learngroup.ir/api/v1"
+private let loyaltyBaseURL = "http://mallsconnect.com/api/v1"
 private let googleMapsBaseURL = "https://maps.googleapis.com/maps/api"

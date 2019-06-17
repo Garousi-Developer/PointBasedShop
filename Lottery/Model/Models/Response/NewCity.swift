@@ -10,16 +10,4 @@ class NewCity: Decodable {
         case persianTitle = "fa_name"
         case englishTitle = "en_name"
     }
-    
-    init(
-        id: Int,
-        pictureURL: String,
-        persianTitle: String,
-        englishTitle: String
-    ) {
-        self.id = id
-        self.pictureURL = pictureURL
-        self.persianTitle = persianTitle
-        self.englishTitle = englishTitle
-    }
 }

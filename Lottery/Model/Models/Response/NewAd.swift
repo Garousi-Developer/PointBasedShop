@@ -8,14 +8,4 @@ class NewAd: Decodable {
         case pictureURL = "image"
 //        case linkType = "type"
     }
-    
-    init(
-//        id: Int,
-        pictureURL: String
-//        linkType: String
-    ) {
-//        self.id = id
-        self.pictureURL = pictureURL
-//        self.linkType = linkType
-    }
 }

@@ -17,7 +17,7 @@ class SearchBar: UISearchBar {
             layer.maskedCorners = maskedCornerses(MaskedCorners(rawValue: firstMaskedCorners)!)
         }
     }
-    @IBInspectable var firstCornerRadius: String = CornerRadius.half.rawValue {
+    @IBInspectable var firstCornerRadius: String = CornerRadius.medium.rawValue {
         didSet {
             setCornerRadius(CornerRadius(rawValue: firstCornerRadius)!)
         }

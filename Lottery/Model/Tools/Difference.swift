@@ -4,15 +4,15 @@ extension Array {
         let mappedSecondArray: [AnyHashable]
         
         switch self[0] {
-        case is Product:
-            let firstProducts = self as! [Product]
-            let secondProducts = secondArray as! [Product]
+        case is NewProduct:
+            let firstProducts = self as! [NewProduct]
+            let secondProducts = secondArray as! [NewProduct]
             
-            mappedFirstArray = firstProducts.map({ (product) -> String in
-                return product.name
+            mappedFirstArray = firstProducts.map({ (product) -> Int in
+                return product.id
             })
-            mappedSecondArray = secondProducts.map({ (product) -> String in
-                return product.name
+            mappedSecondArray = secondProducts.map({ (product) -> Int in
+                return product.id
             })
         default:
             return nil

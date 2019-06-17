@@ -79,7 +79,7 @@
                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstTintColor" value="asset"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testProduct1" translatesAutoresizingMaskIntoConstraints="NO" id="5ud-7z-qN6" userLabel="Picture Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5ud-7z-qN6" userLabel="Picture Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
                                                     <rect key="frame" x="12" y="51" width="358" height="120"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="120" id="34Q-vK-ABE" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -117,7 +117,7 @@
                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstTextColor" value="green"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testProductBrand1" translatesAutoresizingMaskIntoConstraints="NO" id="izb-Yz-eRj" userLabel="Brand Logo Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="izb-Yz-eRj" userLabel="Brand Logo Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
                                                     <rect key="frame" x="12" y="260" width="358" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="xOZ-rn-1mH" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -140,7 +140,7 @@
                                                     </constraints>
                                                     <state key="normal" title="Button" image="cart"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="primary"/>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstTintColor" value="white"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="firstRTLImage" value="YES"/>
@@ -158,7 +158,7 @@
                                                             </constraints>
                                                             <state key="normal" title="Button" image="decrement"/>
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="asset"/>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstTintColor" value="white"/>
                                                             </userDefinedRuntimeAttributes>
@@ -170,7 +170,7 @@
                                                             </constraints>
                                                             <state key="normal" title="۱"/>
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="asset"/>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstFont" value="large"/>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
@@ -183,7 +183,7 @@
                                                             </constraints>
                                                             <state key="normal" title="Button" image="cart"/>
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="primary"/>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstTintColor" value="white"/>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
@@ -348,8 +348,6 @@
         <image name="cart" width="24" height="24"/>
         <image name="decrement" width="18" height="18"/>
         <image name="favorites" width="24" height="24"/>
-        <image name="testProduct1" width="400" height="372.66665649414062"/>
-        <image name="testProductBrand1" width="116.66666412353516" height="116.66666412353516"/>
         <image name="unlocked" width="18" height="18"/>
     </resources>
 </document>

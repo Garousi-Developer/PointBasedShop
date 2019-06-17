@@ -114,7 +114,7 @@ class ProductsCollectionController: CollectionController {
         let product = products[indexPath.item]
         let progress = Float(product.soldCount) / Float(product.count)
         let cartProduct = cart.first { (cartProduct) in
-            return cartProduct.name == product.persianTitle
+            return cartProduct.id == product.id
         }
         if let cartProduct = cartProduct {
             product.orderCount = cartProduct.orderCount
@@ -123,7 +123,7 @@ class ProductsCollectionController: CollectionController {
         castedCell.requiredPointsLabel.text = "\(product.requiredPoints) \(texts(.points))"
         castedCell.pictureImageView.downloadImageFrom(product.pictureURL)
         castedCell.nameLabel.text = product.persianTitle
-        castedCell.discountedPriceLabel.text = "\(product.discountedPrice.priceFormatted) \(texts(.currency))"
+        castedCell.discountedPriceLabel.text = "\(Int(product.discountedPrice).priceFormatted) \(texts(.currency))"
         castedCell.brandLogoImageView.downloadImageFrom(product.brand.logoURL)
         castedCell.brandNameLabel.text = product.brand.persianTitle
         castedCell.orderCountButton.setTitle("\(product.orderCount)", for: .normal)

@@ -7,13 +7,13 @@ class ClosestOffersResponseController: ResponseController {
         let castedViewController = viewController as! HomeViewController
         guard let topStaticTableCell =
             castedViewController.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TopStaticTableCell else { return }
-        let offers = response as! ClosestOffers
+        let offers = response as! Products
         
         castedViewController.tableController.closestOffersCollectionController = ProductsCollectionController(
             viewController: viewController,
             collectionView: topStaticTableCell.closestOffersCollectionView
         )
-        castedViewController.tableController.closestOffersCollectionController.data = offers.offers
+        castedViewController.tableController.closestOffersCollectionController.data = offers.products
         topStaticTableCell.closestOffersCollectionView.dataSource = castedViewController.tableController.closestOffersCollectionController
         topStaticTableCell.closestOffersCollectionView.delegate = castedViewController.tableController.closestOffersCollectionController
         

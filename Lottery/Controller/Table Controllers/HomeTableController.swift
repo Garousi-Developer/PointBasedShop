@@ -1,8 +1,10 @@
 import UIKit
+import SnapKit
 
 class HomeTableController: TableController {
     var homeArray: [Home] = []
     var home: Home!
+    var citiesTitleDidRemove = false
     
     var sliderPagerController: SliderPagerController!
     var categoriesCollectionController: CategoriesCollectionController!
@@ -18,6 +20,9 @@ class HomeTableController: TableController {
         return homeArray.isEmpty ? 0 : 5
     }
     override func cell(forTableView tableView: TableView, atIndexPath indexPath: IndexPath) -> TableCell {
+        let sectionTitles = [texts(.cities), texts(.topShoppingCenters), texts(.topBrands)]
+        let sectionContainers: [[Any]] = [home.cities, home.topShoppingCenters, home.topBrands]
+        
         if indexPath.row == 0 {
             let topStaticCell = tableView.dequeueReusableCell(withIdentifier: "topStatic", for: indexPath) as! TopStaticTableCell
             topStaticCell.tableController = self
@@ -49,15 +54,23 @@ class HomeTableController: TableController {
             dynamicCell.tableController = self
             let containersCollectionView = dynamicCell.containersCollectionView!
             
-            let sectionTitles = [texts(.cities), texts(.topShoppingCenters), texts(.topBrands)]
-            let sectionContainers: [[Any]] = [home.cities, home.topShoppingCenters, home.topBrands]
+            if indexPath.row == 1 && !citiesTitleDidRemove {
+                citiesTitleDidRemove = true
+                
+                dynamicCell.titleLabel.removeFromSuperview()
+                dynamicCell.containersCollectionView.snp.makeConstraints { (make) in
+                    make.top.equalToSuperview()
+                }
+            }
             
-            dynamicCell.titleLabel.text = sectionTitles[indexPath.row - 1]
+            dynamicCell.titleLabel?.text = sectionTitles[indexPath.row - 1]
             
             containersCollectionController = ContainersCollectionController(viewController: viewController, collectionView: containersCollectionView)
             containersCollectionController.data = sectionContainers[indexPath.row - 1]
             containersCollectionView.dataSource = containersCollectionController
             containersCollectionView.delegate = containersCollectionController
+            
+//            containersCollectionView.contentOffset.x = containersCollectionView.contentSize.width - containersCollectionView.bounds.width
             
             return dynamicCell
         }
@@ -82,7 +95,7 @@ extension HomeTableController {
                 string: "\(texts(.yourPoints)) : "
             ))
             attributedText.append(NSAttributedString(
-                string: "\(home.userPoints)",
+                string: "\(Int(home.userPoints))",
                 attributes: [
                     NSAttributedString.Key.font: fonts(.large),
                     NSAttributedString.Key.foregroundColor: colors(.green)

@@ -5,7 +5,7 @@ class Home: Decodable {
     let cities: [NewCity]
     let topShoppingCenters: [NewShoppingCenter]
     let topBrands: [NewBrand]
-    let userPoints: Int
+    let userPoints: Double
     
     enum CodingKeys: String, CodingKey {
         case sliderAds = "sliders"
@@ -15,23 +15,5 @@ class Home: Decodable {
         case topShoppingCenters = "shops"
         case topBrands = "brands"
         case userPoints = "point"
-    }
-    
-    init(
-        sliderAds: [NewAd],
-        categories: [NewCategory],
-        ads: Ads,
-        cities: [NewCity],
-        topShoppingCenters: [NewShoppingCenter],
-        topBrands: [NewBrand],
-        userPoints: Int
-    ) {
-        self.sliderAds = sliderAds
-        self.categories = categories
-        self.ads = ads
-        self.cities = cities
-        self.topShoppingCenters = topShoppingCenters
-        self.topBrands = topBrands
-        self.userPoints = userPoints
     }
 }

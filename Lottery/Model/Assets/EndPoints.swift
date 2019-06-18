@@ -76,6 +76,19 @@ func endPoints(_ endPointName: EndPointName) -> EndPoint {
             response: BrandDetails.self
         )
     
+    // Cart:
+    case .cart:
+        return EndPoint(
+            url: "/cart",
+            response: Products.self
+        )
+    case .updateCart(let parameters):
+        return EndPoint(
+            method: .post,
+            parameters: parameters,
+            url: "/cart"
+        )
+    
     // Awards:
     case .awards(let parameters):
         return EndPoint(
@@ -124,6 +137,10 @@ enum EndPointName {
     case shoppingCenter(id: Int)
     case brand(id: Int)
     
+    // Cart:
+    case cart
+    case updateCart(parameters: UpdateCartParameters)
+    
     // Awards:
     case awards(parameters: ClosestOffersParameters)
     case checkIn(parameters: CheckInParameters)
@@ -169,5 +186,5 @@ struct EndPoint {
     }
 }
 
-private let loyaltyBaseURL = "http://mallsconnect.com/api/v1"
+private let loyaltyBaseURL = "https://mallsconnect.com/api/v1"
 private let googleMapsBaseURL = "https://maps.googleapis.com/maps/api"

@@ -9,6 +9,7 @@ target 'PointBasedShop' do
     pod 'FSPagerView'
     pod 'Hero'
     pod 'Kingfisher'
+    pod 'MSPeekCollectionViewDelegateImplementation'
     pod 'NVActivityIndicatorView'
     pod 'PhoneNumberKit'
     pod 'SnapKit'

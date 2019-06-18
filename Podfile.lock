@@ -21,6 +21,7 @@ PODS:
   - FSPagerView (0.8.2)
   - Hero (1.4.0)
   - Kingfisher (5.2.0)
+  - MSPeekCollectionViewDelegateImplementation (1.1.0)
   - NVActivityIndicatorView (4.6.1):
     - NVActivityIndicatorView/Presenter (= 4.6.1)
   - NVActivityIndicatorView/Presenter (4.6.1)
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - FSPagerView
   - Hero
   - Kingfisher
+  - MSPeekCollectionViewDelegateImplementation
   - NVActivityIndicatorView
   - PhoneNumberKit
   - SnapKit
@@ -53,6 +55,7 @@ SPEC REPOS:
     - FSPagerView
     - Hero
     - Kingfisher
+    - MSPeekCollectionViewDelegateImplementation
     - NVActivityIndicatorView
     - PhoneNumberKit
     - SnapKit
@@ -65,11 +68,12 @@ SPEC CHECKSUMS:
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
+  MSPeekCollectionViewDelegateImplementation: 536d48f88047e5abf76bb731c76f15c866bcb421
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
   PhoneNumberKit: 167ee1f0bbb6efce7c62559e620eae745595532f
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVPinView: 3dda372c7a1c051b41788f07bf7a8339aa19083e
 
-PODFILE CHECKSUM: 18d3c10cf84bb45a72d25de2e0aa68cb04c48ce2
+PODFILE CHECKSUM: 1396c790ccf89111fa3d8670f772ff2c6e8173d6
 
 COCOAPODS: 1.6.1

@@ -1,3 +1,3 @@
 struct APIError: Decodable {
-    let message: String
+    let code: Int!
 }

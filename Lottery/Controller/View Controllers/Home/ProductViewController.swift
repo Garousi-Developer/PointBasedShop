@@ -17,6 +17,9 @@ class ProductViewController: ViewController {
         super.viewDidLoad()
         
         navigationItem.title = product.persianTitle
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         setLoadingState(.loading)
         responseController = ProductResponseController(viewController: self)

@@ -1,4 +1,5 @@
 import UIKit
+//import MSPeekCollectionViewDelegateImplementation
 import SnapKit
 
 class ContainerViewController: ViewController {
@@ -23,6 +24,7 @@ class ContainerViewController: ViewController {
     var containerScrollController: ContainerScrollController!
     var topContentsCollectionController: ContainersCollectionController!
     var hottestOffersCollectionController: ProductsCollectionController!
+//    var hottestOffersDelegate: MSPeekCollectionViewDelegateImplementation!
     var cityResponseController: CityResponseController!
     var shoppingCenterResponseController: ShoppingCenterResponseController!
     var brandResponseController: BrandResponseController!
@@ -105,6 +107,25 @@ class ContainerViewController: ViewController {
             }
         }
         
+//        hottestOffersCollectionView.configureForPeekingDelegate()
+//        hottestOffersDelegate = MSPeekCollectionViewDelegateImplementation(
+//            cellSpacing: 16,
+//            cellPeekWidth: 16,
+//            scrollThreshold: 50,
+//            maximumItemsToScroll: 1,
+//            numberOfItemsToShow: 1,
+//            scrollDirection: .horizontal
+//        )
+//        hottestOffersCollectionView.delegate = hottestOffersDelegate
+        
+        descriptionLabel.numberOfLines = 7
+        initialDescriptionHeight = descriptionLabel.firstTextHeight
+        descriptionLabel.heightConstraint.constant = initialDescriptionHeight
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        hottestOffersCollectionView.reloadData()
         setLoadingState(.loading)
         switch container.type {
         case .city:
@@ -129,15 +150,6 @@ class ContainerViewController: ViewController {
                 didFail: brandResponseController.didFail
             ))
         }
-        
-        descriptionLabel.numberOfLines = 7
-        initialDescriptionHeight = descriptionLabel.firstTextHeight
-        descriptionLabel.heightConstraint.constant = initialDescriptionHeight
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-//        hottestOffersCollectionView.reloadData()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

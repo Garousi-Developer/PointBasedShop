@@ -22,19 +22,16 @@ class FilterResultsViewController: ViewController {
         
         searchBar.delegate = self
         
-        collectionController = ProductsCollectionController(
-            viewController: self,
-            collectionView: collectionView
-        )
-        collectionView.dataSource = collectionController
-        collectionView.delegate = collectionController
-        
         filterParameters = FilterParameters(
             categories: [selectedCategory.id],
             cities: [],
             searchedPhrase: ""
         )
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+//        collectionView.reloadData()
         setLoadingState(.loading)
         responseController = FilterResultsResponseController(viewController: self)
         responseController.requestHolder = request(RequestHolder(
@@ -42,11 +39,6 @@ class FilterResultsViewController: ViewController {
             didSucceed: responseController.didSucceed,
             didFail: responseController.didFail
         ))
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-//        collectionView.reloadData()
     }
 }
 extension FilterResultsViewController: UISearchBarDelegate {

@@ -18,6 +18,7 @@ class CartViewController: ViewController {
     var addresses: [Address]!
     var productsCollectionController: ProductsCollectionController!
     var addressesTableController: AddressesTableController!
+    var cartResponseController: CartResponseController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +38,6 @@ class CartViewController: ViewController {
             .replacingOccurrences(of: texts(.pointsAmount), with: "60")
         totalPriceLabel.text = "\(10400000.priceFormatted) \(texts(.currency))"
         
-        productsCollectionController = ProductsCollectionController(
-            viewController: self,
-            collectionView: productsCollectionView
-        )
-        productsCollectionView.dataSource = productsCollectionController
-        productsCollectionView.delegate = productsCollectionController
-        
         addressesTableController = AddressesTableController(
             viewController: self,
             tableView: addressesTableView
@@ -55,14 +49,19 @@ class CartViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        productsCollectionController.data = cart
-        
-        setProductsHeight()
+//        productsCollectionController.data = cart
+        setLoadingState(.loading)
+        cartResponseController = CartResponseController(viewController: self)
+        cartResponseController.requestHolder = request(RequestHolder(
+            endPointName: .cart,
+            didSucceed: cartResponseController.didSucceed,
+            didFail: cartResponseController.didFail
+        ))
     }
 }
 
 extension CartViewController {
-    private func setProductsHeight() {
+    func setProductsHeight() {
         let productsLayout = productsCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let numberOfProducts = CGFloat(productsCollectionView.numberOfItems(inSection: 0))
         let productsVerticalInsets = productsLayout.sectionInset.top + productsLayout.sectionInset.bottom

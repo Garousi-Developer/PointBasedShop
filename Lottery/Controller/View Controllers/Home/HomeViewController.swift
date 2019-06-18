@@ -12,7 +12,12 @@ class HomeViewController: ViewController {
         tableController = HomeTableController(viewController: self, tableView: tableView)
         tableView.dataSource = tableController
         tableView.delegate = tableController
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+//        let homeTopStaticCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TopStaticTableCell
+//        homeTopStaticCell?.closestOffersCollectionView.reloadData()
         setLoadingState(.loading)
         responseController = HomeResponseController(viewController: self)
         responseController.requestHolder = request(RequestHolder(
@@ -20,11 +25,5 @@ class HomeViewController: ViewController {
             didSucceed: responseController.didSucceed,
             didFail: responseController.didFail
         ))
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-//        let homeTopStaticCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TopStaticTableCell
-//        homeTopStaticCell?.closestOffersCollectionView.reloadData()
     }
 }

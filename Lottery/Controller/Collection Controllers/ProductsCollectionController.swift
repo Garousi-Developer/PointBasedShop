@@ -2,6 +2,8 @@ import UIKit
 
 class ProductsCollectionController: CollectionController {
     var products: [NewProduct] = []
+    var updateCartParameters: UpdateCartParameters!
+    var responseController: ResponseController!
     
     @objc func toggleFavoriteState(sender: Button) {
 //        products[sender.tag].isFavorite.toggle()
@@ -22,31 +24,34 @@ class ProductsCollectionController: CollectionController {
     }
     @objc func remove(sender: Button) {
 //        let cartViewController = viewController as! CartViewController
-        let product = products[sender.tag]
-        
-        product.orderCount = 0
-        data.remove(at: sender.tag)
-        cart.remove(at: sender.tag)
+//        let product = products[sender.tag]
+//
+//        product.orderCount = 0
+//        data.remove(at: sender.tag)
+//        cart.remove(at: sender.tag)
         
 //        if cart.isEmpty {
 //            cartViewController.addressView.fadeOut()
 //        }
     }
     @objc func addToCart(sender: Button) {
+        let product = products[sender.tag]
+        updateCartParameters = UpdateCartParameters(productIds: [product.id], updateType: "increment")
+        responseController = ResponseController(viewController: viewController)
+        responseController.requestHolder = request(RequestHolder(
+            endPointName: .updateCart(parameters: updateCartParameters),
+            didSucceed: responseController.didSucceed,
+            didFail: responseController.didFail
+        ))
+        
+        product.orderCount += 1
         let cell = collectionView.cellForItem(at: IndexPath(
             item: sender.tag,
             section: 0
         )) as! ProductCollectionCell
-        let product = products[sender.tag]
-        
-        // Refer cart to products.
-        product.orderCount += 1
-//        cart.append(product)
-        
         delay(durations(.interaction)) {
             cell.addToCartButton.fadeOut()
             cell.orderCountStackView.fadeIn()
-            
             delay(durations(.textField)) {
                 self.collectionView.reloadData()
             }
@@ -120,17 +125,17 @@ class ProductsCollectionController: CollectionController {
             product.orderCount = cartProduct.orderCount
         }
         
-        castedCell.requiredPointsLabel.text = "\(product.requiredPoints) \(texts(.points))"
+        castedCell.requiredPointsLabel.text = "\(product.requiredPoints.priceFormatted) \(texts(.points))"
         castedCell.pictureImageView.downloadImageFrom(product.pictureURL)
         castedCell.nameLabel.text = product.persianTitle
         castedCell.discountedPriceLabel.text = "\(Int(product.discountedPrice).priceFormatted) \(texts(.currency))"
         castedCell.brandLogoImageView.downloadImageFrom(product.brand.logoURL)
         castedCell.brandNameLabel.text = product.brand.persianTitle
         castedCell.orderCountButton.setTitle("\(product.orderCount)", for: .normal)
-        castedCell.numberOfSoldProductsLabel.text = "\(product.soldCount) \(texts(.number)) \(texts(.sold))"
+        castedCell.numberOfSoldProductsLabel.text = "\(product.soldCount.priceFormatted) \(texts(.number)) \(texts(.sold))"
         castedCell.progressView.setProgress(progress, animated: false)
         castedCell.progressView.progressTintColor = color(ofProgress: progress)
-        castedCell.numberOfProductsLabel.text = "\(texts(.outOf)) \(product.count) \(texts(.number))"
+        castedCell.numberOfProductsLabel.text = "\(texts(.outOf)) \(product.count.priceFormatted) \(texts(.number))"
         
         if UserDefaults.standard.string(forKey: "token") != nil {
             if product.isLocked {

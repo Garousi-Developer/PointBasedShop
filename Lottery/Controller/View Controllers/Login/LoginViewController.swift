@@ -5,6 +5,7 @@ class LoginViewController: ViewController {
     @IBOutlet weak var mobileNumberTextField: FirstTextField!
     @IBOutlet weak var passwordTextField: FirstTextField!
     @IBOutlet weak var loginButton: Button!
+    @IBOutlet weak var resultLabel: Label!
     @IBOutlet weak var loginWithoutRegisterButton: Button!
     @IBOutlet weak var retrievePasswordButton: Button!
     @IBOutlet weak var registerButton: Button!
@@ -24,6 +25,8 @@ class LoginViewController: ViewController {
         }
     }
     @IBAction func login() {
+        resultLabel.fadeOut()
+        
         loginParameters = LoginParameters(
             mobileNumber: mobileNumberTextField.firstCommonMobileNumber,
             password: passwordTextField.text!

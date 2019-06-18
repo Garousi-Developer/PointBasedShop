@@ -1,4 +1,5 @@
 import UIKit
+//import MSPeekCollectionViewDelegateImplementation
 import SnapKit
 
 class HomeTableController: TableController {
@@ -9,6 +10,7 @@ class HomeTableController: TableController {
     var sliderPagerController: SliderPagerController!
     var categoriesCollectionController: CategoriesCollectionController!
     var closestOffersCollectionController: ProductsCollectionController!
+//    let closestOffersDelegate = MSPeekCollectionViewDelegateImplementation()
     var containersCollectionController: ContainersCollectionController!
     
     override func numberOfRows() -> Int {
@@ -95,7 +97,7 @@ extension HomeTableController {
                 string: "\(texts(.yourPoints)) : "
             ))
             attributedText.append(NSAttributedString(
-                string: "\(Int(home.userPoints))",
+                string: "\(Int(home.userPoints).priceFormatted)",
                 attributes: [
                     NSAttributedString.Key.font: fonts(.large),
                     NSAttributedString.Key.foregroundColor: colors(.green)

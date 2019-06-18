@@ -38,6 +38,8 @@
 		514A6D9A22AFD5C600E0EE11 /* ResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514A6D9922AFD5C600E0EE11 /* ResponseController.swift */; };
 		514A6D9D22AFD8A800E0EE11 /* LoginResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514A6D9C22AFD8A800E0EE11 /* LoginResponseController.swift */; };
 		514DB2C9229C0E4900E8AE7A /* ImageWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514DB2C8229C0E4900E8AE7A /* ImageWithInsets.swift */; };
+		515540EB22B94A44008D9966 /* CartResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515540EA22B94A44008D9966 /* CartResponseController.swift */; };
+		515540ED22B98F7A008D9966 /* UpdateCartParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515540EC22B98F7A008D9966 /* UpdateCartParameters.swift */; };
 		5162D62022A808AE00547AD6 /* RegisterSecondStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5162D61F22A808AE00547AD6 /* RegisterSecondStepViewController.swift */; };
 		5162D62222A808EF00547AD6 /* RegisterSecondStep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5162D62122A808EF00547AD6 /* RegisterSecondStep.storyboard */; };
 		5162D62422A838B600547AD6 /* RegisterThirdStep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5162D62322A838B600547AD6 /* RegisterThirdStep.storyboard */; };
@@ -238,6 +240,8 @@
 		514A6D9922AFD5C600E0EE11 /* ResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseController.swift; sourceTree = "<group>"; };
 		514A6D9C22AFD8A800E0EE11 /* LoginResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseController.swift; sourceTree = "<group>"; };
 		514DB2C8229C0E4900E8AE7A /* ImageWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithInsets.swift; sourceTree = "<group>"; };
+		515540EA22B94A44008D9966 /* CartResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartResponseController.swift; sourceTree = "<group>"; };
+		515540EC22B98F7A008D9966 /* UpdateCartParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCartParameters.swift; sourceTree = "<group>"; };
 		5162D61F22A808AE00547AD6 /* RegisterSecondStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSecondStepViewController.swift; sourceTree = "<group>"; };
 		5162D62122A808EF00547AD6 /* RegisterSecondStep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterSecondStep.storyboard; sourceTree = "<group>"; };
 		5162D62322A838B600547AD6 /* RegisterThirdStep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterThirdStep.storyboard; sourceTree = "<group>"; };
@@ -583,9 +587,18 @@
 			children = (
 				517E6B7522B4FBEE0087A919 /* Login */,
 				517E6B7422B4FBE90087A919 /* Home */,
+				515540E922B94A29008D9966 /* Cart */,
 				5185C45F22B67CF100E9069A /* Awards */,
 			);
 			path = "Response Controllers";
+			sourceTree = "<group>";
+		};
+		515540E922B94A29008D9966 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				515540EA22B94A44008D9966 /* CartResponseController.swift */,
+			);
+			path = Cart;
 			sourceTree = "<group>";
 		};
 		516D299B22855F7800504E6F /* Formatters */ = {
@@ -727,6 +740,7 @@
 				5185C45722B64D3A00E9069A /* ClosestOffersParameters.swift */,
 				5185C46222B7879700E9069A /* FilterParameters.swift */,
 				5185C45922B663FA00E9069A /* StaticMapParameters.swift */,
+				515540EC22B98F7A008D9966 /* UpdateCartParameters.swift */,
 				51F79DDF22B9092F0094F9A7 /* CheckInParameters.swift */,
 				518A373222B8ADDF004FEAC7 /* ClaimPointsParameters.swift */,
 			);
@@ -1124,6 +1138,7 @@
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MSPeekCollectionViewDelegateImplementation/MSPeekCollectionViewDelegateImplementation.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVPinView/SVPinView.framework",
@@ -1139,6 +1154,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MSPeekCollectionViewDelegateImplementation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVPinView.framework",
@@ -1230,6 +1246,7 @@
 				51B365E12298ABC400CF2BA6 /* Scale.swift in Sources */,
 				51B365E22298ABC400CF2BA6 /* SetLineSpacing.swift in Sources */,
 				518A373922B8C7BD004FEAC7 /* BrandResponseController.swift in Sources */,
+				515540ED22B98F7A008D9966 /* UpdateCartParameters.swift in Sources */,
 				51F9E8B922A421FB0043E209 /* ProfileViewController.swift in Sources */,
 				517E6B7122B4EB740087A919 /* RegisterThirdStepResponseController.swift in Sources */,
 				51B365E32298ABC400CF2BA6 /* Subview.swift in Sources */,
@@ -1258,6 +1275,7 @@
 				51B365EE2298ABC400CF2BA6 /* PagerCell.swift in Sources */,
 				51268CD822B6311800B8D2F8 /* LoadingStates.swift in Sources */,
 				51B365EF2298ABC400CF2BA6 /* PagerView.swift in Sources */,
+				515540EB22B94A44008D9966 /* CartResponseController.swift in Sources */,
 				51F076BC22B5255E004DFD38 /* ClosestOffersResponseController.swift in Sources */,
 				5171B46E22A69693007B0E3F /* RetrievePasswordFirstStepViewController.swift in Sources */,
 				51B365F02298ABC400CF2BA6 /* ScrollView.swift in Sources */,

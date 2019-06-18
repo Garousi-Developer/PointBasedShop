@@ -10,8 +10,9 @@ class HomeResponseController: ResponseController {
         let castedViewController = viewController as! HomeViewController
         let home = response as! Home
         
-        castedViewController.setLoadingState(.successful)
+//        castedViewController.tableController.tableView.contentOffset.y = 0
         castedViewController.tableController.data = [home]
+        castedViewController.setLoadingState(.successful)
         
         closestOffersParameters = ClosestOffersParameters(latitude: "35.6892", longitude: "51.3890")
         

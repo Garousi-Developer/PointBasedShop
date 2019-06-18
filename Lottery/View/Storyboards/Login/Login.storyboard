@@ -94,6 +94,16 @@
                                                     <action selector="login" destination="Nou-Av-vf7" eventType="touchUpInside" id="JxV-6W-hCc"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نتیجه" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZf-SW-e9Q" userLabel="Result Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
+                                                <rect key="frame" x="12" y="298" width="390" height="19.666666666666686"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTextAlignment" value="center"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTextColor" value="red"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOy-N4-s4Q" userLabel="Login Without Register Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
                                                 <rect key="frame" x="147" y="334" width="120" height="35"/>
                                                 <constraints>
@@ -161,14 +171,17 @@
                                             <constraint firstItem="hib-hB-154" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="48I-no-tJB" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="YOy-N4-s4Q" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="4b7-E5-2GV" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="WUn-eP-hEC" firstAttribute="top" secondItem="ffa-kg-voJ" secondAttribute="bottom" constant="42" id="AVQ-bX-tt7" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="NZf-SW-e9Q" firstAttribute="leading" secondItem="8wT-td-VtL" secondAttribute="leading" constant="12" id="AfG-0R-TmZ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="Mm0-g7-qex" firstAttribute="top" secondItem="YOy-N4-s4Q" secondAttribute="bottom" constant="6" id="Fch-e1-Xgc" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="ry3-y0-Pys" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="FoI-jm-G2Z" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstAttribute="trailing" secondItem="WUn-eP-hEC" secondAttribute="trailing" constant="24" id="GgU-yo-PxE" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstAttribute="trailing" secondItem="ffa-kg-voJ" secondAttribute="trailing" constant="24" id="Gnu-QO-rdy" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="Qft-fI-L73" firstAttribute="centerX" secondItem="8wT-td-VtL" secondAttribute="centerX" id="JCg-Mp-xBY" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="hib-hB-154" firstAttribute="top" secondItem="8wT-td-VtL" secondAttribute="top" constant="48" id="Jjy-Zf-i76" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstItem="NZf-SW-e9Q" firstAttribute="top" secondItem="ry3-y0-Pys" secondAttribute="bottom" constant="12" id="QaT-6s-gWr" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="Qft-fI-L73" firstAttribute="top" secondItem="Mm0-g7-qex" secondAttribute="bottom" constant="6" id="QhT-a0-Qdt" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstAttribute="bottom" secondItem="JB0-mF-wha" secondAttribute="bottom" constant="48" id="WqC-XZ-XQJ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                            <constraint firstAttribute="trailing" secondItem="NZf-SW-e9Q" secondAttribute="trailing" constant="12" id="aiH-lQ-xhv" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="ry3-y0-Pys" firstAttribute="top" secondItem="WUn-eP-hEC" secondAttribute="bottom" constant="42" id="bWB-FU-kVZ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="ffa-kg-voJ" firstAttribute="top" secondItem="hib-hB-154" secondAttribute="bottom" constant="30" id="dPz-jo-4S7" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                             <constraint firstItem="JB0-mF-wha" firstAttribute="top" secondItem="Qft-fI-L73" secondAttribute="bottom" constant="6" id="mEU-z3-6w7" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -212,6 +225,7 @@
                         <outlet property="mobileNumberTextField" destination="ffa-kg-voJ" id="Z4A-Wl-u9r"/>
                         <outlet property="passwordTextField" destination="WUn-eP-hEC" id="hcD-yv-Kr3"/>
                         <outlet property="registerButton" destination="JB0-mF-wha" id="wKq-vm-dCl"/>
+                        <outlet property="resultLabel" destination="NZf-SW-e9Q" id="CCu-7C-jRM"/>
                         <outlet property="retrievePasswordButton" destination="Qft-fI-L73" id="BrZ-Yx-Tla"/>
                     </connections>
                 </viewController>

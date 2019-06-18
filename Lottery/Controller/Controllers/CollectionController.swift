@@ -21,6 +21,17 @@ class CollectionController: SecondaryController {
         }
     }
     
+    var itemWidth: CGFloat! {
+        didSet {
+            pagingThreshold = itemWidth / 2
+        }
+    }
+    var interitemSpacing: CGFloat!
+    
+    var pagingThreshold: CGFloat!
+    var currentOffset: CGFloat!
+    var targetOffset: CGFloat!
+    
     func itemHeight() -> CGFloat {
         return 0
     }
@@ -49,9 +60,12 @@ class CollectionController: SecondaryController {
             break
         }
         
+        collectionView.decelerationRate = .fast
+        
         self.collectionView = collectionView
     }
 }
+
 extension CollectionController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
@@ -75,7 +89,6 @@ extension CollectionController: UICollectionViewDelegateFlowLayout {
     {
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         let cellsPerRow = CGFloat(self.collectionView.firstCellsPerPage)
-        let interitemSpacing: CGFloat
         switch layout.scrollDirection {
         case .horizontal:
             interitemSpacing = layout.minimumLineSpacing
@@ -84,7 +97,7 @@ extension CollectionController: UICollectionViewDelegateFlowLayout {
         @unknown default:
             return CGSize(width: 0, height: 0)
         }
-        
+
         let width = collectionView.bounds.width
         let horizontalInsets = layout.sectionInset.left + layout.sectionInset.right
         let interitemSpacings: CGFloat
@@ -94,14 +107,19 @@ extension CollectionController: UICollectionViewDelegateFlowLayout {
         else {
             interitemSpacings = cellsPerRow * interitemSpacing
         }
-        
-        let itemWidth = CGFloat(Int(
+
+        itemWidth = CGFloat(Int(
             (width - horizontalInsets - interitemSpacings) / cellsPerRow
         ))
+        if layout.scrollDirection == .horizontal {
+            itemWidth = CGFloat(Int(
+                (width - (3 + cellsPerRow) * interitemSpacing) / cellsPerRow
+            ))
+        }
         guard itemWidth > 0 else {
             fatalError("\"itemWidth\" must be positive.")
         }
-        
+
         return CGSize(
             width: itemWidth,
             height: itemHeight()
@@ -111,5 +129,35 @@ extension CollectionController: UICollectionViewDelegateFlowLayout {
 extension CollectionController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         itemDidSelect(atIndexPath: indexPath)
+    }
+}
+
+extension CollectionController: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        currentOffset = scrollView.contentOffset.x
+    }
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
+    {
+        let cellsPerRow = CGFloat(collectionView.firstCellsPerPage)
+        
+        targetOffset = targetContentOffset.pointee.x
+        let scrollDistance = targetOffset - currentOffset
+//        let coefficent: Int
+//        if scrollDistance < -pagingThreshold {
+//            coefficent = -1
+//        }
+//        else if scrollDistance > pagingThreshold {
+//            coefficent = 1
+//        }
+//        else {
+//            coefficent = 0
+//        }
+        let coefficent = Int(round(scrollDistance / (pagingThreshold * cellsPerRow))) * collectionView.firstCellsPerPage
+        
+        let currentItem = Int(round(currentOffset / itemWidth))
+        let targetItem = currentItem + coefficent
+        let targetItemOffset = CGFloat(targetItem) * (itemWidth + interitemSpacing)
+        
+        targetContentOffset.pointee.x = targetItemOffset
     }
 }

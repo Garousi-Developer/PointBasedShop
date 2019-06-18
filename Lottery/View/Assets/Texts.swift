@@ -7,6 +7,8 @@ func texts(_ text: Text) -> String {
         return "تومان"
     case .empty:
         return ""
+    case .internalServerError:
+        return "خطا در سرور"
     case .more:
         return "بیشتر"
     case .number:
@@ -27,6 +29,12 @@ func texts(_ text: Text) -> String {
         return "رمز عبور"
     case .shortPassword:
         return "رمز عبور باید حداقل ۴ کاراکتر باشد"
+    case .unregisteredMobileNumber:
+        return "این شماره هنوز ثبت نام نکرده است"
+    case .inactiveAccount:
+        return "این حساب کاربری هنوز فعال نشده است"
+    case .wrongCredentials:
+        return "شماره موبایل یا رمز عبور اشتباه است"
     case .loginWithoutRegister:
         return "ورود بدون عضویت"
         
@@ -160,6 +168,8 @@ func texts(_ text: Text) -> String {
         return "همه محصولات خریداری شده را به خیریه اهدا می کنم"
     case .selectOneOfYourAddresses:
         return "یکی از آدرس های خود را انتخاب کنید"
+    case .editAddress:
+        return "ویرایش آدرس"
     case .pay:
         return "پرداخت"
     
@@ -221,6 +231,7 @@ enum Text: String {
     case all
     case currency
     case empty
+    case internalServerError
     case more
     case number
     case points
@@ -232,6 +243,9 @@ enum Text: String {
     case invalidMobileNumber
     case password
     case shortPassword
+    case unregisteredMobileNumber
+    case inactiveAccount
+    case wrongCredentials
     case loginWithoutRegister
     
     // Retrieve Password First Step:
@@ -311,6 +325,7 @@ enum Text: String {
     case pricesAreTaxInclusive
     case iDonateAllPurchasedProductsToCharity
     case selectOneOfYourAddresses
+    case editAddress
     case pay
     
     // Awards:

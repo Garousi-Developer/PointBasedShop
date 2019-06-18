@@ -63,15 +63,15 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="157" id="DJI-IF-vf9"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="16" minimumInteritemSpacing="0.0" id="Qo7-Br-09t" userLabel="Flow Layout">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="12" minimumInteritemSpacing="0.0" id="Qo7-Br-09t" userLabel="Flow Layout">
                                                         <size key="itemSize" width="110" height="125"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
+                                                        <inset key="sectionInset" minX="24" minY="16" maxX="24" maxY="16"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reusable" id="PgM-bm-jFe" userLabel="Cell" customClass="CategoryCollectionCell" customModule="PointBasedShop" customModuleProvider="target">
-                                                            <rect key="frame" x="16" y="16" width="110" height="125"/>
+                                                            <rect key="frame" x="24" y="16" width="110" height="125"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="110" height="125"/>
@@ -160,15 +160,15 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="457" id="UVn-nZ-PfA"/>
                                                             </constraints>
-                                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="16" minimumInteritemSpacing="0.0" id="DLK-5Z-hoB" userLabel="Flow Layout">
+                                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="12" minimumInteritemSpacing="0.0" id="DLK-5Z-hoB" userLabel="Flow Layout">
                                                                 <size key="itemSize" width="366" height="425"/>
                                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
+                                                                <inset key="sectionInset" minX="24" minY="16" maxX="24" maxY="16"/>
                                                             </collectionViewFlowLayout>
                                                             <cells>
                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reusable" id="eUc-Mp-yX9" userLabel="Cell" customClass="ProductCollectionCell" customModule="PointBasedShop" customModuleProvider="target">
-                                                                    <rect key="frame" x="16" y="16" width="366" height="425"/>
+                                                                    <rect key="frame" x="24" y="16" width="366" height="425"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="425"/>
@@ -511,10 +511,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzN-Eu-YxX" userLabel="Section View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="6" width="600" height="212.5"/>
+                                                    <rect key="frame" x="0.0" y="6" width="414" height="212.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عنوان بخش" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHJ-Ht-NhC" userLabel="Title Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                            <rect key="frame" x="12" y="12" width="576" height="62.5"/>
+                                                            <rect key="frame" x="12" y="12" width="390" height="62.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -524,20 +524,20 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PHH-tO-GJR" userLabel="Containers Collection View" customClass="CollectionView" customModule="PointBasedShop" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="74.5" width="600" height="132"/>
+                                                            <rect key="frame" x="0.0" y="74.5" width="414" height="132"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="132" id="C6P-Hy-BqF"/>
                                                             </constraints>
-                                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="16" minimumInteritemSpacing="0.0" id="y2J-9n-Ize" userLabel="Flow Layout">
+                                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="12" minimumInteritemSpacing="0.0" id="y2J-9n-Ize" userLabel="Flow Layout">
                                                                 <size key="itemSize" width="110" height="100"/>
                                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
+                                                                <inset key="sectionInset" minX="24" minY="16" maxX="24" maxY="16"/>
                                                             </collectionViewFlowLayout>
                                                             <cells>
                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reusable" id="cOS-6J-plJ" userLabel="Cell" customClass="ContainerCollectionCell" customModule="PointBasedShop" customModuleProvider="target">
-                                                                    <rect key="frame" x="16" y="16" width="110" height="100"/>
+                                                                    <rect key="frame" x="24" y="16" width="110" height="100"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                         <rect key="frame" x="0.0" y="0.0" width="110" height="100"/>

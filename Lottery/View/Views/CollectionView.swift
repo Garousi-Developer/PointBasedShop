@@ -73,5 +73,7 @@ extension CollectionView {
                 break
             }
         }
+        
+//        isPagingEnabled = true
     }
 }

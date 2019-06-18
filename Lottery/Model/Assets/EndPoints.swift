@@ -55,6 +55,11 @@ func endPoints(_ endPointName: EndPointName) -> EndPoint {
             url: "/search",
             response: FilterScopes.self
         )
+    case .product(let id):
+        return EndPoint(
+            url: "/product/\(id)",
+            response: ProductDetailses.self
+        )
     case .city(let id):
         return EndPoint(
             url: "/city/\(id)",
@@ -65,6 +70,11 @@ func endPoints(_ endPointName: EndPointName) -> EndPoint {
             url: "/shop/\(id)",
             response: ShoppingCenterDetails.self
         )
+    case .brand(let id):
+        return EndPoint(
+            url: "/brand/\(id)",
+            response: BrandDetails.self
+        )
     
     // Awards:
     case .awards(let parameters):
@@ -73,6 +83,18 @@ func endPoints(_ endPointName: EndPointName) -> EndPoint {
             encoding: URLEncoding.default,
             url: "/point-purchase",
             response: Awards.self
+        )
+    case .checkIn(let parameters):
+        return EndPoint(
+            method: .post,
+            parameters: parameters,
+            url: "/point-loyalty"
+        )
+    case .claimPoints(let parameters):
+        return EndPoint(
+            method: .post,
+            parameters: parameters,
+            url: "/point-purchase"
         )
     
     // Google Maps:
@@ -97,11 +119,15 @@ enum EndPointName {
     case closestOffers(parameters: ClosestOffersParameters)
     case filter(parameters: FilterParameters)
     case filterScopes
+    case product(id: Int)
     case city(id: Int)
     case shoppingCenter(id: Int)
+    case brand(id: Int)
     
     // Awards:
     case awards(parameters: ClosestOffersParameters)
+    case checkIn(parameters: CheckInParameters)
+    case claimPoints(parameters: ClaimPointsParameters)
     
     // Google Maps:
     case staticMap(parameters: StaticMapParameters)

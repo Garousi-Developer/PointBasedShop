@@ -17,7 +17,7 @@ class ContainerViewController: ViewController {
     @IBOutlet weak var hottestOffersCollectionView: CollectionView!
     @IBOutlet weak var adImageView: ImageView!
     
-    var cityId: Int!
+    var containerId: Int!
     var container: Container!
     
     var containerScrollController: ContainerScrollController!
@@ -25,7 +25,7 @@ class ContainerViewController: ViewController {
     var hottestOffersCollectionController: ProductsCollectionController!
     var cityResponseController: CityResponseController!
     var shoppingCenterResponseController: ShoppingCenterResponseController!
-    var brandResponseController: CityResponseController!
+    var brandResponseController: BrandResponseController!
     
     var initialDescriptionHeight: CGFloat!
     var finalDescriptionHeight: CGFloat!
@@ -98,10 +98,10 @@ class ContainerViewController: ViewController {
             hottestOffersCollectionView.removeFromSuperview()
             
             mapImageView.snp.makeConstraints { (make) in
-                make.top.equalTo(descriptionView.snp.bottom).offset(scale * 12)
+                make.top.equalTo(descriptionView.snp.bottom)
             }
             adImageView.snp.makeConstraints { (make) in
-                make.top.equalTo(mapImageView.snp.bottom).offset(scale * 24)
+                make.top.equalTo(mapImageView.snp.bottom).offset(scale * 12)
             }
         }
         
@@ -110,19 +110,24 @@ class ContainerViewController: ViewController {
         case .city:
             cityResponseController = CityResponseController(viewController: self)
             cityResponseController.requestHolder = request(RequestHolder(
-                endPointName: .city(id: cityId),
+                endPointName: .city(id: containerId),
                 didSucceed: cityResponseController.didSucceed,
                 didFail: cityResponseController.didFail
             ))
         case .shoppingCenter:
             shoppingCenterResponseController = ShoppingCenterResponseController(viewController: self)
             shoppingCenterResponseController.requestHolder = request(RequestHolder(
-                endPointName: .shoppingCenter(id: cityId),
+                endPointName: .shoppingCenter(id: containerId),
                 didSucceed: shoppingCenterResponseController.didSucceed,
                 didFail: shoppingCenterResponseController.didFail
             ))
         default:
-            break
+            brandResponseController = BrandResponseController(viewController: self)
+            brandResponseController.requestHolder = request(RequestHolder(
+                endPointName: .brand(id: containerId),
+                didSucceed: brandResponseController.didSucceed,
+                didFail: brandResponseController.didFail
+            ))
         }
         
         descriptionLabel.numberOfLines = 7

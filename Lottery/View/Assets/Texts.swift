@@ -179,6 +179,10 @@ func texts(_ text: Text) -> String {
         return "برای کسب \(texts(.pointsAmount)) امتیاز وفاداری دکمه ثبت حضور را بزنید"
     case .checkIn:
         return "ثبت حضور"
+    case .yourPointsSuccessfullyUpdated:
+        return "امتیاز شما با موفقیت به روز رسانی شد"
+    case .youEarnedPointsFromThisShoppingCenterForToday:
+        return "شما امروز از این فروشگاه امتیاز دریافت کرده اید"
     case .takeYourTodaysInvoicesToXShoppingCenterCounter:
         return """
         فاکتورهای امروز خود را به پیشخوان مرکز خرید \(texts(.shoppingCenterName)) ببرید
@@ -318,6 +322,8 @@ enum Text: String {
     case welcomeToXShoppingCenter
     case tapCheckInToClaimXLoyaltyPoints
     case checkIn
+    case yourPointsSuccessfullyUpdated
+    case youEarnedPointsFromThisShoppingCenterForToday
     case takeYourTodaysInvoicesToXShoppingCenterCounter
     case claimPoints
     

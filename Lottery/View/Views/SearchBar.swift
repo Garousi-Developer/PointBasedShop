@@ -69,7 +69,6 @@ extension SearchBar {
             let searchImageView = textField.leftView as! UIImageView
             let textFieldBackgroundView = textField.subviews[0]
             
-            enablesReturnKeyAutomatically = true
             searchBarStyle = .minimal
             backgroundColor = colors(.white)
             semanticContentAttribute = .forceRightToLeft

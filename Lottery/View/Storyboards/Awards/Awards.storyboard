@@ -24,7 +24,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggf-OB-zQi" userLabel="Content View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="689.33333333333337"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testShoppingCenter" translatesAutoresizingMaskIntoConstraints="NO" id="sib-jj-n1f" userLabel="Shopping Center Picture Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sib-jj-n1f" userLabel="Shopping Center Picture Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="217"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="sib-jj-n1f" secondAttribute="height" multiplier="1242:651" id="ZaW-aU-vEO" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -72,12 +72,23 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="white"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="checkIn"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="checkIn" destination="GbL-3h-34Q" eventType="touchUpInside" id="FOj-2X-JK4"/>
+                                                        </connections>
                                                     </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نتیجه" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTb-15-9sL" userLabel="Result Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
+                                                        <rect key="frame" x="177.66666666666666" y="89" width="35" height="19.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="jgC-oh-rQe" firstAttribute="centerX" secondItem="jft-N8-aDD" secondAttribute="centerX" id="1gR-FT-T6f" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                    <constraint firstItem="VTb-15-9sL" firstAttribute="centerY" secondItem="eMk-SY-HnE" secondAttribute="centerY" id="2V1-gq-T2a"/>
                                                     <constraint firstItem="jgC-oh-rQe" firstAttribute="top" secondItem="jft-N8-aDD" secondAttribute="top" constant="12" id="93v-1L-WCv" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                    <constraint firstItem="VTb-15-9sL" firstAttribute="centerX" secondItem="eMk-SY-HnE" secondAttribute="centerX" id="BAD-Cb-Ahc"/>
                                                     <constraint firstItem="eMk-SY-HnE" firstAttribute="top" secondItem="RbR-t9-U9u" secondAttribute="bottom" constant="12" id="FhR-j6-gHb" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     <constraint firstItem="RbR-t9-U9u" firstAttribute="top" secondItem="jgC-oh-rQe" secondAttribute="bottom" constant="18" id="Ov4-wp-ZBT" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     <constraint firstAttribute="bottom" secondItem="eMk-SY-HnE" secondAttribute="bottom" constant="12" id="SOA-Rx-dBq" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -130,7 +141,7 @@
                                                     <action selector="claimPoints" destination="GbL-3h-34Q" eventType="touchUpInside" id="gFL-Xd-YJl"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testAd2" translatesAutoresizingMaskIntoConstraints="NO" id="yDd-oU-YWq" userLabel="Ad Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yDd-oU-YWq" userLabel="Ad Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="472.99999999999994" width="390" height="204.33333333333331"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="yDd-oU-YWq" secondAttribute="height" multiplier="1242:651" id="Hfa-Mi-IFf" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -200,6 +211,7 @@
                         <outlet property="checkInView" destination="jft-N8-aDD" id="XHC-nE-KyC"/>
                         <outlet property="claimPointsButton" destination="0Dw-gw-wvq" id="Vdn-kf-Kb6"/>
                         <outlet property="claimPointsDescriptionLabel" destination="nhA-Cs-pfa" id="FcE-LU-nbr"/>
+                        <outlet property="resultLabel" destination="VTb-15-9sL" id="OUh-sV-2Ky"/>
                         <outlet property="scrollView" destination="wGi-9E-Y2s" id="azN-c0-I3W"/>
                         <outlet property="shoppingCenterPictureImageView" destination="sib-jj-n1f" id="v34-l9-pRQ"/>
                         <outlet property="welcomeLabel" destination="jgC-oh-rQe" id="YW2-0j-w93"/>
@@ -210,8 +222,4 @@
             <point key="canvasLocation" x="176.81159420289856" y="69.642857142857139"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="testAd2" width="414" height="217"/>
-        <image name="testShoppingCenter" width="266.66665649414062" height="200"/>
-    </resources>
 </document>

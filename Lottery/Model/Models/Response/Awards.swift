@@ -3,13 +3,15 @@ class Awards: Decodable {
     let pictureURL: String
     let persianTitle: String
     let englishTitle: String
-    let checkInPoint: Int
+    let checkInPoint: String
+    let ad: NewAd
     
     enum CodingKeys: String, CodingKey {
         case id
         case pictureURL = "image"
         case persianTitle = "fa_name"
         case englishTitle = "en_name"
-        case checkInPoint = "point"
+        case checkInPoint = "bonus"
+        case ad = "advertise"
     }
 }

@@ -12,6 +12,8 @@ class NewProduct: Decodable {
     var orderCount = 0
     var soldCount: Int
     let count: Int
+    let persianDescription: String!
+    let englishDescription: String!
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -26,5 +28,7 @@ class NewProduct: Decodable {
         case brand
         case soldCount = "sold_count"
         case count
+        case persianDescription = "fa_description"
+        case englishDescription = "en_description"
     }
 }

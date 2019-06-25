@@ -1,28 +1,24 @@
 import UIKit
-//import MSPeekCollectionViewDelegateImplementation
-import SnapKit
 
 class HomeTableController: TableController {
     var homeArray: [Home] = []
     var home: Home!
-    var citiesTitleDidRemove = false
+    var closestOffers: [NewProduct]!
     
     var sliderPagerController: SliderPagerController!
     var categoriesCollectionController: CategoriesCollectionController!
     var closestOffersCollectionController: ProductsCollectionController!
-//    let closestOffersDelegate = MSPeekCollectionViewDelegateImplementation()
     var containersCollectionController: ContainersCollectionController!
     
     override func numberOfRows() -> Int {
         homeArray = data as! [Home]
-        if !homeArray.isEmpty {
-            home = homeArray[0]
-        }
         
         return homeArray.isEmpty ? 0 : 5
     }
     override func cell(forTableView tableView: TableView, atIndexPath indexPath: IndexPath) -> TableCell {
-        let sectionTitles = [texts(.cities), texts(.topShoppingCenters), texts(.topBrands)]
+        homeArray = data as! [Home]
+        home = homeArray[0]
+        let sectionTitles = ["", texts(.topShoppingCenters), texts(.topBrands)]
         let sectionContainers: [[Any]] = [home.cities, home.topShoppingCenters, home.topBrands]
         
         if indexPath.row == 0 {
@@ -30,6 +26,7 @@ class HomeTableController: TableController {
             topStaticCell.tableController = self
             let sliderPagerView = topStaticCell.sliderPagerView!
             let categoriesCollectionView = topStaticCell.categoriesCollectionView!
+            let closestOffersCollectionView = topStaticCell.closestOffersCollectionView!
             
             setupYourPointsLabel(topStaticCell: topStaticCell, home: home)
             
@@ -47,6 +44,14 @@ class HomeTableController: TableController {
             categoriesCollectionView.dataSource = categoriesCollectionController
             categoriesCollectionView.delegate = categoriesCollectionController
             
+            closestOffersCollectionController = ProductsCollectionController(
+                viewController: viewController,
+                collectionView: closestOffersCollectionView
+            )
+            closestOffersCollectionController.data = closestOffers
+            closestOffersCollectionView.dataSource = closestOffersCollectionController
+            closestOffersCollectionView.delegate = closestOffersCollectionController
+            
             topStaticCell.adImageView.downloadImageFrom(home.ads.first.pictureURL)
             
             return topStaticCell
@@ -56,23 +61,19 @@ class HomeTableController: TableController {
             dynamicCell.tableController = self
             let containersCollectionView = dynamicCell.containersCollectionView!
             
-            if indexPath.row == 1 && !citiesTitleDidRemove {
-                citiesTitleDidRemove = true
-                
-                dynamicCell.titleLabel.removeFromSuperview()
-                dynamicCell.containersCollectionView.snp.makeConstraints { (make) in
-                    make.top.equalToSuperview()
-                }
-            }
+            dynamicCell.titleLabel.text = sectionTitles[indexPath.row - 1]
             
-            dynamicCell.titleLabel?.text = sectionTitles[indexPath.row - 1]
+            if indexPath.row == 1 {
+                dynamicCell.containersCollectionView.topConstraint.constant = 0
+            }
+            else {
+                dynamicCell.containersCollectionView.topConstraint.constant = scale * (12 + 6) + fonts(.semiLarge).pointSize
+            }
             
             containersCollectionController = ContainersCollectionController(viewController: viewController, collectionView: containersCollectionView)
             containersCollectionController.data = sectionContainers[indexPath.row - 1]
             containersCollectionView.dataSource = containersCollectionController
             containersCollectionView.delegate = containersCollectionController
-            
-//            containersCollectionView.contentOffset.x = containersCollectionView.contentSize.width - containersCollectionView.bounds.width
             
             return dynamicCell
         }

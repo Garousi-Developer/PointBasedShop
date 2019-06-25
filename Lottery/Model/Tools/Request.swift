@@ -29,7 +29,9 @@ func request(_ requestHolder: RequestHolder) -> RequestHolder {
     }
     
     UIApplication.shared.keyWindow!.endEditing(true)
-    UIApplication.shared.keyWindow!.isUserInteractionEnabled = false
+    if requestHolder.blocking {
+        UIApplication.shared.keyWindow!.isUserInteractionEnabled = false
+    }
     UIApplication.shared.isNetworkActivityIndicatorVisible = true
     
     dataRequest
@@ -55,7 +57,9 @@ func request(_ requestHolder: RequestHolder) -> RequestHolder {
             }
             
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            UIApplication.shared.keyWindow!.isUserInteractionEnabled = true
+            if requestHolder.blocking {
+                UIApplication.shared.keyWindow!.isUserInteractionEnabled = true
+            }
             
             switch response.result {
             case .success(let body):
@@ -85,4 +89,5 @@ struct RequestHolder {
     let endPointName: EndPointName
     let didSucceed: (Decodable?) -> Void
     let didFail: (URLError.Code?, Int?, Decodable?) -> Void
+    var blocking = true
 }

@@ -23,37 +23,43 @@ class FilterResultsViewController: ViewController {
         searchBar.delegate = self
         
         filterParameters = FilterParameters(
+            searchedPhrase: "",
             categories: [selectedCategory.id],
             cities: [],
-            searchedPhrase: ""
+            lockState: "unlock"
         )
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        collectionView.reloadData()
         setLoadingState(.loading)
         responseController = FilterResultsResponseController(viewController: self)
         responseController.requestHolder = request(RequestHolder(
             endPointName: .filter(parameters: filterParameters),
             didSucceed: responseController.didSucceed,
-            didFail: responseController.didFail
+            didFail: responseController.didFail,
+            blocking: true
         ))
+        
+        refreshControl.containerView = collectionView
+        refreshControl.requestHolder = responseController.requestHolder
     }
 }
 extension FilterResultsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         filterParameters = FilterParameters(
+            searchedPhrase: searchBar.text!,
             categories: filterParameters.categories,
             cities: filterParameters.cities,
-            searchedPhrase: searchBar.text!
+            lockState: "unlock"
         )
         
         setLoadingState(.loading)
         responseController.requestHolder = request(RequestHolder(
             endPointName: .filter(parameters: filterParameters),
             didSucceed: responseController.didSucceed,
-            didFail: responseController.didFail
+            didFail: responseController.didFail,
+            blocking: true
         ))
     }
 }

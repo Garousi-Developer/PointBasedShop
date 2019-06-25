@@ -1,5 +1,6 @@
 import UIKit
 import NVActivityIndicatorView
+import SnapKit
 
 @IBDesignable
 class Button: UIButton {
@@ -82,6 +83,9 @@ class Button: UIButton {
         }
     }
     
+    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    
     var firstInteractionAnimationType: InteractionAnimation!
     let firstInteractionAnimationDuration = durations(.interaction)
     var firstInteractionAnimator: UIViewPropertyAnimator!
@@ -90,6 +94,16 @@ class Button: UIButton {
     var firstBackgroundColorHolder: UIColor!
     var firstTintColorHolder: UIColor!
     var firstIsFirstLayout = true
+    
+    var sideConstraints: [LayoutConstraint]!
+    var loadingView: NVActivityIndicatorView!
+    var widthHolder: CGFloat!
+    var heightHolder: CGFloat!
+    var titleHolder: String!
+    var imageHolder: UIImage!
+    var requestHolder: RequestHolder!
+    
+    var actionDidSet = false
     
     @objc func firstAnimateInteraction() {
         setFirstInteractionAnimator()
@@ -193,8 +207,9 @@ extension Button {
         addTarget(
             self,
             action: #selector(firstAnimateInteractionReversely),
-            for: [.touchUpInside, .touchDragExit, .touchCancel]
+            for: [.touchDragExit, .touchCancel]
         )
+        addDefaultTapTarget()
     }
     private func setupEdgeInsets() {
         if let normalTitle = title(for: .normal), image(for: .normal) != nil, !normalTitle.isEmpty {
@@ -235,9 +250,12 @@ extension Button {
                 self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
                 self.backgroundColor = self.backgroundColor?.highlighted
             case .glow:
-                let dominantColor = self.image(for: .normal) != nil ?
+                var dominantColor = self.image(for: .normal) != nil ?
                     self.tintColor! :
                     self.titleColor(for: .normal)!
+                if self.backgroundColor != nil && self.backgroundColor != colors(.white) {
+                    dominantColor = self.backgroundColor!
+                }
                 
                 if self.firstBackgroundColorHolder == nil {
                     self.firstBackgroundColorHolder = self.backgroundColor
@@ -257,5 +275,13 @@ extension Button {
                 self.backgroundColor = self.firstBackgroundColorHolder
             }
         }
+    }
+    
+    func addDefaultTapTarget() {
+        addTarget(
+            self,
+            action: #selector(firstAnimateInteractionReversely),
+            for: [.touchUpInside]
+        )
     }
 }

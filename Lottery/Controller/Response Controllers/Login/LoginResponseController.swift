@@ -8,7 +8,7 @@ class LoginResponseController: ResponseController {
         let user = response as! User
         
         UserDefaults.standard.set(user.token, forKey: "token")
-//        loginViewController.loginButton.setLoadingState(.successful)
+        castedViewController.loginButton.setLoadingState(.successful)
         castedViewController.navigateTo(.tabs, presenting: true)
     }
     override func didFail(errorCode: URLError.Code?, statusCode: Int?, response: Decodable?) {
@@ -35,6 +35,7 @@ class LoginResponseController: ResponseController {
             return
         }
         
+        castedViewController.loginButton.setLoadingState(.successful)
         castedViewController.resultLabel.fadeIn()
     }
 }

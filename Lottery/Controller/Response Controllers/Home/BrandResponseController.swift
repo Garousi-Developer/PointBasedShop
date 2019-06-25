@@ -10,11 +10,13 @@ class BrandResponseController: ResponseController {
         let castedViewController = viewController as! ContainerViewController
         let brandDetails = response as! BrandDetails
         
-        castedViewController.setLoadingState(.successful)
         castedViewController.pictureImageView.downloadImageFrom(brandDetails.pictureURL)
         castedViewController.nameLabel.text = brandDetails.persianTitle
         castedViewController.descriptionLabel.text = brandDetails.persianDescription
         castedViewController.adImageView.downloadImageFrom(brandDetails.ad.pictureURL)
+        
+        castedViewController.setLoadingState(.successful)
+        castedViewController.refreshControl.endRefreshing()
         
         staticMapParameters = StaticMapParameters(center: "35.6892,51.3890")
         

@@ -8,7 +8,7 @@ class RegisterThirdStepResponseController: ResponseController {
         let user = response as! User
         
         UserDefaults.standard.set(user.token, forKey: "token")
-        //        loginViewController.loginButton.setLoadingState(.successful)
+        castedViewController.registerButton.setLoadingState(.successful)
         castedViewController.navigateTo(.tabs, presenting: true)
     }
     override func didFail(errorCode: URLError.Code?, statusCode: Int?, response: Decodable?) {

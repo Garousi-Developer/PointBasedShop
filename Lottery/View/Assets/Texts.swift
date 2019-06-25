@@ -3,6 +3,8 @@ func texts(_ text: Text) -> String {
     // Global:
     case .all:
         return "همه"
+    case .count:
+        return "عدد"
     case .currency:
         return "تومان"
     case .empty:
@@ -17,6 +19,8 @@ func texts(_ text: Text) -> String {
         return "امتیاز"
     case .testText:
         return "متن آزمایشی"
+    case .pullToRefresh:
+        return ""
     
     // Login:
     case .login:
@@ -45,6 +49,8 @@ func texts(_ text: Text) -> String {
         return "مرحله اول بازیابی رمز"
     case .nextStep:
         return "مرحله بعد"
+    case .wrongVerificationCode:
+        return "کد تایید اشتباه است"
     case .firstStep:
         return "مرحله اول"
     case .retrieveCode:
@@ -75,6 +81,8 @@ func texts(_ text: Text) -> String {
         return "عضویت"
     case .firstStepOfRegister:
         return "مرحله اول عضویت"
+    case .alreadyRegistered:
+        return "این شماره قبلا ثبت نام کرده است"
         
     //  Register Second Step:
     case .secondStepOfRegister:
@@ -159,7 +167,7 @@ func texts(_ text: Text) -> String {
     case .numberOfProducts:
         return "تعداد محصولات"
     case .youWillEarnXPointsFromThisPurchase:
-        return "شما از این خرید مقدار امتیاز امتیاز به دست می آورید"
+        return "شما از این خرید \(texts(.pointsAmount)) امتیاز به دست می آورید"
     case .totalPrice:
         return "قیمت کل"
     case .pricesAreTaxInclusive:
@@ -172,6 +180,12 @@ func texts(_ text: Text) -> String {
         return "ویرایش آدرس"
     case .pay:
         return "پرداخت"
+    case .finalizeYourPurchase:
+        return "خرید خود را نهایی کنید"
+    
+    // Finalize:
+    case .purchaseFinalization:
+        return "نهایی کردن خرید"
     
     // Awards:
     case .awards:
@@ -208,14 +222,28 @@ func texts(_ text: Text) -> String {
         return "مبلغ خرید به تومان"
     case .employeeId:
         return "شناسه کارمند"
+    case .invalidEmployeeId:
+        return "شناسه کارمند باید ۴ رقم باشد"
     case .secretToken:
         return "کد محرمانه"
     case .submit:
         return "تایید"
+    case .wrongEmployeeId:
+        return "شناسه کارمند اشتباه است"
+    case .wrongToken:
+        return "کد محرمانه اشتباه است یا منقضی شده است"
     
     // Orders:
     case .orders:
         return "سفارشات"
+    case .orderNumber:
+        return "شماره سفارش"
+    case .transactionNumber:
+        return "شماره تراکنش"
+    case .donatedToCharity:
+        return "اهدا شده به خیریه"
+    case .address:
+        return "آدرس"
     
     // Profile:
     case .profile:
@@ -224,11 +252,16 @@ func texts(_ text: Text) -> String {
     // Favorites:
     case .favorites:
         return "علاقه مندی ها"
+    case .removeAll:
+        return "حذف همه"
+    case .addAllToCart:
+        return "افزودن همه به سبد خرید"
     }
 }
 enum Text: String {
     // Global:
     case all
+    case count
     case currency
     case empty
     case internalServerError
@@ -236,6 +269,7 @@ enum Text: String {
     case number
     case points
     case testText
+    case pullToRefresh
     
     // Login:
     case login
@@ -252,6 +286,7 @@ enum Text: String {
     case retrievePassword
     case firstStepOfRetrievePassword
     case nextStep
+    case wrongVerificationCode
     case firstStep
     case retrieveCode
     
@@ -270,6 +305,7 @@ enum Text: String {
     // Register First Step:
     case register
     case firstStepOfRegister
+    case alreadyRegistered
     
     // Register Second Step:
     case secondStepOfRegister
@@ -327,6 +363,10 @@ enum Text: String {
     case selectOneOfYourAddresses
     case editAddress
     case pay
+    case finalizeYourPurchase
+    
+    // Finalize:
+    case purchaseFinalization
     
     // Awards:
     case awards
@@ -346,15 +386,24 @@ enum Text: String {
     case pleaseHaveAllYourTodaysInvoicesStampedBySalesman
     case purchaseAmountInTomans
     case employeeId
+    case invalidEmployeeId
     case secretToken
     case submit
+    case wrongEmployeeId
+    case wrongToken
     
     // Orders:
     case orders
+    case orderNumber
+    case transactionNumber
+    case donatedToCharity
+    case address
     
     // Profile:
     case profile
     
     // Favorites:
     case favorites
+    case removeAll
+    case addAllToCart
 }

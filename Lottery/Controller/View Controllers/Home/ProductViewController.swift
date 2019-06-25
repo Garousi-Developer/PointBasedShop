@@ -1,6 +1,7 @@
 import UIKit
 
 class ProductViewController: ViewController {
+    @IBOutlet weak var scrollView: ScrollView!
     @IBOutlet weak var collectionView: CollectionView!
     @IBOutlet weak var descriptionButton: Button!
     @IBOutlet weak var productDetailsButton: Button!
@@ -9,6 +10,7 @@ class ProductViewController: ViewController {
     
     var product: NewProduct!
     var section = ProductSection.description
+    var scrollController: ProductScrollController!
     var collectionController: ProductsCollectionController!
     var productDetailsTableController: ProductDetailsTableController!
     var responseController: ProductResponseController!
@@ -17,6 +19,10 @@ class ProductViewController: ViewController {
         super.viewDidLoad()
         
         navigationItem.title = product.persianTitle
+        scrollView.delaysContentTouches = true
+        
+        scrollController = ProductScrollController(viewController: self, scrollView: scrollView)
+        scrollView.delegate = scrollController
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -26,8 +32,12 @@ class ProductViewController: ViewController {
         responseController.requestHolder = request(RequestHolder(
             endPointName: .product(id: product.id),
             didSucceed: responseController.didSucceed,
-            didFail: responseController.didFail
+            didFail: responseController.didFail,
+            blocking: true
         ))
+        
+        refreshControl.containerView = scrollView
+        refreshControl.requestHolder = responseController.requestHolder
     }
     
     @IBAction func showDescription() {

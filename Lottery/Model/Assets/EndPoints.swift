@@ -10,6 +10,26 @@ func endPoints(_ endPointName: EndPointName) -> EndPoint {
             url: "/login",
             response: User.self
         )
+    case .retrievePasswordFirstStep(let parameters):
+        return EndPoint(
+            method: .post,
+            parameters: parameters,
+            url: "/forget/step-one"
+        )
+    case .retrievePasswordSecondStep(let parameters):
+        return EndPoint(
+            method: .post,
+            parameters: parameters,
+            url: "/forget/step-two",
+            response: RetrievePasswordSecondStep.self
+        )
+    case .retrievePasswordThirdStep(let parameters):
+        return EndPoint(
+            method: .post,
+            parameters: parameters,
+            url: "/forget/step-three",
+            response: User.self
+        )
     case .registerFirstStep(let parameters):
         return EndPoint(
             method: .post,
@@ -80,13 +100,31 @@ func endPoints(_ endPointName: EndPointName) -> EndPoint {
     case .cart:
         return EndPoint(
             url: "/cart",
-            response: Products.self
+            response: Cart.self
         )
     case .updateCart(let parameters):
         return EndPoint(
             method: .post,
             parameters: parameters,
             url: "/cart"
+        )
+    case .removeCart(let id):
+        return EndPoint(
+            method: .delete,
+            url: "/cart/\(id)"
+        )
+    
+    // Order:
+    case .addOrder(let parameters):
+        return EndPoint(
+            method: .post,
+            parameters: parameters,
+            url: "/order"
+        )
+    case .orders:
+        return EndPoint(
+            url: "/order",
+            response: Order.self
         )
     
     // Awards:
@@ -110,6 +148,25 @@ func endPoints(_ endPointName: EndPointName) -> EndPoint {
             url: "/point-purchase"
         )
     
+    // Favorites:
+    case .addFavorite(let parameters):
+        return EndPoint(
+            method: .post,
+            parameters: parameters,
+            url: "/wishlist"
+    )
+    case .removeFavorite(let parameters):
+        return EndPoint(
+            method: .delete,
+            parameters: parameters,
+            url: "/wishlist/collection"
+        )
+    case .favorites:
+        return EndPoint(
+            url: "/wishlist",
+            response: Favorites.self
+        )
+    
     // Google Maps:
     case .staticMap(let parameters):
         return EndPoint(
@@ -123,6 +180,9 @@ func endPoints(_ endPointName: EndPointName) -> EndPoint {
 enum EndPointName {
     // Login:
     case login(parameters: LoginParameters)
+    case retrievePasswordFirstStep(parameters: RetrievePasswordFirstStepParameters)
+    case retrievePasswordSecondStep(parameters: RetrievePasswordSecondStepParameters)
+    case retrievePasswordThirdStep(parameters: RetrievePasswordThirdStepParameters)
     case registerFirstStep(parameters: RegisterFirstStepParameters)
     case registerSecondStep(parameters: RegisterSecondStepParameters)
     case registerThirdStep(parameters: RegisterThirdStepParameters)
@@ -139,12 +199,22 @@ enum EndPointName {
     
     // Cart:
     case cart
+    case removeCart(id: Int)
     case updateCart(parameters: UpdateCartParameters)
+    
+    // Order:
+    case addOrder(parameters: AddOrderParameters)
+    case orders
     
     // Awards:
     case awards(parameters: ClosestOffersParameters)
     case checkIn(parameters: CheckInParameters)
     case claimPoints(parameters: ClaimPointsParameters)
+    
+    // Favorites:
+    case addFavorite(parameters: AddFavoriteParameters)
+    case removeFavorite(parameters: RemoveFavoriteParameters)
+    case favorites
     
     // Google Maps:
     case staticMap(parameters: StaticMapParameters)
@@ -186,5 +256,6 @@ struct EndPoint {
     }
 }
 
-private let loyaltyBaseURL = "https://mallsconnect.com/api/v1"
+//private let loyaltyBaseURL = "https://mallsconnect.com/api/v1"
+private let loyaltyBaseURL = "http://192.168.1.139/api/v1"
 private let googleMapsBaseURL = "https://maps.googleapis.com/maps/api"

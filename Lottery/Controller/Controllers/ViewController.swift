@@ -11,6 +11,8 @@ class ViewController: UIViewController {
     var keyboardFrameWillChange = false
     var keyboardEndY: CGFloat!
     
+    let refreshControl = RefreshControl()
+    
     @objc func viewDidTap() {
         view.endEditing(true)
     }
@@ -23,12 +25,22 @@ class ViewController: UIViewController {
                 return
             }
             
-            let firstResponderOrNil = self.view.subviews.first { (subview) in
+            guard let scrollView = self.view.subviews[0] as? ScrollView else { return }
+            let firstResponderSuperView: UIView
+            if self is ClaimPointsViewController {
+                firstResponderSuperView = scrollView.subviews[0].subviews[1]
+            }
+            else {
+                firstResponderSuperView = scrollView.subviews[0]
+            }
+            let firstResponderOrNil = firstResponderSuperView.subviews.first { (subview) in
                 return subview.isFirstResponder
             } as? TextField
             guard let firstResponder = firstResponderOrNil, let keyboardEndY = self.keyboardEndY else { return }
             
-            let additionalSpace = keyboardEndY - (firstResponder.frame.maxY + 16)
+            let additionalSpacePositives = keyboardEndY + scrollView.contentOffset.y
+            let additionalSpaceNegatives = (firstResponder.frame.maxY + 16) + (scrollView.contentSize.height - scrollView.bounds.height)
+            let additionalSpace = additionalSpacePositives - additionalSpaceNegatives
             
             UIView.animate(withDuration: durations(.interaction), animations: {
                 if additionalSpace < 0 {
@@ -45,13 +57,23 @@ class ViewController: UIViewController {
     @objc func keyboardWillChangeFrame(notification: Notification) {
         keyboardFrameWillChange = true
         
-        let firstResponderOrNil = view.subviews.first { (subview) in
+        guard let scrollView = view.subviews[0] as? ScrollView else { return }
+        let firstResponderSuperView: UIView
+        if self is ClaimPointsViewController {
+            firstResponderSuperView = scrollView.subviews[0].subviews[1]
+        }
+        else {
+            firstResponderSuperView = scrollView.subviews[0]
+        }
+        let firstResponderOrNil = firstResponderSuperView.subviews.first { (subview) in
             return subview.isFirstResponder
         } as? TextField
         guard let firstResponder = firstResponderOrNil else { return }
         
         keyboardEndY = (notification.userInfo![UITextField.keyboardFrameEndUserInfoKey] as! CGRect).origin.y
-        let additionalSpace = keyboardEndY - (firstResponder.frame.maxY + 16)
+        let additionalSpacePositives = keyboardEndY + scrollView.contentOffset.y
+        let additionalSpaceNegatives = (firstResponder.frame.maxY + 16) + (scrollView.contentSize.height - scrollView.bounds.height)
+        let additionalSpace = additionalSpacePositives - additionalSpaceNegatives
         
         UIView.animate(withDuration: durations(.interaction), animations: {
             if additionalSpace < 0 {
@@ -63,6 +85,16 @@ class ViewController: UIViewController {
                 self.navigationShadowView?.frame.origin.y = UIApplication.shared.statusBarFrame.origin.y
             }
         })
+    }
+    @objc func refresh() {
+        if refreshControl.requestHolder != nil {
+            request(refreshControl.requestHolder)
+        }
+        else {
+            for requestHolder in refreshControl.requestHolders {
+                request(requestHolder)
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -85,6 +117,8 @@ class ViewController: UIViewController {
                 object: nil
             )
         }
+        
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

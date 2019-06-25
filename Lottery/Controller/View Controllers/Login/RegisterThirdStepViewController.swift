@@ -32,6 +32,8 @@ class RegisterThirdStepViewController: ViewController {
         handleRegisterAbility()
     }
     @IBAction func register() {
+        registerButton.setLoadingState(.loading)
+        
         registerThirdStepParameters = RegisterThirdStepParameters(
             mobileNumber: registerFirstStepParameters.mobileNumber,
             password: registerFirstStepParameters.password,
@@ -44,7 +46,8 @@ class RegisterThirdStepViewController: ViewController {
         responseController.requestHolder = request(RequestHolder(
             endPointName: .registerThirdStep(parameters: registerThirdStepParameters),
             didSucceed: responseController.didSucceed,
-            didFail: responseController.didFail
+            didFail: responseController.didFail,
+            blocking: true
         ))
     }
     @IBAction func cancelRegisterAndLogin() {

@@ -25,6 +25,7 @@ class LoginViewController: ViewController {
         }
     }
     @IBAction func login() {
+        loginButton.setLoadingState(.loading)
         resultLabel.fadeOut()
         
         loginParameters = LoginParameters(
@@ -36,7 +37,8 @@ class LoginViewController: ViewController {
         responseController.requestHolder = request(RequestHolder(
             endPointName: .login(parameters: loginParameters),
             didSucceed: responseController.didSucceed,
-            didFail: responseController.didFail
+            didFail: responseController.didFail,
+            blocking: true
         ))
     }
     @IBAction func loginWithoutRegister() {

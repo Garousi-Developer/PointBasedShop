@@ -1,5 +1,4 @@
 import UIKit
-//import MSPeekCollectionViewDelegateImplementation
 import SnapKit
 
 class ContainerViewController: ViewController {
@@ -24,7 +23,6 @@ class ContainerViewController: ViewController {
     var containerScrollController: ContainerScrollController!
     var topContentsCollectionController: ContainersCollectionController!
     var hottestOffersCollectionController: ProductsCollectionController!
-//    var hottestOffersDelegate: MSPeekCollectionViewDelegateImplementation!
     var cityResponseController: CityResponseController!
     var shoppingCenterResponseController: ShoppingCenterResponseController!
     var brandResponseController: BrandResponseController!
@@ -107,25 +105,13 @@ class ContainerViewController: ViewController {
             }
         }
         
-//        hottestOffersCollectionView.configureForPeekingDelegate()
-//        hottestOffersDelegate = MSPeekCollectionViewDelegateImplementation(
-//            cellSpacing: 16,
-//            cellPeekWidth: 16,
-//            scrollThreshold: 50,
-//            maximumItemsToScroll: 1,
-//            numberOfItemsToShow: 1,
-//            scrollDirection: .horizontal
-//        )
-//        hottestOffersCollectionView.delegate = hottestOffersDelegate
-        
-        descriptionLabel.numberOfLines = 7
+        descriptionLabel.numberOfLines = 5
         initialDescriptionHeight = descriptionLabel.firstTextHeight
         descriptionLabel.heightConstraint.constant = initialDescriptionHeight
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        hottestOffersCollectionView.reloadData()
         setLoadingState(.loading)
         switch container.type {
         case .city:
@@ -133,22 +119,34 @@ class ContainerViewController: ViewController {
             cityResponseController.requestHolder = request(RequestHolder(
                 endPointName: .city(id: containerId),
                 didSucceed: cityResponseController.didSucceed,
-                didFail: cityResponseController.didFail
+                didFail: cityResponseController.didFail,
+                blocking: true
             ))
+            
+            refreshControl.containerView = scrollView
+            refreshControl.requestHolder = cityResponseController.requestHolder
         case .shoppingCenter:
             shoppingCenterResponseController = ShoppingCenterResponseController(viewController: self)
             shoppingCenterResponseController.requestHolder = request(RequestHolder(
                 endPointName: .shoppingCenter(id: containerId),
                 didSucceed: shoppingCenterResponseController.didSucceed,
-                didFail: shoppingCenterResponseController.didFail
+                didFail: shoppingCenterResponseController.didFail,
+                blocking: true
             ))
+            
+            refreshControl.containerView = scrollView
+            refreshControl.requestHolder = shoppingCenterResponseController.requestHolder
         default:
             brandResponseController = BrandResponseController(viewController: self)
             brandResponseController.requestHolder = request(RequestHolder(
                 endPointName: .brand(id: containerId),
                 didSucceed: brandResponseController.didSucceed,
-                didFail: brandResponseController.didFail
+                didFail: brandResponseController.didFail,
+                blocking: true
             ))
+            
+            refreshControl.containerView = scrollView
+            refreshControl.requestHolder = brandResponseController.requestHolder
         }
     }
     override func viewDidAppear(_ animated: Bool) {

@@ -56,6 +56,7 @@
                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="white"/>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="firstTintColor" value="asset"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="firstRTLImage" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="firstInteractionAnimation" value="NO"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZj-gv-yfE" userLabel="Required Points Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">

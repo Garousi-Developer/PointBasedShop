@@ -6,7 +6,7 @@ class RegisterFirstStepResponseController: ResponseController {
         
         let castedViewController = viewController as! RegisterFirstStepViewController
         
-        //        loginViewController.loginButton.setLoadingState(.successful)
+        castedViewController.nextStepButton.setLoadingState(.successful)
         castedViewController.navigateTo(
             .registerSecondStep,
             transferringData: castedViewController.registerFirstStepParameters
@@ -15,27 +15,25 @@ class RegisterFirstStepResponseController: ResponseController {
     override func didFail(errorCode: URLError.Code?, statusCode: Int?, response: Decodable?) {
         super.didFail(errorCode: errorCode, statusCode: statusCode, response: response)
         
-        //        let loginVC = viewController as! LoginVC
-        //        loginVC.loginButton.setLoadingState(.failed(reason: nil, requestHolder: nil, noContentIcon: nil, noContentText: nil))
-        //
-        //        guard let apiError = response as? APIError else { return }
-        //        guard let statusCode = statusCode else { return }
-        //
-        //        switch statusCode {
-        //        case 422:
-        //            switch apiError.reason {
-        //            case "notRegisterd":
-        //                loginVC.resultLabel.text = texts(.unregisteredMobileNumber)
-        //            case "notActivated":
-        //                loginVC.resultLabel.text = texts(.inactiveAccount)
-        //            case "wrongCredentials":
-        //                loginVC.resultLabel.text = texts(.wrongCredentials)
-        //            default:
-        //                return
-        //            }
-        //        default:
-        //            return
-        //        }
-        //        loginVC.resultLabel.fadeIn()
+        let castedViewController = viewController as! RegisterFirstStepViewController
+        
+        guard let apiError = response as? APIError else { return }
+        guard let statusCode = statusCode else { return }
+        
+        switch statusCode {
+        case 409:
+            switch apiError.code {
+            case 39478:
+                castedViewController.resultLabel.text = texts(.alreadyRegistered)
+                break
+            default:
+                return
+            }
+        default:
+            return
+        }
+        
+        castedViewController.nextStepButton.setLoadingState(.successful)
+        castedViewController.resultLabel.fadeIn()
     }
 }

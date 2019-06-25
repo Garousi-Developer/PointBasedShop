@@ -10,7 +10,6 @@ class ShoppingCenterResponseController: ResponseController {
         let castedViewController = viewController as! ContainerViewController
         let shoppingCenterDetails = response as! ShoppingCenterDetails
         
-        castedViewController.setLoadingState(.successful)
         castedViewController.pictureImageView.downloadImageFrom(shoppingCenterDetails.pictureURL)
         castedViewController.nameLabel.text = shoppingCenterDetails.persianTitle
         castedViewController.containerNameLabel.text = " \(shoppingCenterDetails.persianCityTitle)"
@@ -32,6 +31,9 @@ class ShoppingCenterResponseController: ResponseController {
         castedViewController.hottestOffersCollectionController.data = shoppingCenterDetails.hottestOffers
         castedViewController.hottestOffersCollectionView.dataSource = castedViewController.hottestOffersCollectionController
         castedViewController.hottestOffersCollectionView.delegate = castedViewController.hottestOffersCollectionController
+        
+        castedViewController.setLoadingState(.successful)
+        castedViewController.refreshControl.endRefreshing()
         
         staticMapParameters = StaticMapParameters(center: "\(shoppingCenterDetails.latitude),\(shoppingCenterDetails.longitude)")
         

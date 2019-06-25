@@ -18,6 +18,7 @@ class ApplyFilterResponseController: ResponseController {
         previousViewController.collectionView.dataSource = previousViewController.collectionController
         previousViewController.collectionView.delegate = previousViewController.collectionController
         
+        castedViewController.filterButton.setLoadingState(.successful)
         castedViewController.navigateBack()
     }
     override func didFail(errorCode: URLError.Code?, statusCode: Int?, response: Decodable?) {

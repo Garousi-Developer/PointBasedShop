@@ -7,6 +7,7 @@ class RegisterFirstStepViewController: ViewController {
     @IBOutlet weak var passwordRepeatTextField: FirstTextField!
     @IBOutlet weak var clientErrorLabel: Label!
     @IBOutlet weak var nextStepButton: Button!
+    @IBOutlet weak var resultLabel: Label!
     
     var registerFirstStepParameters: RegisterFirstStepParameters!
     var responseController: RegisterFirstStepResponseController!
@@ -33,6 +34,9 @@ class RegisterFirstStepViewController: ViewController {
             action: nil
         )
         
+        nextStepButton.setLoadingState(.loading)
+        resultLabel.fadeOut()
+        
         registerFirstStepParameters = RegisterFirstStepParameters(
             mobileNumber: mobileNumberTextField.firstCommonMobileNumber,
             password: passwordTextField.text!
@@ -42,7 +46,8 @@ class RegisterFirstStepViewController: ViewController {
         responseController.requestHolder = request(RequestHolder(
             endPointName: .registerFirstStep(parameters: registerFirstStepParameters),
             didSucceed: responseController.didSucceed,
-            didFail: responseController.didFail
+            didFail: responseController.didFail,
+            blocking: true
         ))
     }
 }

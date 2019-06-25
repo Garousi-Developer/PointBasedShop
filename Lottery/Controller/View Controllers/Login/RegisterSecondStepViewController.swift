@@ -4,6 +4,7 @@ class RegisterSecondStepViewController: ViewController {
     @IBOutlet weak var logoImageView: ImageView!
     @IBOutlet weak var verificationCodeTextField: FirstTextField!
     @IBOutlet weak var nextStepButton: Button!
+    @IBOutlet weak var resultLabel: Label!
     @IBOutlet weak var cancelRegisterAndLoginButton: Button!
     
     var registerFirstStepParameters: RegisterFirstStepParameters!
@@ -19,6 +20,9 @@ class RegisterSecondStepViewController: ViewController {
         }
     }
     @IBAction func goNextStep() {
+        nextStepButton.setLoadingState(.loading)
+        resultLabel.fadeOut()
+        
         registerSecondStepParameters = RegisterSecondStepParameters(
             mobileNumber: registerFirstStepParameters.mobileNumber,
             verificationCode: Int(verificationCodeTextField.text!)!
@@ -28,7 +32,8 @@ class RegisterSecondStepViewController: ViewController {
         responseController.requestHolder = request(RequestHolder(
             endPointName: .registerSecondStep(parameters: registerSecondStepParameters),
             didSucceed: responseController.didSucceed,
-            didFail: responseController.didFail
+            didFail: responseController.didFail,
+            blocking: true
         ))
     }
     @IBAction func cancelRegisterAndLogin() {

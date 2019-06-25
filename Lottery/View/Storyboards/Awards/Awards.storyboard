@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wGi-9E-Y2s" customClass="ScrollView" customModule="PointBasedShop" customModuleProvider="target">
+                            <scrollView multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wGi-9E-Y2s" customClass="ScrollView" customModule="PointBasedShop" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggf-OB-zQi" userLabel="Content View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
@@ -74,6 +74,8 @@
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="checkIn" destination="GbL-3h-34Q" eventType="touchUpInside" id="FOj-2X-JK4"/>
+                                                            <outlet property="heightConstraint" destination="Dvl-fK-eqX" id="XOQ-u1-TFq"/>
+                                                            <outlet property="widthConstraint" destination="xcR-pC-5h9" id="Me1-xe-eM2"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نتیجه" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTb-15-9sL" userLabel="Result Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
@@ -181,20 +183,12 @@
                                     <constraint firstItem="ggf-OB-zQi" firstAttribute="top" secondItem="wGi-9E-Y2s" secondAttribute="top" id="yp9-F8-G5z" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVp-c5-7yf" userLabel="Status View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="oVp-c5-7yf" firstAttribute="leading" secondItem="FFg-zd-AdG" secondAttribute="leading" id="3YR-AH-NJs" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                             <constraint firstAttribute="bottom" secondItem="wGi-9E-Y2s" secondAttribute="bottom" id="BWJ-za-Ckg" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                             <constraint firstItem="wGi-9E-Y2s" firstAttribute="top" secondItem="QUP-U5-oqG" secondAttribute="top" id="DrE-cY-JwL" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="wGi-9E-Y2s" firstAttribute="top" secondItem="oVp-c5-7yf" secondAttribute="bottom" id="Nf2-3n-Ine" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                             <constraint firstItem="wGi-9E-Y2s" firstAttribute="leading" secondItem="QUP-U5-oqG" secondAttribute="leading" id="VvS-xX-bOF" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstAttribute="trailing" secondItem="oVp-c5-7yf" secondAttribute="trailing" id="csl-Zo-99U" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                            <constraint firstItem="oVp-c5-7yf" firstAttribute="top" secondItem="FFg-zd-AdG" secondAttribute="top" id="iI9-QD-EPt" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                             <constraint firstItem="wGi-9E-Y2s" firstAttribute="trailing" secondItem="QUP-U5-oqG" secondAttribute="trailing" id="uaL-yx-7TD" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QUP-U5-oqG"/>

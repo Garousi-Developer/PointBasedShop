@@ -1,6 +1,7 @@
 import UIKit
 
 class FilterViewController: ViewController {
+    @IBOutlet weak var scrollView: ScrollView!
     @IBOutlet weak var categoriesLabel: Label!
     @IBOutlet weak var allCategoriesSwitch: Switch!
     @IBOutlet weak var categoriesCollectionView: CollectionView!
@@ -113,29 +114,63 @@ class FilterViewController: ViewController {
                 return city.id
         }
         
+        var lockState = "unlock"
+        if unlockedSwitch.isOn {
+            lockState = "unlock"
+        }
+        else if lockedSwitch.isOn {
+            lockState = "lock"
+        }
+        else if allSwitch.isOn {
+            lockState = "both"
+        }
         filterParameters = FilterParameters(
+            searchedPhrase: filterParameters.searchedPhrase,
             categories: selectedCategoryIds,
             cities: selectedCityIds,
-            searchedPhrase: filterParameters.searchedPhrase
+            lockState: lockState
         )
         
+        filterButton.setLoadingState(.loading)
         applyFilterResponseController = ApplyFilterResponseController(viewController: self)
         applyFilterResponseController.requestHolder = request(RequestHolder(
             endPointName: .filter(parameters: filterParameters),
             didSucceed: applyFilterResponseController.didSucceed,
-            didFail: applyFilterResponseController.didFail
+            didFail: applyFilterResponseController.didFail,
+            blocking: true
         ))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        switch filterParameters.lockState {
+        case "unlock":
+            unlockedSwitch.setOn(true, animated: false)
+            lockedSwitch.setOn(false, animated: false)
+            allSwitch.setOn(false, animated: false)
+        case "lock":
+            unlockedSwitch.setOn(false, animated: false)
+            lockedSwitch.setOn(true, animated: false)
+            allSwitch.setOn(false, animated: false)
+        case "both":
+            unlockedSwitch.setOn(false, animated: false)
+            lockedSwitch.setOn(false, animated: false)
+            allSwitch.setOn(true, animated: false)
+        default:
+            break
+        }
+        
         setLoadingState(.loading)
         filterScopesResponseController = FilterScopesResponseController(viewController: self)
         filterScopesResponseController.requestHolder = request(RequestHolder(
             endPointName: .filterScopes,
             didSucceed: filterScopesResponseController.didSucceed,
-            didFail: filterScopesResponseController.didFail
+            didFail: filterScopesResponseController.didFail,
+            blocking: true
         ))
+        
+        refreshControl.containerView = scrollView
+        refreshControl.requestHolder = filterScopesResponseController.requestHolder
     }
 }

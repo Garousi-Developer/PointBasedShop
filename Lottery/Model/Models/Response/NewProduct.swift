@@ -9,7 +9,7 @@ class NewProduct: Decodable {
     let price: Int
     let discountedPrice: Double
     let brand: NewBrand
-    var orderCount = 0
+    var orderCount: Int!
     var soldCount: Int
     let count: Int
     let persianDescription: String!
@@ -26,6 +26,7 @@ class NewProduct: Decodable {
         case price = "del"
         case discountedPrice = "price"
         case brand
+        case orderCount = "cart"
         case soldCount = "sold_count"
         case count
         case persianDescription = "fa_description"

@@ -1,27 +1,8 @@
 PODS:
   - ActiveLabel (1.0.1)
   - Alamofire (4.8.1)
-  - CHIPageControl (0.1.7):
-    - CHIPageControl/Aji (= 0.1.7)
-    - CHIPageControl/Aleppo (= 0.1.7)
-    - CHIPageControl/Chimayo (= 0.1.7)
-    - CHIPageControl/Fresno (= 0.1.7)
-    - CHIPageControl/Jalapeno (= 0.1.7)
-    - CHIPageControl/Jaloro (= 0.1.7)
-    - CHIPageControl/Paprika (= 0.1.7)
-    - CHIPageControl/Puya (= 0.1.7)
-  - CHIPageControl/Aji (0.1.7)
-  - CHIPageControl/Aleppo (0.1.7)
-  - CHIPageControl/Chimayo (0.1.7)
-  - CHIPageControl/Fresno (0.1.7)
-  - CHIPageControl/Jalapeno (0.1.7)
-  - CHIPageControl/Jaloro (0.1.7)
-  - CHIPageControl/Paprika (0.1.7)
-  - CHIPageControl/Puya (0.1.7)
   - FSPagerView (0.8.2)
-  - Hero (1.4.0)
   - Kingfisher (5.2.0)
-  - MSPeekCollectionViewDelegateImplementation (1.1.0)
   - NVActivityIndicatorView (4.6.1):
     - NVActivityIndicatorView/Presenter (= 4.6.1)
   - NVActivityIndicatorView/Presenter (4.6.1)
@@ -37,11 +18,8 @@ PODS:
 DEPENDENCIES:
   - ActiveLabel
   - Alamofire
-  - CHIPageControl
   - FSPagerView
-  - Hero
   - Kingfisher
-  - MSPeekCollectionViewDelegateImplementation
   - NVActivityIndicatorView
   - PhoneNumberKit
   - SnapKit
@@ -51,11 +29,8 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ActiveLabel
     - Alamofire
-    - CHIPageControl
     - FSPagerView
-    - Hero
     - Kingfisher
-    - MSPeekCollectionViewDelegateImplementation
     - NVActivityIndicatorView
     - PhoneNumberKit
     - SnapKit
@@ -64,16 +39,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   ActiveLabel: b8b2396fe25308d563601437d6605bf691c3b5db
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  CHIPageControl: bbe1ddd0c688c02ec65b7f7e7d34551a3d16f37c
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
-  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
-  MSPeekCollectionViewDelegateImplementation: 536d48f88047e5abf76bb731c76f15c866bcb421
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
   PhoneNumberKit: 167ee1f0bbb6efce7c62559e620eae745595532f
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVPinView: 3dda372c7a1c051b41788f07bf7a8339aa19083e
 
-PODFILE CHECKSUM: 1396c790ccf89111fa3d8670f772ff2c6e8173d6
+PODFILE CHECKSUM: abef00768855141163527907a838a1d52df8c2df
 
 COCOAPODS: 1.6.1

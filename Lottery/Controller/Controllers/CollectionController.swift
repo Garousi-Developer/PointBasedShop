@@ -5,12 +5,12 @@ class CollectionController: SecondaryController {
     var data: [Any] = [] {
         didSet {
             if data.count < oldValue.count {
-                let deletedItemIndex = oldValue.indexOfDifferenceFrom(data)!
+                let deletedItemIndexes = oldValue.indexOfDifferencesFrom(data)
+                let deletedItemIndexPaths = deletedItemIndexes.map { (deletedItemIndex) -> IndexPath in
+                    return IndexPath(item: deletedItemIndex, section: 0)
+                }
                 
-                collectionView.deleteItems(at: [IndexPath(
-                    item: deletedItemIndex,
-                    section: 0
-                )])
+                collectionView.deleteItems(at: deletedItemIndexPaths)
             }
             else if data.count == oldValue.count {
                 collectionView.reloadData()
@@ -21,6 +21,7 @@ class CollectionController: SecondaryController {
         }
     }
     
+    var layout: UICollectionViewFlowLayout!
     var itemWidth: CGFloat! {
         didSet {
             pagingThreshold = itemWidth / 2
@@ -54,13 +55,12 @@ class CollectionController: SecondaryController {
         switch collectionViewLayout.scrollDirection {
         case .horizontal:
             collectionView.heightConstraint?.constant = itemHeight() + verticalSectionInsets + 1
+            collectionView.decelerationRate = .fast
         case .vertical:
             collectionView.heightConstraint?.constant = itemHeight() + verticalSectionInsets + 1
         @unknown default:
             break
         }
-        
-        collectionView.decelerationRate = .fast
         
         self.collectionView = collectionView
     }
@@ -87,7 +87,7 @@ extension CollectionController: UICollectionViewDataSource {
 extension CollectionController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-        let layout = collectionViewLayout as! UICollectionViewFlowLayout
+        layout = collectionViewLayout as? UICollectionViewFlowLayout
         let cellsPerRow = CGFloat(self.collectionView.firstCellsPerPage)
         switch layout.scrollDirection {
         case .horizontal:
@@ -134,30 +134,24 @@ extension CollectionController: UICollectionViewDelegate {
 
 extension CollectionController: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        currentOffset = scrollView.contentOffset.x
+        if layout.scrollDirection == .horizontal {
+            currentOffset = scrollView.contentOffset.x
+        }
     }
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
     {
-        let cellsPerRow = CGFloat(collectionView.firstCellsPerPage)
-        
-        targetOffset = targetContentOffset.pointee.x
-        let scrollDistance = targetOffset - currentOffset
-//        let coefficent: Int
-//        if scrollDistance < -pagingThreshold {
-//            coefficent = -1
-//        }
-//        else if scrollDistance > pagingThreshold {
-//            coefficent = 1
-//        }
-//        else {
-//            coefficent = 0
-//        }
-        let coefficent = Int(round(scrollDistance / (pagingThreshold * cellsPerRow))) * collectionView.firstCellsPerPage
-        
-        let currentItem = Int(round(currentOffset / itemWidth))
-        let targetItem = currentItem + coefficent
-        let targetItemOffset = CGFloat(targetItem) * (itemWidth + interitemSpacing)
-        
-        targetContentOffset.pointee.x = targetItemOffset
+        if layout.scrollDirection == .horizontal {
+            let cellsPerRow = CGFloat(collectionView.firstCellsPerPage)
+            
+            targetOffset = targetContentOffset.pointee.x
+            let scrollDistance = targetOffset - currentOffset
+            let coefficent = Int(round(scrollDistance / (pagingThreshold * cellsPerRow))) * collectionView.firstCellsPerPage
+            
+            let currentItem = Int(round(currentOffset / itemWidth))
+            let targetItem = currentItem + coefficent
+            let targetItemOffset = CGFloat(targetItem) * (itemWidth + interitemSpacing)
+            
+            targetContentOffset.pointee.x = targetItemOffset
+        }
     }
 }

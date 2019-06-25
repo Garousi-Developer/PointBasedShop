@@ -1,8 +1,8 @@
 import UIKit
-import CHIPageControl
+//import CHIPageControl
 
 @IBDesignable
-class PageControl: CHIPageControlAleppo {
+class PageControl: UIPageControl {
     @IBInspectable var firstShadowStyle: String! {
         didSet {
             setShadowStyle(ShadowStyle(rawValue: firstShadowStyle)!)
@@ -33,12 +33,12 @@ class PageControl: CHIPageControlAleppo {
             tintColor = colors(Color(rawValue: firstTintColor)!)
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -51,10 +51,10 @@ class PageControl: CHIPageControlAleppo {
 
 extension PageControl {
     private func setup() {
-        backgroundColor = colors(.clear)
-        radius = 5
-        firstTintColor = Color.primary.rawValue
-        inactiveTransparency = 0.25
-        padding = 4
+//        backgroundColor = colors(.clear)
+//        radius = 5
+//        firstTintColor = Color.primary.rawValue
+//        inactiveTransparency = 0.25
+//        padding = 4
     }
 }

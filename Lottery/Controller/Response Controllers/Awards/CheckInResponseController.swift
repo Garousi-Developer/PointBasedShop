@@ -6,6 +6,7 @@ class CheckInResponseController: ResponseController {
         
         let castedViewController = viewController as! AwardsViewController
         
+        castedViewController.checkInButton.setLoadingState(.successful)
         castedViewController.resultLabel.textColor = colors(.green)
         castedViewController.resultLabel.text = texts(.yourPointsSuccessfullyUpdated)
         castedViewController.checkInButton.fadeOut()
@@ -19,6 +20,7 @@ class CheckInResponseController: ResponseController {
 //        guard let apiError = response as? APIError else { return }
         guard let statusCode = statusCode else { return }
         
+        castedViewController.checkInButton.setLoadingState(.successful)
         switch statusCode {
         case 409:
             castedViewController.resultLabel.textColor = colors(.red)

@@ -7,12 +7,19 @@ extension UIColor {
             return colors(.highlightedAsset)
         case colors(.asset):
             return colors(.highlightedAsset)
+        
+        case colors(.green):
+            return colors(.highlightedGreen)
+        
         case colors(.darkPlaceholder):
             return colors(.highlightedPlaceholder)
+        
         case colors(.primary):
             return colors(.highlightedPrimary)
+        
         case colors(.red):
             return colors(.highlightedRed)
+        
         case colors(.white):
             return colors(.highlightedWhite)
         default:

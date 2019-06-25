@@ -8,7 +8,7 @@ class ShoppingCenterDetails: Decodable {
     let englishCityTitle: String
     let persianDescription: String
     let englishDescription: String
-    let topBrands: [NewShoppingCenter]
+    let topBrands: [NewBrand]
     let latitude: String
     let longitude: String
     let hottestOffers: [NewProduct]

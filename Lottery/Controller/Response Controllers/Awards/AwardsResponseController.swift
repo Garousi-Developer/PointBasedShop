@@ -9,7 +9,6 @@ class AwardsResponseController: ResponseController {
         let castedViewController = viewController as! AwardsViewController
         awards = response as? Awards
         
-        castedViewController.setLoadingState(.successful)
         castedViewController.shoppingCenterPictureImageView.downloadImageFrom(awards.pictureURL)
         castedViewController.welcomeLabel.text =
             texts(.welcomeToXShoppingCenter).replacingOccurrences(of: texts(.shoppingCenterName), with: awards.persianTitle)
@@ -18,6 +17,9 @@ class AwardsResponseController: ResponseController {
         castedViewController.claimPointsDescriptionLabel.text = texts(.takeYourTodaysInvoicesToXShoppingCenterCounter)
             .replacingOccurrences(of: texts(.shoppingCenterName), with: awards.persianTitle)
         castedViewController.adImageView.downloadImageFrom(awards.ad.pictureURL)
+        
+        castedViewController.setLoadingState(.successful)
+        castedViewController.refreshControl.endRefreshing()
     }
     override func didFail(errorCode: URLError.Code?, statusCode: Int?, response: Decodable?) {
         super.didFail(errorCode: errorCode, statusCode: statusCode, response: response)

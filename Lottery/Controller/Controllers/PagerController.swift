@@ -36,10 +36,10 @@ extension PagerController: FSPagerViewDataSource {
 }
 extension PagerController: FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, didEndDisplaying cell: FSPagerViewCell, forItemAt index: Int) {
-        pageControl?.set(
-            progress: pagerView.currentIndex,
-            animated: true
-        )
+//        pageControl?.set(
+//            progress: pagerView.currentIndex,
+//            animated: true
+//        )
     }
     func pagerView(_ pagerView: FSPagerView, shouldHighlightItemAt index: Int) -> Bool {
         return false

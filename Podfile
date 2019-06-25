@@ -5,11 +5,10 @@ target 'PointBasedShop' do
 
     pod 'ActiveLabel'
     pod 'Alamofire'
-    pod 'CHIPageControl'
+#    pod 'CHIPageControl'
     pod 'FSPagerView'
-    pod 'Hero'
+#    pod 'Hero'
     pod 'Kingfisher'
-    pod 'MSPeekCollectionViewDelegateImplementation'
     pod 'NVActivityIndicatorView'
     pod 'PhoneNumberKit'
     pod 'SnapKit'

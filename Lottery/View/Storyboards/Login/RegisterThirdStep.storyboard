@@ -22,13 +22,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDX-JX-gbK" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="608"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="711.33333333333337"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="X5H-Dj-MKb" userLabel="Logo Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="135" y="48" width="144.33333333333337" height="29"/>
+                                                <rect key="frame" x="127" y="48" width="160" height="160"/>
                                             </imageView>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8U4-E5-3LW" userLabel="First Name Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="24" y="107" width="366" height="30"/>
+                                                <rect key="frame" x="24" y="238" width="366" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="E3v-Ug-CK5" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                 </constraints>
@@ -43,7 +43,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jo8-QJ-ZyR" userLabel="Last Name Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="24" y="179" width="366" height="30"/>
+                                                <rect key="frame" x="24" y="310" width="366" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="M6r-8Q-pBo" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                 </constraints>
@@ -58,7 +58,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6IA-mk-clU" userLabel="Email Text Field" customClass="FirstTextField" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="24" y="251" width="366" height="30"/>
+                                                <rect key="frame" x="24" y="382" width="366" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Rzl-Y1-G3J" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                 </constraints>
@@ -74,13 +74,13 @@
                                                 </connections>
                                             </textField>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="800" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3IF-A6-ZTa" userLabel="Agreement Switch" customClass="Switch" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="353" y="331.66666666666669" width="51" height="31"/>
+                                                <rect key="frame" x="353" y="448.66666666666669" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="agreementDidToggle" destination="tUB-Aq-udQ" eventType="valueChanged" id="PG8-sd-BYy"/>
                                                 </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="700" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLy-SH-ogf" userLabel="Agreement Label" customClass="FirstActiveLabel" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="323" width="335" height="48"/>
+                                                <rect key="frame" x="12" y="454" width="335" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -89,7 +89,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxE-ZI-MSb" userLabel="Register Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="147" y="389" width="120" height="35"/>
+                                                <rect key="frame" x="147" y="492.33333333333337" width="120" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="A2U-1v-ahq" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     <constraint firstAttribute="height" constant="35" id="On0-ey-S5L" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -104,10 +104,12 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="register" destination="tUB-Aq-udQ" eventType="touchUpInside" id="2z2-Mz-flb"/>
+                                                    <outlet property="heightConstraint" destination="On0-ey-S5L" id="Vv6-GZ-ukg"/>
+                                                    <outlet property="widthConstraint" destination="A2U-1v-ahq" id="Zm3-ru-M8e"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="onE-le-pQm" userLabel="Progress Stack View" customClass="StackView" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="120" y="472" width="174" height="5"/>
+                                                <rect key="frame" x="120" y="575.33333333333337" width="174" height="5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZg-Ia-pW2" userLabel="First Step View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="5"/>
@@ -145,7 +147,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvE-uo-e8b" userLabel="Cancel Register And Login Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="127" y="525" width="160" height="35"/>
+                                                <rect key="frame" x="127" y="628.33333333333337" width="160" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="160" id="9Sl-FG-pks" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     <constraint firstAttribute="height" constant="35" id="MbT-pZ-L00" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -233,6 +235,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="144.33332824707031" height="29"/>
+        <image name="logo" width="160" height="160"/>
     </resources>
 </document>

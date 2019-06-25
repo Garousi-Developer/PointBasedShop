@@ -15,67 +15,73 @@ extension Button {
     }
     
     private func animateLoading(didComplete: (() -> Void)? = nil) {
-//        if let widthConstraint = widthConstraint, let aspectRatioConstraint = aspectRatioConstraint {
-//            let width = widthConstraint.multiplier * UIScreen.main.bounds.width
-//            let aspectRatio = aspectRatioConstraint.multiplier
-//            let height = aspectRatio > 1 ? width / aspectRatio : width * aspectRatio
-//            widthHolder = width
-//            heightHolder = height
-//
-//            if aspectRatio > 1 {
-//                NSLayoutConstraint.deactivate([widthConstraint, aspectRatioConstraint])
-//            }
-//            else {
-//                NSLayoutConstraint.deactivate([widthConstraint, aspectRatioConstraint])
-//                self.widthConstraint = nil
-//                self.aspectRatioConstraint = nil
-//            }
-//            snp.makeConstraints { make in
-//                make.width.height.equalTo(height)
-//            }
-//        }
-//        else {
-//            snp.updateConstraints { make in
-//                make.width.equalTo(heightHolder)
-//            }
-//        }
-//
-//        titleHolder = title(for: .normal)
-//        setTitle(nil, for: .normal)
-//
-//        UIView.animate(withDuration: durations(.interaction), animations: {
-//            self.layoutIfNeeded()
-//        })
-//        { _ in
-//            self.loadingView = NVActivityIndicatorView(
-//                frame: CGRect(),
-//                type: .ballRotateChase,
-//                color: colors(.white),
-//                padding: 4
-//            )
-//            self.addSubview(self.loadingView)
-//            self.loadingView!.snp.makeConstraints { make in
-//                make.edges.equalToSuperview()
-//            }
-//            self.loadingView.startAnimating()
-//
-//            if let didComplete = didComplete {
-//                didComplete()
-//            }
-//        }
+        if title(for: .normal) != texts(.addAllToCart) {
+            if let widthConstraint = widthConstraint, let heightConstraint = heightConstraint {
+                let width = widthConstraint.constant
+                let height = heightConstraint.constant
+                widthHolder = width
+                heightHolder = height
+                
+                if width > height {
+                    NSLayoutConstraint.deactivate([widthConstraint, heightConstraint])
+                }
+                else {
+                    NSLayoutConstraint.deactivate([widthConstraint, heightConstraint])
+                    self.widthConstraint = nil
+                    self.heightConstraint = nil
+                }
+                snp.makeConstraints { make in
+                    make.width.height.equalTo(height)
+                }
+            }
+            else {
+                snp.updateConstraints { make in
+                    make.width.equalTo(heightHolder)
+                }
+            }
+        }
+        
+        titleHolder = title(for: .normal)
+        imageHolder = image(for: .normal)
+        setTitle(nil, for: .normal)
+        setImage(nil, for: .normal)
+        
+        UIView.animate(withDuration: durations(.interaction), animations: {
+            self.layoutIfNeeded()
+        })
+        { _ in
+            self.loadingView = NVActivityIndicatorView(
+                frame: CGRect(),
+                type: .ballRotateChase,
+                color: colors(.white),
+                padding: 4
+            )
+            self.addSubview(self.loadingView)
+            self.loadingView!.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+            self.loadingView.startAnimating()
+            
+            if let didComplete = didComplete {
+                didComplete()
+            }
+        }
     }
     private func animateBack() {
-//        loadingView.removeFromSuperview()
-//
-//        snp.updateConstraints { make in
-//            make.width.equalTo(widthHolder)
-//        }
-//        UIView.animate(withDuration: durations(.interaction), animations: {
-//            self.superview!.layoutIfNeeded()
-//        })
-//        { _ in
-//            self.setTitle(self.titleHolder, for: .normal)
-//        }
+        loadingView?.removeFromSuperview()
+        
+        if titleHolder != texts(.addAllToCart) {
+            snp.updateConstraints { make in
+                make.width.equalTo(widthHolder)
+            }
+        }
+        UIView.animate(withDuration: durations(.interaction), animations: {
+            self.superview!.layoutIfNeeded()
+        })
+        { _ in
+            self.setImage(self.imageHolder, for: .normal)
+            self.setTitle(self.titleHolder, for: .normal)
+        }
     }
 }
 extension UIViewController {

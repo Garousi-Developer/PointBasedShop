@@ -17,6 +17,9 @@ class TableController: SecondaryController {
     func cell(forTableView tableView: TableView, atIndexPath indexPath: IndexPath) -> TableCell {
         return TableCell()
     }
+    func rowDidSelect(atIndexPath indexPath: IndexPath) {
+        
+    }
     
     init(viewController: ViewController, tableView: TableView) {
         super.init(viewController: viewController)
@@ -50,5 +53,7 @@ extension TableController: UITableViewDataSource {
     }
 }
 extension TableController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        rowDidSelect(atIndexPath: indexPath)
+    }
 }

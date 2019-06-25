@@ -25,6 +25,8 @@ func colors(_ color: Color) -> UIColor {
     case .disabled:
         return MaterialColors.grey300
     
+    case .highlightedGreen:
+        return MaterialColors.green200
     case .green:
         return MaterialColors.primaryGreen
     
@@ -50,7 +52,7 @@ func colors(_ color: Color) -> UIColor {
         return MaterialColors.grey300
     
     case .highlightedPrimary:
-        return MaterialColors.amber100
+        return MaterialColors.amber200
     case .primary:
         return MaterialColors.primaryAmber
     
@@ -82,6 +84,7 @@ enum Color: String {
     
     case disabled
     
+    case highlightedGreen
     case green
     
     case lightGrey

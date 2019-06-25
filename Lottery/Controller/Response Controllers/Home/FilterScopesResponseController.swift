@@ -50,6 +50,7 @@ class FilterScopesResponseController: ResponseController {
         setCategoriesAndCitiesHeights()
         
         castedViewController.setLoadingState(.successful)
+        castedViewController.refreshControl.endRefreshing()
     }
     override func didFail(errorCode: URLError.Code?, statusCode: Int?, response: Decodable?) {
         super.didFail(errorCode: errorCode, statusCode: statusCode, response: response)

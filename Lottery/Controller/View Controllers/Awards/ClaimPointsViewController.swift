@@ -20,26 +20,30 @@ class ClaimPointsViewController: ViewController {
     var responseController: ClaimPointsResponseController!
     
     @IBAction func purchaseAmountDidChange() {
-//        purchaseAmountTextField.text = purchaseAmountTextField.text?.priceFormatted
+        purchaseAmountTextField.text = purchaseAmountTextField.text?.priceFormatted
+        handleSubmitAbility()
     }
     @IBAction func employeeIdDidChange() {
-        
+        handleSubmitAbility()
     }
     @IBAction func submit() {
         resultLabel.fadeOut()
         
+        let purchaseAmount = purchaseAmountTextField.text!.replacingOccurrences(of: "٫", with: "")
         claimPointsParameters = ClaimPointsParameters(
             shoppingCenterId: awards.id,
-            purchaseAmount: Int(purchaseAmountTextField.text!)!,
+            purchaseAmount: Int(purchaseAmount)!,
             employeeId: Int(employeeIdTextField.text!)!,
             secretToken: pinView.getPin()
         )
         responseController = ClaimPointsResponseController(viewController: self)
         
+        submitButton.setLoadingState(.loading)
         responseController.requestHolder = request(RequestHolder(
             endPointName: .claimPoints(parameters: claimPointsParameters),
             didSucceed: responseController.didSucceed,
-            didFail: responseController.didFail
+            didFail: responseController.didFail,
+            blocking: true
         ))
     }
     
@@ -55,3 +59,20 @@ class ClaimPointsViewController: ViewController {
     }
 }
 
+extension ClaimPointsViewController {
+    private func handleSubmitAbility() {
+        if purchaseAmountTextField.text!.isEmpty || employeeIdTextField.text!.isEmpty || pinView.getPin().isEmpty {
+            submitButton.disable()
+        }
+        else {
+            if employeeIdTextField.text!.count == 4 {
+                employeeIdTextField.verify()
+                submitButton.enable()
+            }
+            else {
+                employeeIdTextField.showError(texts(.invalidEmployeeId))
+                submitButton.disable()
+            }
+        }
+    }
+}

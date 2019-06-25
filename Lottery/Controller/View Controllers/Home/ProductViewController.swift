@@ -8,7 +8,8 @@ class ProductViewController: ViewController {
     @IBOutlet weak var descriptionLabel: Label!
     @IBOutlet weak var productDetailsTableView: TableView!
     
-    var product: NewProduct!
+    var productName: String!
+    var productId: Int!
     var section = ProductSection.description
     var scrollController: ProductScrollController!
     var collectionController: ProductsCollectionController!
@@ -18,7 +19,7 @@ class ProductViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = product.persianTitle
+        navigationItem.title = productName
         scrollView.delaysContentTouches = true
         
         scrollController = ProductScrollController(viewController: self, scrollView: scrollView)
@@ -30,7 +31,7 @@ class ProductViewController: ViewController {
         setLoadingState(.loading)
         responseController = ProductResponseController(viewController: self)
         responseController.requestHolder = request(RequestHolder(
-            endPointName: .product(id: product.id),
+            endPointName: .product(id: productId),
             didSucceed: responseController.didSucceed,
             didFail: responseController.didFail,
             blocking: true

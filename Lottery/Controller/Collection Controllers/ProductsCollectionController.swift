@@ -254,10 +254,11 @@ class ProductsCollectionController: CollectionController {
     override func itemDidSelect(atIndexPath indexPath: IndexPath) {
         super.itemDidSelect(atIndexPath: indexPath)
         
+        let product = products[indexPath.item]
         if !(viewController is ProductViewController) {
             viewController.navigateTo(
                 .product,
-                transferringData: products[indexPath.item]
+                transferringData: (product.persianTitle, product.id)
             )
         }
     }

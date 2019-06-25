@@ -126,6 +126,11 @@ func endPoints(_ endPointName: EndPointName) -> EndPoint {
             url: "/order",
             response: Order.self
         )
+    case .orderItems(let id):
+        return EndPoint(
+            url: "/order/\(id)",
+            response: OrderDetails.self
+        )
     
     // Awards:
     case .awards(let parameters):
@@ -205,6 +210,7 @@ enum EndPointName {
     // Order:
     case addOrder(parameters: AddOrderParameters)
     case orders
+    case orderItems(id: Int)
     
     // Awards:
     case awards(parameters: ClosestOffersParameters)
@@ -256,6 +262,6 @@ struct EndPoint {
     }
 }
 
-//private let loyaltyBaseURL = "https://mallsconnect.com/api/v1"
-private let loyaltyBaseURL = "http://192.168.1.139/api/v1"
+private let loyaltyBaseURL = "https://mallsconnect.com/api/v1"
+//private let loyaltyBaseURL = "http://192.168.1.139/api/v1"
 private let googleMapsBaseURL = "https://maps.googleapis.com/maps/api"

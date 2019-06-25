@@ -238,12 +238,20 @@ func texts(_ text: Text) -> String {
         return "سفارشات"
     case .orderNumber:
         return "شماره سفارش"
+    case .orderStatus:
+        return "وضعیت سفارش"
     case .transactionNumber:
         return "شماره تراکنش"
-    case .donatedToCharity:
-        return "اهدا شده به خیریه"
+    case .paymentDate:
+        return "تاریخ پرداخت"
+    case .hour:
+        return "ساعت"
     case .address:
         return "آدرس"
+    case .donatedToCharity:
+        return "اهدا شده به خیریه"
+    case .orderDetails:
+        return "جزئیات سفارش"
     
     // Profile:
     case .profile:
@@ -395,9 +403,13 @@ enum Text: String {
     // Orders:
     case orders
     case orderNumber
+    case orderStatus
     case transactionNumber
-    case donatedToCharity
+    case paymentDate
+    case hour
     case address
+    case donatedToCharity
+    case orderDetails
     
     // Profile:
     case profile

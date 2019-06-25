@@ -1,4 +1,5 @@
 class OrderItem: Decodable {
+    let id: Int
     let pictureURL: String
     let persianTitle: String
     let englishTitle: String
@@ -8,6 +9,7 @@ class OrderItem: Decodable {
     let brand: NewBrand
     
     enum CodingKeys: String, CodingKey {
+        case id
         case pictureURL = "image"
         case persianTitle = "fa_title"
         case englishTitle = "en_title"

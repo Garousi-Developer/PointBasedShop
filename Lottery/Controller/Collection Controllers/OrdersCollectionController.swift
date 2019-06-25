@@ -3,14 +3,19 @@ import UIKit
 class OrdersCollectionController: CollectionController {
     var orders: [OrderData] = []
     
+    @objc func showDetails(sender: Button) {
+        delay(durations(.interaction)) {
+            let order = self.orders[sender.tag]
+            self.viewController.navigateTo(.orderDetails, transferringData: order.id)
+        }
+    }
+    
     override func itemHeight() -> CGFloat {
-        let firstSpacings: CGFloat = 3 * 24 + 7 * 12
-        let secondSpacings: CGFloat = 2 * 6
-        let staticHeights: CGFloat = 160
-        let dynamicHeights = fonts(.semiLarge).firstLineHeight + 5 * fonts(.medium).firstLineHeight + 2 * fonts(.semiSmall).firstLineHeight
+        let spacings: CGFloat = 8 * 12
+        let staticHeights: CGFloat = 30
+        let dynamicHeights = 6 * fonts(.medium).firstLineHeight
         
-        return scale * (firstSpacings + secondSpacings + staticHeights) + dynamicHeights
-//        return scale * 475
+        return scale * (spacings + staticHeights) + dynamicHeights
     }
     override func item(forCell cell: CollectionCell, atIndexPath indexPath: IndexPath) {
         super.item(forCell: cell, atIndexPath: indexPath)
@@ -18,60 +23,33 @@ class OrdersCollectionController: CollectionController {
         orders = data as! [OrderData]
         let castedCell = cell as! OrderCollectionCell
         let order = orders[indexPath.item]
-        let orderItem = order.items[0]
         
-        castedCell.orderNumberLabel.text = "\(texts(.orderNumber)): \(order.orderNumber)"
-        castedCell.transactionNumberLabel.text = "\(texts(.transactionNumber)): \(order.transactionNumber)"
-        castedCell.orderStateLabel.text = order.state
-        castedCell.charityStateLabel.text = texts(.donatedToCharity)
+        castedCell.orderNumberTitleLabel.text = "\(texts(.orderNumber)):"
+        castedCell.orderNumberLabel.text = order.orderNumber
         
-        castedCell.productImageView.downloadImageFrom(orderItem.pictureURL)
-        castedCell.productNameLabel.text = orderItem.persianTitle
-        castedCell.productCountLabel.text = "\(orderItem.count) \(texts(.count))"
-        castedCell.productBrandImageView.downloadImageFrom(orderItem.brand.logoURL)
-        castedCell.productBrandNameLabel.text = orderItem.brand.persianTitle
+        castedCell.totalPriceTitleLabel.text = "\(texts(.totalPrice)):"
+        castedCell.totalPriceLabel.text = "\(order.totalPrice.priceFormatted) \(texts(.currency))"
         
-        castedCell.addressTitleLabel.text = texts(.address)
-        castedCell.addressLabel.text = order.address
+        castedCell.orderStatusTitleLabel.text = "\(texts(.orderStatus)):"
+        castedCell.orderStatusLabel.text = order.status
         
-        setupExpensesLabel(castedCell, orderItem)
+        castedCell.transactionNumberTitleLabel.text = "\(texts(.transactionNumber)):"
+        castedCell.transactionNumberLabel.text = order.transactionNumber
+        
+        castedCell.paymentDateTitleLabel.text = "\(texts(.paymentDate)):"
+        castedCell.paymentDateLabel.text = "\(order.paymentDate.dateFormatted) \(texts(.hour)) \(order.paymentTime)"
+        
+        castedCell.addressLabel.text = "\(texts(.address)): \(order.address)"
+        
+        castedCell.donatedLabel.isHidden = !order.donated
+        
+        castedCell.orderDetailsButton.tag = indexPath.item
+        castedCell.orderDetailsButton.addTarget(self, action: #selector(showDetails), for: .touchUpInside)
     }
-}
-
-extension OrdersCollectionController {
-    private func setupExpensesLabel(_ castedCell: OrderCollectionCell, _ orderItem: OrderItem) {
-        let attributedText = NSMutableAttributedString()
-        attributedText.append(NSAttributedString(
-            string: orderItem.totalPrice.priceFormatted
-        ))
-        attributedText.append(NSAttributedString(
-            string: " "
-        ))
-        attributedText.append(NSAttributedString(
-            string: texts(.currency),
-            attributes: [
-                NSAttributedString.Key.foregroundColor: colors(.asset)
-            ]
-        ))
-        attributedText.append(NSAttributedString(
-            string: " + ",
-            attributes: [
-                NSAttributedString.Key.foregroundColor: colors(.asset)
-            ]
-        ))
-        attributedText.append(NSAttributedString(
-            string: orderItem.totalPoints.priceFormatted
-        ))
-        attributedText.append(NSAttributedString(
-            string: " "
-        ))
-        attributedText.append(NSAttributedString(
-            string: texts(.points),
-            attributes: [
-                NSAttributedString.Key.foregroundColor: colors(.asset)
-            ]
-        ))
+    override func itemDidSelect(atIndexPath indexPath: IndexPath) {
+        super.itemDidSelect(atIndexPath: indexPath)
         
-        castedCell.productExpensesLabel.attributedText = attributedText
+        let order = orders[indexPath.item]
+        viewController.navigateTo(.orderDetails, transferringData: order.id)
     }
 }

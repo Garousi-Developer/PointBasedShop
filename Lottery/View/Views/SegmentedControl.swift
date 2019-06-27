@@ -1,7 +1,7 @@
-import UIKit
+import BetterSegmentedControl
 
 @IBDesignable
-class TableView: UITableView {
+class SegmentedControl: BetterSegmentedControl {
     @IBInspectable var firstShadowStyle: String! {
         didSet {
             setShadowStyle(ShadowStyle(rawValue: firstShadowStyle)!)
@@ -32,30 +32,14 @@ class TableView: UITableView {
             tintColor = colors(Color(rawValue: firstTintColor)!)
         }
     }
-    @IBInspectable var separator: Bool = false {
-        didSet {
-            separatorStyle = .singleLine
-            separatorInset = UIEdgeInsets(top: 0, left: scale * 12, bottom: 0, right: scale * 12)
-            separatorColor = colors(.darkLine)
-        }
-    }
-    
-    @IBOutlet weak var topConstraint: NSLayoutConstraint!
-    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
-    
-    @IBInspectable var firstSimplifying: Bool = true
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
     
-    override init(frame: CGRect, style: UITableView.Style) {
-        super.init(frame: frame, style: style)
+    override init(frame: CGRect, segments: [BetterSegmentedControlSegment], index: UInt = 0, options: [BetterSegmentedControlOption]? = nil) {
+        super.init(frame: frame, segments: segments, index: index, options: options)
         setup()
     }
     override func prepareForInterfaceBuilder() {
@@ -64,8 +48,23 @@ class TableView: UITableView {
     }
 }
 
-extension TableView {
+extension SegmentedControl {
     private func setup() {
-        separatorStyle = .none
+        options = [
+            .cornerRadius(8),
+            .backgroundColor(colors(.primary)),
+            .indicatorViewBackgroundColor(colors(.white))
+        ]
+        segments = LabelSegment.segments(
+            withTitles: [texts(.english), texts(.persian)],
+            normalBackgroundColor: nil,
+            normalFont: fonts(.medium),
+            normalTextColor: colors(.white),
+            selectedBackgroundColor: nil,
+            selectedFont: fonts(.medium),
+            selectedTextColor: colors(.primary)
+        )
+        
+        setIndex(1, animated: false)
     }
 }

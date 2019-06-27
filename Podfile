@@ -5,6 +5,7 @@ target 'PointBasedShop' do
 
     pod 'ActiveLabel'
     pod 'Alamofire'
+    pod 'BetterSegmentedControl'
 #    pod 'CHIPageControl'
     pod 'FSPagerView'
 #    pod 'Hero'

@@ -7,6 +7,10 @@ func texts(_ text: Text) -> String {
         return "عدد"
     case .currency:
         return "تومان"
+    case .defaultLatitude:
+        return "35.6892"
+    case .defaultLongitude:
+        return "51.3890"
     case .empty:
         return ""
     case .internalServerError:
@@ -256,6 +260,38 @@ func texts(_ text: Text) -> String {
     // Profile:
     case .profile:
         return "پروفایل"
+    case .hello:
+        return "سلام"
+    case .userLevelAndPoints:
+        return "سطح کاربری و امتیاز"
+    case .inviteYourFriendsAndEarnPoints:
+        return "دوستان خود را دعوت کنید و امتیاز بگیرید"
+    case .logout:
+        return "خروج"
+    case .settings:
+        return "تنظیمات"
+    case .language:
+        return "زبان"
+    case .persian:
+        return "فارسی"
+    case .english:
+        return "English"
+    case .profileSettings:
+        return "تنظیمات پروفایل"
+    case .general:
+        return "عمومی"
+    case .howItWorks:
+        return "چطور کار می کند"
+    case .aboutUs:
+        return "درباره ما"
+    case .contactUs:
+        return "ارتباط با ما"
+    case .support:
+        return "پشتیبانی"
+    case .welcome:
+        return "خوش آمدید"
+    case .or:
+        return "یا"
     
     // Favorites:
     case .favorites:
@@ -271,6 +307,8 @@ enum Text: String {
     case all
     case count
     case currency
+    case defaultLatitude
+    case defaultLongitude
     case empty
     case internalServerError
     case more
@@ -413,6 +451,22 @@ enum Text: String {
     
     // Profile:
     case profile
+    case hello
+    case userLevelAndPoints
+    case inviteYourFriendsAndEarnPoints
+    case logout
+    case settings
+    case language
+    case persian
+    case english
+    case profileSettings
+    case general
+    case howItWorks
+    case aboutUs
+    case contactUs
+    case support
+    case welcome
+    case or
     
     // Favorites:
     case favorites

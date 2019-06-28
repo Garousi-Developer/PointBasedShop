@@ -29,7 +29,7 @@
         <!--View Controller-->
         <scene sceneID="Ktd-Ow-21w">
             <objects>
-                <viewController id="Nou-Av-vf7" userLabel="View Controller" customClass="LoginViewController" customModule="PointBasedShop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="Nou-Av-vf7" userLabel="View Controller" customClass="LoginViewController" customModule="PointBasedShop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T82-5g-Gjl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

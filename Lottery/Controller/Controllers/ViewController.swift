@@ -139,6 +139,7 @@ extension ViewController {
                 width: UIApplication.shared.statusBarFrame.width,
                 height: UIApplication.shared.statusBarFrame.height + navigationController.navigationBar.frame.height
             ))
+            navigationShadowView.layer.name = "navigationShadow"
             if firstNavigationShadow {
                 navigationShadowView.setShadowStyle(.navigationBar)
             }

@@ -17,7 +17,7 @@ class FilterResultsViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = selectedCategory.persianTitle
+        navigationItem.title = languageIsPersian ? selectedCategory.persianTitle : selectedCategory.englishTitle
         setupFilterButton()
         
         searchBar.delegate = self

@@ -53,7 +53,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXF-wg-zej" userLabel="Lock State Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                                    <rect key="frame" x="334.66666666666669" y="-4.6666666666666679" width="36" height="36.333333333333336"/>
+                                                                    <rect key="frame" x="-4.6666666666666679" y="-4.6666666666666679" width="36.333333333333336" height="36.333333333333336"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="36" id="RDE-AO-ubn"/>
                                                                         <constraint firstAttribute="width" constant="36" id="ij5-T6-zUx"/>
@@ -69,7 +69,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNg-jd-E2V" userLabel="Required Points Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                                    <rect key="frame" x="55.666666666666657" y="4.6666666666666661" width="273" height="19.666666666666671"/>
+                                                                    <rect key="frame" x="37.666666666666657" y="4.6666666666666661" width="32.333333333333343" height="19.666666666666671"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieo-ZX-W9P" userLabel="Favorite Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                                    <rect key="frame" x="-4.6666666666666856" y="-7.6666666666666679" width="36.333333333333336" height="36.333333333333336"/>
+                                                                    <rect key="frame" x="334.66666666666669" y="-7.6666666666666679" width="36" height="36.333333333333336"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="36" id="Hi6-Ck-HTT"/>
                                                                         <constraint firstAttribute="width" constant="36" id="OaY-ZD-sod"/>
@@ -162,7 +162,7 @@
                                                                     <rect key="frame" x="100" y="333.33333333333331" width="166" height="35"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ot-ix-02C" userLabel="Decrement Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                                            <rect key="frame" x="131" y="0.0" width="35" height="35"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="35" id="lMg-QN-PiU" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                             </constraints>
@@ -174,7 +174,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </button>
                                                                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIG-cQ-Msd" userLabel="Order Count Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                                            <rect key="frame" x="88" y="0.0" width="35" height="35"/>
+                                                                            <rect key="frame" x="43" y="0.0" width="35" height="35"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="35" id="w0S-TV-yvo" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                             </constraints>
@@ -187,7 +187,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRt-Qh-iNl" userLabel="Increment Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="35"/>
+                                                                            <rect key="frame" x="86" y="0.0" width="80" height="35"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="80" id="Jhw-EB-1EV" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                             </constraints>
@@ -204,7 +204,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" text="فروخته شده" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gju-HD-QRO" userLabel="Number Of Sold Products Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                                    <rect key="frame" x="310.66666666666669" y="383.33333333333331" width="49.333333333333314" height="13.333333333333314"/>
+                                                                    <rect key="frame" x="6" y="383.33333333333331" width="49.333333333333336" height="13.333333333333314"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -214,7 +214,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" horizontalCompressionResistancePriority="900" progress="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="jJv-Bw-RA9" customClass="ProgressView" customModule="PointBasedShop" customModuleProvider="target">
-                                                                    <rect key="frame" x="18" y="386.33333333333331" width="286.66666666666669" height="5"/>
+                                                                    <rect key="frame" x="61.333333333333343" y="386.33333333333331" width="286.66666666666663" height="5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="5" id="pct-38-dBX" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                     </constraints>
@@ -224,7 +224,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </progressView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="700" text="از" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBp-D8-BNd" userLabel="Number Of Products Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                                    <rect key="frame" x="6" y="383.33333333333331" width="6" height="13.333333333333314"/>
+                                                                    <rect key="frame" x="354" y="383.33333333333331" width="6" height="13.333333333333314"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -280,7 +280,6 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </constraint>
-                                                            <constraint firstItem="cNg-jd-E2V" firstAttribute="trailing" secondItem="ieo-ZX-W9P" secondAttribute="leading" constant="-24" id="no9-nZ-RBR" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                             <constraint firstItem="jJv-Bw-RA9" firstAttribute="trailing" secondItem="nBp-D8-BNd" secondAttribute="leading" constant="-6" id="oWD-Hl-RTL" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                             <constraint firstItem="rgf-p3-0yU" firstAttribute="top" secondItem="wCV-yL-Rbb" secondAttribute="top" id="pAo-Db-1Ud" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                             <constraint firstAttribute="trailing" secondItem="qSq-dR-H00" secondAttribute="trailing" constant="12" id="pDc-7q-SGM" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -319,7 +318,7 @@
                                                 <rect key="frame" x="12" y="469" width="390" height="35"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgP-Tr-Q9P" userLabel="Description Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="201" y="0.0" width="189" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="189" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
@@ -332,7 +331,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAd-w0-s53" userLabel="Product Details Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="189" height="35"/>
+                                                        <rect key="frame" x="201" y="0.0" width="189" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
@@ -355,6 +354,11 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="firstNumberOfLines">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <tableView clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Chd-Te-8Y3" userLabel="Product Details Table View" customClass="TableView" customModule="PointBasedShop" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="516" width="414" height="25.666666666666629"/>
@@ -368,7 +372,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عنوان" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xb-LN-HQN" userLabel="Key Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                                    <rect key="frame" x="290.66666666666669" y="9.0000000000000018" width="40" height="25.666666666666671"/>
+                                                                    <rect key="frame" x="291.33333333333331" y="9.0000000000000018" width="38.333333333333314" height="25.666666666666671"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -381,7 +385,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مقدار" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogu-wB-Jcy" userLabel="Value Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                                    <rect key="frame" x="87.666666666666671" y="9.0000000000000018" width="32" height="25.666666666666671"/>
+                                                                    <rect key="frame" x="85" y="9.0000000000000018" width="37" height="25.666666666666671"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>

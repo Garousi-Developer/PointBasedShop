@@ -8,7 +8,7 @@ class ClaimPointsResponseController: ResponseController {
         
         castedViewController.submitButton.setLoadingState(.successful)
         castedViewController.resultLabel.textColor = colors(.green)
-        castedViewController.resultLabel.text = texts(.yourPointsSuccessfullyUpdated)
+        castedViewController.resultLabel.localizedText = texts(.yourPointsSuccessfullyUpdated)
         castedViewController.resultLabel.fadeIn()
     }
     override func didFail(errorCode: URLError.Code?, statusCode: Int?, response: Decodable?) {
@@ -22,10 +22,10 @@ class ClaimPointsResponseController: ResponseController {
         switch statusCode {
         case 401:
             castedViewController.resultLabel.textColor = colors(.red)
-            castedViewController.resultLabel.text = texts(.wrongToken)
+            castedViewController.resultLabel.localizedText = texts(.wrongToken)
         case 404:
             castedViewController.resultLabel.textColor = colors(.red)
-            castedViewController.resultLabel.text = texts(.wrongEmployeeId)
+            castedViewController.resultLabel.localizedText = texts(.wrongEmployeeId)
         default:
             return
         }

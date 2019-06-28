@@ -13,7 +13,7 @@ class SimpleCitiesCollectionController: CollectionController {
         let castedCell = cell as! SimpleCityCollectionCell
         let city = cities[indexPath.item]
         
-        castedCell.nameLabel.text = city.persianTitle
+        castedCell.nameLabel.text = languageIsPersian ? city.persianTitle : city.englishTitle
         castedCell.selectedSwitch.setOn(city.isSelected, animated: false)
     }
     override func itemDidSelect(atIndexPath indexPath: IndexPath) {

@@ -16,9 +16,14 @@ class CartResponseController: ResponseController {
             let castedViewController = viewController as! FinalizeViewController
             
             castedViewController.numberOfProductsLabel.text = "\(cart.data.count)"
-            castedViewController.earnedPointsLabel.text = texts(.youWillEarnXPointsFromThisPurchase)
-                .replacingOccurrences(of: texts(.pointsAmount), with: "\(Int(cart.data.earnedPoints).priceFormatted)")
-            castedViewController.totalPriceLabel.text = "\(cart.data.totalPrice.priceFormatted) \(texts(.currency))"
+            castedViewController.earnedPointsLabel.text = languageIsPersian ?
+                texts(.youWillEarnXPointsFromThisPurchase).persian
+                    .replacingOccurrences(of: texts(.pointsAmount).persian, with: "\(Int(cart.data.earnedPoints).priceFormatted)") :
+                texts(.youWillEarnXPointsFromThisPurchase).english
+                    .replacingOccurrences(of: texts(.pointsAmount).english, with: "\(Int(cart.data.earnedPoints).priceFormatted)")
+            castedViewController.totalPriceLabel.text = languageIsPersian ?
+                "\(cart.data.totalPrice.priceFormatted) \(texts(.currency).persian)" :
+                "\(cart.data.totalPrice.priceFormatted) \(texts(.currency).english)"
             
             castedViewController.addressesTableController = AddressesTableController(
                 viewController: viewController,

@@ -18,7 +18,7 @@ class CategoriesCollectionController: CollectionController {
         let category = categories[indexPath.item]
         
         castedCell.pictureImageView.downloadImageFrom(category.pictureURL)
-        castedCell.titleLabel.text = category.persianTitle
+        castedCell.titleLabel.text = languageIsPersian ? category.persianTitle : category.englishTitle
     }
     override func itemDidSelect(atIndexPath indexPath: IndexPath) {
         super.itemDidSelect(atIndexPath: indexPath)

@@ -55,6 +55,18 @@ class StackView: UIStackView {
 
 extension StackView {
     private func setup() {
-        semanticContentAttribute = firstIsRTL ? .forceRightToLeft : .forceLeftToRight
+//        if let language = UserDefaults.standard.string(forKey: "language") {
+//            switch language {
+//            case "persian":
+//                semanticContentAttribute = firstIsRTL ? .forceLeftToRight : .forceRightToLeft
+//            case "english":
+//                semanticContentAttribute = firstIsRTL ? .forceRightToLeft : .forceLeftToRight
+//            default:
+//                break
+//            }
+//        }
+//        else {
+//            semanticContentAttribute = firstIsRTL ? .forceLeftToRight : .forceRightToLeft
+//        }
     }
 }

@@ -26,7 +26,7 @@ class ContainersCollectionController: CollectionController {
                 castedCell.pictureImageView.setBorderStyle(.none)
                 castedCell.pictureImageView.contentMode = .scaleAspectFill
             }
-            castedCell.titleLabel.text = city.persianTitle
+            castedCell.titleLabel.text = languageIsPersian ? city.persianTitle : city.englishTitle
         case is NewShoppingCenter:
             shoppingCenters = data as! [NewShoppingCenter]
             let shoppingCenter = shoppingCenters[indexPath.item]
@@ -41,7 +41,7 @@ class ContainersCollectionController: CollectionController {
                     right: 16
                 ))
             }
-            castedCell.titleLabel.text = shoppingCenter.persianTitle
+            castedCell.titleLabel.text = languageIsPersian ? shoppingCenter.persianTitle : shoppingCenter.englishTitle
         case is NewBrand:
             brands = data as! [NewBrand]
             let brand = brands[indexPath.item]
@@ -56,7 +56,7 @@ class ContainersCollectionController: CollectionController {
                     right: 16
                 ))
             }
-            castedCell.titleLabel.text = brand.persianTitle
+            castedCell.titleLabel.text = languageIsPersian ? brand.persianTitle : brand.englishTitle
         default:
             return
         }
@@ -72,7 +72,7 @@ class ContainersCollectionController: CollectionController {
             
             container = Container(
                 type: .city,
-                name: city.persianTitle
+                name: languageIsPersian ? city.persianTitle : city.englishTitle
             )
             containerId = city.id
         case is NewShoppingCenter:
@@ -80,7 +80,7 @@ class ContainersCollectionController: CollectionController {
             
             container = Container(
                 type: .shoppingCenter,
-                name: shoppingCenter.persianTitle
+                name: languageIsPersian ? shoppingCenter.persianTitle : shoppingCenter.englishTitle
             )
             containerId = shoppingCenter.id
         case is NewBrand:
@@ -88,7 +88,7 @@ class ContainersCollectionController: CollectionController {
             
             container = Container(
                 type: .brand,
-                name: brand.persianTitle
+                name: languageIsPersian ? brand.persianTitle : brand.englishTitle
             )
             containerId = brand.id
         default:

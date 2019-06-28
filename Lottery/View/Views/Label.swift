@@ -32,7 +32,7 @@ class Label: UILabel {
             tintColor = colors(Color(rawValue: firstTintColor)!)
         }
     }
-    @IBInspectable var firstNumberOfLines: Int = 0 {
+    @IBInspectable var firstNumberOfLines: Int = 1 {
         didSet {
             numberOfLines = firstNumberOfLines
         }
@@ -54,7 +54,13 @@ class Label: UILabel {
     }
     @IBInspectable var firstText: String = Text.empty.rawValue {
         didSet {
-            text = texts(Text(rawValue: firstText)!)
+            let localizedText = texts(Text(rawValue: firstText)!)
+            text = languageIsPersian ? localizedText.persian : localizedText.english
+        }
+    }
+    var localizedText: LocalizedText! {
+        didSet {
+            text = languageIsPersian ? localizedText.persian : localizedText.english
         }
     }
     
@@ -118,7 +124,7 @@ extension Label {
         clipsToBounds = true
         
         numberOfLines = firstNumberOfLines
-        textAlignment = textAlignments(TextAlignment(rawValue: firstTextAlignment)!)
+        textAlignment = languageIsPersian ? .right : .left
         font = fonts(Font(rawValue: firstFont)!)
         textColor = colors(Color(rawValue: firstTextColor)!)
         
@@ -126,7 +132,8 @@ extension Label {
             setLineSpacing()
         }
         if text == "Label" {
-            text = texts(Text(rawValue: firstText)!)
+            let localizedText = texts(Text(rawValue: firstText)!)
+            text = languageIsPersian ? localizedText.persian : localizedText.english
         }
     }
 }

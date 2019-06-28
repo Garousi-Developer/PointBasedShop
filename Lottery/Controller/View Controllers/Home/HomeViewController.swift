@@ -94,10 +94,10 @@ extension HomeViewController {
         if accordingToLocation {
 //            let userCoordinate = locationManager.location!.coordinate
 //            closestOffersParameters = ClosestOffersParameters(latitude: String(userCoordinate.latitude), longitude: String(userCoordinate.longitude))
-            closestOffersParameters = ClosestOffersParameters(latitude: texts(.defaultLatitude), longitude: texts(.defaultLongitude))
+            closestOffersParameters = ClosestOffersParameters(latitude: "35.6892", longitude: "51.3890")
         }
         else {
-            closestOffersParameters = ClosestOffersParameters(latitude: texts(.defaultLatitude), longitude: texts(.defaultLongitude))
+            closestOffersParameters = ClosestOffersParameters(latitude: "35.6892", longitude: "51.3890")
         }
         closestOffersResponseController = ClosestOffersResponseController(viewController: self)
         closestOffersResponseController.requestHolder = request(RequestHolder(

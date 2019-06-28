@@ -66,6 +66,9 @@ class TableView: UITableView {
 
 extension TableView {
     private func setup() {
+        // Align scroll indicator right.
+        scrollIndicatorInsets = UIEdgeInsets(top: 0, left: bounds.width, bottom: 0, right: 0)
+        
         separatorStyle = .none
     }
 }

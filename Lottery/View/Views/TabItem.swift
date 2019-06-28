@@ -4,7 +4,13 @@ import UIKit
 class TabItem: UITabBarItem {
     @IBInspectable var firstTitle: String! {
         didSet {
-            title = texts(Text(rawValue: firstTitle)!)
+            let localizedTitle = texts(Text(rawValue: firstTitle)!)
+            title = languageIsPersian ? localizedTitle.persian : localizedTitle.english
+        }
+    }
+    var localizedTitle: LocalizedText! {
+        didSet {
+            title = languageIsPersian ? localizedTitle.persian : localizedTitle.english
         }
     }
     

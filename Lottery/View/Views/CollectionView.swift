@@ -58,8 +58,6 @@ class CollectionView: UICollectionView {
 
 extension CollectionView {
     private func setup() {
-        semanticContentAttribute = .forceRightToLeft
-        
         if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
             switch flowLayout.scrollDirection {
             case .horizontal:
@@ -73,7 +71,5 @@ extension CollectionView {
                 break
             }
         }
-        
-//        isPagingEnabled = true
     }
 }

@@ -66,17 +66,18 @@ extension SearchBar {
     private func setup() {
         if subviews[0].subviews.count >= 3 && UIImage(named: "search") != nil {
             let textField = subviews[0].subviews[2] as! UITextField
-            let searchImageView = textField.leftView as! UIImageView
+            let searchImageView = languageIsPersian ?
+                textField.leftView as! UIImageView :
+                textField.leftView as! UIImageView
             let textFieldBackgroundView = textField.subviews[0]
             
             searchBarStyle = .minimal
             backgroundColor = colors(.white)
-            semanticContentAttribute = .forceRightToLeft
             setImage(#imageLiteral(resourceName: "search"), for: .search, state: .normal)
-            placeholder = texts(.search)
+            placeholder = languageIsPersian ? texts(.search).persian : texts(.search).english
             tintColor = colors(.darkAsset)
             
-            textField.textAlignment = textAlignments(.right)
+            textField.textAlignment = languageIsPersian ? textAlignments(.right) : textAlignments(.left)
             textField.font = fonts(.medium)
             textField.minimumFontSize = fonts(.small).pointSize
             textField.textColor = colors(.darkAsset)

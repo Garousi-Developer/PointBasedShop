@@ -56,7 +56,6 @@ extension TabBar {
         
         setShadowStyle(.tabBar)
         backgroundColor = colors(.white)
-        semanticContentAttribute = .forceRightToLeft
         tintColor = colors(.primary)
         unselectedItemTintColor = colors(.asset)
     }

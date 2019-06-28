@@ -55,7 +55,7 @@ extension RetrievePasswordThirdStepViewController {
                 retrievePasswordButton.enable()
             }
             else {
-                clientErrorLabel.text = texts(.unmatchedPasswords)
+                clientErrorLabel.localizedText = texts(.unmatchedPasswords)
                 clientErrorLabel.fadeIn()
                 
                 retrievePasswordButton.disable()

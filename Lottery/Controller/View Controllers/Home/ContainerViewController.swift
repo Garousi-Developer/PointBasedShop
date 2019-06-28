@@ -27,33 +27,16 @@ class ContainerViewController: ViewController {
     var shoppingCenterResponseController: ShoppingCenterResponseController!
     var brandResponseController: BrandResponseController!
     
+    var expanded = false
     var initialDescriptionHeight: CGFloat!
     var finalDescriptionHeight: CGFloat!
     
     @IBAction func viewMore() {
-        switch viewMoreButton.title(for: .normal) {
-        case texts(.viewMore):
-            descriptionLabel.heightConstraint.constant = finalDescriptionHeight
-            viewMoreButton.setTitle(
-                texts(.viewLess),
-                for: .normal
-            )
+        if expanded {
+            expanded = false
             
-            UIView.animate(
-                withDuration: durations(.springTextField),
-                delay: 0,
-                usingSpringWithDamping: 0.7,
-                initialSpringVelocity: 0,
-                options: [],
-                animations: {
-                    self.view.layoutIfNeeded()
-                    self.viewMoreButton.imageView!.transform = CGAffineTransform(rotationAngle: 180.degrees)
-                },
-                completion: nil
-            )
-        case texts(.viewLess):
             descriptionLabel.heightConstraint.constant = initialDescriptionHeight
-            viewMoreButton.setTitle(
+            viewMoreButton.setLocalizedTitle(
                 texts(.viewMore),
                 for: .normal
             )
@@ -67,11 +50,31 @@ class ContainerViewController: ViewController {
                 animations: {
                     self.view.layoutIfNeeded()
                     self.viewMoreButton.imageView!.transform = CGAffineTransform(rotationAngle: 0.degrees)
-                },
+            },
                 completion: nil
             )
-        default:
-            return
+        }
+        else {
+            expanded = true
+            
+            descriptionLabel.heightConstraint.constant = finalDescriptionHeight
+            viewMoreButton.setLocalizedTitle(
+                texts(.viewLess),
+                for: .normal
+            )
+            
+            UIView.animate(
+                withDuration: durations(.springTextField),
+                delay: 0,
+                usingSpringWithDamping: 0.7,
+                initialSpringVelocity: 0,
+                options: [],
+                animations: {
+                    self.view.layoutIfNeeded()
+                    self.viewMoreButton.imageView!.transform = CGAffineTransform(rotationAngle: 180.degrees)
+            },
+                completion: nil
+            )
         }
     }
     
@@ -81,9 +84,9 @@ class ContainerViewController: ViewController {
         navigationItem.title = container.name
         switch container.type {
         case .city:
-            topContentsLabel.text = texts(.topShoppingCenters)
+            topContentsLabel.localizedText = texts(.topShoppingCenters)
         case .shoppingCenter:
-            topContentsLabel.text = texts(.topBrands)
+            topContentsLabel.localizedText = texts(.topBrands)
         case .brand:
             topContentsLabel.removeFromSuperview()
         }
@@ -104,10 +107,6 @@ class ContainerViewController: ViewController {
                 make.top.equalTo(mapImageView.snp.bottom).offset(scale * 12)
             }
         }
-        
-        descriptionLabel.numberOfLines = 5
-        initialDescriptionHeight = descriptionLabel.firstTextHeight
-        descriptionLabel.heightConstraint.constant = initialDescriptionHeight
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -148,11 +147,5 @@ class ContainerViewController: ViewController {
             refreshControl.containerView = scrollView
             refreshControl.requestHolder = brandResponseController.requestHolder
         }
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        descriptionLabel.numberOfLines = 0
-        finalDescriptionHeight = descriptionLabel.firstTextHeight
     }
 }

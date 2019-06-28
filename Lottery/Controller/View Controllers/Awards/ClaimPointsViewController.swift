@@ -51,7 +51,11 @@ class ClaimPointsViewController: ViewController {
         super.viewDidLoad()
         
         shoppingCenterPictureImageView.downloadImageFrom(awards.pictureURL)
-        welcomeLabel.text = texts(.welcomeToXShoppingCenter).replacingOccurrences(of: texts(.shoppingCenterName), with: awards.persianTitle)
+        welcomeLabel.text = languageIsPersian ?
+            texts(.welcomeToXShoppingCenter).persian
+                .replacingOccurrences(of: texts(.shoppingCenterName).persian, with: awards.persianTitle) :
+            texts(.welcomeToXShoppingCenter).english
+                .replacingOccurrences(of: texts(.shoppingCenterName).english, with: awards.englishTitle)
         adImageView.downloadImageFrom(awards.ad.pictureURL)
         
         claimPointsScrollController = ClaimPointsScrollController(viewController: self, scrollView: scrollView)
@@ -61,7 +65,7 @@ class ClaimPointsViewController: ViewController {
 
 extension ClaimPointsViewController {
     private func handleSubmitAbility() {
-        if purchaseAmountTextField.text!.isEmpty || employeeIdTextField.text!.isEmpty || pinView.getPin().isEmpty {
+        if purchaseAmountTextField.text!.isEmpty || employeeIdTextField.text!.isEmpty {       //  || pinView.getPin().isEmpty
             submitButton.disable()
         }
         else {

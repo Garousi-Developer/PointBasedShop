@@ -4,7 +4,7 @@ extension Int {
     var priceFormatted: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        numberFormatter.groupingSeparator = "٫"
+        numberFormatter.groupingSeparator = languageIsPersian ? "٬" : ","
         
         let priceFormattedString = numberFormatter.string(from: NSNumber(integerLiteral: self))!
         
@@ -15,7 +15,7 @@ extension String {
     var priceFormatted: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        numberFormatter.groupingSeparator = "٫"
+        numberFormatter.groupingSeparator = languageIsPersian ? "٬" : ","
         
         guard let integeredString = Int(self.replacingOccurrences(of: numberFormatter.groupingSeparator, with: "")) else {
             return ""

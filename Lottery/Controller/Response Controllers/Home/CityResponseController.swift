@@ -11,8 +11,8 @@ class CityResponseController: ResponseController {
         let cityDetails = response as! CityDetails
         
         castedViewController.pictureImageView.downloadImageFrom(cityDetails.pictureURL)
-        castedViewController.nameLabel.text = cityDetails.persianTitle
-        castedViewController.descriptionLabel.text = cityDetails.persianDescription
+        castedViewController.nameLabel.text = languageIsPersian ? cityDetails.persianTitle : cityDetails.englishTitle
+        castedViewController.descriptionLabel.text = languageIsPersian ? cityDetails.persianDescription : cityDetails.englishDescription
         castedViewController.adImageView.downloadImageFrom(cityDetails.ad.pictureURL)
         
         castedViewController.topContentsCollectionController = ContainersCollectionController(
@@ -30,6 +30,12 @@ class CityResponseController: ResponseController {
         castedViewController.hottestOffersCollectionController.data = cityDetails.hottestOffers
         castedViewController.hottestOffersCollectionView.dataSource = castedViewController.hottestOffersCollectionController
         castedViewController.hottestOffersCollectionView.delegate = castedViewController.hottestOffersCollectionController
+        
+        castedViewController.descriptionLabel.numberOfLines = min(castedViewController.descriptionLabel.firstRealNumberOfLines, 5)
+        castedViewController.initialDescriptionHeight = castedViewController.descriptionLabel.firstTextHeight
+        castedViewController.descriptionLabel.heightConstraint.constant = castedViewController.initialDescriptionHeight
+        castedViewController.descriptionLabel.numberOfLines = 0
+        castedViewController.finalDescriptionHeight = castedViewController.descriptionLabel.firstTextHeight
         
         castedViewController.setLoadingState(.successful)
         castedViewController.refreshControl.endRefreshing()

@@ -10,6 +10,19 @@ class ProfileTableController: SecondaryController {
         }
     }
     
+    @objc func languageDidChange(sender: SegmentedControl) {
+        switch sender.index {
+        // English:
+        case 0:
+            UserDefaults.standard.set("english", forKey: "language")
+        // Persian:
+        case 1:
+            UserDefaults.standard.set("persian", forKey: "language")
+        default:
+            break
+        }
+    }
+    
     init(viewController: ViewController, tableView: TableView) {
         super.init(viewController: viewController)
         
@@ -38,7 +51,7 @@ extension ProfileTableController: UITableViewDataSource {
         case IndexPath(row: 0, section: 0):
             let cell = tableView.dequeueReusableCell(withIdentifier: "points", for: indexPath) as! PointsProfileTableCell
             
-            cell.optionLabel.text = titles[indexPath.section][indexPath.row]
+            cell.optionLabel.localizedText = titles[indexPath.section][indexPath.row]
             cell.userLevelLabel.text = "کاربر طلایی"
             cell.pointsLabel.text = "۱٫۰۰۰ امتیاز"
             
@@ -46,14 +59,21 @@ extension ProfileTableController: UITableViewDataSource {
         case IndexPath(row: 3, section: 0):
             let cell = tableView.dequeueReusableCell(withIdentifier: "logout", for: indexPath) as! LogoutProfileTableCell
             
-            cell.optionLabel.text = titles[indexPath.section][indexPath.row]
+            
+            cell.optionLabel.localizedText = titles[indexPath.section][indexPath.row]
             cell.nameLabel.text = "وارد شده به عنوان آرمان گروسی"
             
             return cell
         case IndexPath(row: 0, section: 1):
             let cell = tableView.dequeueReusableCell(withIdentifier: "language", for: indexPath) as! LanguageProfileTableCell
             
-            cell.optionLabel.text = titles[indexPath.section][indexPath.row]
+            cell.optionLabel.localizedText = titles[indexPath.section][indexPath.row]
+            cell.segmentedControl.setIndex(
+                languageIsPersian ? 1 : 0,
+                animated: false
+            )
+            
+            cell.segmentedControl.addTarget(self, action: #selector(languageDidChange), for: .valueChanged)
             
             return cell
         case IndexPath(row: 6, section: 2):
@@ -63,7 +83,7 @@ extension ProfileTableController: UITableViewDataSource {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "option", for: indexPath) as! ProfileTableCell
             
-            cell.optionLabel.text = titles[indexPath.section][indexPath.row]
+            cell.optionLabel.localizedText = titles[indexPath.section][indexPath.row]
             
             return cell
         }
@@ -74,18 +94,17 @@ extension ProfileTableController: UITableViewDelegate {
         return fonts(.extraLarge).firstLineHeight + scale * 2 * 12
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let titles = ["\(texts(.hello)) آرمان", texts(.settings), texts(.general)]
+        let titles = [texts(.hello), texts(.settings), texts(.general)]
         let view = View()
         let titleLabel = Label()
         
         titleLabel.font = fonts(.extraLarge)
         titleLabel.textColor = colors(.darkAsset)
-        titleLabel.text = titles[section]
+        titleLabel.localizedText = titles[section]
         
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(scale * 12)
             make.trailing.equalToSuperview().offset(scale * -12)
         }
         
@@ -96,6 +115,18 @@ extension ProfileTableController: UITableViewDelegate {
         switch indexPath {
         case IndexPath(row: 1, section: 0):
             viewController.navigateTo(.favorites)
+        case IndexPath(row: 3, section: 0):
+            UserDefaults.standard.removeObject(forKey: "token")
+            
+            UIView.transition(
+                with: UIApplication.shared.keyWindow!,
+                duration: 2 * durations(.textField),
+                options: .transitionFlipFromLeft,
+                animations: {
+                    UIApplication.shared.keyWindow!.rootViewController = navigationDestinations(.login, transferringData: nil)
+                },
+                completion: nil
+            )
         default:
             break
         }

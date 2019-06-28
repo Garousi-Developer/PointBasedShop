@@ -15,7 +15,9 @@ class ProductResponseController: ResponseController {
         castedViewController.collectionView.dataSource = castedViewController.collectionController
         castedViewController.collectionView.delegate = castedViewController.collectionController
         
-        castedViewController.descriptionLabel.text = productDetailses.productDetails.product.persianDescription
+        castedViewController.descriptionLabel.text = languageIsPersian ?
+            productDetailses.productDetails.product.persianDescription :
+            productDetailses.productDetails.product.englishDescription
         
         castedViewController.productDetailsTableController = ProductDetailsTableController(
             viewController: viewController,

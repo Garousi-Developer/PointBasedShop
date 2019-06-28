@@ -3,17 +3,17 @@ import UIKit
 func fonts(_ font: Font) -> UIFont {
     switch font {
     case .small:
-        return iranSansMobilePersianNumerals.withSize(scale * 8)
+        return languageIsPersian ? iranSansMobilePersianNumerals.withSize(scale * 8) : iranSansMobile.withSize(scale * 8)
     case .semiSmall:
-        return iranSansMobilePersianNumerals.withSize(scale * 10)
+        return languageIsPersian ? iranSansMobilePersianNumerals.withSize(scale * 10) : iranSansMobile.withSize(scale * 10)
     case .medium:
-        return iranSansMobilePersianNumerals.withSize(scale * 12)
+        return languageIsPersian ? iranSansMobilePersianNumerals.withSize(scale * 12) : iranSansMobile.withSize(scale * 12)
     case .semiLarge:
-        return iranSansMobilePersianNumerals.withSize(scale * 14)
+        return languageIsPersian ? iranSansMobilePersianNumerals.withSize(scale * 14) : iranSansMobile.withSize(scale * 14)
     case .large:
-        return iranSansMobilePersianNumerals.withSize(scale * 16)
+        return languageIsPersian ? iranSansMobilePersianNumerals.withSize(scale * 16) : iranSansMobile.withSize(scale * 16)
     case .extraLarge:
-        return iranSansMobilePersianNumerals.withSize(scale * 20)
+        return languageIsPersian ? iranSansMobilePersianNumerals.withSize(scale * 20) : iranSansMobile.withSize(scale * 20)
     }
 }
 enum Font: String {

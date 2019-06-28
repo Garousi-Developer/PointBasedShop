@@ -18,7 +18,7 @@ class HomeTableController: TableController {
     override func cell(forTableView tableView: TableView, atIndexPath indexPath: IndexPath) -> TableCell {
         homeArray = data as! [Home]
         home = homeArray[0]
-        let sectionTitles = ["", texts(.topShoppingCenters), texts(.topBrands)]
+        let sectionTitles = [texts(.empty), texts(.topShoppingCenters), texts(.topBrands)]
         let sectionContainers: [[Any]] = [home.cities, home.topShoppingCenters, home.topBrands]
         
         if indexPath.row == 0 {
@@ -61,7 +61,7 @@ class HomeTableController: TableController {
             dynamicCell.tableController = self
             let containersCollectionView = dynamicCell.containersCollectionView!
             
-            dynamicCell.titleLabel.text = sectionTitles[indexPath.row - 1]
+            dynamicCell.titleLabel.localizedText = sectionTitles[indexPath.row - 1]
             
             if indexPath.row == 1 {
                 dynamicCell.containersCollectionView.topConstraint.constant = 0
@@ -95,7 +95,7 @@ extension HomeTableController {
             
             let attributedText = NSMutableAttributedString()
             attributedText.append(NSAttributedString(
-                string: "\(texts(.yourPoints)) : "
+                string: languageIsPersian ? "\(texts(.yourPoints).persian) : " : "\(texts(.yourPoints).english) : "
             ))
             attributedText.append(NSAttributedString(
                 string: "\(Int(home.userPoints).priceFormatted)",
@@ -108,7 +108,7 @@ extension HomeTableController {
                 string: " "
             ))
             attributedText.append(NSAttributedString(
-                string: "\(texts(.points))"
+                string: languageIsPersian ? texts(.points).persian : texts(.points).english
             ))
             topStaticCell.yourPointsLabel.attributedText = attributedText
         }

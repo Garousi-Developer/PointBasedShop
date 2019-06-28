@@ -35,8 +35,9 @@ class TextField: PhoneNumberTextField {
     }
     @IBInspectable var firstPlaceholder: String! {
         didSet {
+            let localizedPlaceholder = texts(Text(rawValue: firstPlaceholder)!)
             attributedPlaceholder = NSAttributedString(
-                string: texts(Text(rawValue: firstPlaceholder)!),
+                string: languageIsPersian ? localizedPlaceholder.persian : localizedPlaceholder.english,
                 attributes: [NSAttributedString.Key.foregroundColor: colors(.lightAsset)]
             )
         }
@@ -135,7 +136,7 @@ extension TextField {
         enablesReturnKeyAutomatically = firstAutoEnableReturnKey
         borderStyle = .none
         tintColor = colors(.primary)
-        textAlignment = textAlignments(.right)
+        textAlignment = languageIsPersian ? textAlignments(.right) : textAlignments(.left)
         font = fonts(.medium)
         minimumFontSize = fonts(.small).pointSize
         textColor = colors(.darkAsset)

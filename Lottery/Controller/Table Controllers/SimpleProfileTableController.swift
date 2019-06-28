@@ -10,6 +10,20 @@ class SimpleProfileTableController: SecondaryController {
         }
     }
     
+    @objc func register() {
+        delay(durations(.epsilon)) {
+            self.viewController.navigateTo(.registerFirstStep)
+        }
+    }
+    @objc func login() {
+        delay(durations(.epsilon)) {
+            let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+            let loginViewController = loginStoryboard.instantiateViewController(withIdentifier: "login") as! LoginViewController
+            
+            self.viewController.navigationController!.pushViewController(loginViewController, animated: true)
+        }
+    }
+    
     init(viewController: ViewController, tableView: TableView) {
         super.init(viewController: viewController)
         
@@ -38,11 +52,14 @@ extension SimpleProfileTableController: UITableViewDataSource {
         case IndexPath(row: 0, section: 0):
             let cell = tableView.dequeueReusableCell(withIdentifier: "register", for: indexPath) as! RegisterProfileTableCell
             
+            cell.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
+            cell.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+            
             return cell
         case IndexPath(row: 0, section: 1):
             let cell = tableView.dequeueReusableCell(withIdentifier: "language", for: indexPath) as! LanguageProfileTableCell
             
-            cell.optionLabel.text = titles[indexPath.section][indexPath.row]
+            cell.optionLabel.localizedText = titles[indexPath.section][indexPath.row]
             
             return cell
         case IndexPath(row: 6, section: 2):
@@ -52,7 +69,7 @@ extension SimpleProfileTableController: UITableViewDataSource {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "option", for: indexPath) as! ProfileTableCell
             
-            cell.optionLabel.text = titles[indexPath.section][indexPath.row]
+            cell.optionLabel.localizedText = titles[indexPath.section][indexPath.row]
             
             return cell
         }
@@ -69,12 +86,11 @@ extension SimpleProfileTableController: UITableViewDelegate {
         
         titleLabel.font = fonts(.extraLarge)
         titleLabel.textColor = colors(.darkAsset)
-        titleLabel.text = titles[section]
+        titleLabel.localizedText = titles[section]
         
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(scale * 12)
             make.trailing.equalToSuperview().offset(scale * -12)
         }
         

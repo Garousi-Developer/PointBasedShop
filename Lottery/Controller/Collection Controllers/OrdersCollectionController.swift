@@ -24,22 +24,30 @@ class OrdersCollectionController: CollectionController {
         let castedCell = cell as! OrderCollectionCell
         let order = orders[indexPath.item]
         
-        castedCell.orderNumberTitleLabel.text = "\(texts(.orderNumber)):"
+        castedCell.orderNumberTitleLabel.text = languageIsPersian ? "\(texts(.orderNumber).persian):" : "\(texts(.orderNumber).english):"
         castedCell.orderNumberLabel.text = order.orderNumber
         
-        castedCell.totalPriceTitleLabel.text = "\(texts(.totalPrice)):"
-        castedCell.totalPriceLabel.text = "\(order.totalPrice.priceFormatted) \(texts(.currency))"
+        castedCell.totalPriceTitleLabel.text = languageIsPersian ? "\(texts(.totalPrice).persian):" : "\(texts(.totalPrice).english):"
+        castedCell.totalPriceLabel.text = languageIsPersian ?
+            "\(order.totalPrice.priceFormatted) \(texts(.currency).persian)" :
+            "\(order.totalPrice.priceFormatted) \(texts(.currency).english)"
         
-        castedCell.orderStatusTitleLabel.text = "\(texts(.orderStatus)):"
+        castedCell.orderStatusTitleLabel.text = languageIsPersian ? "\(texts(.orderStatus).persian):" : "\(texts(.orderStatus).english):"
         castedCell.orderStatusLabel.text = order.status
         
-        castedCell.transactionNumberTitleLabel.text = "\(texts(.transactionNumber)):"
+        castedCell.transactionNumberTitleLabel.text = languageIsPersian ?
+            "\(texts(.transactionNumber).persian):" :
+            "\(texts(.transactionNumber).english):"
         castedCell.transactionNumberLabel.text = order.transactionNumber
         
-        castedCell.paymentDateTitleLabel.text = "\(texts(.paymentDate)):"
-        castedCell.paymentDateLabel.text = "\(order.paymentDate.dateFormatted) \(texts(.hour)) \(order.paymentTime)"
+        castedCell.paymentDateTitleLabel.text = languageIsPersian ? "\(texts(.paymentDate).persian):" : "\(texts(.paymentDate).english):"
+        castedCell.paymentDateLabel.text = languageIsPersian ?
+            "\(order.paymentDate.dateFormatted) \(texts(.hour).persian) \(order.paymentTime)" :
+            "\(order.paymentDate.dateFormatted) \(texts(.hour).english) \(order.paymentTime)"
         
-        castedCell.addressLabel.text = "\(texts(.address)): \(order.address)"
+        castedCell.addressLabel.text = languageIsPersian ?
+            "\(texts(.address).persian): \(order.address)" :
+            "\(texts(.address).english): \(order.address)"
         
         castedCell.donatedLabel.isHidden = !order.donated
         

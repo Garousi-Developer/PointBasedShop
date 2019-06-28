@@ -23,7 +23,7 @@ class RetrievePasswordSecondStepResponseController: ResponseController {
         
         switch statusCode {
         case 400:
-            castedViewController.resultLabel.text = texts(.wrongVerificationCode)
+            castedViewController.resultLabel.localizedText = texts(.wrongVerificationCode)
         default:
             return
         }

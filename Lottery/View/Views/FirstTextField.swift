@@ -34,10 +34,10 @@ class FirstTextField: TextField {
         }
     }
     
-    func showError(_ message: String) {
+    func showError(_ message: LocalizedText) {
         isVerified = false
         
-        errorLabel.text = message
+        errorLabel.localizedText = message
         errorLabel.fadeIn()
     }
     func verify() {
@@ -121,14 +121,26 @@ extension FirstTextField {
     }
     private func addNormalLine() {
         let path = UIBezierPath()
-        path.move(to: CGPoint(
-            x: layer.bounds.width,
-            y: layer.bounds.height - normalLineWidth / 2
-        ))
-        path.addLine(to: CGPoint(
-            x: 0,
-            y: layer.bounds.height - normalLineWidth / 2
-        ))
+        if languageIsPersian {
+            path.move(to: CGPoint(
+                x: layer.bounds.width,
+                y: layer.bounds.height - normalLineWidth / 2
+            ))
+            path.addLine(to: CGPoint(
+                x: 0,
+                y: layer.bounds.height - normalLineWidth / 2
+            ))
+        }
+        else {
+            path.move(to: CGPoint(
+                x: 0,
+                y: layer.bounds.height - normalLineWidth / 2
+            ))
+            path.addLine(to: CGPoint(
+                x: layer.bounds.width,
+                y: layer.bounds.height - normalLineWidth / 2
+            ))
+        }
         
         normalLineLayer = ShapeLayer()
         normalLineLayer.path = path.cgPath
@@ -139,14 +151,26 @@ extension FirstTextField {
     }
     private func addFocusedLine() {
         let path = UIBezierPath()
-        path.move(to: CGPoint(
-            x: layer.bounds.width,
-            y: layer.bounds.height - focusedLineWidth / 2
-        ))
-        path.addLine(to: CGPoint(
-            x: 0,
-            y: layer.bounds.height - focusedLineWidth / 2
-        ))
+        if languageIsPersian {
+            path.move(to: CGPoint(
+                x: layer.bounds.width,
+                y: layer.bounds.height - focusedLineWidth / 2
+            ))
+            path.addLine(to: CGPoint(
+                x: 0,
+                y: layer.bounds.height - focusedLineWidth / 2
+            ))
+        }
+        else {
+            path.move(to: CGPoint(
+                x: 0,
+                y: layer.bounds.height - focusedLineWidth / 2
+            ))
+            path.addLine(to: CGPoint(
+                x: layer.bounds.width,
+                y: layer.bounds.height - focusedLineWidth / 2
+            ))
+        }
         
         focusedLineLayer = ShapeLayer()
         focusedLineLayer.path = path.cgPath
@@ -163,7 +187,7 @@ extension FirstTextField {
         addSubview(errorLabel)
         errorLabel.snp.makeConstraints { (make) in
             make.top.equalTo(snp.bottom)
-            make.leading.trailing.equalToSuperview()
+            make.trailing.equalToSuperview()
             make.height.equalTo(errorLabel.font.firstLineHeight + scale * 2 * 6)
         }
     }

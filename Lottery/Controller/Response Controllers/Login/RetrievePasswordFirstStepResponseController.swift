@@ -22,7 +22,7 @@ class RetrievePasswordFirstStepResponseController: ResponseController {
         
         switch statusCode {
         case 404:
-            castedViewController.resultLabel.text = texts(.unregisteredMobileNumber)
+            castedViewController.resultLabel.localizedText = texts(.unregisteredMobileNumber)
         default:
             return
         }

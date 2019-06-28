@@ -39,7 +39,7 @@ class FinalizeViewController: ViewController {
         addOrderResponseController = AddOrderResponseController(viewController: self)
         
         if addressId == 0 {
-            resultLabel.text = texts(.selectOneOfYourAddresses)
+            resultLabel.localizedText = texts(.selectOneOfYourAddresses)
             resultLabel.fadeIn()
         }
         else {

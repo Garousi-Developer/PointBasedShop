@@ -18,10 +18,12 @@ class OrderDetailsCollectionController: CollectionController {
         let orderItem = orderItems[indexPath.item]
         
         castedCell.productImageView.downloadImageFrom(orderItem.pictureURL)
-        castedCell.productNameLabel.text = orderItem.persianTitle
-        castedCell.productCountLabel.text = "\(orderItem.count) \(texts(.count))"
+        castedCell.productNameLabel.text = languageIsPersian ? orderItem.persianTitle : orderItem.englishTitle
+        castedCell.productCountLabel.text = languageIsPersian ?
+            "\(orderItem.count) \(texts(.count).persian)" :
+            "\(orderItem.count) \(orderItem.count == 1 ? texts(.singleCount).english : texts(.count).english)"
         castedCell.brandImageView.downloadImageFrom(orderItem.brand.logoURL)
-        castedCell.brandNameLabel.text = orderItem.brand.persianTitle
+        castedCell.brandNameLabel.text = languageIsPersian ? orderItem.brand.persianTitle : orderItem.brand.englishTitle
         
         setupExpensesLabel(castedCell, orderItem)
     }
@@ -43,7 +45,7 @@ extension OrderDetailsCollectionController {
                 string: " "
             ))
             attributedText.append(NSAttributedString(
-                string: texts(.currency),
+                string: languageIsPersian ? texts(.currency).persian : texts(.currency).english,
                 attributes: [
                     NSAttributedString.Key.foregroundColor: colors(.asset)
                 ]
@@ -61,7 +63,7 @@ extension OrderDetailsCollectionController {
                 string: " "
             ))
             attributedText.append(NSAttributedString(
-                string: texts(.points),
+                string: languageIsPersian ? texts(.points).persian : texts(.points).english,
                 attributes: [
                     NSAttributedString.Key.foregroundColor: colors(.asset)
                 ]

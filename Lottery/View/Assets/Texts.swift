@@ -1,321 +1,690 @@
-func texts(_ text: Text) -> String {
+func texts(_ text: Text) -> LocalizedText {
     switch text {
     // Global:
     case .all:
-        return "همه"
+        return LocalizedText(
+            persian: "همه",
+            english: "All"
+        )
+    case .singleCount:
+        return LocalizedText(
+            persian: "عدد",
+            english: "Number"
+        )
     case .count:
-        return "عدد"
+        return LocalizedText(
+            persian: "عدد",
+            english: "Numbers"
+        )
     case .currency:
-        return "تومان"
-    case .defaultLatitude:
-        return "35.6892"
-    case .defaultLongitude:
-        return "51.3890"
+        return LocalizedText(
+            persian: "تومان",
+            english: "Toman"
+        )
     case .empty:
-        return ""
+        return LocalizedText(
+            persian: "",
+            english: ""
+        )
     case .internalServerError:
-        return "خطا در سرور"
+        return LocalizedText(
+            persian: "خطا در سرور",
+            english: "Server Error"
+        )
     case .more:
-        return "بیشتر"
+        return LocalizedText(
+            persian: "بیشتر",
+            english: "More"
+        )
     case .number:
-        return "تا"
+        return LocalizedText(
+            persian: "تا",
+            english: ""
+        )
     case .points:
-        return "امتیاز"
-    case .testText:
-        return "متن آزمایشی"
-    case .pullToRefresh:
-        return ""
+        return LocalizedText(
+            persian: "امتیاز",
+            english: "Points"
+        )
     
     // Login:
     case .login:
-        return "ورود"
+        return LocalizedText(
+            persian: "ورود",
+            english: "Login"
+        )
     case .mobileNumber:
-        return "شماره موبایل"
+        return LocalizedText(
+            persian: "شماره موبایل",
+            english: "Mobile Number"
+        )
     case .invalidMobileNumber:
-        return "شماره موبایل معتبر نیست"
+        return LocalizedText(
+            persian: "شماره موبایل معتبر نیست",
+            english: "Mobile number is not valid"
+        )
     case .password:
-        return "رمز عبور"
+        return LocalizedText(
+            persian: "رمز عبور",
+            english: "Password"
+        )
     case .shortPassword:
-        return "رمز عبور باید حداقل ۴ کاراکتر باشد"
+        return LocalizedText(
+            persian: "رمز عبور باید حداقل ۴ کاراکتر باشد",
+            english: "Password must be at least 4 characters"
+        )
     case .unregisteredMobileNumber:
-        return "این شماره هنوز ثبت نام نکرده است"
+        return LocalizedText(
+            persian: "این شماره هنوز ثبت نام نکرده است",
+            english: "This number have not registered yet"
+        )
     case .inactiveAccount:
-        return "این حساب کاربری هنوز فعال نشده است"
+        return LocalizedText(
+            persian: "این حساب کاربری هنوز فعال نشده است",
+            english: "This account have not activated yet"
+        )
     case .wrongCredentials:
-        return "شماره موبایل یا رمز عبور اشتباه است"
+        return LocalizedText(
+            persian: "شماره موبایل یا رمز عبور اشتباه است",
+            english: "Mobile number or password is incorrect"
+        )
     case .loginWithoutRegister:
-        return "ورود بدون عضویت"
+        return LocalizedText(
+            persian: "ورود بدون عضویت",
+            english: "Login Without Register"
+        )
         
     // Retrieve Password First Step:
     case .retrievePassword:
-        return "بازیابی رمز عبور"
+        return LocalizedText(
+            persian: "بازیابی رمز عبور",
+            english: "Retrieve Password"
+        )
     case .firstStepOfRetrievePassword:
-        return "مرحله اول بازیابی رمز"
+        return LocalizedText(
+            persian: "مرحله اول بازیابی رمز",
+            english: "Retrieval First Step"
+        )
     case .nextStep:
-        return "مرحله بعد"
+        return LocalizedText(
+            persian: "مرحله بعد",
+            english: "Next Step"
+        )
     case .wrongVerificationCode:
-        return "کد تایید اشتباه است"
+        return LocalizedText(
+            persian: "کد تایید اشتباه است",
+            english: "Verification code is incorrect"
+        )
     case .firstStep:
-        return "مرحله اول"
+        return LocalizedText(
+            persian: "مرحله اول",
+            english: "First Step"
+        )
     case .retrieveCode:
-        return "بازیابی رمز"
-        
+        return LocalizedText(
+            persian: "بازیابی رمز",
+            english: "Retrieve Password"
+        )
+    
     // Retrieve Password Second Step:
     case .secondStepOfRetrievePassword:
-        return "مرحله دوم بازیابی رمز"
+        return LocalizedText(
+            persian: "مرحله دوم بازیابی رمز",
+            english: "Retrieval Second Step"
+        )
     case .verificationCode:
-        return "کد تایید"
+        return LocalizedText(
+            persian: "کد تایید",
+            english: "Verification Code"
+        )
     case .invalidVerificationCode:
-        return "کد تایید باید ۵ رقم باشد"
+        return LocalizedText(
+            persian: "کد تایید باید ۵ رقم باشد",
+            english: "Verification code must be 5 digits"
+        )
     case .cancelRetrieveCodeAndLogin:
-        return "لغو بازیابی رمز و ورود"
+        return LocalizedText(
+            persian: "لغو بازیابی رمز و ورود",
+            english: "Cancel Retrieval and Login"
+        )
     case .secondStep:
-        return "مرحله دوم"
+        return LocalizedText(
+            persian: "مرحله دوم",
+            english: "Second Step"
+        )
         
     // Retrieve Password Third Step:
     case .thirdStepOfRetrievePassword:
-        return "مرحله سوم بازیابی رمز"
+        return LocalizedText(
+            persian: "مرحله سوم بازیابی رمز",
+            english: "Retrieval Third Step"
+        )
     case .passwordRepeat:
-        return "تکرار رمز عبور"
+        return LocalizedText(
+            persian: "تکرار رمز عبور",
+            english: "Password Repeat"
+        )
     case .unmatchedPasswords:
-        return "رمز عبور و تکرار آن با هم مطابقت ندارند"
+        return LocalizedText(
+            persian: "رمز عبور و تکرار آن با هم مطابقت ندارند",
+            english: "Passwords do not match"
+        )
         
     //  Register First Step:
     case .register:
-        return "عضویت"
+        return LocalizedText(
+            persian: "عضویت",
+            english: "Register"
+        )
     case .firstStepOfRegister:
-        return "مرحله اول عضویت"
+        return LocalizedText(
+            persian: "مرحله اول عضویت",
+            english: "Register First Step"
+        )
     case .alreadyRegistered:
-        return "این شماره قبلا ثبت نام کرده است"
+        return LocalizedText(
+            persian: "مرحله اول عضویت",
+            english: "Register First Step"
+        )
         
     //  Register Second Step:
     case .secondStepOfRegister:
-        return "مرحله دوم عضویت"
+        return LocalizedText(
+            persian: "مرحله دوم عضویت",
+            english: "Register Second Step"
+        )
     case .cancelRegisterAndLogin:
-        return "لغو عضویت و ورود"
+        return LocalizedText(
+            persian: "لغو عضویت و ورود",
+            english: "Cancel Register and Login"
+        )
         
     //  Register Third Step:
     case .userAgreement:
-        return "توافق نامه کاربری"
+        return LocalizedText(
+            persian: "توافق نامه کاربری",
+            english: "User Agreement"
+        )
     case .privacyPolicy:
-        return "سیاست حفظ حریم خصوصی"
+        return LocalizedText(
+            persian: "سیاست حفظ حریم خصوصی",
+            english: "Privacy Policy"
+        )
         
     case .thirdStepOfRegister:
-        return "مرحله سوم عضویت"
+        return LocalizedText(
+            persian: "مرحله سوم عضویت",
+            english: "Register Third Step"
+        )
     case .firstName:
-        return "نام"
+        return LocalizedText(
+            persian: "نام",
+            english: "First Name"
+        )
     case .lastName:
-        return "نام خانوادگی"
+        return LocalizedText(
+            persian: "نام خانوادگی",
+            english: "Last Name"
+        )
     case .optionalEmail:
-        return "ایمیل (اختیاری)"
+        return LocalizedText(
+            persian: "ایمیل (اختیاری)",
+            english: "Email (Optional)"
+        )
     case .invalidEmail:
-        return "ایمیل معتبر نیست"
+        return LocalizedText(
+            persian: "ایمیل معتبر نیست",
+            english: "Email is not valid"
+        )
     case .iHaveReadAndAcceptUserAgreementAndPrivacyPolicy:
-        return "\(texts(.userAgreement)) و \(texts(.privacyPolicy)) را خوانده و قبول دارم"
+        return LocalizedText(
+            persian: "\(texts(.userAgreement).persian) و \(texts(.privacyPolicy).persian) را خوانده و قبول دارم",
+            english: "I have read and accept \(texts(.userAgreement).english) and \(texts(.privacyPolicy).english)"
+        )
     
     // Home:
     case .home:
-        return "خانه"
+        return LocalizedText(
+            persian: "خانه",
+            english: "Home"
+        )
     case .categories:
-        return "دسته بندی ها"
+        return LocalizedText(
+            persian: "دسته بندی ها",
+            english: "Categories"
+        )
     case .yourPoints:
-        return "امتیاز شما"
+        return LocalizedText(
+            persian: "امتیاز شما",
+            english: "Your Points"
+        )
     case .closestOffers:
-        return "نزدیک ترین پیشنهادات"
+        return LocalizedText(
+            persian: "نزدیک ترین پیشنهادات",
+            english: "Closest Offers"
+        )
     case .countryWidePostable:
-        return "قابل ارسال به سراسر کشور"
+        return LocalizedText(
+            persian: "قابل ارسال به سراسر کشور",
+            english: "Country Wide Postable"
+        )
     case .addToCart:
-        return "افزودن به سبد خرید"
+        return LocalizedText(
+            persian: "افزودن به سبد خرید",
+            english: "Add to Cart"
+        )
     case .addMore:
-        return "افزودن"
+        return LocalizedText(
+            persian: "افزودن",
+            english: "Add"
+        )
     case .sold:
-        return "فروخته شده"
+        return LocalizedText(
+            persian: "فروخته شده",
+            english: "sold"
+        )
     case .outOf:
-        return "از"
+        return LocalizedText(
+            persian: "از",
+            english: "out of"
+        )
     case .cities:
-        return "شهرها"
+        return LocalizedText(
+            persian: "شهرها",
+            english: "Cities"
+        )
     case .topShoppingCenters:
-        return "برترین مراکز خرید"
+        return LocalizedText(
+            persian: "برترین مراکز خرید",
+            english: "Top Shopping Centers"
+        )
     case .topBrands:
-        return "برترین برندها"
+        return LocalizedText(
+            persian: "برترین برندها",
+            english: "Top Brands"
+        )
     
     // Filter Results:
     case .search:
-        return "جستجو"
+        return LocalizedText(
+            persian: "جستجو",
+            english: "Search"
+        )
     
     // Filter:
     case .filter:
-        return "فیلتر"
+        return LocalizedText(
+            persian: "فیلتر",
+            english: "Filter"
+        )
     case .unlocked:
-        return "باز"
+        return LocalizedText(
+            persian: "باز",
+            english: "Unlocked"
+        )
     case .locked:
-        return "قفل"
+        return LocalizedText(
+            persian: "قفل",
+            english: "Locked"
+        )
     
     // Product:
     case .description:
-        return "توضیحات"
+        return LocalizedText(
+            persian: "توضیحات",
+            english: "Description"
+        )
     case .productDetails:
-        return "جزئیات محصول"
+        return LocalizedText(
+            persian: "جزئیات محصول",
+            english: "Product Details"
+        )
     
     // Container:
     case .viewMore:
-        return "مشاهده بیشتر"
+        return LocalizedText(
+            persian: "مشاهده بیشتر",
+            english: "View More"
+        )
     case .viewLess:
-        return "مشاهده کمتر"
+        return LocalizedText(
+            persian: "مشاهده کمتر",
+            english: "View Less"
+        )
     case .hottestOffers:
-        return "داغ ترین پیشنهادات"
+        return LocalizedText(
+            persian: "داغ ترین پیشنهادات",
+            english: "Hottest Offers"
+        )
     
     // Cart:
     case .cart:
-        return "سبد خرید"
+        return LocalizedText(
+            persian: "سبد خرید",
+            english: "Cart"
+        )
     case .numberOfProducts:
-        return "تعداد محصولات"
+        return LocalizedText(
+            persian: "تعداد محصولات",
+            english: "Number of Products"
+        )
     case .youWillEarnXPointsFromThisPurchase:
-        return "شما از این خرید \(texts(.pointsAmount)) امتیاز به دست می آورید"
+        return LocalizedText(
+            persian: "شما از این خرید \(texts(.pointsAmount).persian) امتیاز به دست می آورید",
+            english: "You will earn \(texts(.pointsAmount).english) points from this purchase"
+        )
     case .totalPrice:
-        return "قیمت کل"
+        return LocalizedText(
+            persian: "قیمت کل",
+            english: "Total Price"
+        )
     case .pricesAreTaxInclusive:
-        return "قیمت ها با احتساب مالیات هستند"
+        return LocalizedText(
+            persian: "قیمت ها با احتساب مالیات هستند",
+            english: "Prices are tax inclusive"
+        )
     case .iDonateAllPurchasedProductsToCharity:
-        return "همه محصولات خریداری شده را به خیریه اهدا می کنم"
+        return LocalizedText(
+            persian: "همه محصولات خریداری شده را به خیریه اهدا می کنم",
+            english: "I donate all purchased products to charity"
+        )
     case .selectOneOfYourAddresses:
-        return "یکی از آدرس های خود را انتخاب کنید"
+        return LocalizedText(
+            persian: "یکی از آدرس های خود را انتخاب کنید",
+            english: "Choose one of your addresses"
+        )
     case .editAddress:
-        return "ویرایش آدرس"
+        return LocalizedText(
+            persian: "ویرایش آدرس",
+            english: "Edit Address"
+        )
     case .pay:
-        return "پرداخت"
+        return LocalizedText(
+            persian: "پرداخت",
+            english: "Pay"
+        )
     case .finalizeYourPurchase:
-        return "خرید خود را نهایی کنید"
+        return LocalizedText(
+            persian: "خرید خود را نهایی کنید",
+            english: "Finalize your purchase"
+        )
     
     // Finalize:
     case .purchaseFinalization:
-        return "نهایی کردن خرید"
+        return LocalizedText(
+            persian: "نهایی کردن خرید",
+            english: "Purchase Finalization"
+        )
     
     // Awards:
     case .awards:
-        return "جوایز"
+        return LocalizedText(
+            persian: "جوایز",
+            english: "Awards"
+        )
     case .shoppingCenterName:
-        return "نام مرکز خرید"
+        return LocalizedText(
+            persian: "نام مرکز خرید",
+            english: "Shopping Center Name"
+        )
     case .pointsAmount:
-        return "مقدار امتیاز"
+        return LocalizedText(
+            persian: "مقدار امتیاز",
+            english: "Points Amount"
+        )
     case .percentageAmount:
-        return "مقدار درصد"
+        return LocalizedText(
+            persian: "مقدار درصد",
+            english: "Percentage Amount"
+        )
     
     case .welcomeToXShoppingCenter:
-        return "به مرکز خرید \(texts(.shoppingCenterName)) خوش آمدید"
+        return LocalizedText(
+            persian: "به مرکز خرید \(texts(.shoppingCenterName).persian) خوش آمدید",
+            english: "Welcome to \(texts(.shoppingCenterName).english) shopping center"
+        )
     case .tapCheckInToClaimXLoyaltyPoints:
-        return "برای کسب \(texts(.pointsAmount)) امتیاز وفاداری دکمه ثبت حضور را بزنید"
+        return LocalizedText(
+            persian: "برای کسب \(texts(.pointsAmount).persian) امتیاز وفاداری دکمه ثبت حضور را بزنید",
+            english: "Tap Check In to claim \(texts(.pointsAmount).english) loyalty points"
+        )
     case .checkIn:
-        return "ثبت حضور"
+        return LocalizedText(
+            persian: "ثبت حضور",
+            english: "Check In"
+        )
     case .yourPointsSuccessfullyUpdated:
-        return "امتیاز شما با موفقیت به روز رسانی شد"
+        return LocalizedText(
+            persian: "امتیاز شما با موفقیت به روز رسانی شد",
+            english: "Your points successfully updated"
+        )
     case .youEarnedPointsFromThisShoppingCenterForToday:
-        return "شما امروز از این فروشگاه امتیاز دریافت کرده اید"
+        return LocalizedText(
+            persian: "شما امروز از این فروشگاه امتیاز دریافت کرده اید",
+            english: "You earned points from this shopping center for today"
+        )
     case .takeYourTodaysInvoicesToXShoppingCenterCounter:
-        return """
-        فاکتورهای امروز خود را به پیشخوان مرکز خرید \(texts(.shoppingCenterName)) ببرید
-        و با توجه به کل مبلغ خرید خود امتیاز کسب کنید
-        """
+        return LocalizedText(
+            persian: """
+            فاکتورهای امروز خود را به پیشخوان مرکز خرید \(texts(.shoppingCenterName).persian) ببرید
+            و با توجه به کل مبلغ خرید خود امتیاز کسب کنید
+            """,
+            english: """
+            Take your today's invoices to \(texts(.shoppingCenterName).english) shopping center counter
+            and earn points according to your total purchase amount
+            """
+        )
     case .claimPoints:
-        return "کسب امتیاز"
+        return LocalizedText(
+            persian: "کسب امتیاز",
+            english: "Claim Points"
+        )
         
     // Claim Points:
     case .pleaseHaveAllYourTodaysInvoicesStampedBySalesman:
-        return "لطفا همه فاکتورهای امروز خود را توسط فروشنده مهر کنید و اجازه دهید مبلغ خرید و کد خود را وارد کند تا امتیازتان را کسب کنید"
+        return LocalizedText(
+            persian: "لطفا همه فاکتورهای امروز خود را توسط فروشنده مهر کنید و اجازه دهید مبلغ خرید و کد خود را وارد کند تا امتیازتان را کسب کنید",
+            english: "Please have all your todays invoice's stamped by salesman and let him enter purchase amount and his code to earn your points"
+        )
     case .purchaseAmountInTomans:
-        return "مبلغ خرید به تومان"
+        return LocalizedText(
+            persian: "مبلغ خرید به تومان",
+            english: "Purchase Amount in Toman"
+        )
     case .employeeId:
-        return "شناسه کارمند"
+        return LocalizedText(
+            persian: "شناسه کارمند",
+            english: "Employee Id"
+        )
     case .invalidEmployeeId:
-        return "شناسه کارمند باید ۴ رقم باشد"
+        return LocalizedText(
+            persian: "شناسه کارمند باید ۴ رقم باشد",
+            english: "Employee id must be 4 digits"
+        )
     case .secretToken:
-        return "کد محرمانه"
+        return LocalizedText(
+            persian: "کد محرمانه",
+            english: "Secret Token"
+        )
     case .submit:
-        return "تایید"
+        return LocalizedText(
+            persian: "تایید",
+            english: "Submit"
+        )
     case .wrongEmployeeId:
-        return "شناسه کارمند اشتباه است"
+        return LocalizedText(
+            persian: "شناسه کارمند اشتباه است",
+            english: "Employee id is incorrect"
+        )
     case .wrongToken:
-        return "کد محرمانه اشتباه است یا منقضی شده است"
+        return LocalizedText(
+            persian: "کد محرمانه اشتباه است یا منقضی شده است",
+            english: "Secret token is incorrect or expired"
+        )
     
     // Orders:
     case .orders:
-        return "سفارشات"
+        return LocalizedText(
+            persian: "سفارشات",
+            english: "Orders"
+        )
     case .orderNumber:
-        return "شماره سفارش"
+        return LocalizedText(
+            persian: "شماره سفارش",
+            english: "Order Number"
+        )
     case .orderStatus:
-        return "وضعیت سفارش"
+        return LocalizedText(
+            persian: "وضعیت سفارش",
+            english: "Order Status"
+        )
     case .transactionNumber:
-        return "شماره تراکنش"
+        return LocalizedText(
+            persian: "شماره تراکنش",
+            english: "Transaction Number"
+        )
     case .paymentDate:
-        return "تاریخ پرداخت"
+        return LocalizedText(
+            persian: "تاریخ پرداخت",
+            english: "Payment Date"
+        )
     case .hour:
-        return "ساعت"
+        return LocalizedText(
+            persian: "ساعت",
+            english: "at"
+        )
     case .address:
-        return "آدرس"
+        return LocalizedText(
+            persian: "آدرس",
+            english: "Address"
+        )
     case .donatedToCharity:
-        return "اهدا شده به خیریه"
+        return LocalizedText(
+            persian: "اهدا شده به خیریه",
+            english: "Donated to Charity"
+        )
     case .orderDetails:
-        return "جزئیات سفارش"
+        return LocalizedText(
+            persian: "جزئیات سفارش",
+            english: "Order Details"
+        )
     
     // Profile:
     case .profile:
-        return "پروفایل"
+        return LocalizedText(
+            persian: "پروفایل",
+            english: "Profile"
+        )
     case .hello:
-        return "سلام"
+        return LocalizedText(
+            persian: "سلام",
+            english: "Hello"
+        )
     case .userLevelAndPoints:
-        return "سطح کاربری و امتیاز"
+        return LocalizedText(
+            persian: "سطح کاربری و امتیاز",
+            english: "User Level and Points"
+        )
     case .inviteYourFriendsAndEarnPoints:
-        return "دوستان خود را دعوت کنید و امتیاز بگیرید"
+        return LocalizedText(
+            persian: "دوستان خود را دعوت کنید و امتیاز بگیرید",
+            english: "Invite your friends and earn points"
+        )
     case .logout:
-        return "خروج"
+        return LocalizedText(
+            persian: "خروج",
+            english: "Logout"
+        )
     case .settings:
-        return "تنظیمات"
+        return LocalizedText(
+            persian: "تنظیمات",
+            english: "Settings"
+        )
     case .language:
-        return "زبان"
+        return LocalizedText(
+            persian: "زبان",
+            english: "Language"
+        )
     case .persian:
-        return "فارسی"
+        return LocalizedText(
+            persian: "فارسی",
+            english: "فارسی"
+        )
     case .english:
-        return "English"
+        return LocalizedText(
+            persian: "English",
+            english: "English"
+        )
     case .profileSettings:
-        return "تنظیمات پروفایل"
+        return LocalizedText(
+            persian: "تنظیمات پروفایل",
+            english: "Profile Settings"
+        )
     case .general:
-        return "عمومی"
+        return LocalizedText(
+            persian: "عمومی",
+            english: "General"
+        )
     case .howItWorks:
-        return "چطور کار می کند"
+        return LocalizedText(
+            persian: "چطور کار می کند",
+            english: "How it Works"
+        )
     case .aboutUs:
-        return "درباره ما"
+        return LocalizedText(
+            persian: "درباره ما",
+            english: "About Us"
+        )
     case .contactUs:
-        return "ارتباط با ما"
+        return LocalizedText(
+            persian: "ارتباط با ما",
+            english: "Contact Us"
+        )
     case .support:
-        return "پشتیبانی"
+        return LocalizedText(
+            persian: "پشتیبانی",
+            english: "Support"
+        )
     case .welcome:
-        return "خوش آمدید"
+        return LocalizedText(
+            persian: "خوش آمدید",
+            english: "Welcome"
+        )
     case .or:
-        return "یا"
+        return LocalizedText(
+            persian: "یا",
+            english: "or"
+        )
     
     // Favorites:
     case .favorites:
-        return "علاقه مندی ها"
+        return LocalizedText(
+            persian: "علاقه مندی ها",
+            english: "Favorites"
+        )
     case .removeAll:
-        return "حذف همه"
+        return LocalizedText(
+            persian: "حذف همه",
+            english: "Remove All"
+        )
     case .addAllToCart:
-        return "افزودن همه به سبد خرید"
+        return LocalizedText(
+            persian: "افزودن همه به سبد خرید",
+            english: "Add All to Cart"
+        )
     }
 }
 enum Text: String {
     // Global:
     case all
+    case singleCount
     case count
     case currency
-    case defaultLatitude
-    case defaultLongitude
     case empty
     case internalServerError
     case more
     case number
     case points
-    case testText
-    case pullToRefresh
     
     // Login:
     case login
@@ -472,4 +841,9 @@ enum Text: String {
     case favorites
     case removeAll
     case addAllToCart
+}
+
+struct LocalizedText {
+    let persian: String
+    let english: String
 }

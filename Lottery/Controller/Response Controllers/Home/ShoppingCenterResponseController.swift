@@ -11,9 +11,13 @@ class ShoppingCenterResponseController: ResponseController {
         let shoppingCenterDetails = response as! ShoppingCenterDetails
         
         castedViewController.pictureImageView.downloadImageFrom(shoppingCenterDetails.pictureURL)
-        castedViewController.nameLabel.text = shoppingCenterDetails.persianTitle
-        castedViewController.containerNameLabel.text = " \(shoppingCenterDetails.persianCityTitle)"
-        castedViewController.descriptionLabel.text = shoppingCenterDetails.persianDescription
+        castedViewController.nameLabel.text = languageIsPersian ? shoppingCenterDetails.persianTitle : shoppingCenterDetails.englishTitle
+        castedViewController.containerNameLabel.text = languageIsPersian ?
+            " \(shoppingCenterDetails.persianCityTitle)" :
+            " \(shoppingCenterDetails.englishCityTitle)"
+        castedViewController.descriptionLabel.text = languageIsPersian ?
+            shoppingCenterDetails.persianDescription :
+            shoppingCenterDetails.englishDescription
         castedViewController.adImageView.downloadImageFrom(shoppingCenterDetails.ad.pictureURL)
         
         castedViewController.topContentsCollectionController = ContainersCollectionController(
@@ -31,6 +35,12 @@ class ShoppingCenterResponseController: ResponseController {
         castedViewController.hottestOffersCollectionController.data = shoppingCenterDetails.hottestOffers
         castedViewController.hottestOffersCollectionView.dataSource = castedViewController.hottestOffersCollectionController
         castedViewController.hottestOffersCollectionView.delegate = castedViewController.hottestOffersCollectionController
+        
+        castedViewController.descriptionLabel.numberOfLines = min(castedViewController.descriptionLabel.firstRealNumberOfLines, 5)
+        castedViewController.initialDescriptionHeight = castedViewController.descriptionLabel.firstTextHeight
+        castedViewController.descriptionLabel.heightConstraint.constant = castedViewController.initialDescriptionHeight
+        castedViewController.descriptionLabel.numberOfLines = 0
+        castedViewController.finalDescriptionHeight = castedViewController.descriptionLabel.firstTextHeight
         
         castedViewController.setLoadingState(.successful)
         castedViewController.refreshControl.endRefreshing()

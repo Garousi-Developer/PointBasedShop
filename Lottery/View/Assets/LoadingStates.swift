@@ -15,7 +15,7 @@ extension Button {
     }
     
     private func animateLoading(didComplete: (() -> Void)? = nil) {
-        if title(for: .normal) != texts(.addAllToCart) {
+        if title(for: .normal) != texts(.addAllToCart).persian && title(for: .normal) != texts(.addAllToCart).english {
             if let widthConstraint = widthConstraint, let heightConstraint = heightConstraint {
                 let width = widthConstraint.constant
                 let height = heightConstraint.constant
@@ -70,7 +70,7 @@ extension Button {
     private func animateBack() {
         loadingView?.removeFromSuperview()
         
-        if titleHolder != texts(.addAllToCart) {
+        if titleHolder != texts(.addAllToCart).persian && titleHolder != texts(.addAllToCart).english {
             snp.updateConstraints { make in
                 make.width.equalTo(widthHolder)
             }
@@ -116,7 +116,9 @@ extension UIViewController {
         view.removeSubview(withLayerName: "noContent")
         
         for subview in view.subviews {
-            subview.alpha = 0
+            if subview.layer.name != "navigationShadow" {
+                subview.alpha = 0
+            }
         }
         
         let loadingView = NVActivityIndicatorView(

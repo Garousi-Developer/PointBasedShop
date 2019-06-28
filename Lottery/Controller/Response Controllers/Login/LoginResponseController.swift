@@ -23,11 +23,11 @@ class LoginResponseController: ResponseController {
         case 401:
             switch apiError.code {
             case 3683:
-                castedViewController.resultLabel.text = texts(.unregisteredMobileNumber)
+                castedViewController.resultLabel.localizedText = texts(.unregisteredMobileNumber)
             case 22843:
-                castedViewController.resultLabel.text = texts(.inactiveAccount)
+                castedViewController.resultLabel.localizedText = texts(.inactiveAccount)
             case 9674:
-                castedViewController.resultLabel.text = texts(.wrongCredentials)
+                castedViewController.resultLabel.localizedText = texts(.wrongCredentials)
             default:
                 return
             }

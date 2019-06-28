@@ -25,7 +25,7 @@ class RegisterSecondStepResponseController: ResponseController {
         case 422:
             switch apiError.code {
             case 462543:
-                castedViewController.resultLabel.text = texts(.wrongVerificationCode)
+                castedViewController.resultLabel.localizedText = texts(.wrongVerificationCode)
             default:
                 return
             }

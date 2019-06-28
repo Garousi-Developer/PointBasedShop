@@ -11,9 +11,15 @@ class BrandResponseController: ResponseController {
         let brandDetails = response as! BrandDetails
         
         castedViewController.pictureImageView.downloadImageFrom(brandDetails.pictureURL)
-        castedViewController.nameLabel.text = brandDetails.persianTitle
-        castedViewController.descriptionLabel.text = brandDetails.persianDescription
+        castedViewController.nameLabel.text = languageIsPersian ? brandDetails.persianTitle : brandDetails.englishTitle
+        castedViewController.descriptionLabel.text = languageIsPersian ? brandDetails.persianDescription : brandDetails.englishDescription
         castedViewController.adImageView.downloadImageFrom(brandDetails.ad.pictureURL)
+        
+        castedViewController.descriptionLabel.numberOfLines = min(castedViewController.descriptionLabel.firstRealNumberOfLines, 5)
+        castedViewController.initialDescriptionHeight = castedViewController.descriptionLabel.firstTextHeight
+        castedViewController.descriptionLabel.heightConstraint.constant = castedViewController.initialDescriptionHeight
+        castedViewController.descriptionLabel.numberOfLines = 0
+        castedViewController.finalDescriptionHeight = castedViewController.descriptionLabel.firstTextHeight
         
         castedViewController.setLoadingState(.successful)
         castedViewController.refreshControl.endRefreshing()

@@ -54,6 +54,9 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="firstNumberOfLines">
+                                                                <integer key="value" value="0"/>
+                                                            </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstFont" value="semiSmall"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="pleaseHaveAllYourTodaysInvoicesStampedBySalesman"/>
                                                         </userDefinedRuntimeAttributes>

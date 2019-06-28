@@ -56,7 +56,7 @@ extension SegmentedControl {
             .indicatorViewBackgroundColor(colors(.white))
         ]
         segments = LabelSegment.segments(
-            withTitles: [texts(.english), texts(.persian)],
+            withTitles: [texts(.english).english, texts(.persian).persian],
             normalBackgroundColor: nil,
             normalFont: fonts(.medium),
             normalTextColor: colors(.white),
@@ -64,7 +64,5 @@ extension SegmentedControl {
             selectedFont: fonts(.medium),
             selectedTextColor: colors(.primary)
         )
-        
-        setIndex(1, animated: false)
     }
 }

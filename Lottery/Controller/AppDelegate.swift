@@ -19,6 +19,20 @@ extension AppDelegate: UIApplicationDelegate {
         
         window!.makeKeyAndVisible()
         
+        if let language = UserDefaults.standard.string(forKey: "language") {
+            switch language {
+            case "persian":
+                switchToPersian()
+            case "english":
+                switchToEnglish()
+            default:
+                break
+            }
+        }
+        else {
+            switchToPersian()
+        }
+        
         return true
     }
 }

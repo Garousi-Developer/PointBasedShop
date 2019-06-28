@@ -33,7 +33,7 @@ class TextLayer: CATextLayer {
 extension TextLayer {
     private func setup() {
         contentsScale = UIScreen.main.scale
-        alignmentMode = .right
+        alignmentMode = languageIsPersian ? .right : .left
         font = uiFont.fontName as CFTypeRef
         fontSize = uiFont.pointSize
         foregroundColor = colors(.asset).cgColor

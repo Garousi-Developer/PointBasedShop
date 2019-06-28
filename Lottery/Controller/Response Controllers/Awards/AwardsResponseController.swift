@@ -10,12 +10,21 @@ class AwardsResponseController: ResponseController {
         awards = response as? Awards
         
         castedViewController.shoppingCenterPictureImageView.downloadImageFrom(awards.pictureURL)
-        castedViewController.welcomeLabel.text =
-            texts(.welcomeToXShoppingCenter).replacingOccurrences(of: texts(.shoppingCenterName), with: awards.persianTitle)
-        castedViewController.checkInDescriptionLabel.text =
-            texts(.tapCheckInToClaimXLoyaltyPoints).replacingOccurrences(of: texts(.pointsAmount), with: String(awards.checkInPoint))
-        castedViewController.claimPointsDescriptionLabel.text = texts(.takeYourTodaysInvoicesToXShoppingCenterCounter)
-            .replacingOccurrences(of: texts(.shoppingCenterName), with: awards.persianTitle)
+        castedViewController.welcomeLabel.text = languageIsPersian ?
+            texts(.welcomeToXShoppingCenter).persian
+                .replacingOccurrences(of: texts(.shoppingCenterName).persian, with: awards.persianTitle) :
+            texts(.welcomeToXShoppingCenter).english
+                .replacingOccurrences(of: texts(.shoppingCenterName).english, with: awards.englishTitle)
+        castedViewController.checkInDescriptionLabel.text = languageIsPersian ?
+            texts(.tapCheckInToClaimXLoyaltyPoints).persian
+                .replacingOccurrences(of: texts(.pointsAmount).persian, with: String(awards.checkInPoint)) :
+            texts(.tapCheckInToClaimXLoyaltyPoints).english
+                .replacingOccurrences(of: texts(.pointsAmount).english, with: String(awards.checkInPoint))
+        castedViewController.claimPointsDescriptionLabel.text = languageIsPersian ?
+            texts(.takeYourTodaysInvoicesToXShoppingCenterCounter).persian
+                .replacingOccurrences(of: texts(.shoppingCenterName).persian, with: awards.persianTitle) :
+            texts(.takeYourTodaysInvoicesToXShoppingCenterCounter).english
+                .replacingOccurrences(of: texts(.shoppingCenterName).english, with: awards.englishTitle)
         castedViewController.adImageView.downloadImageFrom(awards.ad.pictureURL)
         
         castedViewController.setLoadingState(.successful)

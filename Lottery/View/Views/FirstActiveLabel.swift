@@ -54,7 +54,8 @@ class FirstActiveLabel: ActiveLabel {
     }
     @IBInspectable var firstText: String = Text.empty.rawValue {
         didSet {
-            text = texts(Text(rawValue: firstText)!)
+            let localizedText = texts(Text(rawValue: firstText)!)
+            text = languageIsPersian ? localizedText.persian : localizedText.english
         }
     }
     
@@ -125,7 +126,8 @@ extension FirstActiveLabel {
             setLineSpacing()
         }
         if text == "Label" {
-            text = texts(Text(rawValue: firstText)!)
+            let localizedText = texts(Text(rawValue: firstText)!)
+            text = languageIsPersian ? localizedText.persian : localizedText.english
         }
     }
     private func activeSetup() {

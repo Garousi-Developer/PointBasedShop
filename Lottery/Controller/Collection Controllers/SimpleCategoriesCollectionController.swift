@@ -13,7 +13,7 @@ class SimpleCategoriesCollectionController: CollectionController {
         let castedCell = cell as! SimpleCategoryCollectionCell
         let category = categories[indexPath.item]
         
-        castedCell.titleLabel.text = category.persianTitle
+        castedCell.titleLabel.text = languageIsPersian ? category.persianTitle : category.englishTitle
         castedCell.selectedSwitch.setOn(category.isSelected, animated: false)
     }
     override func itemDidSelect(atIndexPath indexPath: IndexPath) {

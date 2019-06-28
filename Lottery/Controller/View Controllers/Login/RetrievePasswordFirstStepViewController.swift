@@ -18,12 +18,7 @@ class RetrievePasswordFirstStepViewController: ViewController {
         }
     }
     @IBAction func goNextStep() {
-        navigationItem.backBarButtonItem = UIBarButtonItem(
-            title: texts(.firstStep),
-            style: .plain,
-            target: nil,
-            action: nil
-        )
+        (navigationItem as! NavigationItem).localizedBackButtonTitle = texts(.firstStep)
         
         nextStepButton.setLoadingState(.loading)
         resultLabel.fadeOut()

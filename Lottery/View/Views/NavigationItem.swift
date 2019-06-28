@@ -4,13 +4,30 @@ import UIKit
 class NavigationItem: UINavigationItem {
     @IBInspectable var firstTitle: String = Text.empty.rawValue {
         didSet {
-            title = texts(Text(rawValue: firstTitle)!)
+            let localizedTitle = texts(Text(rawValue: firstTitle)!)
+            title = languageIsPersian ? localizedTitle.persian : localizedTitle.english
         }
     }
     @IBInspectable var firstBackButton: String = Text.empty.rawValue {
         didSet {
+            let localizedBackButtonTitle = texts(Text(rawValue: firstTitle)!)
             backBarButtonItem = UIBarButtonItem(
-                title: texts(Text(rawValue: firstBackButton)!),
+                title: languageIsPersian ? localizedBackButtonTitle.persian : localizedBackButtonTitle.english,
+                style: .plain,
+                target: nil,
+                action: nil
+            )
+        }
+    }
+    var localizedTitle: LocalizedText! {
+        didSet {
+            title = languageIsPersian ? localizedTitle.persian : localizedTitle.english
+        }
+    }
+    var localizedBackButtonTitle: LocalizedText! {
+        didSet {
+            backBarButtonItem = UIBarButtonItem(
+                title: languageIsPersian ? localizedBackButtonTitle.persian : localizedBackButtonTitle.english,
                 style: .plain,
                 target: nil,
                 action: nil

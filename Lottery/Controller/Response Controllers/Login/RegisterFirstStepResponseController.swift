@@ -24,7 +24,7 @@ class RegisterFirstStepResponseController: ResponseController {
         case 409:
             switch apiError.code {
             case 39478:
-                castedViewController.resultLabel.text = texts(.alreadyRegistered)
+                castedViewController.resultLabel.localizedText = texts(.alreadyRegistered)
                 break
             default:
                 return

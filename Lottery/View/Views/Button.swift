@@ -36,8 +36,10 @@ class Button: UIButton {
     }
     @IBInspectable var firstRTLImage: Bool = false {
         didSet {
-            let flippedImage = image(for: .normal)?.withHorizontallyFlippedOrientation()
-            setImage(flippedImage, for: .normal)
+            if languageIsPersian {
+                let flippedImage = image(for: .normal)?.withHorizontallyFlippedOrientation()
+                setImage(flippedImage, for: .normal)
+            }
         }
     }
     @IBInspectable var firstFont: String = Font.medium.rawValue {
@@ -55,8 +57,9 @@ class Button: UIButton {
     }
     @IBInspectable var firstText: String = Text.empty.rawValue {
         didSet {
+            let localizedTitle = texts(Text(rawValue: firstText)!)
             setTitle(
-                texts(Text(rawValue: firstText)!),
+                languageIsPersian ? localizedTitle.persian : localizedTitle.english,
                 for: .normal
             )
         }
@@ -133,6 +136,13 @@ class Button: UIButton {
         }
     }
     
+    func setLocalizedTitle(_ localizedTitle: LocalizedText, for state: UIControl.State) {
+        setTitle(
+            languageIsPersian ? localizedTitle.persian : localizedTitle.english,
+            for: state
+        )
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
@@ -186,12 +196,12 @@ extension Button {
         let templateImage = image(for: .normal)?.withRenderingMode(.alwaysTemplate)
         
         backgroundColor = colors(Color(rawValue: firstBackgroundColor)!)
-        semanticContentAttribute = .forceRightToLeft
         setImage(templateImage, for: .normal)
         titleLabel!.font = fonts(Font(rawValue: firstFont)!)
         if title(for: .normal) == "Button" {
+            let localizedTitle = texts(Text(rawValue: firstText)!)
             setTitle(
-                texts(Text(rawValue: firstText)!),
+                languageIsPersian ? localizedTitle.persian : localizedTitle.english,
                 for: .normal
             )
         }
@@ -213,10 +223,18 @@ extension Button {
     }
     private func setupEdgeInsets() {
         if let normalTitle = title(for: .normal), image(for: .normal) != nil, !normalTitle.isEmpty {
-            imageEdgeInsets.left = 4
-            imageEdgeInsets.right = -4
-            titleEdgeInsets.left = -4
-            titleEdgeInsets.right = 4
+            if languageIsPersian {
+                imageEdgeInsets.left = 4
+                imageEdgeInsets.right = -4
+                titleEdgeInsets.left = -4
+                titleEdgeInsets.right = 4
+            }
+            else {
+                imageEdgeInsets.left = -4
+                imageEdgeInsets.right = 4
+                titleEdgeInsets.left = 4
+                titleEdgeInsets.right = -4
+            }
         }
         else {
             imageEdgeInsets.left = 0

@@ -186,17 +186,25 @@ class ProductsCollectionController: CollectionController {
         let product = products[indexPath.item]
         let progress = Float(product.soldCount) / Float(product.count)
         
-        castedCell.requiredPointsLabel.text = "\(product.requiredPoints.priceFormatted) \(texts(.points))"
+        castedCell.requiredPointsLabel.text = languageIsPersian ?
+            "\(product.requiredPoints.priceFormatted) \(texts(.points).persian)" :
+            "\(product.requiredPoints.priceFormatted) \(texts(.points).english)"
         castedCell.pictureImageView.downloadImageFrom(product.pictureURL)
-        castedCell.nameLabel.text = product.persianTitle
-        castedCell.discountedPriceLabel.text = "\(Int(product.discountedPrice).priceFormatted) \(texts(.currency))"
+        castedCell.nameLabel.text = languageIsPersian ? product.persianTitle : product.englishTitle
+        castedCell.discountedPriceLabel.text = languageIsPersian ?
+            "\(Int(product.discountedPrice).priceFormatted) \(texts(.currency).persian)" :
+            "\(Int(product.discountedPrice).priceFormatted) \(texts(.currency).english)"
         castedCell.brandLogoImageView.downloadImageFrom(product.brand.logoURL)
-        castedCell.brandNameLabel.text = product.brand.persianTitle
+        castedCell.brandNameLabel.text = languageIsPersian ? product.brand.persianTitle : product.brand.englishTitle
         castedCell.orderCountButton.setTitle("\(product.orderCount ?? 0)", for: .normal)
-        castedCell.numberOfSoldProductsLabel.text = "\(product.soldCount.priceFormatted) \(texts(.number)) \(texts(.sold))"
+        castedCell.numberOfSoldProductsLabel.text = languageIsPersian ?
+            "\(product.soldCount.priceFormatted) \(texts(.number).persian) \(texts(.sold).persian)" :
+            "\(product.soldCount.priceFormatted) \(texts(.sold).english)"
         castedCell.progressView.setProgress(progress, animated: false)
         castedCell.progressView.progressTintColor = color(ofProgress: progress)
-        castedCell.numberOfProductsLabel.text = "\(texts(.outOf)) \(product.count.priceFormatted) \(texts(.number))"
+        castedCell.numberOfProductsLabel.text = languageIsPersian ?
+            "\(texts(.outOf).persian) \(product.count.priceFormatted) \(texts(.number).persian)" :
+            "\(texts(.outOf).english) \(product.count.priceFormatted)"
         
         if UserDefaults.standard.string(forKey: "token") != nil {
             if product.isLocked {
@@ -258,7 +266,10 @@ class ProductsCollectionController: CollectionController {
         if !(viewController is ProductViewController) {
             viewController.navigateTo(
                 .product,
-                transferringData: (product.persianTitle, product.id)
+                transferringData: (
+                    languageIsPersian ? product.persianTitle : product.englishTitle,
+                    product.id
+                )
             )
         }
     }
@@ -267,7 +278,9 @@ class ProductsCollectionController: CollectionController {
 extension ProductsCollectionController {
     private func setupPriceLabel(_ castedCell: ProductCollectionCell, _ product: NewProduct) {
         castedCell.priceLabel.attributedText = NSAttributedString(
-            string: "\(product.price.priceFormatted) \(texts(.currency))",
+            string: languageIsPersian ?
+                "\(product.price.priceFormatted) \(texts(.currency).persian)" :
+                "\(product.price.priceFormatted) \(texts(.currency).english)",
             attributes: [
                 NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
                 NSAttributedString.Key.strikethroughColor: colors(.red)

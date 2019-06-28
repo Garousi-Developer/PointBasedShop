@@ -27,12 +27,7 @@ class RegisterFirstStepViewController: ViewController {
         }
     }
     @IBAction func goNextStep() {
-        navigationItem.backBarButtonItem = UIBarButtonItem(
-            title: texts(.firstStep),
-            style: .plain,
-            target: nil,
-            action: nil
-        )
+        (navigationItem as! NavigationItem).localizedBackButtonTitle = texts(.firstStep)
         
         nextStepButton.setLoadingState(.loading)
         resultLabel.fadeOut()
@@ -61,7 +56,7 @@ extension RegisterFirstStepViewController {
                 nextStepButton.enable()
             }
             else {
-                clientErrorLabel.text = texts(.unmatchedPasswords)
+                clientErrorLabel.localizedText = texts(.unmatchedPasswords)
                 clientErrorLabel.fadeIn()
                 
                 nextStepButton.disable()

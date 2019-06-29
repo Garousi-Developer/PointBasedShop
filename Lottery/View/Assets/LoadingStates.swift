@@ -15,7 +15,7 @@ extension Button {
     }
     
     private func animateLoading(didComplete: (() -> Void)? = nil) {
-        if title(for: .normal) != texts(.addAllToCart).persian && title(for: .normal) != texts(.addAllToCart).english {
+        if firstInteractionAnimationType == .bounce {
             if let widthConstraint = widthConstraint, let heightConstraint = heightConstraint {
                 let width = widthConstraint.constant
                 let height = heightConstraint.constant
@@ -70,7 +70,7 @@ extension Button {
     private func animateBack() {
         loadingView?.removeFromSuperview()
         
-        if titleHolder != texts(.addAllToCart).persian && titleHolder != texts(.addAllToCart).english {
+        if firstInteractionAnimationType == .bounce {
             snp.updateConstraints { make in
                 make.width.equalTo(widthHolder)
             }

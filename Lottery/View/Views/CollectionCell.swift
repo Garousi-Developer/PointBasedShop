@@ -38,6 +38,7 @@ class CollectionCell: UICollectionViewCell {
         return collectionController.collectionView.indexPath(for: self)!
     }
     var firstIsFirstLayout = true
+    var backgroundColorHolder: UIColor!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

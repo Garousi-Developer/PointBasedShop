@@ -118,7 +118,7 @@ extension FirstActiveLabel {
         clipsToBounds = true
         
         numberOfLines = firstNumberOfLines
-        textAlignment = textAlignments(TextAlignment(rawValue: firstTextAlignment)!)
+        textAlignment = languageIsPersian ? .right : .left
         font = fonts(Font(rawValue: firstFont)!)
         textColor = colors(Color(rawValue: firstTextColor)!)
         
@@ -131,7 +131,13 @@ extension FirstActiveLabel {
         }
     }
     private func activeSetup() {
-        let customActiveType = ActiveType.custom(pattern: "\(texts(.userAgreement))|\(texts(.privacyPolicy))")
+        let customActiveType: ActiveType
+        if languageIsPersian {
+            customActiveType = ActiveType.custom(pattern: "\(texts(.userAgreement).persian)|\(texts(.privacyPolicy).persian)")
+        }
+        else {
+            customActiveType = ActiveType.custom(pattern: "\(texts(.userAgreement).english)|\(texts(.privacyPolicy).english)")
+        }
         
         customize { (activeLabel) in
             activeLabel.lineSpacing = 8

@@ -10,6 +10,7 @@ class ViewController: UIViewController {
     var isFirstLayout = true
     var keyboardFrameWillChange = false
     var keyboardEndY: CGFloat!
+    var respondersSuperView: UIView!
     
     let refreshControl = RefreshControl()
     
@@ -27,11 +28,16 @@ class ViewController: UIViewController {
             
             guard let scrollView = self.view.subviews[0] as? ScrollView else { return }
             let firstResponderSuperView: UIView
-            if self is ClaimPointsViewController {
-                firstResponderSuperView = scrollView.subviews[0].subviews[1]
+            if self.respondersSuperView != nil {
+                firstResponderSuperView = self.respondersSuperView
             }
             else {
-                firstResponderSuperView = scrollView.subviews[0]
+                if self is ClaimPointsViewController {
+                    firstResponderSuperView = scrollView.subviews[0].subviews[1]
+                }
+                else {
+                    firstResponderSuperView = scrollView.subviews[0]
+                }
             }
             let firstResponderOrNil = firstResponderSuperView.subviews.first { (subview) in
                 return subview.isFirstResponder
@@ -59,11 +65,16 @@ class ViewController: UIViewController {
         
         guard let scrollView = view.subviews[0] as? ScrollView else { return }
         let firstResponderSuperView: UIView
-        if self is ClaimPointsViewController {
-            firstResponderSuperView = scrollView.subviews[0].subviews[1]
+        if respondersSuperView != nil {
+            firstResponderSuperView = respondersSuperView
         }
         else {
-            firstResponderSuperView = scrollView.subviews[0]
+            if self is ClaimPointsViewController {
+                firstResponderSuperView = scrollView.subviews[0].subviews[1]
+            }
+            else {
+                firstResponderSuperView = scrollView.subviews[0]
+            }
         }
         let firstResponderOrNil = firstResponderSuperView.subviews.first { (subview) in
             return subview.isFirstResponder

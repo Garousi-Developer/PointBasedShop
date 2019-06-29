@@ -3,6 +3,8 @@ import UIKit
 class ProductViewController: ViewController {
     @IBOutlet weak var scrollView: ScrollView!
     @IBOutlet weak var collectionView: CollectionView!
+    @IBOutlet weak var bottomView: View!
+    @IBOutlet weak var sectionsStackView: StackView!
     @IBOutlet weak var descriptionButton: Button!
     @IBOutlet weak var productDetailsButton: Button!
     @IBOutlet weak var descriptionLabel: Label!

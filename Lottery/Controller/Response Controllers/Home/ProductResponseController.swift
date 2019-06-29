@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class ProductResponseController: ResponseController {
     override func didSucceed(response: Decodable?) {
@@ -26,6 +26,18 @@ class ProductResponseController: ResponseController {
         castedViewController.productDetailsTableController.data = productDetailses.productDetails.specs
         castedViewController.productDetailsTableView.dataSource = castedViewController.productDetailsTableController
         castedViewController.productDetailsTableView.delegate = castedViewController.productDetailsTableController
+        
+        let descriptionHeight = castedViewController.descriptionLabel.firstTextHeight
+        let specsHeight =
+            CGFloat(productDetailses.productDetails.specs.count) *
+            (fonts(.semiLarge).firstLineHeight + scale * 2 * 9)
+        if specsHeight > descriptionHeight {
+            NSLayoutConstraint.deactivate([castedViewController.descriptionLabel.bottomConstraint])
+            castedViewController.productDetailsTableView.heightConstraint.constant = specsHeight
+        }
+        else {
+            NSLayoutConstraint.deactivate([castedViewController.productDetailsTableView.heightConstraint])
+        }
         
         castedViewController.setLoadingState(.successful)
         castedViewController.refreshControl.endRefreshing()

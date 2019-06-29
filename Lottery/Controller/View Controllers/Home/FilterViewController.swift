@@ -161,6 +161,8 @@ class FilterViewController: ViewController {
             break
         }
         
+        filterButton.firstInteractionAnimationType = .glow
+        
         setLoadingState(.loading)
         filterScopesResponseController = FilterScopesResponseController(viewController: self)
         filterScopesResponseController.requestHolder = request(RequestHolder(

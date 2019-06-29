@@ -160,7 +160,13 @@ extension TextField {
         firstSecurityToggleButton.firstInteractionAnimationType = .glow
         firstSecurityToggleButton.addTarget(self, action: #selector(firstToggleSecurity), for: .touchDown)
         
-        leftViewMode = .always
-        leftView = firstSecurityToggleButton
+        if languageIsPersian {
+            leftViewMode = .always
+            leftView = firstSecurityToggleButton
+        }
+        else {
+            rightViewMode = .always
+            rightView = firstSecurityToggleButton
+        }
     }
 }

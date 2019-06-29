@@ -54,7 +54,7 @@ class PagerCell: FSPagerViewCell {
 extension PagerCell {
     private func setup() {
         contentView.setShadowStyle(.none)
-        contentView.transform = CGAffineTransform(scaleX: -1, y: 1)
+        contentView.transform = languageIsPersian ? CGAffineTransform(scaleX: -1, y: 1) : CGAffineTransform(scaleX: 1, y: 1)
         
         imageView!.contentMode = .scaleAspectFill
     }

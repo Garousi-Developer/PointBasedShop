@@ -213,7 +213,10 @@ class ProductsCollectionController: CollectionController {
             }
             else {
                 castedCell.lockStateButton.tintColor = colors(.green)
-                castedCell.lockStateButton.setImage(#imageLiteral(resourceName: "unlocked"), for: .normal)
+                castedCell.lockStateButton.setImage(
+                    languageIsPersian ? #imageLiteral(resourceName: "unlocked").withHorizontallyFlippedOrientation() : #imageLiteral(resourceName: "unlocked"),
+                    for: .normal
+                )
             }
             if product.isFavorite {
                 castedCell.favoriteButton.tintColor = colors(.red)

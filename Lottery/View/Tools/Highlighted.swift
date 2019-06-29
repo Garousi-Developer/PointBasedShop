@@ -8,6 +8,9 @@ extension UIColor {
         case colors(.asset):
             return colors(.highlightedAsset)
         
+        case colors(.lightBlue):
+            return colors(.highlightedLightBlue)
+        
         case colors(.green):
             return colors(.highlightedGreen)
         

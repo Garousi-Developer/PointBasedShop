@@ -21,6 +21,11 @@ class CollectionController: SecondaryController {
         }
     }
     
+    var interactionAnimator: UIViewPropertyAnimator!
+    var interactionAnimationDuration = durations(.interaction)
+    var reverseInteractionAnimator: UIViewPropertyAnimator!
+    var interactionAnimationIsReversible = false
+    
     var layout: UICollectionViewFlowLayout!
     var itemWidth: CGFloat! {
         didSet {
@@ -32,6 +37,36 @@ class CollectionController: SecondaryController {
     var pagingThreshold: CGFloat!
     var currentOffset: CGFloat!
     var targetOffset: CGFloat!
+    
+    func animateInteraction(_ collectionCell: CollectionCell) {
+        interactionAnimator = UIViewPropertyAnimator(duration: interactionAnimationDuration, curve: .easeInOut) {
+            if collectionCell.backgroundColorHolder == nil {
+                collectionCell.backgroundColorHolder = collectionCell.backgroundColor
+            }
+            
+            collectionCell.backgroundColor = colors(.highlightedPlaceholder)
+        }
+        
+        interactionAnimator.startAnimation()
+    }
+    func animateInteractionReversely(_ collectionCell: CollectionCell) {
+        var reverseDelay: TimeInterval!
+        if interactionAnimator.isRunning {
+            reverseDelay = interactionAnimationDuration - TimeInterval(interactionAnimator.fractionComplete) * interactionAnimationDuration
+        }
+        else {
+            reverseDelay = 0
+        }
+        
+        reverseInteractionAnimator = UIViewPropertyAnimator(duration: interactionAnimationDuration, curve: .easeInOut) {
+            collectionCell.backgroundColor = collectionCell.backgroundColorHolder
+        }
+        interactionAnimationIsReversible = true
+        
+        delay(reverseDelay) {
+            self.reverseInteractionAnimator.startAnimation()
+        }
+    }
     
     func itemHeight() -> CGFloat {
         return 0
@@ -130,6 +165,15 @@ extension CollectionController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         itemDidSelect(atIndexPath: indexPath)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+//        let collectionCell = collectionView.cellForItem(at: indexPath) as! CollectionCell
+//        animateInteraction(collectionCell)
+    }
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+//        let collectionCell = collectionView.cellForItem(at: indexPath) as! CollectionCell
+//        animateInteractionReversely(collectionCell)
+    }
 }
 
 extension CollectionController: UIScrollViewDelegate {
@@ -152,6 +196,13 @@ extension CollectionController: UIScrollViewDelegate {
             let targetItemOffset = CGFloat(targetItem) * (itemWidth + interitemSpacing)
             
             targetContentOffset.pointee.x = targetItemOffset
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if interactionAnimationIsReversible {
+            interactionAnimationIsReversible = false
+            reverseInteractionAnimator.startAnimation()
         }
     }
 }

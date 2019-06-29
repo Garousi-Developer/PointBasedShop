@@ -9,17 +9,61 @@ class ProfileTableController: SecondaryController {
             tableView.reloadData()
         }
     }
+    var profile: Profile!
+    
+    var isFirstTime = true
+    
+    var interactionAnimator: UIViewPropertyAnimator!
+    var interactionAnimationDuration = durations(.interaction)
+    var reverseInteractionAnimator: UIViewPropertyAnimator!
+    var interactionAnimationIsReversible = false
     
     @objc func languageDidChange(sender: SegmentedControl) {
         switch sender.index {
         // English:
         case 0:
             UserDefaults.standard.set("english", forKey: "language")
+            delay(durations(.interaction)) {
+                (UIApplication.shared.delegate as! AppDelegate).launchApp(relaunch: true)
+            }
         // Persian:
         case 1:
             UserDefaults.standard.set("persian", forKey: "language")
+            delay(durations(.interaction)) {
+                (UIApplication.shared.delegate as! AppDelegate).launchApp(relaunch: true)
+            }
         default:
             break
+        }
+    }
+    
+    func animateInteraction(_ tableCell: TableCell) {
+        interactionAnimator = UIViewPropertyAnimator(duration: interactionAnimationDuration, curve: .easeInOut) {
+            if tableCell.backgroundColorHolder == nil {
+                tableCell.backgroundColorHolder = tableCell.backgroundColor
+            }
+            
+            tableCell.backgroundColor = colors(.highlightedPlaceholder)
+        }
+        
+        interactionAnimator.startAnimation()
+    }
+    func animateInteractionReversely(_ tableCell: TableCell) {
+        var reverseDelay: TimeInterval!
+        if interactionAnimator.isRunning {
+            reverseDelay = interactionAnimationDuration - TimeInterval(interactionAnimator.fractionComplete) * interactionAnimationDuration
+        }
+        else {
+            reverseDelay = 0
+        }
+        
+        reverseInteractionAnimator = UIViewPropertyAnimator(duration: interactionAnimationDuration, curve: .easeInOut) {
+            tableCell.backgroundColor = tableCell.backgroundColorHolder
+        }
+        interactionAnimationIsReversible = true
+        
+        delay(reverseDelay) {
+            self.reverseInteractionAnimator.startAnimation()
         }
     }
     
@@ -35,7 +79,7 @@ extension ProfileTableController: UITableViewDataSource {
         return 3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfRowsList = [4, 2, 7]
+        let numberOfRowsList = [4, 2, 8]
         
         return numberOfRowsList[section]
     }
@@ -44,16 +88,29 @@ extension ProfileTableController: UITableViewDataSource {
         let titles = [
             [texts(.userLevelAndPoints), texts(.favorites), texts(.inviteYourFriendsAndEarnPoints), texts(.logout)],
             [texts(.language), texts(.profileSettings)],
-            [texts(.howItWorks), texts(.aboutUs), texts(.contactUs), texts(.support), texts(.userAgreement), texts(.privacyPolicy)]
+            [texts(.howItWorks), texts(.aboutUs), texts(.contactUs), texts(.support), texts(.userAgreement), texts(.privacyPolicy), texts(.share)]
         ]
         
         switch indexPath {
         case IndexPath(row: 0, section: 0):
             let cell = tableView.dequeueReusableCell(withIdentifier: "points", for: indexPath) as! PointsProfileTableCell
+            var userLevel: LocalizedText!
+            switch profile.userLevel {
+            case "bronze":
+                userLevel = texts(.bronzeUser)
+            case "silver":
+                userLevel = texts(.silverUser)
+            case "golden":
+                userLevel = texts(.goldenUser)
+            default:
+                break
+            }
             
             cell.optionLabel.localizedText = titles[indexPath.section][indexPath.row]
-            cell.userLevelLabel.text = "کاربر طلایی"
-            cell.pointsLabel.text = "۱٫۰۰۰ امتیاز"
+            cell.userLevelLabel.localizedText = userLevel
+            cell.pointsLabel.text = languageIsPersian ?
+                "\(Int(profile.userPoints).priceFormatted) \(texts(.points).persian)" :
+                "\(Int(profile.userPoints).priceFormatted) \(texts(.points).english)"
             
             return cell
         case IndexPath(row: 3, section: 0):
@@ -61,22 +118,28 @@ extension ProfileTableController: UITableViewDataSource {
             
             
             cell.optionLabel.localizedText = titles[indexPath.section][indexPath.row]
-            cell.nameLabel.text = "وارد شده به عنوان آرمان گروسی"
+            cell.nameLabel.text = languageIsPersian ?
+                "\(texts(.signedInAs).persian) \(profile.firstName) \(profile.lastName)" :
+                "\(texts(.signedInAs).english) \(profile.firstName) \(profile.lastName)"
             
             return cell
         case IndexPath(row: 0, section: 1):
             let cell = tableView.dequeueReusableCell(withIdentifier: "language", for: indexPath) as! LanguageProfileTableCell
             
             cell.optionLabel.localizedText = titles[indexPath.section][indexPath.row]
-            cell.segmentedControl.setIndex(
-                languageIsPersian ? 1 : 0,
-                animated: false
-            )
+            if isFirstTime {
+                isFirstTime = false
+                
+                cell.segmentedControl.setIndex(
+                    languageIsPersian ? 1 : 0,
+                    animated: false
+                )
+            }
             
             cell.segmentedControl.addTarget(self, action: #selector(languageDidChange), for: .valueChanged)
             
             return cell
-        case IndexPath(row: 6, section: 2):
+        case IndexPath(row: 7, section: 2):
             let cell = tableView.dequeueReusableCell(withIdentifier: "social", for: indexPath) as! SocialProfileTableCell
             
             return cell
@@ -91,7 +154,12 @@ extension ProfileTableController: UITableViewDataSource {
 }
 extension ProfileTableController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return fonts(.extraLarge).firstLineHeight + scale * 2 * 12
+        if section == 0 {
+            return fonts(.extraLarge).firstLineHeight
+        }
+        else {
+            return fonts(.extraLarge).firstLineHeight + scale * 2 * 12
+        }
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let titles = [texts(.hello), texts(.settings), texts(.general)]
@@ -100,11 +168,21 @@ extension ProfileTableController: UITableViewDelegate {
         
         titleLabel.font = fonts(.extraLarge)
         titleLabel.textColor = colors(.darkAsset)
-        titleLabel.localizedText = titles[section]
+        if section == 0 {
+            titleLabel.text = languageIsPersian ? "\(titles[section].persian) \(profile.firstName)" : "\(titles[section].english) \(profile.firstName)"
+        }
+        else {
+            titleLabel.localizedText = titles[section]
+        }
         
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
+            if section == 0 {
+                make.centerY.equalToSuperview().offset(scale * -12)
+            }
+            else {
+                make.centerY.equalToSuperview()
+            }
             make.trailing.equalToSuperview().offset(scale * -12)
         }
         
@@ -127,8 +205,71 @@ extension ProfileTableController: UITableViewDelegate {
                 },
                 completion: nil
             )
+        case IndexPath(row: 1, section: 1):
+            viewController.navigateTo(.profileSettings)
+        case IndexPath(row: 6, section: 2):
+            let activityViewController = UIActivityViewController(
+                activityItems: [languageIsPersian ? texts(.shareText).persian : texts(.shareText).english],
+                applicationActivities: nil
+            )
+            activityViewController.popoverPresentationController?.sourceView = viewController.view
+            
+            viewController.present(activityViewController, animated: true, completion: nil)
         default:
             break
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let untappableIndexPaths = [
+            IndexPath(row: 0, section: 0),
+            IndexPath(row: 0, section: 1),
+            IndexPath(row: 7, section: 2)
+        ]
+        
+        for (i, untappableIndexPath) in untappableIndexPaths.enumerated() {
+            if indexPath == untappableIndexPath {
+                break
+            }
+            else {
+                if i == untappableIndexPaths.count - 1 {
+                    let tableCell = tableView.cellForRow(at: indexPath) as! TableCell
+                    animateInteraction(tableCell)
+                }
+                else {
+                    continue
+                }
+            }
+        }
+    }
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        let untappableIndexPaths = [
+            IndexPath(row: 0, section: 0),
+            IndexPath(row: 0, section: 1),
+            IndexPath(row: 7, section: 2)
+        ]
+        
+        for (i, untappableIndexPath) in untappableIndexPaths.enumerated() {
+            if indexPath == untappableIndexPath {
+                break
+            }
+            else {
+                if i == untappableIndexPaths.count - 1 {
+                    let tableCell = tableView.cellForRow(at: indexPath) as! TableCell
+                    animateInteractionReversely(tableCell)
+                }
+                else {
+                    continue
+                }
+            }
+        }
+    }
+}
+extension ProfileTableController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if interactionAnimationIsReversible {
+            interactionAnimationIsReversible = false
+            reverseInteractionAnimator.startAnimation()
         }
     }
 }

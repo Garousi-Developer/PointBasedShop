@@ -50,6 +50,8 @@ class ClaimPointsViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        respondersSuperView = submitView
+        
         shoppingCenterPictureImageView.downloadImageFrom(awards.pictureURL)
         welcomeLabel.text = languageIsPersian ?
             texts(.welcomeToXShoppingCenter).persian

@@ -16,6 +16,11 @@ func colors(_ color: Color) -> UIColor {
     case .black:
         return MaterialColors.black
     
+    case .highlightedLightBlue:
+        return MaterialColors.lightBlue200
+    case .lightBlue:
+        return MaterialColors.primaryLightBlue
+    
     case .clear:
         return MaterialColors.clear
     
@@ -77,6 +82,9 @@ enum Color: String {
     
     case transparentBlack
     case black
+    
+    case highlightedLightBlue
+    case lightBlue
     
     case clear
     

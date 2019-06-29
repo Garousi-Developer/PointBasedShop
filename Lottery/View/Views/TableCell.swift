@@ -37,6 +37,7 @@ class TableCell: UITableViewCell {
     var indexPath: IndexPath {
         return tableController.tableView.indexPath(for: self)!
     }
+    var backgroundColorHolder: UIColor!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

@@ -240,6 +240,10 @@
 		51F79DE022B9092F0094F9A7 /* CheckInParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F79DDF22B9092F0094F9A7 /* CheckInParameters.swift */; };
 		51F79DE222B90A1D0094F9A7 /* CheckInResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F79DE122B90A1D0094F9A7 /* CheckInResponseController.swift */; };
 		51F9E8B922A421FB0043E209 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F9E8B822A421FB0043E209 /* ProfileViewController.swift */; };
+		51F9F66A22C7411300F3F385 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F9F66922C7411300F3F385 /* Profile.swift */; };
+		51F9F66C22C744EC00F3F385 /* ProfileResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F9F66B22C744EC00F3F385 /* ProfileResponseController.swift */; };
+		51F9F66E22C77C3E00F3F385 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F9F66D22C77C3E00F3F385 /* ProfileSettingsViewController.swift */; };
+		51F9F67222C77CB800F3F385 /* ProfileSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51F9F67122C77CB800F3F385 /* ProfileSettings.storyboard */; };
 		9E9DA35B60C7F76D49EBA8E4 /* Pods_PointBasedShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AC61E73AD3C8DDA91A94CB /* Pods_PointBasedShop.framework */; };
 /* End PBXBuildFile section */
 
@@ -482,6 +486,10 @@
 		51F79DDF22B9092F0094F9A7 /* CheckInParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInParameters.swift; sourceTree = "<group>"; };
 		51F79DE122B90A1D0094F9A7 /* CheckInResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInResponseController.swift; sourceTree = "<group>"; };
 		51F9E8B822A421FB0043E209 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		51F9F66922C7411300F3F385 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		51F9F66B22C744EC00F3F385 /* ProfileResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponseController.swift; sourceTree = "<group>"; };
+		51F9F66D22C77C3E00F3F385 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
+		51F9F67122C77CB800F3F385 /* ProfileSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileSettings.storyboard; sourceTree = "<group>"; };
 		8E51CA937BA76366A91B64B2 /* Pods-Lottery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lottery.release.xcconfig"; path = "Target Support Files/Pods-Lottery/Pods-Lottery.release.xcconfig"; sourceTree = "<group>"; };
 		D8AC61E73AD3C8DDA91A94CB /* Pods_PointBasedShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PointBasedShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F62BDD94245919743711BDAF /* Pods-PointBasedShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PointBasedShop.debug.xcconfig"; path = "Target Support Files/Pods-PointBasedShop/Pods-PointBasedShop.debug.xcconfig"; sourceTree = "<group>"; };
@@ -743,6 +751,7 @@
 			children = (
 				51CE6E2D2281F65F0051B91E /* Profile.storyboard */,
 				5180661522C1DFD3000DB1E5 /* Favorites.storyboard */,
+				51F9F67122C77CB800F3F385 /* ProfileSettings.storyboard */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -770,6 +779,7 @@
 			children = (
 				51F9E8B822A421FB0043E209 /* ProfileViewController.swift */,
 				5180661722C1E019000DB1E5 /* FavoritesViewController.swift */,
+				51F9F66D22C77C3E00F3F385 /* ProfileSettingsViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -865,6 +875,7 @@
 				51F076BD22B5265A004DFD38 /* Products.swift */,
 				51F79DD922B8E0A10094F9A7 /* ProductDetailses.swift */,
 				51F79DD322B8DA070094F9A7 /* ProductDetails.swift */,
+				51F9F66922C7411300F3F385 /* Profile.swift */,
 				51E9297522BA5E4900F5E846 /* RetrievePasswordSecondStep.swift */,
 				51F79DD522B8DAE10094F9A7 /* Spec.swift */,
 				5115F141229BCFAE0095F0A6 /* Container.swift */,
@@ -1042,6 +1053,7 @@
 		51BDCDD022C1E752000F9158 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				51F9F66B22C744EC00F3F385 /* ProfileResponseController.swift */,
 				51BDCDD122C1E768000F9158 /* FavoritesResponseController.swift */,
 				51BDCDD322C20027000F9158 /* AddAllToCartResponseController.swift */,
 			);
@@ -1221,6 +1233,7 @@
 				51A0545F2299419E00A37C77 /* iranSansMobilePersianNumerals.ttf in Resources */,
 				516FB32C22ABE8A20097DE9D /* FilterResults.storyboard in Resources */,
 				514343A822783D2B00C2170C /* Settings.plist in Resources */,
+				51F9F67222C77CB800F3F385 /* ProfileSettings.storyboard in Resources */,
 				51CE6E7222841ECD0051B91E /* Images.xcassets in Resources */,
 				510E8A5F228B57AB009CED35 /* iranSansMobile.ttf in Resources */,
 				51CE6E302281FA580051B91E /* Orders.storyboard in Resources */,
@@ -1339,6 +1352,7 @@
 				51CE242022A0FEA0007A1EB2 /* ProgressView.swift in Sources */,
 				5132603722C3B84A00D1240D /* ProfileTableCell.swift in Sources */,
 				5162D62022A808AE00547AD6 /* RegisterSecondStepViewController.swift in Sources */,
+				51F9F66E22C77C3E00F3F385 /* ProfileSettingsViewController.swift in Sources */,
 				51F79DD822B8DBCE0094F9A7 /* ProductResponseController.swift in Sources */,
 				51B365CF2298ABC400CF2BA6 /* APIError.swift in Sources */,
 				51CE241E22A06AC7007A1EB2 /* SetConstraintMultiplier.swift in Sources */,
@@ -1501,8 +1515,10 @@
 				51DB720022C3CC2500F07A16 /* LogoutProfileTableCell.swift in Sources */,
 				51F076BE22B5265A004DFD38 /* Products.swift in Sources */,
 				517E6B6D22B4E6250087A919 /* RegisterSecondStepResponseController.swift in Sources */,
+				51F9F66A22C7411300F3F385 /* Profile.swift in Sources */,
 				5132F03F22ACD5870032A8CB /* SearchBar.swift in Sources */,
 				5115F146229BD6670095F0A6 /* ContainersCollectionController.swift in Sources */,
+				51F9F66C22C744EC00F3F385 /* ProfileResponseController.swift in Sources */,
 				51F79DDC22B8ED7E0094F9A7 /* ProductDetailTableCell.swift in Sources */,
 				51B366042298ABC400CF2BA6 /* PagerController.swift in Sources */,
 				5180661822C1E019000DB1E5 /* FavoritesViewController.swift in Sources */,

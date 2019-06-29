@@ -1,7 +1,7 @@
 class OrderData: Decodable {
     let id: Int
     let orderNumber: String
-    let totalPrice: String
+    let totalPrice: Int
     let status: String
     let transactionNumber: String
     let paymentDate: String

@@ -51,7 +51,7 @@ class PagerView: FSPagerView {
 
 extension PagerView {
     private func setup() {
-        transform = CGAffineTransform(scaleX: -1, y: 1)
+        transform = languageIsPersian ? CGAffineTransform(scaleX: -1, y: 1) : CGAffineTransform(scaleX: 1, y: 1)
         
         automaticSlidingInterval = 5
         isInfinite = true

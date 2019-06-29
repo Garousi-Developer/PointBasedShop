@@ -24,7 +24,7 @@ class StackView: UIStackView {
     }
     @IBInspectable var firstBackgroundColor: String! {
         didSet {
-            backgroundColor = colors(Color(rawValue: firstBackgroundColor)!)
+            
         }
     }
     @IBInspectable var firstTintColor: String! {
@@ -50,6 +50,13 @@ class StackView: UIStackView {
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         setup()
+    }
+    override func layoutSubviews() {
+        if firstBackgroundColor != nil {
+            let backgroundColorView = View(frame: bounds)
+            backgroundColorView.backgroundColor = colors(Color(rawValue: firstBackgroundColor)!)
+            insertSubview(backgroundColorView, at: 0)
+        }
     }
 }
 

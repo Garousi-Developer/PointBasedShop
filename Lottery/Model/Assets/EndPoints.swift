@@ -153,6 +153,13 @@ func endPoints(_ endPointName: EndPointName) -> EndPoint {
             url: "/point-purchase"
         )
     
+    // Profile:
+    case .profile:
+        return EndPoint(
+            url: "/profile",
+            response: Profile.self
+        )
+    
     // Favorites:
     case .addFavorite(let parameters):
         return EndPoint(
@@ -217,6 +224,9 @@ enum EndPointName {
     case checkIn(parameters: CheckInParameters)
     case claimPoints(parameters: ClaimPointsParameters)
     
+    // Profile:
+    case profile
+    
     // Favorites:
     case addFavorite(parameters: AddFavoriteParameters)
     case removeFavorite(parameters: RemoveFavoriteParameters)
@@ -262,6 +272,6 @@ struct EndPoint {
     }
 }
 
-private let loyaltyBaseURL = "https://mallsconnect.com/api/v1"
-//private let loyaltyBaseURL = "http://192.168.1.139/api/v1"
+//private let loyaltyBaseURL = "https://mallsconnect.com/api/v1"
+private let loyaltyBaseURL = "http://192.168.1.139/api/v1"
 private let googleMapsBaseURL = "https://maps.googleapis.com/maps/api"

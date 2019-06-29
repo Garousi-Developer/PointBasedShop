@@ -66,9 +66,7 @@ extension SearchBar {
     private func setup() {
         if subviews[0].subviews.count >= 3 && UIImage(named: "search") != nil {
             let textField = subviews[0].subviews[2] as! UITextField
-            let searchImageView = languageIsPersian ?
-                textField.leftView as! UIImageView :
-                textField.leftView as! UIImageView
+            let searchImageView = textField.leftView as! UIImageView
             let textFieldBackgroundView = textField.subviews[0]
             
             searchBarStyle = .minimal

@@ -585,6 +585,21 @@ func texts(_ text: Text) -> LocalizedText {
             persian: "سطح کاربری و امتیاز",
             english: "User Level and Points"
         )
+    case .bronzeUser:
+        return LocalizedText(
+            persian: "کاربر برنزی",
+            english: "Bronze User"
+        )
+    case .silverUser:
+        return LocalizedText(
+            persian: "کاربر نقره ای",
+            english: "Silver User"
+        )
+    case .goldenUser:
+        return LocalizedText(
+            persian: "کاربر طلایی",
+            english: "Golden User"
+        )
     case .inviteYourFriendsAndEarnPoints:
         return LocalizedText(
             persian: "دوستان خود را دعوت کنید و امتیاز بگیرید",
@@ -594,6 +609,11 @@ func texts(_ text: Text) -> LocalizedText {
         return LocalizedText(
             persian: "خروج",
             english: "Logout"
+        )
+    case .signedInAs:
+        return LocalizedText(
+            persian: "وارد شده به عنوان",
+            english: "Signed in as"
         )
     case .settings:
         return LocalizedText(
@@ -614,11 +634,6 @@ func texts(_ text: Text) -> LocalizedText {
         return LocalizedText(
             persian: "English",
             english: "English"
-        )
-    case .profileSettings:
-        return LocalizedText(
-            persian: "تنظیمات پروفایل",
-            english: "Profile Settings"
         )
     case .general:
         return LocalizedText(
@@ -644,6 +659,16 @@ func texts(_ text: Text) -> LocalizedText {
         return LocalizedText(
             persian: "پشتیبانی",
             english: "Support"
+        )
+    case .share:
+        return LocalizedText(
+            persian: "اشتراک گذاری",
+            english: "Share"
+        )
+    case .shareText:
+        return LocalizedText(
+            persian: "متن آزمایشی",
+            english: "Test Text"
         )
     case .welcome:
         return LocalizedText(
@@ -671,6 +696,33 @@ func texts(_ text: Text) -> LocalizedText {
         return LocalizedText(
             persian: "افزودن همه به سبد خرید",
             english: "Add All to Cart"
+        )
+    
+    // Profile Settings:
+    case .profileSettings:
+        return LocalizedText(
+            persian: "اطلاعات شخصی",
+            english: "Personal Information"
+        )
+    case .account:
+        return LocalizedText(
+            persian: "حساب کاربری",
+            english: "Account"
+        )
+    case .email:
+        return LocalizedText(
+            persian: "ایمیل",
+            english: "Email"
+        )
+    case .verify:
+        return LocalizedText(
+            persian: "تایید",
+            english: "Verify"
+        )
+    case .saveChanges:
+        return LocalizedText(
+            persian: "ذخیره تغییرات",
+            english: "Save Changes"
         )
     }
 }
@@ -822,18 +874,23 @@ enum Text: String {
     case profile
     case hello
     case userLevelAndPoints
+    case bronzeUser
+    case silverUser
+    case goldenUser
     case inviteYourFriendsAndEarnPoints
     case logout
+    case signedInAs
     case settings
     case language
     case persian
     case english
-    case profileSettings
     case general
     case howItWorks
     case aboutUs
     case contactUs
     case support
+    case share
+    case shareText
     case welcome
     case or
     
@@ -841,6 +898,13 @@ enum Text: String {
     case favorites
     case removeAll
     case addAllToCart
+    
+    // Profile Settings:
+    case profileSettings
+    case account
+    case email
+    case verify
+    case saveChanges
 }
 
 struct LocalizedText {

@@ -35,7 +35,7 @@ class ViewController: UIViewController {
             else {
                 firstResponderSuperView = scrollView.subviews[0]
             }
-            var firstResponderOrNil = firstResponderSuperView.subviews.first { (subview) in
+            let firstResponderOrNil = firstResponderSuperView.subviews.first { (subview) in
                 return subview.isFirstResponder
             } as? UITextField
 //            if notification.object is SVPinField {
@@ -49,6 +49,7 @@ class ViewController: UIViewController {
                 firstResponderSuperView.convert(firstResponder.frame, to: self.view).maxY +
                 fonts(.medium).firstLineHeight + scale * 2 * 6 + scale * 12
             let additionalSpace = additionalSpacePositives - additionalSpaceNegatives
+            print(additionalSpacePositives, additionalSpaceNegatives)
             
             UIView.animate(withDuration: durations(.interaction), animations: {
                 if additionalSpace < 0 {
@@ -84,6 +85,7 @@ class ViewController: UIViewController {
             firstResponderSuperView.convert(firstResponder.frame, to: self.view).maxY +
             fonts(.medium).firstLineHeight + scale * 2 * 6 + scale * 12
         let additionalSpace = additionalSpacePositives - additionalSpaceNegatives
+        print(additionalSpacePositives, additionalSpaceNegatives)
         
         UIView.animate(withDuration: durations(.interaction), animations: {
             if additionalSpace < 0 {

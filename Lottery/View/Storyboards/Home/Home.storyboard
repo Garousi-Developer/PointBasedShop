@@ -37,7 +37,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="700" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRS-O4-Bj0" userLabel="Categories Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="301.5" y="229" width="100.5" height="55.5"/>
+                                                    <rect key="frame" x="360" y="229" width="42" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elh-b9-VCk" userLabel="Your Points Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="12" y="247" width="60.5" height="20"/>
+                                                    <rect key="frame" x="12" y="240.5" width="42" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ult-06-CL8" userLabel="Categories Collection View" customClass="CollectionView" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="284.5" width="414" height="157"/>
+                                                    <rect key="frame" x="0.0" y="272" width="414" height="157"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="157" id="DJI-IF-vf9"/>
@@ -84,7 +84,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عنوان" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VS6-29-lSo" userLabel="Title Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                                        <rect key="frame" x="6" y="84" width="98" height="16.5"/>
+                                                                        <rect key="frame" x="6" y="84" width="98" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -127,10 +127,10 @@
                                                     </connections>
                                                 </collectionView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fk1-7q-HLx" userLabel="Closest Offers View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="447.5" width="414" height="505"/>
+                                                    <rect key="frame" x="0.0" y="435" width="414" height="517"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BW-Jc-V8Y" userLabel="Closest Offers Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                            <rect key="frame" x="235.5" y="15.5" width="166.5" height="23"/>
+                                                            <rect key="frame" x="360" y="17" width="42" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -154,8 +154,8 @@
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="more"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
-                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q5l-tL-yj4" userLabel="Closest Offers Collection View" customClass="CollectionView" customModule="PointBasedShop" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="42" width="414" height="457"/>
+                                                        <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q5l-tL-yj4" userLabel="Closest Offers Collection View" customClass="CollectionView" customModule="PointBasedShop" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="54" width="414" height="457"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="457" id="UVn-nZ-PfA"/>
@@ -167,7 +167,7 @@
                                                                 <inset key="sectionInset" minX="24" minY="16" maxX="24" maxY="16"/>
                                                             </collectionViewFlowLayout>
                                                             <cells>
-                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reusable" id="eUc-Mp-yX9" userLabel="Cell" customClass="ProductCollectionCell" customModule="PointBasedShop" customModuleProvider="target">
+                                                                <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reusable" id="eUc-Mp-yX9" userLabel="Cell" customClass="ProductCollectionCell" customModule="PointBasedShop" customModuleProvider="target">
                                                                     <rect key="frame" x="24" y="16" width="366" height="425"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -182,13 +182,13 @@
                                                                                     <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cm8-FE-e6V" userLabel="Lock State Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                                                <rect key="frame" x="-4.5" y="-4.5" width="36" height="36"/>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cm8-FE-e6V" userLabel="Lock State Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
+                                                                                <rect key="frame" x="-6" y="-24" width="84" height="84"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" constant="36" id="As5-gi-MAQ"/>
-                                                                                    <constraint firstAttribute="height" constant="36" id="W0w-BV-SXA"/>
+                                                                                    <constraint firstAttribute="width" constant="84" id="As5-gi-MAQ"/>
+                                                                                    <constraint firstAttribute="height" constant="84" id="W0w-BV-SXA"/>
                                                                                 </constraints>
-                                                                                <state key="normal" title="Button" image="unlocked"/>
+                                                                                <state key="normal" title="Button" image="bigUnlocked"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="string" keyPath="firstBorderStyle" value="thick"/>
                                                                                     <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
@@ -198,8 +198,31 @@
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="firstInteractionAnimation" value="NO"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybe-QJ-UI0" userLabel="Required Points Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                                                <rect key="frame" x="37.5" y="4.5" width="32.5" height="20"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcC-MB-0wn" userLabel="Points Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
+                                                                                <rect key="frame" x="-6" y="12" width="84" height="24"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTextAlignment" value="center"/>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstFont" value="semiSmall"/>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTextColor" value="white"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdB-ie-w8X" userLabel="Points Title Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
+                                                                                <rect key="frame" x="-6" y="33" width="84" height="27"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTextAlignment" value="center"/>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstFont" value="semiSmall"/>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstTextColor" value="lightAsset"/>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="points"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybe-QJ-UI0" userLabel="Required Points Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
+                                                                                <rect key="frame" x="84" y="4.5" width="32.5" height="20"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -374,6 +397,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </constraint>
                                                                         <constraint firstItem="2uO-q8-248" firstAttribute="leading" secondItem="eUc-Mp-yX9" secondAttribute="leading" constant="12" id="28j-x2-JbS" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                                        <constraint firstItem="wdB-ie-w8X" firstAttribute="trailing" secondItem="cm8-FE-e6V" secondAttribute="trailing" id="2Me-0e-GUb"/>
                                                                         <constraint firstItem="Pgx-Cb-akL" firstAttribute="leading" secondItem="eUc-Mp-yX9" secondAttribute="leading" constant="12" id="2aN-HL-ZXu" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target">
                                                                             <userDefinedRuntimeAttributes>
                                                                                 <userDefinedRuntimeAttribute type="number" keyPath="firstConstant">
@@ -382,19 +406,23 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </constraint>
                                                                         <constraint firstAttribute="trailing" secondItem="AIs-qv-Ji7" secondAttribute="trailing" constant="12" id="2ot-6n-Q4P" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                                                        <constraint firstItem="cm8-FE-e6V" firstAttribute="leading" secondItem="eUc-Mp-yX9" secondAttribute="leading" constant="-4.5" id="4k2-sD-FPQ"/>
+                                                                        <constraint firstItem="cm8-FE-e6V" firstAttribute="leading" secondItem="eUc-Mp-yX9" secondAttribute="leading" constant="-6" id="4k2-sD-FPQ"/>
                                                                         <constraint firstItem="Pgx-Cb-akL" firstAttribute="top" secondItem="lJa-0p-z09" secondAttribute="bottom" constant="12" id="5L6-3f-noa" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstItem="m6P-Ds-h1e" firstAttribute="leading" secondItem="eUc-Mp-yX9" secondAttribute="leading" constant="12" id="6Sv-Ta-z3Y" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstItem="ptv-JY-sxP" firstAttribute="top" secondItem="2lz-bf-RjT" secondAttribute="bottom" constant="6" id="8Y0-Ye-EjX" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstAttribute="trailing" secondItem="2uO-q8-248" secondAttribute="trailing" constant="12" id="ANm-hb-CBJ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                                        <constraint firstItem="wdB-ie-w8X" firstAttribute="leading" secondItem="cm8-FE-e6V" secondAttribute="leading" id="BXe-sd-fG2"/>
                                                                         <constraint firstAttribute="trailing" secondItem="VRG-Ci-cX6" secondAttribute="trailing" constant="6" id="BoN-1a-Jpf" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstItem="MHI-uq-SG7" firstAttribute="top" secondItem="eXk-dv-sSA" secondAttribute="bottom" constant="18" id="CCQ-BR-8dm" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstItem="AIs-qv-Ji7" firstAttribute="top" secondItem="ptv-JY-sxP" secondAttribute="bottom" constant="6" id="Ehc-J6-rZn" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstItem="IEw-Qe-eBE" firstAttribute="top" secondItem="eUc-Mp-yX9" secondAttribute="top" id="GdI-5H-A9j" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstItem="Vou-99-gTg" firstAttribute="trailing" secondItem="MHI-uq-SG7" secondAttribute="leading" constant="-6" id="HkJ-vu-ddx" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                                                        <constraint firstItem="cm8-FE-e6V" firstAttribute="top" secondItem="eUc-Mp-yX9" secondAttribute="top" constant="-4.5" id="JFn-NH-apn"/>
+                                                                        <constraint firstItem="cm8-FE-e6V" firstAttribute="top" secondItem="eUc-Mp-yX9" secondAttribute="top" constant="-24" id="JFn-NH-apn"/>
                                                                         <constraint firstAttribute="trailing" secondItem="2lz-bf-RjT" secondAttribute="trailing" constant="12" id="JGx-GG-bCC" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                                        <constraint firstItem="wdB-ie-w8X" firstAttribute="top" secondItem="cm8-FE-e6V" secondAttribute="top" constant="57" id="LEz-A7-TOF"/>
+                                                                        <constraint firstItem="hcC-MB-0wn" firstAttribute="leading" secondItem="cm8-FE-e6V" secondAttribute="leading" id="LgP-LF-UVc"/>
                                                                         <constraint firstItem="BoK-mz-zPA" firstAttribute="top" secondItem="eXk-dv-sSA" secondAttribute="top" id="RwH-eO-ztq" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                                        <constraint firstItem="hcC-MB-0wn" firstAttribute="bottom" secondItem="cm8-FE-e6V" secondAttribute="bottom" constant="-24" id="UAK-yT-on2"/>
                                                                         <constraint firstItem="eXk-dv-sSA" firstAttribute="centerX" secondItem="eUc-Mp-yX9" secondAttribute="centerX" id="Xwn-Tt-PHb" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstItem="eXk-dv-sSA" firstAttribute="top" secondItem="m6P-Ds-h1e" secondAttribute="bottom" constant="18" id="faC-VH-nw5" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstAttribute="trailing" secondItem="IEw-Qe-eBE" secondAttribute="trailing" id="fbP-RD-Esa" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -403,11 +431,13 @@
                                                                         <constraint firstAttribute="trailing" secondItem="lJa-0p-z09" secondAttribute="trailing" constant="3" id="gNI-dp-XsH" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstItem="VRG-Ci-cX6" firstAttribute="top" secondItem="BoK-mz-zPA" secondAttribute="bottom" constant="15" id="gTZ-My-T2n" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstItem="2uO-q8-248" firstAttribute="top" secondItem="Pgx-Cb-akL" secondAttribute="bottom" constant="12" id="hM8-Lv-JlG" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                                        <constraint firstItem="hcC-MB-0wn" firstAttribute="trailing" secondItem="cm8-FE-e6V" secondAttribute="trailing" id="hjZ-Xb-1Vj"/>
                                                                         <constraint firstItem="Vou-99-gTg" firstAttribute="top" secondItem="BoK-mz-zPA" secondAttribute="bottom" constant="15" id="iJk-h0-22Y" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstItem="2lz-bf-RjT" firstAttribute="top" secondItem="2uO-q8-248" secondAttribute="bottom" constant="6" id="jHT-AP-h5b" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstItem="ybe-QJ-UI0" firstAttribute="top" secondItem="eUc-Mp-yX9" secondAttribute="top" constant="4.5" id="jrY-br-ItX"/>
                                                                         <constraint firstItem="BoK-mz-zPA" firstAttribute="centerX" secondItem="eUc-Mp-yX9" secondAttribute="centerX" id="mBv-F7-lDY" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstAttribute="bottom" secondItem="IEw-Qe-eBE" secondAttribute="bottom" id="mXR-ar-vd8" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                                        <constraint firstItem="wdB-ie-w8X" firstAttribute="bottom" secondItem="cm8-FE-e6V" secondAttribute="bottom" id="oHG-1v-auX"/>
                                                                         <constraint firstItem="2lz-bf-RjT" firstAttribute="leading" secondItem="eUc-Mp-yX9" secondAttribute="leading" constant="12" id="ovm-Bz-PLI" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstItem="cm8-FE-e6V" firstAttribute="trailing" secondItem="ybe-QJ-UI0" secondAttribute="leading" constant="-6" id="pS7-gn-QqO" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstItem="BoK-mz-zPA" firstAttribute="bottom" secondItem="eXk-dv-sSA" secondAttribute="bottom" id="pUi-6l-B7B" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -417,6 +447,7 @@
                                                                         <constraint firstItem="ptv-JY-sxP" firstAttribute="leading" secondItem="eUc-Mp-yX9" secondAttribute="leading" constant="12" id="vBN-QV-kZW" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstAttribute="trailing" secondItem="ptv-JY-sxP" secondAttribute="trailing" constant="12" id="vsf-uC-par" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                         <constraint firstItem="MHI-uq-SG7" firstAttribute="trailing" secondItem="VRG-Ci-cX6" secondAttribute="leading" constant="-6" id="w7v-S5-cVs" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                                        <constraint firstItem="hcC-MB-0wn" firstAttribute="top" secondItem="cm8-FE-e6V" secondAttribute="top" constant="36" id="xii-ud-vG8"/>
                                                                         <constraint firstItem="AIs-qv-Ji7" firstAttribute="leading" secondItem="eUc-Mp-yX9" secondAttribute="leading" constant="12" id="ytt-c9-mQQ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                                     </constraints>
                                                                     <connections>
@@ -434,6 +465,8 @@
                                                                         <outlet property="orderCountButton" destination="iB0-k1-aO6" id="JfL-vx-AMS"/>
                                                                         <outlet property="orderCountStackView" destination="BoK-mz-zPA" id="oBu-Yx-jN9"/>
                                                                         <outlet property="pictureImageView" destination="Pgx-Cb-akL" id="qWc-6Y-CMp"/>
+                                                                        <outlet property="pointsLabel" destination="hcC-MB-0wn" id="tRd-4d-EwH"/>
+                                                                        <outlet property="pointsTitleLabel" destination="wdB-ie-w8X" id="EF5-Ah-ZUI"/>
                                                                         <outlet property="priceLabel" destination="2lz-bf-RjT" id="pYg-2u-zgy"/>
                                                                         <outlet property="progressView" destination="MHI-uq-SG7" id="cl8-X9-XaQ"/>
                                                                         <outlet property="requiredPointsLabel" destination="ybe-QJ-UI0" id="TDx-5K-BXv"/>
@@ -449,7 +482,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="q5l-tL-yj4" secondAttribute="bottom" constant="6" id="6Ls-Co-QPU" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                         <constraint firstAttribute="trailing" secondItem="q5l-tL-yj4" secondAttribute="trailing" id="7Zm-hU-ZXx" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
-                                                        <constraint firstItem="q5l-tL-yj4" firstAttribute="top" secondItem="UvM-QO-yOM" secondAttribute="bottom" id="A4z-HN-v6g" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                                        <constraint firstItem="q5l-tL-yj4" firstAttribute="top" secondItem="UvM-QO-yOM" secondAttribute="bottom" constant="12" id="A4z-HN-v6g" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                         <constraint firstItem="UvM-QO-yOM" firstAttribute="top" secondItem="Fk1-7q-HLx" secondAttribute="top" constant="12" id="KSg-Kx-0uE" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                         <constraint firstItem="UvM-QO-yOM" firstAttribute="leading" secondItem="Fk1-7q-HLx" secondAttribute="leading" constant="12" id="TO0-ry-znJ" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                         <constraint firstItem="q5l-tL-yj4" firstAttribute="leading" secondItem="Fk1-7q-HLx" secondAttribute="leading" id="huL-1D-YMw" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -458,7 +491,7 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0ib-7Y-fgN" userLabel="Ad Image View" customClass="ImageView" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="12" y="964.5" width="390" height="204.5"/>
+                                                    <rect key="frame" x="12" y="964" width="390" height="204.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="0ib-7Y-fgN" secondAttribute="height" multiplier="1242:651" id="p3v-9A-pqY" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     </constraints>
@@ -512,7 +545,7 @@
                                                     <rect key="frame" x="0.0" y="6" width="414" height="212.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عنوان بخش" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHJ-Ht-NhC" userLabel="Title Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                            <rect key="frame" x="315" y="12" width="87" height="23"/>
+                                                            <rect key="frame" x="323.5" y="12" width="78.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -685,9 +718,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bigUnlocked" width="60" height="60"/>
         <image name="cart" width="24" height="24"/>
         <image name="decrement" width="18" height="18"/>
         <image name="favorites" width="24" height="24"/>
-        <image name="unlocked" width="18" height="18"/>
     </resources>
 </document>

@@ -32,11 +32,15 @@ class ProductResponseController: ResponseController {
             CGFloat(productDetailses.productDetails.specs.count) *
             (fonts(.semiLarge).firstLineHeight + scale * 2 * 9)
         if specsHeight > descriptionHeight {
-            NSLayoutConstraint.deactivate([castedViewController.descriptionLabel.bottomConstraint])
-            castedViewController.productDetailsTableView.heightConstraint.constant = specsHeight
+            if castedViewController.descriptionLabel.bottomConstraint != nil {
+                NSLayoutConstraint.deactivate([castedViewController.descriptionLabel.bottomConstraint])
+                castedViewController.productDetailsTableView.heightConstraint.constant = specsHeight
+            }
         }
         else {
-            NSLayoutConstraint.deactivate([castedViewController.productDetailsTableView.heightConstraint])
+            if castedViewController.productDetailsTableView.heightConstraint != nil {
+                NSLayoutConstraint.deactivate([castedViewController.productDetailsTableView.heightConstraint])
+            }
         }
         
         castedViewController.setLoadingState(.successful)

@@ -164,13 +164,7 @@ class ProductsCollectionController: CollectionController {
     }
     
     override func itemHeight() -> CGFloat {
-        let firstSpacings: CGFloat
-        if viewController is ProductViewController {
-            firstSpacings = 2 * 18 + 2 * 12 + 6
-        }
-        else {
-            firstSpacings = 3 * 18 + 2 * 12
-        }
+        let firstSpacings: CGFloat = 3 * 18 + 2 * 12
         let secondSpacings: CGFloat = 4 * 6 + 3
         let constantHeights: CGFloat = 36
         let staticHeights: CGFloat = 120 + 40 + 35 + 5
@@ -189,6 +183,7 @@ class ProductsCollectionController: CollectionController {
         castedCell.requiredPointsLabel.text = languageIsPersian ?
             "\(product.requiredPoints.priceFormatted) \(texts(.points).persian)" :
             "\(product.requiredPoints.priceFormatted) \(texts(.points).english)"
+        castedCell.pointsLabel?.text = "\(product.requiredPoints.priceFormatted)"
         castedCell.pictureImageView.downloadImageFrom(product.pictureURL)
         castedCell.nameLabel.text = languageIsPersian ? product.persianTitle : product.englishTitle
         castedCell.discountedPriceLabel.text = languageIsPersian ?
@@ -209,12 +204,17 @@ class ProductsCollectionController: CollectionController {
         if UserDefaults.standard.string(forKey: "token") != nil {
             if product.isLocked {
                 castedCell.lockStateButton.tintColor = colors(.highlightedAsset)
-                castedCell.lockStateButton.setImage(#imageLiteral(resourceName: "locked"), for: .normal)
+                castedCell.lockStateButton.setImage(
+                    #imageLiteral(resourceName: "bigLocked").withInsets(UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)),
+                    for: .normal
+                )
             }
             else {
                 castedCell.lockStateButton.tintColor = colors(.green)
                 castedCell.lockStateButton.setImage(
-                    languageIsPersian ? #imageLiteral(resourceName: "unlocked").withHorizontallyFlippedOrientation() : #imageLiteral(resourceName: "unlocked"),
+                    languageIsPersian ?
+                        #imageLiteral(resourceName: "bigUnlocked").withHorizontallyFlippedOrientation().withInsets(UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)) :
+                        #imageLiteral(resourceName: "bigUnlocked").withInsets(UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)),
                     for: .normal
                 )
             }
@@ -235,7 +235,10 @@ class ProductsCollectionController: CollectionController {
         }
         else {
             castedCell.lockStateButton.tintColor = colors(.highlightedAsset)
-            castedCell.lockStateButton.setImage(#imageLiteral(resourceName: "locked"), for: .normal)
+            castedCell.lockStateButton.setImage(
+                #imageLiteral(resourceName: "bigLocked").withInsets(UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)),
+                for: .normal
+            )
         }
         
         setupPriceLabel(castedCell, product)

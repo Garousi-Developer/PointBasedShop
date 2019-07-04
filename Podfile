@@ -8,6 +8,7 @@ target 'PointBasedShop' do
     pod 'BetterSegmentedControl'
 #    pod 'CHIPageControl'
     pod 'FSPagerView'
+    pod 'GoogleMaps'
 #    pod 'Hero'
     pod 'Kingfisher'
     pod 'NVActivityIndicatorView'

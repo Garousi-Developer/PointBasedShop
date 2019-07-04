@@ -4,7 +4,7 @@ class ResponseController: SecondaryController {
     var resultLabel: Label?
     var requestHolder: RequestHolder?
     var noContentIcon: UIImage?
-    var noContentText: Text?
+    var noContentText: LocalizedText?
     
     func didSucceed(response: Decodable?) {
         
@@ -38,7 +38,7 @@ class ResponseController: SecondaryController {
         resultLabel: Label? = nil,
         requestHolder: RequestHolder? = nil,
         noContentIcon: UIImage? = nil,
-        noContentText: Text? = nil
+        noContentText: LocalizedText? = nil
     ) {
     super.init(viewController: viewController)
     

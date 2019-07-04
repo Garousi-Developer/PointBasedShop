@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class CartResponseController: ResponseController {
     override func didSucceed(response: Decodable?) {
@@ -12,6 +12,18 @@ class CartResponseController: ResponseController {
             
             castedViewController.productsCollectionController.data = cart.data.products
             castedViewController.setProductsHeight()
+            
+            if cart.data.products.isEmpty {
+                castedViewController.setLoadingState(.failed(
+                    reason: .noContent,
+                    requestHolder: nil,
+                    noContentIcon: languageIsPersian ? #imageLiteral(resourceName: "bigCart").withHorizontallyFlippedOrientation() : #imageLiteral(resourceName: "bigCart"),
+                    noContentText: texts(.yourCartIsEmpty)
+                ))
+            }
+            else {
+                castedViewController.setLoadingState(.successful)
+            }
         case is FinalizeViewController:
             let castedViewController = viewController as! FinalizeViewController
             
@@ -33,11 +45,21 @@ class CartResponseController: ResponseController {
             castedViewController.addressesTableView.dataSource = castedViewController.addressesTableController
             castedViewController.addressesTableView.delegate = castedViewController.addressesTableController
             castedViewController.setAddressesHeight(numberOfAddresses: cart.data.addresses.count)
+            
+            if cart.data.addresses.isEmpty {
+                castedViewController.editAddressButton.setImage(#imageLiteral(resourceName: "increment"), for: .normal)
+                castedViewController.editAddressButton.setLocalizedTitle(texts(.addAddress), for: .normal)
+            }
+            else {
+                castedViewController.editAddressButton.setImage(#imageLiteral(resourceName: "editAddress"), for: .normal)
+                castedViewController.editAddressButton.setLocalizedTitle(texts(.editAddress), for: .normal)
+            }
+            
+            castedViewController.setLoadingState(.successful)
         default:
             return
         }
         
-        viewController.setLoadingState(.successful)
         viewController.refreshControl.endRefreshing()
     }
     override func didFail(errorCode: URLError.Code?, statusCode: Int?, response: Decodable?) {

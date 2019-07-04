@@ -98,29 +98,34 @@ extension ProfileTableController: UITableViewDataSource {
             switch profile.userLevel {
             case "bronze":
                 userLevel = texts(.bronzeUser)
+                cell.userLevelLabel.textColor = colors(.bronze)
             case "silver":
                 userLevel = texts(.silverUser)
+                cell.userLevelLabel.textColor = colors(.lightAsset)
             case "golden":
                 userLevel = texts(.goldenUser)
+                cell.userLevelLabel.textColor = colors(.primary)
             default:
                 break
             }
             
             cell.optionLabel.localizedText = titles[indexPath.section][indexPath.row]
             cell.userLevelLabel.localizedText = userLevel
+//            cell.userLevelLabel.text = languageIsPersian ? "کاربر طلایی" : "Golden User"
             cell.pointsLabel.text = languageIsPersian ?
-                "\(Int(profile.userPoints).priceFormatted) \(texts(.points).persian)" :
-                "\(Int(profile.userPoints).priceFormatted) \(texts(.points).english)"
+                "\(Int(profile.userPoints)!.priceFormatted) \(texts(.points).persian)" :
+                "\(Int(profile.userPoints)!.priceFormatted) \(texts(.points).english)"
+//            cell.pointsLabel.text = languageIsPersian ? "۱٬۰۰۰ امتیاز" : "1,000 Points"
             
             return cell
         case IndexPath(row: 3, section: 0):
             let cell = tableView.dequeueReusableCell(withIdentifier: "logout", for: indexPath) as! LogoutProfileTableCell
             
-            
             cell.optionLabel.localizedText = titles[indexPath.section][indexPath.row]
             cell.nameLabel.text = languageIsPersian ?
                 "\(texts(.signedInAs).persian) \(profile.firstName) \(profile.lastName)" :
                 "\(texts(.signedInAs).english) \(profile.firstName) \(profile.lastName)"
+//            cell.nameLabel.text = languageIsPersian ? "وارد شده به عنوان آرمان گروسی" : "Signed in as Arman Garousi"
             
             return cell
         case IndexPath(row: 0, section: 1):
@@ -156,6 +161,7 @@ extension ProfileTableController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return fonts(.extraLarge).firstLineHeight
+//            return fonts(.extraLarge).firstLineHeight + scale * 2 * 12
         }
         else {
             return fonts(.extraLarge).firstLineHeight + scale * 2 * 12
@@ -170,6 +176,7 @@ extension ProfileTableController: UITableViewDelegate {
         titleLabel.textColor = colors(.darkAsset)
         if section == 0 {
             titleLabel.text = languageIsPersian ? "\(titles[section].persian) \(profile.firstName)" : "\(titles[section].english) \(profile.firstName)"
+//            titleLabel.text = languageIsPersian ? "\(titles[section].persian) آرمان" : "\(titles[section].english) Arman"
         }
         else {
             titleLabel.localizedText = titles[section]
@@ -179,6 +186,7 @@ extension ProfileTableController: UITableViewDelegate {
         titleLabel.snp.makeConstraints { (make) in
             if section == 0 {
                 make.centerY.equalToSuperview().offset(scale * -12)
+//                make.centerY.equalToSuperview()
             }
             else {
                 make.centerY.equalToSuperview()
@@ -193,7 +201,10 @@ extension ProfileTableController: UITableViewDelegate {
         switch indexPath {
         case IndexPath(row: 1, section: 0):
             viewController.navigateTo(.favorites)
+        case IndexPath(row: 2, section: 0):
+            viewController.navigateTo(.invite)
         case IndexPath(row: 3, section: 0):
+            UserDefaults.standard.removeObject(forKey: "skipped")
             UserDefaults.standard.removeObject(forKey: "token")
             
             UIView.transition(

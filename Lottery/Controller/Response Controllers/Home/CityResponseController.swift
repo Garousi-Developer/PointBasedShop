@@ -1,5 +1,6 @@
 import Foundation
 import Alamofire
+import SnapKit
 
 class CityResponseController: ResponseController {
     var staticMapParameters: StaticMapParameters!
@@ -9,6 +10,7 @@ class CityResponseController: ResponseController {
         
         let castedViewController = viewController as! ContainerViewController
         let cityDetails = response as! CityDetails
+        castedViewController.cityDetails = cityDetails
         
         castedViewController.pictureImageView.downloadImageFrom(cityDetails.pictureURL)
         castedViewController.nameLabel.text = languageIsPersian ? cityDetails.persianTitle : cityDetails.englishTitle
@@ -31,16 +33,54 @@ class CityResponseController: ResponseController {
         castedViewController.hottestOffersCollectionView.dataSource = castedViewController.hottestOffersCollectionController
         castedViewController.hottestOffersCollectionView.delegate = castedViewController.hottestOffersCollectionController
         
+        if cityDetails.hottestOffers.isEmpty && castedViewController.hottestOffersLabel != nil {
+            castedViewController.hottestOffersLabel.removeFromSuperview()
+            castedViewController.moreButton.removeFromSuperview()
+            castedViewController.hottestOffersCollectionView.removeFromSuperview()
+            
+            castedViewController.adImageView.snp.makeConstraints { (make) in
+                make.top.equalTo(castedViewController.mapImageView.snp.bottom).offset(scale * 12)
+            }
+        }
+        
         castedViewController.descriptionLabel.numberOfLines = min(castedViewController.descriptionLabel.firstRealNumberOfLines, 5)
         castedViewController.initialDescriptionHeight = castedViewController.descriptionLabel.firstTextHeight
         castedViewController.descriptionLabel.heightConstraint.constant = castedViewController.initialDescriptionHeight
         castedViewController.descriptionLabel.numberOfLines = 0
         castedViewController.finalDescriptionHeight = castedViewController.descriptionLabel.firstTextHeight
+        if castedViewController.finalDescriptionHeight == castedViewController.initialDescriptionHeight {
+            castedViewController.viewMoreButton.isHidden = true
+            castedViewController.viewMoreButton.heightConstraint.constant = 0
+        }
+        else {
+            castedViewController.viewMoreButton.isHidden = false
+            castedViewController.viewMoreButton.heightConstraint.constant = scale * 35
+        }
         
         castedViewController.setLoadingState(.successful)
         castedViewController.refreshControl.endRefreshing()
         
-        staticMapParameters = StaticMapParameters(center: "\(cityDetails.latitude),\(cityDetails.longitude)")
+        var markers = "color:yellow|label:M|"
+        for (i, shoppingCenter) in cityDetails.topShoppingCenters.enumerated() {
+            markers.append("\(shoppingCenter.latitude!),\(shoppingCenter.longitude!)")
+            if i != cityDetails.topShoppingCenters.count {
+                markers.append("|")
+            }
+        }
+        if cityDetails.topShoppingCenters.isEmpty {
+            staticMapParameters = StaticMapParameters(
+                center: "\(cityDetails.latitude),\(cityDetails.longitude)",
+                zoom: 15,
+                markers: nil
+            )
+        }
+        else {
+            staticMapParameters = StaticMapParameters(
+                center: nil,
+                zoom: nil,
+                markers: markers
+            )
+        }
         
         let endPoint = endPoints(.staticMap(parameters: staticMapParameters))
         let url = request(

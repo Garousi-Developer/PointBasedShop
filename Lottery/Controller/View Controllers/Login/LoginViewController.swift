@@ -42,6 +42,7 @@ class LoginViewController: ViewController {
         ))
     }
     @IBAction func loginWithoutRegister() {
+        UserDefaults.standard.set(true, forKey: "skipped")
         navigateTo(.tabs, presenting: true)
     }
     @IBAction func retrievePassword() {

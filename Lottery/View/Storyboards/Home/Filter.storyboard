@@ -356,9 +356,12 @@
                         <outlet property="citiesCollectionView" destination="xnQ-c3-4fy" id="xzG-Ek-za0"/>
                         <outlet property="citiesLabel" destination="Ad2-Wi-fBW" id="Tgv-cb-KEB"/>
                         <outlet property="filterButton" destination="zhu-Bd-baf" id="aKS-Sw-fHi"/>
+                        <outlet property="firstSeparatorView" destination="CRx-7A-pgz" id="ooe-8u-8IR"/>
+                        <outlet property="lockFiltersStackView" destination="586-ti-ldb" id="qj9-r9-Xk7"/>
                         <outlet property="lockedLabel" destination="Ylp-eJ-Fi5" id="s0C-DK-lfV"/>
                         <outlet property="lockedSwitch" destination="S5M-xV-nU7" id="ad3-Da-N7W"/>
                         <outlet property="scrollView" destination="ZIH-yj-YEc" id="UCy-mu-g00"/>
+                        <outlet property="secondSeparatorView" destination="V58-4j-2Ur" id="qC5-zq-qbh"/>
                         <outlet property="unlockedLabel" destination="dh3-NJ-9r1" id="kgU-bI-fcu"/>
                         <outlet property="unlockedSwitch" destination="St4-iu-4vj" id="LGo-aT-C4f"/>
                     </connections>

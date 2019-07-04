@@ -9,6 +9,7 @@ class BrandResponseController: ResponseController {
         
         let castedViewController = viewController as! ContainerViewController
         let brandDetails = response as! BrandDetails
+        castedViewController.brandDetails = brandDetails
         
         castedViewController.pictureImageView.downloadImageFrom(brandDetails.pictureURL)
         castedViewController.nameLabel.text = languageIsPersian ? brandDetails.persianTitle : brandDetails.englishTitle
@@ -20,11 +21,23 @@ class BrandResponseController: ResponseController {
         castedViewController.descriptionLabel.heightConstraint.constant = castedViewController.initialDescriptionHeight
         castedViewController.descriptionLabel.numberOfLines = 0
         castedViewController.finalDescriptionHeight = castedViewController.descriptionLabel.firstTextHeight
+        if castedViewController.finalDescriptionHeight == castedViewController.initialDescriptionHeight {
+            castedViewController.viewMoreButton.isHidden = true
+            castedViewController.viewMoreButton.heightConstraint.constant = 0
+        }
+        else {
+            castedViewController.viewMoreButton.isHidden = false
+            castedViewController.viewMoreButton.heightConstraint.constant = scale * 35
+        }
         
         castedViewController.setLoadingState(.successful)
         castedViewController.refreshControl.endRefreshing()
         
-        staticMapParameters = StaticMapParameters(center: "35.6892,51.3890")
+        staticMapParameters = StaticMapParameters(
+            center: "35.6892,51.3890",
+            zoom: 15,
+            markers: nil
+        )
         
         let endPoint = endPoints(.staticMap(parameters: staticMapParameters))
         let url = request(

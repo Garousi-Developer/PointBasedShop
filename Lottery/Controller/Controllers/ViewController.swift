@@ -1,4 +1,5 @@
 import UIKit
+import SVPinView
 
 class ViewController: UIViewController {
     @IBInspectable var firstNavigationShadow: Bool = true
@@ -17,7 +18,7 @@ class ViewController: UIViewController {
     @objc func viewDidTap() {
         view.endEditing(true)
     }
-    @objc func textDidBeginEditing() {
+    @objc func textDidBeginEditing(notification: Notification) {
         keyboardFrameWillChange = false
         
         delay(durations(.epsilon)) {
@@ -27,25 +28,26 @@ class ViewController: UIViewController {
             }
             
             guard let scrollView = self.view.subviews[0] as? ScrollView else { return }
-            let firstResponderSuperView: UIView
+            var firstResponderSuperView: UIView
             if self.respondersSuperView != nil {
                 firstResponderSuperView = self.respondersSuperView
             }
             else {
-                if self is ClaimPointsViewController {
-                    firstResponderSuperView = scrollView.subviews[0].subviews[1]
-                }
-                else {
-                    firstResponderSuperView = scrollView.subviews[0]
-                }
+                firstResponderSuperView = scrollView.subviews[0]
             }
-            let firstResponderOrNil = firstResponderSuperView.subviews.first { (subview) in
+            var firstResponderOrNil = firstResponderSuperView.subviews.first { (subview) in
                 return subview.isFirstResponder
-            } as? TextField
+            } as? UITextField
+//            if notification.object is SVPinField {
+//                firstResponderSuperView = (notification.object as! SVPinField).superview!
+//                firstResponderOrNil = notification.object as! SVPinField
+//            }
             guard let firstResponder = firstResponderOrNil, let keyboardEndY = self.keyboardEndY else { return }
             
             let additionalSpacePositives = keyboardEndY + scrollView.contentOffset.y
-            let additionalSpaceNegatives = (firstResponder.frame.maxY + 16) + (scrollView.contentSize.height - scrollView.bounds.height)
+            let additionalSpaceNegatives =
+                firstResponderSuperView.convert(firstResponder.frame, to: self.view).maxY +
+                fonts(.medium).firstLineHeight + scale * 2 * 6 + scale * 12
             let additionalSpace = additionalSpacePositives - additionalSpaceNegatives
             
             UIView.animate(withDuration: durations(.interaction), animations: {
@@ -62,6 +64,7 @@ class ViewController: UIViewController {
     }
     @objc func keyboardWillChangeFrame(notification: Notification) {
         keyboardFrameWillChange = true
+        keyboardEndY = (notification.userInfo![UITextField.keyboardFrameEndUserInfoKey] as! CGRect).origin.y
         
         guard let scrollView = view.subviews[0] as? ScrollView else { return }
         let firstResponderSuperView: UIView
@@ -69,21 +72,17 @@ class ViewController: UIViewController {
             firstResponderSuperView = respondersSuperView
         }
         else {
-            if self is ClaimPointsViewController {
-                firstResponderSuperView = scrollView.subviews[0].subviews[1]
-            }
-            else {
-                firstResponderSuperView = scrollView.subviews[0]
-            }
+            firstResponderSuperView = scrollView.subviews[0]
         }
         let firstResponderOrNil = firstResponderSuperView.subviews.first { (subview) in
             return subview.isFirstResponder
         } as? TextField
         guard let firstResponder = firstResponderOrNil else { return }
         
-        keyboardEndY = (notification.userInfo![UITextField.keyboardFrameEndUserInfoKey] as! CGRect).origin.y
         let additionalSpacePositives = keyboardEndY + scrollView.contentOffset.y
-        let additionalSpaceNegatives = (firstResponder.frame.maxY + 16) + (scrollView.contentSize.height - scrollView.bounds.height)
+        let additionalSpaceNegatives =
+            firstResponderSuperView.convert(firstResponder.frame, to: self.view).maxY +
+            fonts(.medium).firstLineHeight + scale * 2 * 6 + scale * 12
         let additionalSpace = additionalSpacePositives - additionalSpaceNegatives
         
         UIView.animate(withDuration: durations(.interaction), animations: {

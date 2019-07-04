@@ -9,6 +9,7 @@ class ShoppingCenterResponseController: ResponseController {
         
         let castedViewController = viewController as! ContainerViewController
         let shoppingCenterDetails = response as! ShoppingCenterDetails
+        castedViewController.shoppingCenterDetails = shoppingCenterDetails
         
         castedViewController.pictureImageView.downloadImageFrom(shoppingCenterDetails.pictureURL)
         castedViewController.nameLabel.text = languageIsPersian ? shoppingCenterDetails.persianTitle : shoppingCenterDetails.englishTitle
@@ -36,16 +37,38 @@ class ShoppingCenterResponseController: ResponseController {
         castedViewController.hottestOffersCollectionView.dataSource = castedViewController.hottestOffersCollectionController
         castedViewController.hottestOffersCollectionView.delegate = castedViewController.hottestOffersCollectionController
         
+        if shoppingCenterDetails.hottestOffers.isEmpty && castedViewController.hottestOffersLabel != nil {
+            castedViewController.hottestOffersLabel.removeFromSuperview()
+            castedViewController.moreButton.removeFromSuperview()
+            castedViewController.hottestOffersCollectionView.removeFromSuperview()
+            
+            castedViewController.adImageView.snp.makeConstraints { (make) in
+                make.top.equalTo(castedViewController.mapImageView.snp.bottom).offset(scale * 12)
+            }
+        }
+        
         castedViewController.descriptionLabel.numberOfLines = min(castedViewController.descriptionLabel.firstRealNumberOfLines, 5)
         castedViewController.initialDescriptionHeight = castedViewController.descriptionLabel.firstTextHeight
         castedViewController.descriptionLabel.heightConstraint.constant = castedViewController.initialDescriptionHeight
         castedViewController.descriptionLabel.numberOfLines = 0
         castedViewController.finalDescriptionHeight = castedViewController.descriptionLabel.firstTextHeight
+        if castedViewController.finalDescriptionHeight == castedViewController.initialDescriptionHeight {
+            castedViewController.viewMoreButton.isHidden = true
+            castedViewController.viewMoreButton.heightConstraint.constant = 0
+        }
+        else {
+            castedViewController.viewMoreButton.isHidden = false
+            castedViewController.viewMoreButton.heightConstraint.constant = scale * 35
+        }
         
         castedViewController.setLoadingState(.successful)
         castedViewController.refreshControl.endRefreshing()
         
-        staticMapParameters = StaticMapParameters(center: "\(shoppingCenterDetails.latitude),\(shoppingCenterDetails.longitude)")
+        staticMapParameters = StaticMapParameters(
+            center: "\(shoppingCenterDetails.latitude),\(shoppingCenterDetails.longitude)",
+            zoom: 15,
+            markers: nil
+        )
         
         let endPoint = endPoints(.staticMap(parameters: staticMapParameters))
         let url = request(

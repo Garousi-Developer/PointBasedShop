@@ -2,7 +2,7 @@ class Profile: Decodable {
     let firstName: String
     let lastName: String
     let userLevel: String
-    let userPoints: Double
+    let userPoints: String
     
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"

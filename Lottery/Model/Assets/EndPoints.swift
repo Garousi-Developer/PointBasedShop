@@ -159,6 +159,35 @@ func endPoints(_ endPointName: EndPointName) -> EndPoint {
             url: "/profile",
             response: Profile.self
         )
+    case .invite(let parameters):
+        return EndPoint(
+            method: .post,
+            parameters: parameters,
+            url: "/referral"
+        )
+    case .addresses:
+        return EndPoint(
+            url: "/addresses",
+            response: NewAddress.self
+        )
+    case .addAddress(let parameters):
+        return EndPoint(
+            method: .post,
+            parameters: parameters,
+            url: "/addresses",
+            response: NewAddress.self
+        )
+    case .editAddress(let id, let parameters):
+        return EndPoint(
+            method: .put,
+            parameters: parameters,
+            url: "/addresses/\(id)"
+        )
+    case .removeAddress(let id):
+        return EndPoint(
+            method: .delete,
+            url: "/addresses/\(id)"
+        )
     
     // Favorites:
     case .addFavorite(let parameters):
@@ -226,6 +255,11 @@ enum EndPointName {
     
     // Profile:
     case profile
+    case invite(parameters: InviteParameters)
+    case addresses
+    case addAddress(parameters: AddAddressParameters)
+    case editAddress(id: Int, parameters: AddAddressParameters)
+    case removeAddress(id: Int)
     
     // Favorites:
     case addFavorite(parameters: AddFavoriteParameters)
@@ -272,6 +306,6 @@ struct EndPoint {
     }
 }
 
-//private let loyaltyBaseURL = "https://mallsconnect.com/api/v1"
-private let loyaltyBaseURL = "http://192.168.1.139/api/v1"
+private let loyaltyBaseURL = "https://mallsconnect.com/api/v1"
+//private let loyaltyBaseURL = "http://192.168.1.139/api/v1"
 private let googleMapsBaseURL = "https://maps.googleapis.com/maps/api"

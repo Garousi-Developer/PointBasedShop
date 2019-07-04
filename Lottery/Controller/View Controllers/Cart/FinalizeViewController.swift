@@ -12,6 +12,7 @@ class FinalizeViewController: ViewController {
     @IBOutlet weak var donateLabel: Label!
     @IBOutlet weak var donateSwitch: Switch!
     @IBOutlet weak var addressSelectionLabel: Label!
+    @IBOutlet weak var editAddressButton: Button!
     @IBOutlet weak var addressesTableView: TableView!
     @IBOutlet weak var payButton: Button!
     @IBOutlet weak var resultLabel: Label!
@@ -22,6 +23,22 @@ class FinalizeViewController: ViewController {
     var addOrderParameters: AddOrderParameters!
     var addOrderResponseController: AddOrderResponseController!
     
+    @IBAction func editAddress() {
+        tabBarController!.selectedIndex = 4
+        
+        let selectedNavigationController = tabBarController!.selectedViewController as! UINavigationController
+        let selectedTopViewController = selectedNavigationController.topViewController!
+        if selectedTopViewController is ProfileViewController {
+            selectedTopViewController.navigateTo(.profileSettings) {
+                let profileSettingsViewController = selectedNavigationController.viewControllers[1] as! ProfileSettingsViewController
+                profileSettingsViewController.showAddress()
+            }
+        }
+        else {
+            let profileSettingsViewController = selectedNavigationController.viewControllers[1] as! ProfileSettingsViewController
+            profileSettingsViewController.showAddress()
+        }
+    }
     @IBAction func pay() {
         resultLabel.fadeOut()
         
@@ -55,6 +72,9 @@ class FinalizeViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         if UserDefaults.standard.string(forKey: "token") != nil {
             setLoadingState(.loading)

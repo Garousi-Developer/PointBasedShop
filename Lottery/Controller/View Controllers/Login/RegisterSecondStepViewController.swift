@@ -20,6 +20,8 @@ class RegisterSecondStepViewController: ViewController {
         }
     }
     @IBAction func goNextStep() {
+        (navigationItem as! NavigationItem).localizedBackButtonTitle = texts(.secondStep)
+        
         nextStepButton.setLoadingState(.loading)
         resultLabel.fadeOut()
         

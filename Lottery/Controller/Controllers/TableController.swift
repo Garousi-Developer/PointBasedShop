@@ -4,7 +4,19 @@ class TableController: SecondaryController {
     var tableView: TableView!
     var data: [Any] = [] {
         didSet {
-            tableView.reloadData()
+            if data.count < oldValue.count {
+                if !(self is EditableAddressesTableController) {
+                    tableView.reloadData()
+                }
+            }
+            else if data.count == oldValue.count {
+                tableView.reloadData()
+            }
+            else {
+                if !(self is EditableAddressesTableController) {
+                    tableView.reloadData()
+                }
+            }
         }
     }
     
@@ -93,12 +105,12 @@ extension TableController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        let tableCell = tableView.cellForRow(at: indexPath) as! TableCell
-        animateInteraction(tableCell)
+//        let tableCell = tableView.cellForRow(at: indexPath) as! TableCell
+//        animateInteraction(tableCell)
     }
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        let tableCell = tableView.cellForRow(at: indexPath) as! TableCell
-        animateInteractionReversely(tableCell)
+//        let tableCell = tableView.cellForRow(at: indexPath) as! TableCell
+//        animateInteractionReversely(tableCell)
     }
 }
 

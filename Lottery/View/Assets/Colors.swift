@@ -2,6 +2,8 @@ import UIKit
 
 func colors(_ color: Color) -> UIColor {
     switch color {
+    case .extraHighlightedAsset:
+        return MaterialColors.grey300
     case .highlightedAsset:
         return MaterialColors.grey400
     case .lightAsset:
@@ -20,6 +22,9 @@ func colors(_ color: Color) -> UIColor {
         return MaterialColors.lightBlue200
     case .lightBlue:
         return MaterialColors.primaryLightBlue
+    
+    case .bronze:
+        return MaterialColors.brown400
     
     case .clear:
         return MaterialColors.clear
@@ -75,6 +80,7 @@ func colors(_ color: Color) -> UIColor {
     }
 }
 enum Color: String {
+    case extraHighlightedAsset
     case highlightedAsset
     case lightAsset
     case asset
@@ -85,6 +91,8 @@ enum Color: String {
     
     case highlightedLightBlue
     case lightBlue
+    
+    case bronze
     
     case clear
     

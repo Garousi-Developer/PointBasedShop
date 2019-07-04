@@ -6,6 +6,11 @@ func texts(_ text: Text) -> LocalizedText {
             persian: "همه",
             english: "All"
         )
+    case .back:
+        return LocalizedText(
+            persian: "بازگشت",
+            english: "Back"
+        )
     case .singleCount:
         return LocalizedText(
             persian: "عدد",
@@ -183,8 +188,8 @@ func texts(_ text: Text) -> LocalizedText {
         )
     case .alreadyRegistered:
         return LocalizedText(
-            persian: "مرحله اول عضویت",
-            english: "Register First Step"
+            persian: "این شماره قبلا ثبت نام کرده است",
+            english: "This number has already registered"
         )
         
     //  Register Second Step:
@@ -310,6 +315,11 @@ func texts(_ text: Text) -> LocalizedText {
             persian: "جستجو",
             english: "Search"
         )
+    case .noProductFound:
+        return LocalizedText(
+            persian: "محصولی پیدا نشد",
+            english: "No product found"
+        )
     
     // Filter:
     case .filter:
@@ -355,6 +365,13 @@ func texts(_ text: Text) -> LocalizedText {
         return LocalizedText(
             persian: "داغ ترین پیشنهادات",
             english: "Hottest Offers"
+        )
+    
+    // Map:
+    case .location:
+        return LocalizedText(
+            persian: "موقعیت",
+            english: "Location"
         )
     
     // Cart:
@@ -407,6 +424,11 @@ func texts(_ text: Text) -> LocalizedText {
         return LocalizedText(
             persian: "خرید خود را نهایی کنید",
             english: "Finalize your purchase"
+        )
+    case .yourCartIsEmpty:
+        return LocalizedText(
+            persian: "سبد خرید شما خالی است",
+            english: "Your cart is empty"
         )
     
     // Finalize:
@@ -568,6 +590,11 @@ func texts(_ text: Text) -> LocalizedText {
             persian: "جزئیات سفارش",
             english: "Order Details"
         )
+    case .youHaveNoOrdersYet:
+        return LocalizedText(
+            persian: "شما هنوز سفارشی ثبت نکرده اید",
+            english: "You have not registered an order yet"
+        )
     
     // Profile:
     case .profile:
@@ -697,6 +724,11 @@ func texts(_ text: Text) -> LocalizedText {
             persian: "افزودن همه به سبد خرید",
             english: "Add All to Cart"
         )
+    case .noItemHasBeenAddedToFavoritesYet:
+        return LocalizedText(
+            persian: "هنوز موردی به علاقه مندی ها افزوده نشده است",
+            english: "No item has been added to favorites yet"
+        )
     
     // Profile Settings:
     case .profileSettings:
@@ -724,11 +756,49 @@ func texts(_ text: Text) -> LocalizedText {
             persian: "ذخیره تغییرات",
             english: "Save Changes"
         )
+    case .addAndEditAddress:
+        return LocalizedText(
+            persian: "افزودن و ویرایش آدرس",
+            english: "Add and Edit Address"
+        )
+    case .addAddress:
+        return LocalizedText(
+            persian: "افزودن آدرس",
+            english: "Add Address"
+        )
+    
+    // Invite:
+    case .friendsInvitation:
+        return LocalizedText(
+            persian: "دعوت از دوستان",
+            english: "Friends Invitation"
+        )
+    case .invite:
+        return LocalizedText(
+            persian: "دعوت",
+            english: "Invite"
+        )
+    case .yourInvitationSentSuccessfully:
+        return LocalizedText(
+            persian: "دعوت نامه شما با موفقیت ارسال شد",
+            english: "Your invitation sent successfully"
+        )
+    case .thisNumberHasAlreadyBeenInvited:
+        return LocalizedText(
+            persian: "این شماره قبلا دعوت شده است",
+            english: "This number has already been invited"
+        )
+    case .thisNumberHasAlreadyRegistered:
+        return LocalizedText(
+            persian: "این شماره قبلا ثبت نام کرده است",
+            english: "This number has already registered"
+        )
     }
 }
 enum Text: String {
     // Global:
     case all
+    case back
     case singleCount
     case count
     case currency
@@ -805,6 +875,7 @@ enum Text: String {
     
     // Filter Results:
     case search
+    case noProductFound
     
     // Filter:
     case filter
@@ -820,6 +891,9 @@ enum Text: String {
     case viewLess
     case hottestOffers
     
+    // Map:
+    case location
+    
     // Cart:
     case cart
     case numberOfProducts
@@ -831,6 +905,7 @@ enum Text: String {
     case editAddress
     case pay
     case finalizeYourPurchase
+    case yourCartIsEmpty
     
     // Finalize:
     case purchaseFinalization
@@ -869,6 +944,7 @@ enum Text: String {
     case address
     case donatedToCharity
     case orderDetails
+    case youHaveNoOrdersYet
     
     // Profile:
     case profile
@@ -898,6 +974,7 @@ enum Text: String {
     case favorites
     case removeAll
     case addAllToCart
+    case noItemHasBeenAddedToFavoritesYet
     
     // Profile Settings:
     case profileSettings
@@ -905,6 +982,15 @@ enum Text: String {
     case email
     case verify
     case saveChanges
+    case addAndEditAddress
+    case addAddress
+    
+    // Invite:
+    case friendsInvitation
+    case invite
+    case yourInvitationSentSuccessfully
+    case thisNumberHasAlreadyBeenInvited
+    case thisNumberHasAlreadyRegistered
 }
 
 struct LocalizedText {

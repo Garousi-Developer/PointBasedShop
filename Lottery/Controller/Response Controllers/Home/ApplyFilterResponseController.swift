@@ -18,6 +18,18 @@ class ApplyFilterResponseController: ResponseController {
         previousViewController.collectionView.dataSource = previousViewController.collectionController
         previousViewController.collectionView.delegate = previousViewController.collectionController
         
+        if filterResults.products.isEmpty {
+            previousViewController.setLoadingState(.failed(
+                reason: .noContent,
+                requestHolder: nil,
+                noContentIcon: #imageLiteral(resourceName: "product"),
+                noContentText: texts(.noProductFound)
+            ))
+        }
+        else {
+            previousViewController.setLoadingState(.successful)
+        }
+        
         castedViewController.filterButton.setLoadingState(.successful)
         castedViewController.navigateBack()
     }

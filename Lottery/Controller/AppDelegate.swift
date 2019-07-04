@@ -1,4 +1,5 @@
 import UIKit
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder {
@@ -8,6 +9,8 @@ extension AppDelegate: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil)
         -> Bool
     {
+        GMSServices.provideAPIKey("AIzaSyCsyZFuBIS4n33ye6THBYz7DHEb6C9qCeg")
+        
         launchApp()
         
         return true
@@ -36,19 +39,37 @@ extension AppDelegate {
             }
         }
         else {
-            if relaunch {
-                UIView.transition(
-                    with: window!,
-                    duration: 2 * durations(.interaction),
-                    options: .transitionCrossDissolve,
-                    animations: {
-                        self.window!.rootViewController = viewController(ofNavigationDestination: .login)
-                    },
-                    completion: nil
-                )
+            if UserDefaults.standard.value(forKey: "skipped") != nil {
+                if relaunch {
+                    UIView.transition(
+                        with: window!,
+                        duration: 2 * durations(.interaction),
+                        options: .transitionCrossDissolve,
+                        animations: {
+                            self.window!.rootViewController = viewController(ofNavigationDestination: .tabs)
+                        },
+                        completion: nil
+                    )
+                }
+                else {
+                    window!.rootViewController = viewController(ofNavigationDestination: .tabs)
+                }
             }
             else {
-                window!.rootViewController = viewController(ofNavigationDestination: .login)
+                if relaunch {
+                    UIView.transition(
+                        with: window!,
+                        duration: 2 * durations(.interaction),
+                        options: .transitionCrossDissolve,
+                        animations: {
+                            self.window!.rootViewController = viewController(ofNavigationDestination: .login)
+                        },
+                        completion: nil
+                    )
+                }
+                else {
+                    window!.rootViewController = viewController(ofNavigationDestination: .login)
+                }
             }
         }
         window!.makeKeyAndVisible()

@@ -15,7 +15,18 @@ class FilterResultsResponseController: ResponseController {
         castedViewController.collectionView.dataSource = castedViewController.collectionController
         castedViewController.collectionView.delegate = castedViewController.collectionController
         
-        castedViewController.setLoadingState(.successful)
+        if filterResults.products.isEmpty {
+            castedViewController.setLoadingState(.failed(
+                reason: .noContent,
+                requestHolder: nil,
+                noContentIcon: #imageLiteral(resourceName: "product"),
+                noContentText: texts(.noProductFound)
+            ))
+        }
+        else {
+            castedViewController.setLoadingState(.successful)
+        }
+        
         castedViewController.refreshControl.endRefreshing()
     }
     override func didFail(errorCode: URLError.Code?, statusCode: Int?, response: Decodable?) {

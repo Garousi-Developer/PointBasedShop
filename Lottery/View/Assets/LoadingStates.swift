@@ -106,7 +106,7 @@ extension UIViewController {
             case .noInternet:
                 animateNoInternet(requestHolder: requestHolder!)
             case .noContent:
-                animateNoContent(icon: noContentIcon!, text: noContentText!)
+                animateNoContent(icon: noContentIcon!, localizedText: noContentText!)
             }
         }
     }
@@ -138,6 +138,7 @@ extension UIViewController {
     private func animateContent() {
         view.removeSubview(withLayerName: "loading")
         view.removeSubview(withLayerName: "noInternet")
+        view.removeSubview(withLayerName: "noContent")
         
         for subview in view.subviews {
             subview.fadeIn()
@@ -193,7 +194,7 @@ extension UIViewController {
 //            retryButton.layer.cornerRadius = min(retryWidth, retryHeight) / 2
         }
     }
-    private func animateNoContent(icon: UIImage, text: Text) {
+    private func animateNoContent(icon: UIImage, localizedText: LocalizedText) {
         view.removeSubview(withLayerName: "loading")
         view.removeSubview(withLayerName: "noInternet")
         
@@ -204,7 +205,7 @@ extension UIViewController {
         let noContentLabel = Label()
         noContentLabel.layer.name = "noContentLabel"
         noContentLabel.font = fonts(.large)
-//        noContentLabel.dynamicText = text.rawValue
+        noContentLabel.localizedText = localizedText
         noContentLabel.textColor = colors(.asset)
         
         let noContentStackView = StackView(arrangedSubviews: [noContentImageView, noContentLabel])
@@ -223,7 +224,7 @@ extension UIViewController {
 enum LoadingState {
     case loading
     case successful
-    case failed(reason: LoadingFailureReason!, requestHolder: RequestHolder!, noContentIcon: UIImage!, noContentText: Text!)
+    case failed(reason: LoadingFailureReason!, requestHolder: RequestHolder!, noContentIcon: UIImage!, noContentText: LocalizedText!)
 }
 enum LoadingFailureReason {
     case noInternet

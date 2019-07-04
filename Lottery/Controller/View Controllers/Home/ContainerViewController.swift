@@ -19,6 +19,9 @@ class ContainerViewController: ViewController {
     
     var containerId: Int!
     var container: Container!
+    var cityDetails: CityDetails!
+    var shoppingCenterDetails: ShoppingCenterDetails!
+    var brandDetails: BrandDetails!
     
     var containerScrollController: ContainerScrollController!
     var topContentsCollectionController: ContainersCollectionController!
@@ -30,6 +33,8 @@ class ContainerViewController: ViewController {
     var expanded = false
     var initialDescriptionHeight: CGFloat!
     var finalDescriptionHeight: CGFloat!
+    
+    var mapTapRecognizer: UITapGestureRecognizer!
     
     @IBAction func viewMore() {
         if expanded {
@@ -78,6 +83,13 @@ class ContainerViewController: ViewController {
         }
     }
     
+    @objc func showMap() {
+        navigateTo(
+            .map,
+            transferringData: (container, cityDetails, shoppingCenterDetails, brandDetails)
+        )
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -101,12 +113,15 @@ class ContainerViewController: ViewController {
             hottestOffersCollectionView.removeFromSuperview()
             
             mapImageView.snp.makeConstraints { (make) in
-                make.top.equalTo(descriptionView.snp.bottom)
+                make.top.equalTo(viewMoreButton.snp.bottom).offset(scale * 12)
             }
             adImageView.snp.makeConstraints { (make) in
                 make.top.equalTo(mapImageView.snp.bottom).offset(scale * 12)
             }
         }
+        
+        mapTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(showMap))
+        mapImageView.addGestureRecognizer(mapTapRecognizer)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

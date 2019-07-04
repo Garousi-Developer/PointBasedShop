@@ -29,6 +29,7 @@
 		512B681022B17793004A0934 /* Differences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512B680F22B17793004A0934 /* Differences.swift */; };
 		512CF5C022B58175004B6FF4 /* CityResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512CF5BF22B58175004B6FF4 /* CityResponseController.swift */; };
 		512CF5C222B58214004B6FF4 /* CityDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512CF5C122B58214004B6FF4 /* CityDetails.swift */; };
+		512D6C4F22CA039300FFE7AB /* AddAddressResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512D6C4E22CA039300FFE7AB /* AddAddressResponseController.swift */; };
 		512EE2C422A4465400446982 /* AwardsScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EE2C322A4465400446982 /* AwardsScrollController.swift */; };
 		512EE2C722A45E2400446982 /* BasicAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EE2C622A45E2400446982 /* BasicAnimation.swift */; };
 		512EE2C922A4618900446982 /* ClaimPointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EE2C822A4618900446982 /* ClaimPointsViewController.swift */; };
@@ -172,6 +173,10 @@
 		51B38563229D25940094B537 /* Container.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51B38562229D25940094B537 /* Container.storyboard */; };
 		51B38565229D267E0094B537 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B38564229D267E0094B537 /* ContainerViewController.swift */; };
 		51B6F43222C3753A003817CA /* ProfileTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B6F43122C3753A003817CA /* ProfileTableController.swift */; };
+		51B89F2722C88EAC00D91879 /* EditableAddressTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B89F2622C88EAC00D91879 /* EditableAddressTableCell.swift */; };
+		51B89F2922C890DD00D91879 /* EditableAddressesTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B89F2822C890DD00D91879 /* EditableAddressesTableController.swift */; };
+		51B89F2B22C8B20200D91879 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B89F2A22C8B20200D91879 /* InviteViewController.swift */; };
+		51B89F2D22C8B23F00D91879 /* Invite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51B89F2C22C8B23F00D91879 /* Invite.storyboard */; };
 		51BDCDCF22C1E67F000F9158 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BDCDCE22C1E67F000F9158 /* Favorites.swift */; };
 		51BDCDD222C1E768000F9158 /* FavoritesResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BDCDD122C1E768000F9158 /* FavoritesResponseController.swift */; };
 		51BDCDD422C20027000F9158 /* AddAllToCartResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BDCDD322C20027000F9158 /* AddAllToCartResponseController.swift */; };
@@ -201,12 +206,19 @@
 		51D374AB22AB7E550000FD36 /* RetrievePasswordSecondStep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D374AA22AB7E550000FD36 /* RetrievePasswordSecondStep.storyboard */; };
 		51D374AD22AB84750000FD36 /* RetrievePasswordThirdStep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D374AC22AB84750000FD36 /* RetrievePasswordThirdStep.storyboard */; };
 		51D374AF22AB84B90000FD36 /* RetrievePasswordThirdStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D374AE22AB84B90000FD36 /* RetrievePasswordThirdStepViewController.swift */; };
+		51D83EEB22C7CA0500E6CDDE /* ProfileSettingsScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D83EEA22C7CA0500E6CDDE /* ProfileSettingsScrollController.swift */; };
+		51DA0EC222CCCB870028B54D /* InviteParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DA0EC122CCCB870028B54D /* InviteParameters.swift */; };
+		51DA0EC422CCCD280028B54D /* InviteResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DA0EC322CCCD280028B54D /* InviteResponseController.swift */; };
 		51DB720022C3CC2500F07A16 /* LogoutProfileTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB71FF22C3CC2500F07A16 /* LogoutProfileTableCell.swift */; };
 		51DB720222C3D53A00F07A16 /* LanguageProfileTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB720122C3D53A00F07A16 /* LanguageProfileTableCell.swift */; };
 		51DB720422C3D58800F07A16 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB720322C3D58800F07A16 /* SegmentedControl.swift */; };
 		51DB720622C3FAAF00F07A16 /* SocialProfileTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB720522C3FAAF00F07A16 /* SocialProfileTableCell.swift */; };
 		51DB720822C46E7A00F07A16 /* SimpleProfileTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB720722C46E7A00F07A16 /* SimpleProfileTableController.swift */; };
 		51DB720A22C4733500F07A16 /* RegisterProfileTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB720922C4733500F07A16 /* RegisterProfileTableCell.swift */; };
+		51E5974422C8BF2C00440256 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51E5974322C8BF2C00440256 /* Map.storyboard */; };
+		51E5974622C8BF7D00440256 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E5974522C8BF7D00440256 /* MapViewController.swift */; };
+		51E5974822C8F19400440256 /* AddAddressParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E5974722C8F19400440256 /* AddAddressParameters.swift */; };
+		51E5974A22C8FEEB00440256 /* AddressesResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E5974922C8FEEB00440256 /* AddressesResponseController.swift */; };
 		51E9296A22BA562200F5E846 /* RetrievePasswordFirstStepResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E9296922BA562200F5E846 /* RetrievePasswordFirstStepResponseController.swift */; };
 		51E9296C22BA569100F5E846 /* RetrievePasswordFirstStepParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E9296B22BA569100F5E846 /* RetrievePasswordFirstStepParameters.swift */; };
 		51E9296E22BA58AE00F5E846 /* RetrievePasswordSecondStepParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E9296D22BA58AE00F5E846 /* RetrievePasswordSecondStepParameters.swift */; };
@@ -273,6 +285,7 @@
 		512B680F22B17793004A0934 /* Differences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Differences.swift; sourceTree = "<group>"; };
 		512CF5BF22B58175004B6FF4 /* CityResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityResponseController.swift; sourceTree = "<group>"; };
 		512CF5C122B58214004B6FF4 /* CityDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetails.swift; sourceTree = "<group>"; };
+		512D6C4E22CA039300FFE7AB /* AddAddressResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressResponseController.swift; sourceTree = "<group>"; };
 		512EE2C322A4465400446982 /* AwardsScrollController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsScrollController.swift; sourceTree = "<group>"; };
 		512EE2C622A45E2400446982 /* BasicAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimation.swift; sourceTree = "<group>"; };
 		512EE2C822A4618900446982 /* ClaimPointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimPointsViewController.swift; sourceTree = "<group>"; };
@@ -391,6 +404,10 @@
 		51B38562229D25940094B537 /* Container.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Container.storyboard; sourceTree = "<group>"; };
 		51B38564229D267E0094B537 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		51B6F43122C3753A003817CA /* ProfileTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableController.swift; sourceTree = "<group>"; };
+		51B89F2622C88EAC00D91879 /* EditableAddressTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableAddressTableCell.swift; sourceTree = "<group>"; };
+		51B89F2822C890DD00D91879 /* EditableAddressesTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableAddressesTableController.swift; sourceTree = "<group>"; };
+		51B89F2A22C8B20200D91879 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
+		51B89F2C22C8B23F00D91879 /* Invite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Invite.storyboard; sourceTree = "<group>"; };
 		51BDCDCE22C1E67F000F9158 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		51BDCDD122C1E768000F9158 /* FavoritesResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesResponseController.swift; sourceTree = "<group>"; };
 		51BDCDD322C20027000F9158 /* AddAllToCartResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAllToCartResponseController.swift; sourceTree = "<group>"; };
@@ -443,6 +460,9 @@
 		51D374AA22AB7E550000FD36 /* RetrievePasswordSecondStep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RetrievePasswordSecondStep.storyboard; sourceTree = "<group>"; };
 		51D374AC22AB84750000FD36 /* RetrievePasswordThirdStep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RetrievePasswordThirdStep.storyboard; sourceTree = "<group>"; };
 		51D374AE22AB84B90000FD36 /* RetrievePasswordThirdStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrievePasswordThirdStepViewController.swift; sourceTree = "<group>"; };
+		51D83EEA22C7CA0500E6CDDE /* ProfileSettingsScrollController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsScrollController.swift; sourceTree = "<group>"; };
+		51DA0EC122CCCB870028B54D /* InviteParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteParameters.swift; sourceTree = "<group>"; };
+		51DA0EC322CCCD280028B54D /* InviteResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteResponseController.swift; sourceTree = "<group>"; };
 		51DB71FF22C3CC2500F07A16 /* LogoutProfileTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutProfileTableCell.swift; sourceTree = "<group>"; };
 		51DB720122C3D53A00F07A16 /* LanguageProfileTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageProfileTableCell.swift; sourceTree = "<group>"; };
 		51DB720322C3D58800F07A16 /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
@@ -450,6 +470,10 @@
 		51DB720722C46E7A00F07A16 /* SimpleProfileTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleProfileTableController.swift; sourceTree = "<group>"; };
 		51DB720922C4733500F07A16 /* RegisterProfileTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileTableCell.swift; sourceTree = "<group>"; };
 		51DFBA522292EF000035DC5F /* Delay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
+		51E5974322C8BF2C00440256 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		51E5974522C8BF7D00440256 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		51E5974722C8F19400440256 /* AddAddressParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressParameters.swift; sourceTree = "<group>"; };
+		51E5974922C8FEEB00440256 /* AddressesResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesResponseController.swift; sourceTree = "<group>"; };
 		51E8E35A228D315800FF56FF /* BottomStaticTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomStaticTableCell.swift; sourceTree = "<group>"; };
 		51E9296922BA562200F5E846 /* RetrievePasswordFirstStepResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrievePasswordFirstStepResponseController.swift; sourceTree = "<group>"; };
 		51E9296B22BA569100F5E846 /* RetrievePasswordFirstStepParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrievePasswordFirstStepParameters.swift; sourceTree = "<group>"; };
@@ -537,6 +561,7 @@
 				516FB32522ABE7160097DE9D /* Filter.storyboard */,
 				51F076AD22B50934004DFD38 /* Product.storyboard */,
 				51B38562229D25940094B537 /* Container.storyboard */,
+				51E5974322C8BF2C00440256 /* Map.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -563,6 +588,7 @@
 				516FB32722ABE7A60097DE9D /* FilterViewController.swift */,
 				51F076AF22B5099C004DFD38 /* ProductViewController.swift */,
 				51B38564229D267E0094B537 /* ContainerViewController.swift */,
+				51E5974522C8BF7D00440256 /* MapViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -752,6 +778,7 @@
 				51CE6E2D2281F65F0051B91E /* Profile.storyboard */,
 				5180661522C1DFD3000DB1E5 /* Favorites.storyboard */,
 				51F9F67122C77CB800F3F385 /* ProfileSettings.storyboard */,
+				51B89F2C22C8B23F00D91879 /* Invite.storyboard */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -780,6 +807,7 @@
 				51F9E8B822A421FB0043E209 /* ProfileViewController.swift */,
 				5180661722C1E019000DB1E5 /* FavoritesViewController.swift */,
 				51F9F66D22C77C3E00F3F385 /* ProfileSettingsViewController.swift */,
+				51B89F2A22C8B20200D91879 /* InviteViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -852,6 +880,8 @@
 				518A373222B8ADDF004FEAC7 /* ClaimPointsParameters.swift */,
 				51876FC222BBAD1A00D3D6B8 /* AddFavoriteParameters.swift */,
 				51876FC422BBADA900D3D6B8 /* RemoveFavoriteParameters.swift */,
+				51DA0EC122CCCB870028B54D /* InviteParameters.swift */,
+				51E5974722C8F19400440256 /* AddAddressParameters.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1054,8 +1084,11 @@
 			isa = PBXGroup;
 			children = (
 				51F9F66B22C744EC00F3F385 /* ProfileResponseController.swift */,
+				51DA0EC322CCCD280028B54D /* InviteResponseController.swift */,
 				51BDCDD122C1E768000F9158 /* FavoritesResponseController.swift */,
 				51BDCDD322C20027000F9158 /* AddAllToCartResponseController.swift */,
+				51E5974922C8FEEB00440256 /* AddressesResponseController.swift */,
+				512D6C4E22CA039300FFE7AB /* AddAddressResponseController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1074,6 +1107,7 @@
 				51DB71FF22C3CC2500F07A16 /* LogoutProfileTableCell.swift */,
 				51DB720122C3D53A00F07A16 /* LanguageProfileTableCell.swift */,
 				51DB720522C3FAAF00F07A16 /* SocialProfileTableCell.swift */,
+				51B89F2622C88EAC00D91879 /* EditableAddressTableCell.swift */,
 			);
 			path = "Table Cells";
 			sourceTree = "<group>";
@@ -1100,6 +1134,7 @@
 				51902E6922B0F1E400A0241C /* AddressesTableController.swift */,
 				51DB720722C46E7A00F07A16 /* SimpleProfileTableController.swift */,
 				51B6F43122C3753A003817CA /* ProfileTableController.swift */,
+				51B89F2822C890DD00D91879 /* EditableAddressesTableController.swift */,
 			);
 			path = "Table Controllers";
 			sourceTree = "<group>";
@@ -1142,6 +1177,7 @@
 				51F78A4222A1548200EA78D8 /* ContainerScrollController.swift */,
 				512EE2C322A4465400446982 /* AwardsScrollController.swift */,
 				512EE2CE22A46B4900446982 /* ClaimPointsScrollController.swift */,
+				51D83EEA22C7CA0500E6CDDE /* ProfileSettingsScrollController.swift */,
 			);
 			path = "Scroll Controllers";
 			sourceTree = "<group>";
@@ -1178,6 +1214,7 @@
 				5143438C22783B0B00C2170C /* Frameworks */,
 				5143438D22783B0B00C2170C /* Resources */,
 				ABA930776E5F8733C6F1F4F5 /* [CP] Embed Pods Frameworks */,
+				5A268FC1FEEE28F8A9E93AC5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1236,12 +1273,14 @@
 				51F9F67222C77CB800F3F385 /* ProfileSettings.storyboard in Resources */,
 				51CE6E7222841ECD0051B91E /* Images.xcassets in Resources */,
 				510E8A5F228B57AB009CED35 /* iranSansMobile.ttf in Resources */,
+				51B89F2D22C8B23F00D91879 /* Invite.storyboard in Resources */,
 				51CE6E302281FA580051B91E /* Orders.storyboard in Resources */,
 				514662DF22C0F80D0023CD04 /* Finalize.storyboard in Resources */,
 				51C003B822A593B9002B30C8 /* Login.storyboard in Resources */,
 				51F076AE22B50934004DFD38 /* Product.storyboard in Resources */,
 				51CE6E2C2281F1940051B91E /* Home.storyboard in Resources */,
 				51CE6E2E2281F65F0051B91E /* Profile.storyboard in Resources */,
+				51E5974422C8BF2C00440256 /* Map.storyboard in Resources */,
 				5162D62222A808EF00547AD6 /* RegisterSecondStep.storyboard in Resources */,
 				51B38563229D25940094B537 /* Container.storyboard in Resources */,
 				51D374AB22AB7E550000FD36 /* RetrievePasswordSecondStep.storyboard in Resources */,
@@ -1280,6 +1319,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A268FC1FEEE28F8A9E93AC5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PointBasedShop/Pods-PointBasedShop-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PointBasedShop/Pods-PointBasedShop-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ABA930776E5F8733C6F1F4F5 /* [CP] Embed Pods Frameworks */ = {
@@ -1368,6 +1429,7 @@
 				51B365D22298ABC400CF2BA6 /* Colors.swift in Sources */,
 				5102312B22AE5C6800CBD1E7 /* SimpleCitiesCollectionController.swift in Sources */,
 				51B365D32298ABC400CF2BA6 /* CornerRadiuses.swift in Sources */,
+				51B89F2722C88EAC00D91879 /* EditableAddressTableCell.swift in Sources */,
 				51D311EA22BD4DE200F9DD2A /* OrdersResponseController.swift in Sources */,
 				51B365D42298ABC400CF2BA6 /* Durations.swift in Sources */,
 				51C003BA22A5B86F002B30C8 /* LoginViewController.swift in Sources */,
@@ -1382,6 +1444,7 @@
 				51A6A5F522C2B9D5002D3EEE /* OrderDetailCollectionCell.swift in Sources */,
 				517E6B7722B4FC150087A919 /* HomeResponseController.swift in Sources */,
 				51F79DE222B90A1D0094F9A7 /* CheckInResponseController.swift in Sources */,
+				51DA0EC422CCCD280028B54D /* InviteResponseController.swift in Sources */,
 				51B365D82298ABC400CF2BA6 /* Texts.swift in Sources */,
 				51F076B822B51131004DFD38 /* NewBrand.swift in Sources */,
 				516FB32E22ABECF50097DE9D /* FilterResults.swift in Sources */,
@@ -1391,6 +1454,7 @@
 				51B365DB2298ABC400CF2BA6 /* Color.swift in Sources */,
 				51CE242822A13A2C007A1EB2 /* FirstUppercased.swift in Sources */,
 				511AF6EC22C2A18000E53FE5 /* OrderDetailsViewController.swift in Sources */,
+				512D6C4F22CA039300FFE7AB /* AddAddressResponseController.swift in Sources */,
 				5185C45E22B67B2300E9069A /* Awards.swift in Sources */,
 				51902E6622B0C31C00A0241C /* TabController.swift in Sources */,
 				512CF5C222B58214004B6FF4 /* CityDetails.swift in Sources */,
@@ -1407,12 +1471,14 @@
 				51A6A5F722C2BB9B002D3EEE /* OrderDetailsCollectionController.swift in Sources */,
 				517E6B6B22B4E59A0087A919 /* RegisterSecondStepParameters.swift in Sources */,
 				51B365DD2298ABC400CF2BA6 /* Fade.swift in Sources */,
+				51DA0EC222CCCB870028B54D /* InviteParameters.swift in Sources */,
 				51CE242622A137E0007A1EB2 /* ViewControllerWith.swift in Sources */,
 				51E9297622BA5E4900F5E846 /* RetrievePasswordSecondStep.swift in Sources */,
 				51DB720822C46E7A00F07A16 /* SimpleProfileTableController.swift in Sources */,
 				514A6D9622AFD06300E0EE11 /* LoginParameters.swift in Sources */,
 				516FB32A22ABE84E0097DE9D /* FilterResultsViewController.swift in Sources */,
 				51B365DE2298ABC400CF2BA6 /* HexRGB.swift in Sources */,
+				51E5974A22C8FEEB00440256 /* AddressesResponseController.swift in Sources */,
 				51B365DF2298ABC400CF2BA6 /* Highlighted.swift in Sources */,
 				51F076C022B5673F004DFD38 /* Ads.swift in Sources */,
 				51B365E02298ABC400CF2BA6 /* LineHeight.swift in Sources */,
@@ -1458,10 +1524,12 @@
 				515540EB22B94A44008D9966 /* CartResponseController.swift in Sources */,
 				51F076BC22B5255E004DFD38 /* ClosestOffersResponseController.swift in Sources */,
 				51BDCDD622C209B0000F9158 /* RefreshControl.swift in Sources */,
+				51B89F2B22C8B20200D91879 /* InviteViewController.swift in Sources */,
 				5171B46E22A69693007B0E3F /* RetrievePasswordFirstStepViewController.swift in Sources */,
 				51A6A5FB22C2BEFF002D3EEE /* OrderDetailsResponseController.swift in Sources */,
 				51B365F02298ABC400CF2BA6 /* ScrollView.swift in Sources */,
 				5102312922AE5B4B00CBD1E7 /* SimpleCityCollectionCell.swift in Sources */,
+				51E5974622C8BF7D00440256 /* MapViewController.swift in Sources */,
 				51B365F12298ABC400CF2BA6 /* StackView.swift in Sources */,
 				51B365F22298ABC400CF2BA6 /* TabItem.swift in Sources */,
 				51D311EC22BD501F00F9DD2A /* OrderCollectionCell.swift in Sources */,
@@ -1484,6 +1552,7 @@
 				5185C45822B64D3A00E9069A /* ClosestOffersParameters.swift in Sources */,
 				5185C46322B7879700E9069A /* FilterParameters.swift in Sources */,
 				51B365F72298ABC400CF2BA6 /* View.swift in Sources */,
+				51D83EEB22C7CA0500E6CDDE /* ProfileSettingsScrollController.swift in Sources */,
 				51B365F82298ABC400CF2BA6 /* FirstTextField.swift in Sources */,
 				5102311F22AE3E4700CBD1E7 /* FilterScopes.swift in Sources */,
 				512EE2C722A45E2400446982 /* BasicAnimation.swift in Sources */,
@@ -1514,6 +1583,7 @@
 				517E6B7322B4F9510087A919 /* Home.swift in Sources */,
 				51DB720022C3CC2500F07A16 /* LogoutProfileTableCell.swift in Sources */,
 				51F076BE22B5265A004DFD38 /* Products.swift in Sources */,
+				51B89F2922C890DD00D91879 /* EditableAddressesTableController.swift in Sources */,
 				517E6B6D22B4E6250087A919 /* RegisterSecondStepResponseController.swift in Sources */,
 				51F9F66A22C7411300F3F385 /* Profile.swift in Sources */,
 				5132F03F22ACD5870032A8CB /* SearchBar.swift in Sources */,
@@ -1531,6 +1601,7 @@
 				51876FC322BBAD1A00D3D6B8 /* AddFavoriteParameters.swift in Sources */,
 				51B366082298ABC400CF2BA6 /* HomeTableController.swift in Sources */,
 				51B366092298ABC400CF2BA6 /* CategoriesCollectionController.swift in Sources */,
+				51E5974822C8F19400440256 /* AddAddressParameters.swift in Sources */,
 				51A6A5F922C2BC12002D3EEE /* OrderDetails.swift in Sources */,
 				51B3660A2298ABC400CF2BA6 /* ProductsCollectionController.swift in Sources */,
 				5115F142229BCFAE0095F0A6 /* Container.swift in Sources */,

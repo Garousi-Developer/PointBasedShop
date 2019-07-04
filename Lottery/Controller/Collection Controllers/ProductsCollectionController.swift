@@ -233,6 +233,10 @@ class ProductsCollectionController: CollectionController {
                 castedCell.orderCountStackView.alpha = 1
             }
         }
+        else {
+            castedCell.lockStateButton.tintColor = colors(.highlightedAsset)
+            castedCell.lockStateButton.setImage(#imageLiteral(resourceName: "locked"), for: .normal)
+        }
         
         setupPriceLabel(castedCell, product)
         

@@ -3,6 +3,11 @@ PODS:
   - Alamofire (4.8.1)
   - BetterSegmentedControl (1.0.3)
   - FSPagerView (0.8.2)
+  - GoogleMaps (3.0.3):
+    - GoogleMaps/Maps (= 3.0.3)
+  - GoogleMaps/Base (3.0.3)
+  - GoogleMaps/Maps (3.0.3):
+    - GoogleMaps/Base
   - Kingfisher (5.2.0)
   - NVActivityIndicatorView (4.6.1):
     - NVActivityIndicatorView/Presenter (= 4.6.1)
@@ -21,6 +26,7 @@ DEPENDENCIES:
   - Alamofire
   - BetterSegmentedControl
   - FSPagerView
+  - GoogleMaps
   - Kingfisher
   - NVActivityIndicatorView
   - PhoneNumberKit
@@ -33,6 +39,7 @@ SPEC REPOS:
     - Alamofire
     - BetterSegmentedControl
     - FSPagerView
+    - GoogleMaps
     - Kingfisher
     - NVActivityIndicatorView
     - PhoneNumberKit
@@ -44,12 +51,13 @@ SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   BetterSegmentedControl: 4e3bd0bd517b0f6077c9e17f5663a01cff48e2c5
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
+  GoogleMaps: fd5c9fa58871781b9fb94d4936f19c69fe60ce32
   Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
   PhoneNumberKit: 167ee1f0bbb6efce7c62559e620eae745595532f
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVPinView: 3dda372c7a1c051b41788f07bf7a8339aa19083e
 
-PODFILE CHECKSUM: 74a0ec2f5ec656cb837dfca3aeb8a49cc113499a
+PODFILE CHECKSUM: 4a6bf7929ad0ed0ba28ea1f8b8506a793182926c
 
 COCOAPODS: 1.6.1

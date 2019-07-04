@@ -192,7 +192,7 @@ extension FirstTextField {
         }
     }
     
-    private func animatePlaceholderPosition(isReversed: Bool = false) {
+    func animatePlaceholderPosition(isReversed: Bool = false) {
         let translation = frame.height / 2 + fonts(.semiSmall).firstLineHeight / 2
         
         UIView.animate(withDuration: animationDuration) {
@@ -204,7 +204,7 @@ extension FirstTextField {
             }
         }
     }
-    private func animatePlaceholderSize(isReversed: Bool = false) {
+    func animatePlaceholderSize(isReversed: Bool = false) {
         if isReversed {
             let animation = BasicAnimation(keyPath: "fontSize")
             placeholderLayer.fontSize = fonts(.medium).pointSize

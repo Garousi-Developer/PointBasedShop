@@ -18,7 +18,18 @@ class FavoritesResponseController: ResponseController {
             castedViewController.addAllToCartButton.alpha = 1
         }
         
-        castedViewController.setLoadingState(.successful)
+        if favorites.data.isEmpty {
+            castedViewController.setLoadingState(.failed(
+                reason: .noContent,
+                requestHolder: nil,
+                noContentIcon: #imageLiteral(resourceName: "bigFavorites"),
+                noContentText: texts(.noItemHasBeenAddedToFavoritesYet)
+            ))
+        }
+        else {
+            castedViewController.setLoadingState(.successful)
+        }
+        
         castedViewController.refreshControl.endRefreshing()
     }
     override func didFail(errorCode: URLError.Code?, statusCode: Int?, response: Decodable?) {

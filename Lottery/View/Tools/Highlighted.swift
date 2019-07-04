@@ -3,6 +3,8 @@ import UIKit
 extension UIColor {
     var highlighted: UIColor! {
         switch self {
+        case colors(.highlightedAsset):
+            return colors(.extraHighlightedAsset)
         case colors(.lightAsset):
             return colors(.highlightedAsset)
         case colors(.asset):

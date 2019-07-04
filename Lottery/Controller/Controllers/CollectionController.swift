@@ -38,6 +38,8 @@ class CollectionController: SecondaryController {
     var currentOffset: CGFloat!
     var targetOffset: CGFloat!
     
+    var initialHeight: CGFloat!
+    
     func animateInteraction(_ collectionCell: CollectionCell) {
         interactionAnimator = UIViewPropertyAnimator(duration: interactionAnimationDuration, curve: .easeInOut) {
             if collectionCell.backgroundColorHolder == nil {
@@ -86,13 +88,14 @@ class CollectionController: SecondaryController {
         
         let collectionViewLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let verticalSectionInsets = collectionViewLayout.sectionInset.top + collectionViewLayout.sectionInset.bottom
+        collectionView.heightConstraint?.constant = itemHeight() + verticalSectionInsets + 1
+        initialHeight = itemHeight() + verticalSectionInsets + 1
         
         switch collectionViewLayout.scrollDirection {
         case .horizontal:
-            collectionView.heightConstraint?.constant = itemHeight() + verticalSectionInsets + 1
             collectionView.decelerationRate = .fast
         case .vertical:
-            collectionView.heightConstraint?.constant = itemHeight() + verticalSectionInsets + 1
+            break
         @unknown default:
             break
         }
@@ -178,24 +181,28 @@ extension CollectionController: UICollectionViewDelegate {
 
 extension CollectionController: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        if layout.scrollDirection == .horizontal {
-            currentOffset = scrollView.contentOffset.x
+        if !data.isEmpty {
+            if layout.scrollDirection == .horizontal {
+                currentOffset = scrollView.contentOffset.x
+            }
         }
     }
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
     {
-        if layout.scrollDirection == .horizontal {
-            let cellsPerRow = CGFloat(collectionView.firstCellsPerPage)
-            
-            targetOffset = targetContentOffset.pointee.x
-            let scrollDistance = targetOffset - currentOffset
-            let coefficent = Int(round(scrollDistance / (pagingThreshold * cellsPerRow))) * collectionView.firstCellsPerPage
-            
-            let currentItem = Int(round(currentOffset / itemWidth))
-            let targetItem = currentItem + coefficent
-            let targetItemOffset = CGFloat(targetItem) * (itemWidth + interitemSpacing)
-            
-            targetContentOffset.pointee.x = targetItemOffset
+        if !data.isEmpty {
+            if layout.scrollDirection == .horizontal {
+                let cellsPerRow = CGFloat(collectionView.firstCellsPerPage)
+                
+                targetOffset = targetContentOffset.pointee.x
+                let scrollDistance = targetOffset - currentOffset
+                let coefficent = Int(round(scrollDistance / (pagingThreshold * cellsPerRow))) * collectionView.firstCellsPerPage
+                
+                let currentItem = Int(round(currentOffset / itemWidth))
+                let targetItem = currentItem + coefficent
+                let targetItemOffset = CGFloat(targetItem) * (itemWidth + interitemSpacing)
+                
+                targetContentOffset.pointee.x = targetItemOffset
+            }
         }
     }
     

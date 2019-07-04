@@ -27,6 +27,8 @@ func switchToEnglish() {
     UIProgressView.appearance().semanticContentAttribute = .forceLeftToRight
     UISearchBar.appearance().semanticContentAttribute = .forceLeftToRight
     UISwitch.appearance().semanticContentAttribute = .forceLeftToRight
+    
+    UICollectionView.appearance(whenContainedInInstancesOf: [PinView.self]).semanticContentAttribute = .forceLeftToRight
 }
 func switchToPersian() {
     UIView.appearance().semanticContentAttribute = .forceLeftToRight
@@ -39,6 +41,8 @@ func switchToPersian() {
     UIProgressView.appearance().semanticContentAttribute = .forceRightToLeft
     UISearchBar.appearance().semanticContentAttribute = .forceRightToLeft
     UISwitch.appearance().semanticContentAttribute = .forceRightToLeft
+    
+    UICollectionView.appearance(whenContainedInInstancesOf: [PinView.self]).semanticContentAttribute = .forceLeftToRight
 }
 
 extension UIViewController {
@@ -47,4 +51,7 @@ extension UIViewController {
         
         navigationController?.view.semanticContentAttribute = languageIsPersian ? .forceRightToLeft : .forceLeftToRight
     }
+}
+extension PinView {
+    
 }

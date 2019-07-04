@@ -60,6 +60,8 @@ class TextField: PhoneNumberTextField {
         switch textContentType {
         case UITextContentType.emailAddress:
             return .emailAddress
+        case UITextContentType.fullStreetAddress:
+            return .default
         case UITextContentType.name, UITextContentType.givenName, UITextContentType.familyName:
             return .default
         case UITextContentType.password:
@@ -81,7 +83,7 @@ class TextField: PhoneNumberTextField {
     var firstIsFirstLayout = true
     
     @objc func textDidChange() {
-        if textContentType != .password {
+        if textContentType == .telephoneNumber || textContentType == .emailAddress {
             text = text!.trimmingCharacters(in: [" "])
         }
     }

@@ -22,6 +22,7 @@ class CartViewController: ViewController {
         productsCollectionView.dataSource = productsCollectionController
         productsCollectionView.delegate = productsCollectionController
         
+        finalizeButton.alpha = 0
         finalizeButton.firstInteractionAnimationType = .glow
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -36,10 +37,10 @@ class CartViewController: ViewController {
                 didFail: cartResponseController.didFail,
                 blocking: true
             ))
+            
+            refreshControl.containerView = scrollView
+            refreshControl.requestHolder = cartResponseController.requestHolder
         }
-        
-        refreshControl.containerView = scrollView
-        refreshControl.requestHolder = cartResponseController.requestHolder
     }
 }
 

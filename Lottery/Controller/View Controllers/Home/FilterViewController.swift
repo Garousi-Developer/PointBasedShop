@@ -1,13 +1,17 @@
 import UIKit
+import SnapKit
 
 class FilterViewController: ViewController {
     @IBOutlet weak var scrollView: ScrollView!
     @IBOutlet weak var categoriesLabel: Label!
     @IBOutlet weak var allCategoriesSwitch: Switch!
     @IBOutlet weak var categoriesCollectionView: CollectionView!
+    @IBOutlet weak var firstSeparatorView: View!
     @IBOutlet weak var citiesLabel: Label!
     @IBOutlet weak var allCitiesSwitch: Switch!
     @IBOutlet weak var citiesCollectionView: CollectionView!
+    @IBOutlet weak var secondSeparatorView: View!
+    @IBOutlet weak var lockFiltersStackView: StackView!
     @IBOutlet weak var unlockedLabel: Label!
     @IBOutlet weak var unlockedSwitch: Switch!
     @IBOutlet weak var lockedLabel: Label!
@@ -115,14 +119,16 @@ class FilterViewController: ViewController {
         }
         
         var lockState = "unlock"
-        if unlockedSwitch.isOn {
-            lockState = "unlock"
-        }
-        else if lockedSwitch.isOn {
-            lockState = "lock"
-        }
-        else if allSwitch.isOn {
-            lockState = "both"
+        if UserDefaults.standard.string(forKey: "token") != nil {
+            if unlockedSwitch.isOn {
+                lockState = "unlock"
+            }
+            else if lockedSwitch.isOn {
+                lockState = "lock"
+            }
+            else if allSwitch.isOn {
+                lockState = "both"
+            }
         }
         filterParameters = FilterParameters(
             searchedPhrase: filterParameters.searchedPhrase,
@@ -161,7 +167,17 @@ class FilterViewController: ViewController {
             break
         }
         
+        if UserDefaults.standard.string(forKey: "token") == nil {
+            secondSeparatorView.removeFromSuperview()
+            lockFiltersStackView.removeFromSuperview()
+            citiesCollectionView.snp.makeConstraints { (make) in
+                make.bottom.equalToSuperview().offset(scale * -12)
+            }
+        }
         filterButton.firstInteractionAnimationType = .glow
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         setLoadingState(.loading)
         filterScopesResponseController = FilterScopesResponseController(viewController: self)

@@ -29,7 +29,9 @@ class ClaimPointsViewController: ViewController {
     @IBAction func submit() {
         resultLabel.fadeOut()
         
-        let purchaseAmount = purchaseAmountTextField.text!.replacingOccurrences(of: "٫", with: "")
+        let purchaseAmount = languageIsPersian ?
+            purchaseAmountTextField.text!.replacingOccurrences(of: "٬", with: "") :
+            purchaseAmountTextField.text!.replacingOccurrences(of: ",", with: "")
         claimPointsParameters = ClaimPointsParameters(
             shoppingCenterId: awards.id,
             purchaseAmount: Int(purchaseAmount)!,

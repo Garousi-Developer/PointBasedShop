@@ -22,13 +22,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tEd-dc-jC2" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="367.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="375.66666666666669"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wst-UR-jNk" userLabel="Address View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="367.66666666666669"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="375.66666666666669"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="300" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tb8-87-9ua" userLabel="Number Of Products Title Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="302.66666666666669" y="12.000000000000002" width="99.333333333333314" height="19.666666666666671"/>
+                                                        <rect key="frame" x="360.33333333333331" y="12.000000000000002" width="41.666666666666686" height="19.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -37,13 +37,13 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kP7-dc-Avc" userLabel="Number Of Products Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="250" y="12.000000000000002" width="4.6666666666666572" height="19.666666666666671"/>
+                                                        <rect key="frame" x="270.66666666666669" y="12.000000000000002" width="41.666666666666686" height="19.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gS1-BQ-rep" userLabel="Earned Points Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="-167" y="40.666666666666671" width="569" height="16.333333333333329"/>
+                                                        <rect key="frame" x="360.33333333333331" y="40.666666666666671" width="41.666666666666686" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pdy-AS-UPl" userLabel="Total Price Title Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="344.33333333333331" y="81" width="57.666666666666686" height="19.666666666666671"/>
+                                                        <rect key="frame" x="360.33333333333331" y="85" width="41.666666666666686" height="19.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -63,7 +63,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="251" horizontalCompressionResistancePriority="700" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2Q-Xs-V4K" userLabel="Total Price Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="208.33333333333334" y="81" width="88.000000000000028" height="19.666666666666671"/>
+                                                        <rect key="frame" x="270.66666666666669" y="85" width="41.666666666666686" height="19.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -74,7 +74,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eo1-Km-cgE" userLabel="Tax Inclusive Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="223.33333333333337" y="109.66666666666666" width="178.66666666666663" height="16.333333333333329"/>
+                                                        <rect key="frame" x="360.33333333333331" y="113.66666666666666" width="41.666666666666686" height="20.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -85,7 +85,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcR-FM-056" userLabel="Donate Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="126.66666666666666" y="157.33333333333334" width="275.33333333333337" height="16.333333333333343"/>
+                                                        <rect key="frame" x="360.33333333333331" y="163.33333333333334" width="41.666666666666686" height="20.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -95,10 +95,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aB0-23-ARZ" userLabel="Donate Switch" customClass="Switch" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="12" y="150" width="51" height="31"/>
+                                                        <rect key="frame" x="12" y="158" width="51" height="31"/>
                                                     </switch>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q34-6q-yZT" userLabel="Separator View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="12" y="193" width="390" height="1"/>
+                                                        <rect key="frame" x="12" y="201" width="390" height="1"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="EVS-I9-R0R" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -108,7 +108,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyX-7P-aL5" userLabel="Address Selection Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="208.33333333333337" y="215.33333333333331" width="193.66666666666663" height="16.333333333333343"/>
+                                                        <rect key="frame" x="360.33333333333331" y="221.33333333333331" width="41.666666666666686" height="20.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -118,7 +118,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaO-jG-Jcf" userLabel="Edit Address Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="12" y="206" width="100" height="35"/>
+                                                        <rect key="frame" x="12" y="214" width="100" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="100" id="KCV-hk-fmf" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                             <constraint firstAttribute="height" constant="35" id="cyS-dL-Nkc" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -131,9 +131,12 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstTitleColor" value="asset"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="firstText" value="editAddress"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="editAddress" destination="Cgu-P9-mPW" eventType="touchUpInside" id="hU8-rQ-ntb"/>
+                                                        </connections>
                                                     </button>
                                                     <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hgT-vR-Bjh" userLabel="Addresses Table View" customClass="TableView" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="12" y="247" width="390" height="24"/>
+                                                        <rect key="frame" x="12" y="255" width="390" height="24"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="cyL-l5-jbG" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target">
@@ -153,13 +156,13 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7C8-Ta-GZc" userLabel="Selected Switch" customClass="Switch" customModule="PointBasedShop" customModuleProvider="target">
-                                                                            <rect key="frame" x="341" y="6" width="51" height="25"/>
+                                                                            <rect key="frame" x="341" y="6.0000000000000018" width="51" height="24.666666666666671"/>
                                                                             <userDefinedRuntimeAttributes>
                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstOnTintColor" value="primary"/>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </switch>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="آدرس" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7l6-m6-Tj0" userLabel="Address Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                                            <rect key="frame" x="305.33333333333331" y="10.333333333333334" width="29.666666666666686" height="16.333333333333329"/>
+                                                                            <rect key="frame" x="298.66666666666669" y="8.3333333333333339" width="36.333333333333314" height="20.333333333333329"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -196,7 +199,7 @@
                                                         </connections>
                                                     </tableView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D55-Kl-Ez7" userLabel="Pay Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="147" y="289" width="120" height="35"/>
+                                                        <rect key="frame" x="147" y="297" width="120" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="6uK-0u-jQL" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                             <constraint firstAttribute="width" constant="120" id="eeM-1o-3fX" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
@@ -215,7 +218,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نتیجه" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUY-nz-ois" userLabel="Result Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                        <rect key="frame" x="12" y="336" width="390" height="19.666666666666686"/>
+                                                        <rect key="frame" x="12" y="344" width="390" height="19.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -307,6 +310,7 @@
                         <outlet property="donateLabel" destination="XcR-FM-056" id="WZB-S8-XqE"/>
                         <outlet property="donateSwitch" destination="aB0-23-ARZ" id="YcT-pM-4N9"/>
                         <outlet property="earnedPointsLabel" destination="gS1-BQ-rep" id="V6Q-Ig-QY7"/>
+                        <outlet property="editAddressButton" destination="vaO-jG-Jcf" id="n0N-3f-0ty"/>
                         <outlet property="numberOfProductsLabel" destination="kP7-dc-Avc" id="xvm-3s-W8m"/>
                         <outlet property="numberOfProductsTitleLabel" destination="tb8-87-9ua" id="kRK-6y-LmO"/>
                         <outlet property="payButton" destination="D55-Kl-Ez7" id="8TJ-ye-FGu"/>

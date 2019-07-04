@@ -34,6 +34,16 @@ class NavigationItem: UINavigationItem {
             )
         }
     }
+    var backButtonTitle: String! {
+        didSet {
+            backBarButtonItem = UIBarButtonItem(
+                title: backButtonTitle,
+                style: .plain,
+                target: nil,
+                action: nil
+            )
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

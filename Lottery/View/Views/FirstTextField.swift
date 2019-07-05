@@ -16,7 +16,7 @@ class FirstTextField: TextField {
     private var isFirstDraw = true
     private var normalLineWidth: CGFloat = 1
     private var focusedLineWidth: CGFloat = 2
-    private var animationDuration: TimeInterval = durations(.textField)
+    var animationDuration: TimeInterval = durations(.textField)
     private var phoneNumberKit: PhoneNumberKit!
     
     @objc override func textDidChange() {
@@ -100,6 +100,13 @@ class FirstTextField: TextField {
 }
 
 extension FirstTextField {
+    func prepareText() {
+        let translation = frame.height / 2 + fonts(.semiSmall).firstLineHeight / 2
+        
+        placeholderView.center.y -= translation
+        placeholderLayer.fontSize = fonts(.semiSmall).pointSize
+    }
+    
     private func setup() {
         if textContentType == .telephoneNumber {
             phoneNumberKit = PhoneNumberKit()
@@ -192,7 +199,7 @@ extension FirstTextField {
         }
     }
     
-    func animatePlaceholderPosition(isReversed: Bool = false) {
+    private func animatePlaceholderPosition(isReversed: Bool = false) {
         let translation = frame.height / 2 + fonts(.semiSmall).firstLineHeight / 2
         
         UIView.animate(withDuration: animationDuration) {
@@ -204,7 +211,7 @@ extension FirstTextField {
             }
         }
     }
-    func animatePlaceholderSize(isReversed: Bool = false) {
+    private func animatePlaceholderSize(isReversed: Bool = false) {
         if isReversed {
             let animation = BasicAnimation(keyPath: "fontSize")
             placeholderLayer.fontSize = fonts(.medium).pointSize

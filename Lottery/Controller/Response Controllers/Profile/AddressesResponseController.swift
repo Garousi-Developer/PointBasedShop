@@ -12,6 +12,8 @@ class AddressesResponseController: ResponseController {
         
         viewController.setLoadingState(.successful)
         viewController.refreshControl.endRefreshing()
+        
+        castedViewController.fillTextFields()
     }
     override func didFail(errorCode: URLError.Code?, statusCode: Int?, response: Decodable?) {
         super.didFail(errorCode: errorCode, statusCode: statusCode, response: response)

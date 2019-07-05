@@ -36,6 +36,11 @@ func texts(_ text: Text) -> LocalizedText {
             persian: "خطا در سرور",
             english: "Server Error"
         )
+    case .loginForActivation:
+        return LocalizedText(
+            persian: "برای فعال سازی وارد شوید",
+            english: "Login for activation"
+        )
     case .more:
         return LocalizedText(
             persian: "بیشتر",
@@ -756,6 +761,11 @@ func texts(_ text: Text) -> LocalizedText {
             persian: "ذخیره تغییرات",
             english: "Save Changes"
         )
+    case .yourInformationSuccessfullyUpdated:
+        return LocalizedText(
+            persian: "اطلاعات شما با موفقیت به روز رسانی شد",
+            english: "Your information successfully updated"
+        )
     case .addAndEditAddress:
         return LocalizedText(
             persian: "افزودن و ویرایش آدرس",
@@ -804,6 +814,7 @@ enum Text: String {
     case currency
     case empty
     case internalServerError
+    case loginForActivation
     case more
     case number
     case points
@@ -982,6 +993,7 @@ enum Text: String {
     case email
     case verify
     case saveChanges
+    case yourInformationSuccessfullyUpdated
     case addAndEditAddress
     case addAddress
     

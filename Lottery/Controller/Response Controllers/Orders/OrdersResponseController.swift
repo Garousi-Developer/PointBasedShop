@@ -13,7 +13,8 @@ class OrdersResponseController: ResponseController {
                 reason: .noContent,
                 requestHolder: nil,
                 noContentIcon: languageIsPersian ? #imageLiteral(resourceName: "bigOrders").withHorizontallyFlippedOrientation() : #imageLiteral(resourceName: "bigOrders"),
-                noContentText: texts(.youHaveNoOrdersYet)
+                noContentText: texts(.youHaveNoOrdersYet),
+                buttons: false
             ))
         }
         else {

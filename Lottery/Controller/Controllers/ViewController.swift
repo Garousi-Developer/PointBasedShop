@@ -4,6 +4,7 @@ import SVPinView
 class ViewController: UIViewController {
     @IBInspectable var firstNavigationShadow: Bool = true
     @IBInspectable var firstKeyboardHandler: Bool = false
+    @IBInspectable var firstPopup: Bool = false
     
     var tapRecognizer: UITapGestureRecognizer!
     var navigationShadowView: View!
@@ -12,11 +13,22 @@ class ViewController: UIViewController {
     var keyboardFrameWillChange = false
     var keyboardEndY: CGFloat!
     var respondersSuperView: UIView!
+    var buttons = false
     
     let refreshControl = RefreshControl()
     
     @objc func viewDidTap() {
-        view.endEditing(true)
+        if firstPopup {
+            let contentView = view.subviews[0] as! View
+            let tappedPoint = tapRecognizer.location(in: view)
+            
+            if !contentView.frame.contains(tappedPoint) {
+                navigateBack()
+            }
+        }
+        else {
+            view.endEditing(true)
+        }
     }
     @objc func textDidBeginEditing(notification: Notification) {
         keyboardFrameWillChange = false
@@ -44,12 +56,11 @@ class ViewController: UIViewController {
 //            }
             guard let firstResponder = firstResponderOrNil, let keyboardEndY = self.keyboardEndY else { return }
             
-            let additionalSpacePositives = keyboardEndY + scrollView.contentOffset.y
+            let additionalSpacePositives = keyboardEndY
             let additionalSpaceNegatives =
                 firstResponderSuperView.convert(firstResponder.frame, to: self.view).maxY +
                 fonts(.medium).firstLineHeight + scale * 2 * 6 + scale * 12
             let additionalSpace = additionalSpacePositives - additionalSpaceNegatives
-            print(additionalSpacePositives, additionalSpaceNegatives)
             
             UIView.animate(withDuration: durations(.interaction), animations: {
                 if additionalSpace < 0 {
@@ -80,12 +91,11 @@ class ViewController: UIViewController {
         } as? TextField
         guard let firstResponder = firstResponderOrNil else { return }
         
-        let additionalSpacePositives = keyboardEndY + scrollView.contentOffset.y
+        let additionalSpacePositives = keyboardEndY!
         let additionalSpaceNegatives =
             firstResponderSuperView.convert(firstResponder.frame, to: self.view).maxY +
             fonts(.medium).firstLineHeight + scale * 2 * 6 + scale * 12
         let additionalSpace = additionalSpacePositives - additionalSpaceNegatives
-        print(additionalSpacePositives, additionalSpaceNegatives)
         
         UIView.animate(withDuration: durations(.interaction), animations: {
             if additionalSpace < 0 {
@@ -128,6 +138,10 @@ class ViewController: UIViewController {
                 name: UITextField.keyboardWillChangeFrameNotification,
                 object: nil
             )
+        }
+        else if firstPopup {
+            tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewDidTap))
+            view.addGestureRecognizer(tapRecognizer)
         }
         
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)

@@ -23,7 +23,8 @@ class FavoritesResponseController: ResponseController {
                 reason: .noContent,
                 requestHolder: nil,
                 noContentIcon: #imageLiteral(resourceName: "bigFavorites"),
-                noContentText: texts(.noItemHasBeenAddedToFavoritesYet)
+                noContentText: texts(.noItemHasBeenAddedToFavoritesYet),
+                buttons: false
             ))
         }
         else {

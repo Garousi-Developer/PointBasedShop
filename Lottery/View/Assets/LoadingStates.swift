@@ -9,7 +9,7 @@ extension Button {
             animateLoading(didComplete: didComplete)
         case .successful:
             animateBack()
-        case .failed(_, _, _, _):
+        case .failed(_, _, _, _, _):
             animateBack()
         }
     }
@@ -94,6 +94,15 @@ extension UIViewController {
 //            )
 //        }
     }
+    @objc private func login(_ sender: Button) {
+        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        let loginViewController = loginStoryboard.instantiateViewController(withIdentifier: "login") as! LoginViewController
+        
+        navigationController!.pushViewController(loginViewController, animated: true)
+    }
+    @objc private func register(_ sender: Button) {
+        navigateTo(.registerFirstStep)
+    }
     
     func setLoadingState(_ loadingState: LoadingState) {
         switch loadingState {
@@ -101,12 +110,12 @@ extension UIViewController {
             animateLoading()
         case .successful:
             animateContent()
-        case .failed(let reason, let requestHolder, let noContentIcon, let noContentText):
+        case .failed(let reason, let requestHolder, let noContentIcon, let noContentText, let buttons):
             switch reason! {
             case .noInternet:
                 animateNoInternet(requestHolder: requestHolder!)
             case .noContent:
-                animateNoContent(icon: noContentIcon!, localizedText: noContentText!)
+                animateNoContent(icon: noContentIcon!, localizedText: noContentText!, buttons: buttons)
             }
         }
     }
@@ -149,7 +158,7 @@ extension UIViewController {
         
         if let noInternetStackView = view.subview(withLayerName: "noInternet") as? StackView {
             let retryButton = noInternetStackView.subview(withLayerName: "retry") as! Button
-            retryButton.setLoadingState(.failed(reason: nil, requestHolder: nil, noContentIcon: nil, noContentText: nil))
+            retryButton.setLoadingState(.failed(reason: nil, requestHolder: nil, noContentIcon: nil, noContentText: nil, buttons: false))
         }
         else {
             let noInternetImageView = ImageView(image: #imageLiteral(resourceName: "noInternet"))
@@ -194,7 +203,7 @@ extension UIViewController {
 //            retryButton.layer.cornerRadius = min(retryWidth, retryHeight) / 2
         }
     }
-    private func animateNoContent(icon: UIImage, localizedText: LocalizedText) {
+    private func animateNoContent(icon: UIImage, localizedText: LocalizedText, buttons: Bool = false) {
         view.removeSubview(withLayerName: "loading")
         view.removeSubview(withLayerName: "noInternet")
         
@@ -208,13 +217,49 @@ extension UIViewController {
         noContentLabel.localizedText = localizedText
         noContentLabel.textColor = colors(.asset)
         
-        let noContentStackView = StackView(arrangedSubviews: [noContentImageView, noContentLabel])
+        let loginButton = Button(type: .custom)
+        loginButton.layer.name = "loginButton"
+        loginButton.setCornerRadius(.medium)
+        loginButton.backgroundColor = colors(.primary)
+        loginButton.setTitleColor(colors(.white), for: .normal)
+        loginButton.setLocalizedTitle(texts(.login), for: .normal)
+        loginButton.firstInteractionAnimationType = InteractionAnimation.bounce
+        loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        
+        let registerButton = Button(type: .custom)
+        registerButton.layer.name = "registerButton"
+        registerButton.setCornerRadius(.medium)
+        registerButton.backgroundColor = colors(.primary)
+        registerButton.setTitleColor(colors(.white), for: .normal)
+        registerButton.setLocalizedTitle(texts(.register), for: .normal)
+        registerButton.firstInteractionAnimationType = InteractionAnimation.bounce
+        registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
+        
+        let noContentStackView: StackView
+        if buttons {
+            noContentStackView = StackView(arrangedSubviews: [noContentImageView, noContentLabel, loginButton, registerButton])
+        }
+        else {
+            noContentStackView = StackView(arrangedSubviews: [noContentImageView, noContentLabel])
+        }
         noContentStackView.layer.name = "noContent"
         noContentStackView.axis = .vertical
         noContentStackView.alignment = .center
         noContentStackView.spacing = 16
+        if buttons {
+            noContentStackView.setCustomSpacing(24, after: noContentLabel)
+            noContentStackView.setCustomSpacing(24, after: loginButton)
+        }
         
         view.addSubview(noContentStackView)
+        loginButton.snp.makeConstraints { (make) in
+            make.width.equalTo(scale * 120)
+            make.height.equalTo(scale * 35)
+        }
+        registerButton.snp.makeConstraints { (make) in
+            make.width.equalTo(scale * 120)
+            make.height.equalTo(scale * 35)
+        }
         noContentStackView.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
@@ -224,7 +269,13 @@ extension UIViewController {
 enum LoadingState {
     case loading
     case successful
-    case failed(reason: LoadingFailureReason!, requestHolder: RequestHolder!, noContentIcon: UIImage!, noContentText: LocalizedText!)
+    case failed(
+        reason: LoadingFailureReason!,
+        requestHolder: RequestHolder!,
+        noContentIcon: UIImage!,
+        noContentText: LocalizedText!,
+        buttons: Bool
+    )
 }
 enum LoadingFailureReason {
     case noInternet

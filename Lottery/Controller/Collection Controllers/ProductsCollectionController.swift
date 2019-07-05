@@ -56,6 +56,11 @@ class ProductsCollectionController: CollectionController {
                 }
             }
         }
+        else {
+            delay(durations(.interaction)) {
+                self.viewController.navigateTo(.popup, transferringData: PopupType.favorites, presenting: true)
+            }
+        }
     }
     @objc func remove(sender: Button) {
         let product = products[sender.tag]
@@ -100,6 +105,11 @@ class ProductsCollectionController: CollectionController {
             delay(durations(.interaction)) {
                 cell.addToCartButton.fadeOut()
                 cell.orderCountStackView.fadeIn()
+            }
+        }
+        else {
+            delay(durations(.interaction)) {
+                self.viewController.navigateTo(.popup, transferringData: PopupType.cart, presenting: true)
             }
         }
     }
@@ -210,7 +220,7 @@ class ProductsCollectionController: CollectionController {
                 )
             }
             else {
-                castedCell.lockStateButton.tintColor = colors(.green)
+                castedCell.lockStateButton.tintColor = colors(.primary)
                 castedCell.lockStateButton.setImage(
                     languageIsPersian ?
                         #imageLiteral(resourceName: "bigUnlocked").withHorizontallyFlippedOrientation().withInsets(UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)) :

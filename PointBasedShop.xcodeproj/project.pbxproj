@@ -96,6 +96,8 @@
 		51902E6822B0EE4400A0241C /* AddressTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51902E6722B0EE4400A0241C /* AddressTableCell.swift */; };
 		51902E6A22B0F1E400A0241C /* AddressesTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51902E6922B0F1E400A0241C /* AddressesTableController.swift */; };
 		51902E6C22B0F27A00A0241C /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51902E6B22B0F27A00A0241C /* Address.swift */; };
+		5190B28322CF5EDA00A9E01F /* UpdateNumberParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5190B28222CF5EDA00A9E01F /* UpdateNumberParameters.swift */; };
+		5190B28522CF5F9500A9E01F /* UpdateNumberResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5190B28422CF5F9500A9E01F /* UpdateNumberResponseController.swift */; };
 		51A0545F2299419E00A37C77 /* iranSansMobilePersianNumerals.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51A0545E2299419D00A37C77 /* iranSansMobilePersianNumerals.ttf */; };
 		51A6A5F522C2B9D5002D3EEE /* OrderDetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A6A5F422C2B9D5002D3EEE /* OrderDetailCollectionCell.swift */; };
 		51A6A5F722C2BB9B002D3EEE /* OrderDetailsCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A6A5F622C2BB9B002D3EEE /* OrderDetailsCollectionController.swift */; };
@@ -103,6 +105,10 @@
 		51A6A5FB22C2BEFF002D3EEE /* OrderDetailsResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A6A5FA22C2BEFF002D3EEE /* OrderDetailsResponseController.swift */; };
 		51B180BA227C01EB00D4F6EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51B180B8227C01EA00D4F6EA /* LaunchScreen.storyboard */; };
 		51B180BB227C01EB00D4F6EA /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51B180B9227C01EB00D4F6EA /* Tabs.storyboard */; };
+		51B25D9722CE2BF50014BF30 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51B25D9622CE2BF50014BF30 /* Popup.storyboard */; };
+		51B25D9922CE31A40014BF30 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B25D9822CE31A40014BF30 /* PopupViewController.swift */; };
+		51B25D9B22CF28820014BF30 /* UpdateProfileParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B25D9A22CF28820014BF30 /* UpdateProfileParameters.swift */; };
+		51B25D9D22CF2BF40014BF30 /* UpdateProfileResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B25D9C22CF2BF40014BF30 /* UpdateProfileResponseController.swift */; };
 		51B365C12298ABC400CF2BA6 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EB0F042278B02500065D9A /* EndPoints.swift */; };
 		51B365C22298ABC400CF2BA6 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EB0F022278A70F00065D9A /* Settings.swift */; };
 		51B365C32298ABC400CF2BA6 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514343AC22787AB300C2170C /* Code.swift */; };
@@ -371,6 +377,8 @@
 		51902E6722B0EE4400A0241C /* AddressTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableCell.swift; sourceTree = "<group>"; };
 		51902E6922B0F1E400A0241C /* AddressesTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesTableController.swift; sourceTree = "<group>"; };
 		51902E6B22B0F27A00A0241C /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		5190B28222CF5EDA00A9E01F /* UpdateNumberParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNumberParameters.swift; sourceTree = "<group>"; };
+		5190B28422CF5F9500A9E01F /* UpdateNumberResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNumberResponseController.swift; sourceTree = "<group>"; };
 		51A0545E2299419D00A37C77 /* iranSansMobilePersianNumerals.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iranSansMobilePersianNumerals.ttf; sourceTree = "<group>"; };
 		51A6A5F422C2B9D5002D3EEE /* OrderDetailCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailCollectionCell.swift; sourceTree = "<group>"; };
 		51A6A5F622C2BB9B002D3EEE /* OrderDetailsCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsCollectionController.swift; sourceTree = "<group>"; };
@@ -401,6 +409,10 @@
 		51B180D2227C313400D4F6EA /* ShadowStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowStyles.swift; sourceTree = "<group>"; };
 		51B180D4227C34DA00D4F6EA /* TextAlignments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlignments.swift; sourceTree = "<group>"; };
 		51B180D6227C38E600D4F6EA /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
+		51B25D9622CE2BF50014BF30 /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
+		51B25D9822CE31A40014BF30 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		51B25D9A22CF28820014BF30 /* UpdateProfileParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileParameters.swift; sourceTree = "<group>"; };
+		51B25D9C22CF2BF40014BF30 /* UpdateProfileResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileResponseController.swift; sourceTree = "<group>"; };
 		51B38562229D25940094B537 /* Container.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Container.storyboard; sourceTree = "<group>"; };
 		51B38564229D267E0094B537 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		51B6F43122C3753A003817CA /* ProfileTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableController.swift; sourceTree = "<group>"; };
@@ -881,6 +893,8 @@
 				51876FC222BBAD1A00D3D6B8 /* AddFavoriteParameters.swift */,
 				51876FC422BBADA900D3D6B8 /* RemoveFavoriteParameters.swift */,
 				51DA0EC122CCCB870028B54D /* InviteParameters.swift */,
+				51B25D9A22CF28820014BF30 /* UpdateProfileParameters.swift */,
+				5190B28222CF5EDA00A9E01F /* UpdateNumberParameters.swift */,
 				51E5974722C8F19400440256 /* AddAddressParameters.swift */,
 			);
 			path = Request;
@@ -1012,6 +1026,7 @@
 				517D38C122AE97A9003BA62A /* Awards */,
 				517D38C222AE97B2003BA62A /* Orders */,
 				517D38C322AE97B9003BA62A /* Profile */,
+				51B25D9622CE2BF50014BF30 /* Popup.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -1058,6 +1073,7 @@
 				517D38BF22AE9786003BA62A /* Awards */,
 				517D38C522AE97F3003BA62A /* Orders */,
 				517D38C622AE97FA003BA62A /* Profile */,
+				51B25D9822CE31A40014BF30 /* PopupViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -1087,6 +1103,8 @@
 				51DA0EC322CCCD280028B54D /* InviteResponseController.swift */,
 				51BDCDD122C1E768000F9158 /* FavoritesResponseController.swift */,
 				51BDCDD322C20027000F9158 /* AddAllToCartResponseController.swift */,
+				51B25D9C22CF2BF40014BF30 /* UpdateProfileResponseController.swift */,
+				5190B28422CF5F9500A9E01F /* UpdateNumberResponseController.swift */,
 				51E5974922C8FEEB00440256 /* AddressesResponseController.swift */,
 				512D6C4E22CA039300FFE7AB /* AddAddressResponseController.swift */,
 			);
@@ -1269,6 +1287,7 @@
 				51CE6E342281FAC60051B91E /* Awards.storyboard in Resources */,
 				51A0545F2299419E00A37C77 /* iranSansMobilePersianNumerals.ttf in Resources */,
 				516FB32C22ABE8A20097DE9D /* FilterResults.storyboard in Resources */,
+				51B25D9722CE2BF50014BF30 /* Popup.storyboard in Resources */,
 				514343A822783D2B00C2170C /* Settings.plist in Resources */,
 				51F9F67222C77CB800F3F385 /* ProfileSettings.storyboard in Resources */,
 				51CE6E7222841ECD0051B91E /* Images.xcassets in Resources */,
@@ -1408,6 +1427,7 @@
 				51268CD622B609B300B8D2F8 /* ShoppingCenterDetails.swift in Sources */,
 				51D311E522BD48BF00F9DD2A /* OrderData.swift in Sources */,
 				518A373722B8C651004FEAC7 /* BrandDetails.swift in Sources */,
+				51B25D9B22CF28820014BF30 /* UpdateProfileParameters.swift in Sources */,
 				51B38565229D267E0094B537 /* ContainerViewController.swift in Sources */,
 				5171B46C22A694A3007B0E3F /* RegisterFirstStepViewController.swift in Sources */,
 				51CE242022A0FEA0007A1EB2 /* ProgressView.swift in Sources */,
@@ -1443,6 +1463,7 @@
 				517D38CA22AE98A0003BA62A /* OrdersViewController.swift in Sources */,
 				51A6A5F522C2B9D5002D3EEE /* OrderDetailCollectionCell.swift in Sources */,
 				517E6B7722B4FC150087A919 /* HomeResponseController.swift in Sources */,
+				51B25D9922CE31A40014BF30 /* PopupViewController.swift in Sources */,
 				51F79DE222B90A1D0094F9A7 /* CheckInResponseController.swift in Sources */,
 				51DA0EC422CCCD280028B54D /* InviteResponseController.swift in Sources */,
 				51B365D82298ABC400CF2BA6 /* Texts.swift in Sources */,
@@ -1498,6 +1519,7 @@
 				51B365E52298ABC400CF2BA6 /* TextLayer.swift in Sources */,
 				517E6B6922B4E3390087A919 /* RegisterFirstStepResponseController.swift in Sources */,
 				51B365E62298ABC400CF2BA6 /* Button.swift in Sources */,
+				5190B28322CF5EDA00A9E01F /* UpdateNumberParameters.swift in Sources */,
 				518A373322B8ADDF004FEAC7 /* ClaimPointsParameters.swift in Sources */,
 				51B365E72298ABC400CF2BA6 /* CollectionCell.swift in Sources */,
 				51C9133E22A97D6400B62ACB /* FirstActiveLabel.swift in Sources */,
@@ -1511,6 +1533,7 @@
 				514A6D9A22AFD5C600E0EE11 /* ResponseController.swift in Sources */,
 				51B365EA2298ABC400CF2BA6 /* Label.swift in Sources */,
 				51E9297822BA65A600F5E846 /* Cart.swift in Sources */,
+				5190B28522CF5F9500A9E01F /* UpdateNumberResponseController.swift in Sources */,
 				51F78A4022A151D300EA78D8 /* ScrollController.swift in Sources */,
 				51B365EB2298ABC400CF2BA6 /* NavigationItem.swift in Sources */,
 				512B681022B17793004A0934 /* Differences.swift in Sources */,
@@ -1561,6 +1584,7 @@
 				514662E122C0F85E0023CD04 /* FinalizeViewController.swift in Sources */,
 				51C003BC22A5CDF5002B30C8 /* PinView.swift in Sources */,
 				51B365FA2298ABC400CF2BA6 /* DynamicTableCell.swift in Sources */,
+				51B25D9D22CF2BF40014BF30 /* UpdateProfileResponseController.swift in Sources */,
 				516FB32822ABE7A60097DE9D /* FilterViewController.swift in Sources */,
 				51B365FB2298ABC400CF2BA6 /* BottomStaticTableCell.swift in Sources */,
 				513E0F0F22C15B030001FE23 /* ProductScrollController.swift in Sources */,

@@ -33,5 +33,14 @@ class OrdersViewController: ViewController {
             refreshControl.containerView = collectionView
             refreshControl.requestHolder = responseController.requestHolder
         }
+        else {
+            setLoadingState(.failed(
+                reason: .noContent,
+                requestHolder: nil,
+                noContentIcon: languageIsPersian ? #imageLiteral(resourceName: "bigOrders").withHorizontallyFlippedOrientation() : #imageLiteral(resourceName: "bigOrders"),
+                noContentText: texts(.loginForActivation),
+                buttons: true
+            ))
+        }
     }
 }

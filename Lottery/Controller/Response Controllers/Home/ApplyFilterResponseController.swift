@@ -23,7 +23,8 @@ class ApplyFilterResponseController: ResponseController {
                 reason: .noContent,
                 requestHolder: nil,
                 noContentIcon: #imageLiteral(resourceName: "product"),
-                noContentText: texts(.noProductFound)
+                noContentText: texts(.noProductFound),
+                buttons: false
             ))
         }
         else {

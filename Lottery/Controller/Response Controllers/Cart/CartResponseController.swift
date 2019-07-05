@@ -18,7 +18,8 @@ class CartResponseController: ResponseController {
                     reason: .noContent,
                     requestHolder: nil,
                     noContentIcon: languageIsPersian ? #imageLiteral(resourceName: "bigCart").withHorizontallyFlippedOrientation() : #imageLiteral(resourceName: "bigCart"),
-                    noContentText: texts(.yourCartIsEmpty)
+                    noContentText: texts(.yourCartIsEmpty),
+                    buttons: false
                 ))
             }
             else {

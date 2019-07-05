@@ -217,7 +217,7 @@ extension ProfileTableController: UITableViewDelegate {
                 completion: nil
             )
         case IndexPath(row: 1, section: 1):
-            viewController.navigateTo(.profileSettings)
+            viewController.navigateTo(.profileSettings, transferringData: profile)
         case IndexPath(row: 6, section: 2):
             let activityViewController = UIActivityViewController(
                 activityItems: [languageIsPersian ? texts(.shareText).persian : texts(.shareText).english],

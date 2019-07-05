@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0iH-vz-zdZ">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="oHI-d8-6hd">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="0iH-vz-zdZ" userLabel="View Controller" customClass="PopupViewController" customModule="PointBasedShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="54k-tY-Woc" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJo-au-8p7" userLabel="Content View" customClass="View" customModule="PointBasedShop" customModuleProvider="target">
+                                <rect key="frame" x="12" y="348" width="390" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="jgF-xn-wPu" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="medium"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sJo-au-8p7" firstAttribute="centerX" secondItem="54k-tY-Woc" secondAttribute="centerX" id="Ng4-Rv-Cnx" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="sJo-au-8p7" firstAttribute="centerY" secondItem="54k-tY-Woc" secondAttribute="centerY" id="aOT-Ip-TjY" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="zbU-CZ-MkM" firstAttribute="trailing" secondItem="sJo-au-8p7" secondAttribute="trailing" constant="12" id="ahf-P6-bpa" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                            <constraint firstItem="sJo-au-8p7" firstAttribute="leading" secondItem="zbU-CZ-MkM" secondAttribute="leading" constant="12" id="mAC-OG-YrG" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zbU-CZ-MkM"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="transparentBlack"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="firstPopup" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dvR-yX-2Hy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="99" y="74"/>
+        </scene>
+    </scenes>
+</document>

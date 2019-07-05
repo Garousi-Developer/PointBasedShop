@@ -41,6 +41,15 @@ class CartViewController: ViewController {
             refreshControl.containerView = scrollView
             refreshControl.requestHolder = cartResponseController.requestHolder
         }
+        else {
+            setLoadingState(.failed(
+                reason: .noContent,
+                requestHolder: nil,
+                noContentIcon: languageIsPersian ? #imageLiteral(resourceName: "bigCart").withHorizontallyFlippedOrientation() : #imageLiteral(resourceName: "bigCart"),
+                noContentText: texts(.loginForActivation),
+                buttons: true
+            ))
+        }
     }
 }
 

@@ -200,6 +200,11 @@ func endPoints(_ endPointName: EndPointName) -> EndPoint {
             method: .delete,
             url: "/addresses/\(id)"
         )
+    case .simpleProfile:
+        return EndPoint(
+            url: "/profile/social-links",
+            response: SimpleProfile.self
+        )
     
     // Favorites:
     case .addFavorite(let parameters):
@@ -274,6 +279,7 @@ enum EndPointName {
     case addAddress(parameters: AddAddressParameters)
     case editAddress(id: Int, parameters: AddAddressParameters)
     case removeAddress(id: Int)
+    case simpleProfile
     
     // Favorites:
     case addFavorite(parameters: AddFavoriteParameters)

@@ -2,6 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.first.loyalty</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb</string>
+				<string>instagram</string>
+				<string>twitter</string>
+				<string>linkedin</string>
+				<string>youtube</string>
+			</array>
+		</dict>
+	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>موقعیت مکانی شما برای نمایش نزدیک ترین پیشنهادات استفاده می شود</string>
 	<key>CFBundleDevelopmentRegion</key>

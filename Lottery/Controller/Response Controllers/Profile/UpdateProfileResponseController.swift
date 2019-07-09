@@ -6,11 +6,6 @@ class UpdateProfileResponseController: ResponseController {
         
         let castedViewController = viewController as! ProfileSettingsViewController
         
-        castedViewController.profile.firstName = castedViewController.updateProfileParameters.firstName
-        castedViewController.profile.lastName = castedViewController.updateProfileParameters.lastName
-        castedViewController.profile.email = castedViewController.updateProfileParameters.email
-        castedViewController.profile.mobileNumber = castedViewController.updateProfileParameters.mobileNumber
-        
         castedViewController.saveChangesButton.setLoadingState(.successful)
         castedViewController.resultLabel.textColor = colors(.green)
         castedViewController.resultLabel.localizedText = texts(.yourInformationSuccessfullyUpdated)

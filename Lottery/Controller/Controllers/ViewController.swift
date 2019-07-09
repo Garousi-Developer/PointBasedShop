@@ -50,10 +50,6 @@ class ViewController: UIViewController {
             let firstResponderOrNil = firstResponderSuperView.subviews.first { (subview) in
                 return subview.isFirstResponder
             } as? UITextField
-//            if notification.object is SVPinField {
-//                firstResponderSuperView = (notification.object as! SVPinField).superview!
-//                firstResponderOrNil = notification.object as! SVPinField
-//            }
             guard let firstResponder = firstResponderOrNil, let keyboardEndY = self.keyboardEndY else { return }
             
             let additionalSpacePositives = keyboardEndY

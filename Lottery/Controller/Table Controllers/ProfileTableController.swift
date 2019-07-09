@@ -1,3 +1,4 @@
+import SafariServices
 import UIKit
 import BetterSegmentedControl
 import SnapKit
@@ -35,6 +36,36 @@ class ProfileTableController: SecondaryController {
         default:
             break
         }
+    }
+    @objc func goToFacebookPage() {
+        let url = "fb://profile/\(profile.facebook)"
+        let fallbackURL = "https://facebook.com/\(profile.facebook)"
+        
+        openApp(withURL: url, andFallbackURL: fallbackURL)
+    }
+    @objc func goToInstagramPage() {
+        let url = "instagram://user?username=\(profile.instagram)"
+        let fallbackURL = "https://instagram.com/\(profile.instagram)"
+        
+        openApp(withURL: url, andFallbackURL: fallbackURL)
+    }
+    @objc func goToTwitterPage() {
+        let url = "twitter://user?screen_name=\(profile.twitter)"
+        let fallbackURL = "https://twitter.com/\(profile.twitter)"
+        
+        openApp(withURL: url, andFallbackURL: fallbackURL)
+    }
+    @objc func goToLinkedinPage() {
+        let url = "linkedin://profile/\(profile.linkedin)"
+        let fallbackURL = "https://linkedin.com/in/\(profile.linkedin)"
+        
+        openApp(withURL: url, andFallbackURL: fallbackURL)
+    }
+    @objc func goToYoutubePage() {
+        let url = "youtube://\(profile.youtube)"
+        let fallbackURL = "https://youtube.com/\(profile.youtube)"
+        
+        openApp(withURL: url, andFallbackURL: fallbackURL)
     }
     
     func animateInteraction(_ tableCell: TableCell) {
@@ -79,7 +110,7 @@ extension ProfileTableController: UITableViewDataSource {
         return 3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfRowsList = [4, 2, 8]
+        let numberOfRowsList = [4, 2, 9]
         
         return numberOfRowsList[section]
     }
@@ -88,7 +119,7 @@ extension ProfileTableController: UITableViewDataSource {
         let titles = [
             [texts(.userLevelAndPoints), texts(.favorites), texts(.inviteYourFriendsAndEarnPoints), texts(.logout)],
             [texts(.language), texts(.profileSettings)],
-            [texts(.howItWorks), texts(.aboutUs), texts(.contactUs), texts(.support), texts(.userAgreement), texts(.privacyPolicy), texts(.share)]
+            [texts(.faq), texts(.howItWorks), texts(.aboutUs), texts(.contactUs), texts(.support), texts(.userAgreement), texts(.privacyPolicy), texts(.share)]
         ]
         
         switch indexPath {
@@ -111,11 +142,9 @@ extension ProfileTableController: UITableViewDataSource {
             
             cell.optionLabel.localizedText = titles[indexPath.section][indexPath.row]
             cell.userLevelLabel.localizedText = userLevel
-//            cell.userLevelLabel.text = languageIsPersian ? "کاربر طلایی" : "Golden User"
             cell.pointsLabel.text = languageIsPersian ?
-                "\(Int(profile.userPoints)!.priceFormatted) \(texts(.points).persian)" :
-                "\(Int(profile.userPoints)!.priceFormatted) \(texts(.points).english)"
-//            cell.pointsLabel.text = languageIsPersian ? "۱٬۰۰۰ امتیاز" : "1,000 Points"
+                "\(Int(Double(profile.userPoints)!).priceFormatted) \(texts(.points).persian)" :
+                "\(Int(Double(profile.userPoints)!).priceFormatted) \(texts(.points).english)"
             
             return cell
         case IndexPath(row: 3, section: 0):
@@ -125,7 +154,6 @@ extension ProfileTableController: UITableViewDataSource {
             cell.nameLabel.text = languageIsPersian ?
                 "\(texts(.signedInAs).persian) \(profile.firstName) \(profile.lastName)" :
                 "\(texts(.signedInAs).english) \(profile.firstName) \(profile.lastName)"
-//            cell.nameLabel.text = languageIsPersian ? "وارد شده به عنوان آرمان گروسی" : "Signed in as Arman Garousi"
             
             return cell
         case IndexPath(row: 0, section: 1):
@@ -144,8 +172,14 @@ extension ProfileTableController: UITableViewDataSource {
             cell.segmentedControl.addTarget(self, action: #selector(languageDidChange), for: .valueChanged)
             
             return cell
-        case IndexPath(row: 7, section: 2):
+        case IndexPath(row: 8, section: 2):
             let cell = tableView.dequeueReusableCell(withIdentifier: "social", for: indexPath) as! SocialProfileTableCell
+            
+            cell.facebookButton.addTarget(self, action: #selector(goToFacebookPage), for: .touchUpInside)
+            cell.instagramButton.addTarget(self, action: #selector(goToInstagramPage), for: .touchUpInside)
+            cell.twitterButton.addTarget(self, action: #selector(goToTwitterPage), for: .touchUpInside)
+            cell.linkedInButton.addTarget(self, action: #selector(goToLinkedinPage), for: .touchUpInside)
+            cell.youtubeButton.addTarget(self, action: #selector(goToYoutubePage), for: .touchUpInside)
             
             return cell
         default:
@@ -161,7 +195,6 @@ extension ProfileTableController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return fonts(.extraLarge).firstLineHeight
-//            return fonts(.extraLarge).firstLineHeight + scale * 2 * 12
         }
         else {
             return fonts(.extraLarge).firstLineHeight + scale * 2 * 12
@@ -176,7 +209,6 @@ extension ProfileTableController: UITableViewDelegate {
         titleLabel.textColor = colors(.darkAsset)
         if section == 0 {
             titleLabel.text = languageIsPersian ? "\(titles[section].persian) \(profile.firstName)" : "\(titles[section].english) \(profile.firstName)"
-//            titleLabel.text = languageIsPersian ? "\(titles[section].persian) آرمان" : "\(titles[section].english) Arman"
         }
         else {
             titleLabel.localizedText = titles[section]
@@ -186,7 +218,6 @@ extension ProfileTableController: UITableViewDelegate {
         titleLabel.snp.makeConstraints { (make) in
             if section == 0 {
                 make.centerY.equalToSuperview().offset(scale * -12)
-//                make.centerY.equalToSuperview()
             }
             else {
                 make.centerY.equalToSuperview()
@@ -217,8 +248,8 @@ extension ProfileTableController: UITableViewDelegate {
                 completion: nil
             )
         case IndexPath(row: 1, section: 1):
-            viewController.navigateTo(.profileSettings, transferringData: profile)
-        case IndexPath(row: 6, section: 2):
+            viewController.navigateTo(.profileSettings)
+        case IndexPath(row: 7, section: 2):
             let activityViewController = UIActivityViewController(
                 activityItems: [languageIsPersian ? texts(.shareText).persian : texts(.shareText).english],
                 applicationActivities: nil
@@ -227,7 +258,14 @@ extension ProfileTableController: UITableViewDelegate {
             
             viewController.present(activityViewController, animated: true, completion: nil)
         default:
-            break
+            if indexPath.section == 2 && indexPath.row != 8 {
+                var url = "https://mallsconnect.com"
+                languageIsPersian ? url.append("/fa") : url.append("/en")
+                let urls = ["/faq", "/how-it-work", "/about-us", "/contact-us", "/support", "/user-agreement", "/policy"]
+                url.append(urls[indexPath.row])
+                
+                presentSafariViewController(withURL: url)
+            }
         }
     }
     
@@ -281,6 +319,27 @@ extension ProfileTableController: UIScrollViewDelegate {
         if interactionAnimationIsReversible {
             interactionAnimationIsReversible = false
             reverseInteractionAnimator.startAnimation()
+        }
+    }
+}
+
+extension ProfileTableController {
+    private func presentSafariViewController(withURL urlString: String) {
+        let url = URL(string: urlString)!
+        let safariViewController = SFSafariViewController(url: url)
+        safariViewController.dismissButtonStyle = .close
+        
+        viewController.present(safariViewController, animated: true, completion: nil)
+    }
+    private func openApp(withURL urlString: String, andFallbackURL fallbackURLString: String) {
+        let url = URL(string: urlString)!
+        let fallbackURL = URL(string: fallbackURLString)!
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        else {
+            UIApplication.shared.open(fallbackURL, options: [:], completionHandler: nil)
         }
     }
 }

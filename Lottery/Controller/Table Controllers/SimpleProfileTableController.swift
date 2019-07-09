@@ -1,3 +1,4 @@
+import SafariServices
 import UIKit
 import BetterSegmentedControl
 import SnapKit
@@ -9,6 +10,7 @@ class SimpleProfileTableController: SecondaryController {
             tableView.reloadData()
         }
     }
+    var profile: SimpleProfile!
     
     var isFirstTime = true
     
@@ -47,6 +49,36 @@ class SimpleProfileTableController: SecondaryController {
         default:
             break
         }
+    }
+    @objc func goToFacebookPage() {
+        let url = "fb://profile/\(profile.facebook)"
+        let fallbackURL = "https://facebook.com/\(profile.facebook)"
+        
+        openApp(withURL: url, andFallbackURL: fallbackURL)
+    }
+    @objc func goToInstagramPage() {
+        let url = "instagram://user?username=\(profile.instagram)"
+        let fallbackURL = "https://instagram.com/\(profile.instagram)"
+        
+        openApp(withURL: url, andFallbackURL: fallbackURL)
+    }
+    @objc func goToTwitterPage() {
+        let url = "twitter://user?screen_name=\(profile.twitter)"
+        let fallbackURL = "https://twitter.com/\(profile.twitter)"
+        
+        openApp(withURL: url, andFallbackURL: fallbackURL)
+    }
+    @objc func goToLinkedinPage() {
+        let url = "linkedin://profile/\(profile.linkedin)"
+        let fallbackURL = "https://linkedin.com/in/\(profile.linkedin)"
+        
+        openApp(withURL: url, andFallbackURL: fallbackURL)
+    }
+    @objc func goToYoutubePage() {
+        let url = "youtube://\(profile.youtube)"
+        let fallbackURL = "https://youtube.com/\(profile.youtube)"
+        
+        openApp(withURL: url, andFallbackURL: fallbackURL)
     }
     
     func animateInteraction(_ tableCell: TableCell) {
@@ -91,7 +123,7 @@ extension SimpleProfileTableController: UITableViewDataSource {
         return 3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfRowsList = [1, 1, 8]
+        let numberOfRowsList = [1, 1, 9]
         
         return numberOfRowsList[section]
     }
@@ -100,7 +132,7 @@ extension SimpleProfileTableController: UITableViewDataSource {
         let titles = [
             [texts(.register)],
             [texts(.language)],
-            [texts(.howItWorks), texts(.aboutUs), texts(.contactUs), texts(.support), texts(.userAgreement), texts(.privacyPolicy), texts(.share)]
+            [texts(.faq), texts(.howItWorks), texts(.aboutUs), texts(.contactUs), texts(.support), texts(.userAgreement), texts(.privacyPolicy), texts(.share)]
         ]
         
         switch indexPath {
@@ -130,8 +162,14 @@ extension SimpleProfileTableController: UITableViewDataSource {
             cell.segmentedControl.addTarget(self, action: #selector(languageDidChange), for: .valueChanged)
             
             return cell
-        case IndexPath(row: 7, section: 2):
+        case IndexPath(row: 8, section: 2):
             let cell = tableView.dequeueReusableCell(withIdentifier: "social", for: indexPath) as! SocialProfileTableCell
+            
+            cell.facebookButton.addTarget(self, action: #selector(goToFacebookPage), for: .touchUpInside)
+            cell.instagramButton.addTarget(self, action: #selector(goToInstagramPage), for: .touchUpInside)
+            cell.twitterButton.addTarget(self, action: #selector(goToTwitterPage), for: .touchUpInside)
+            cell.linkedInButton.addTarget(self, action: #selector(goToLinkedinPage), for: .touchUpInside)
+            cell.youtubeButton.addTarget(self, action: #selector(goToYoutubePage), for: .touchUpInside)
             
             return cell
         default:
@@ -145,7 +183,12 @@ extension SimpleProfileTableController: UITableViewDataSource {
 }
 extension SimpleProfileTableController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return fonts(.extraLarge).firstLineHeight + scale * 2 * 12
+        if section == 0 {
+            return fonts(.extraLarge).firstLineHeight
+        }
+        else {
+            return fonts(.extraLarge).firstLineHeight + scale * 2 * 12
+        }
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let titles = [texts(.welcome), texts(.settings), texts(.general)]
@@ -158,7 +201,12 @@ extension SimpleProfileTableController: UITableViewDelegate {
         
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
+            if section == 0 {
+                make.centerY.equalToSuperview().offset(scale * -12)
+            }
+            else {
+                make.centerY.equalToSuperview()
+            }
             make.trailing.equalToSuperview().offset(scale * -12)
         }
         
@@ -167,7 +215,7 @@ extension SimpleProfileTableController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
-        case IndexPath(row: 6, section: 2):
+        case IndexPath(row: 7, section: 2):
             let activityViewController = UIActivityViewController(
                 activityItems: [languageIsPersian ? texts(.shareText).persian : texts(.shareText).english],
                 applicationActivities: nil
@@ -176,7 +224,14 @@ extension SimpleProfileTableController: UITableViewDelegate {
             
             viewController.present(activityViewController, animated: true, completion: nil)
         default:
-            break
+            if indexPath.section == 2 && indexPath.row != 8 {
+                var url = "https://mallsconnect.com"
+                languageIsPersian ? url.append("/fa") : url.append("/en")
+                let urls = ["/faq", "/how-it-work", "/about-us", "/contact-us", "/support", "/user-agreement", "/policy"]
+                url.append(urls[indexPath.row])
+                
+                presentSafariViewController(withURL: url)
+            }
         }
     }
     
@@ -230,6 +285,27 @@ extension SimpleProfileTableController: UIScrollViewDelegate {
         if interactionAnimationIsReversible {
             interactionAnimationIsReversible = false
             reverseInteractionAnimator.startAnimation()
+        }
+    }
+}
+
+extension SimpleProfileTableController {
+    private func presentSafariViewController(withURL urlString: String) {
+        let url = URL(string: urlString)!
+        let safariViewController = SFSafariViewController(url: url)
+        safariViewController.dismissButtonStyle = .close
+        
+        viewController.present(safariViewController, animated: true, completion: nil)
+    }
+    private func openApp(withURL urlString: String, andFallbackURL fallbackURLString: String) {
+        let url = URL(string: urlString)!
+        let fallbackURL = URL(string: fallbackURLString)!
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        else {
+            UIApplication.shared.open(fallbackURL, options: [:], completionHandler: nil)
         }
     }
 }

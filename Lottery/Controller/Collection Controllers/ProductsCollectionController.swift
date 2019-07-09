@@ -213,13 +213,17 @@ class ProductsCollectionController: CollectionController {
         
         if UserDefaults.standard.string(forKey: "token") != nil {
             if product.isLocked {
+                castedCell.alpha = 0.5
                 castedCell.lockStateButton.tintColor = colors(.highlightedAsset)
                 castedCell.lockStateButton.setImage(
                     #imageLiteral(resourceName: "bigLocked").withInsets(UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)),
                     for: .normal
                 )
+                castedCell.addToCartButton.disable(animated: false)
+                castedCell.incrementButton.disable(animated: false)
             }
             else {
+                castedCell.alpha = 1
                 castedCell.lockStateButton.tintColor = colors(.primary)
                 castedCell.lockStateButton.setImage(
                     languageIsPersian ?
@@ -227,6 +231,8 @@ class ProductsCollectionController: CollectionController {
                         #imageLiteral(resourceName: "bigUnlocked").withInsets(UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)),
                     for: .normal
                 )
+                castedCell.addToCartButton.enable(animated: false)
+                castedCell.incrementButton.enable(animated: false)
             }
             if product.isFavorite {
                 castedCell.favoriteButton.tintColor = colors(.red)

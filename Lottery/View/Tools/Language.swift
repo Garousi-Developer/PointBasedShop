@@ -1,3 +1,4 @@
+import SafariServices
 import UIKit
 
 var languageIsPersian: Bool {
@@ -27,6 +28,7 @@ func switchToEnglish() {
     UIProgressView.appearance().semanticContentAttribute = .forceLeftToRight
     UISearchBar.appearance().semanticContentAttribute = .forceLeftToRight
     UISwitch.appearance().semanticContentAttribute = .forceLeftToRight
+    UIView.appearance(whenContainedInInstancesOf: [SFSafariViewController.self]).semanticContentAttribute = .forceLeftToRight
     
     UICollectionView.appearance(whenContainedInInstancesOf: [PinView.self]).semanticContentAttribute = .forceLeftToRight
 }
@@ -41,6 +43,7 @@ func switchToPersian() {
     UIProgressView.appearance().semanticContentAttribute = .forceRightToLeft
     UISearchBar.appearance().semanticContentAttribute = .forceRightToLeft
     UISwitch.appearance().semanticContentAttribute = .forceRightToLeft
+    UIView.appearance(whenContainedInInstancesOf: [SFSafariViewController.self]).semanticContentAttribute = .forceRightToLeft
     
     UICollectionView.appearance(whenContainedInInstancesOf: [PinView.self]).semanticContentAttribute = .forceLeftToRight
 }
@@ -51,7 +54,4 @@ extension UIViewController {
         
         navigationController?.view.semanticContentAttribute = languageIsPersian ? .forceRightToLeft : .forceLeftToRight
     }
-}
-extension PinView {
-    
 }

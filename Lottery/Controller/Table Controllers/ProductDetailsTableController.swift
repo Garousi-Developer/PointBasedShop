@@ -10,7 +10,7 @@ class ProductDetailsTableController: TableController {
         let castedCell = cell as! ProductDetailTableCell
         let spec = specs[indexPath.row]
         
-        castedCell.keyLabel.text = spec.key
-        castedCell.valueLabel.text = spec.value
+        castedCell.keyLabel.text = languageIsPersian ? spec.persianKey : spec.englishKey
+        castedCell.valueLabel.text = languageIsPersian ? spec.persianValue : spec.englishValue
     }
 }

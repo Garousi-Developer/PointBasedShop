@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عنوان گزینه" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaL-bR-7Gg" userLabel="Option Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="320" y="12" width="70" height="20"/>
+                                                    <rect key="frame" x="313" y="12.000000000000002" width="77" height="19.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3za-BY-UR5" userLabel="Register Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="340" y="12" width="50" height="20"/>
+                                                    <rect key="frame" x="340" y="12.000000000000002" width="50" height="19.666666666666671"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="1Kv-5s-ZOp" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     </constraints>
@@ -69,7 +69,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AH8-Rg-OwC" userLabel="Or Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="324" y="12" width="10" height="20"/>
+                                                    <rect key="frame" x="292.33333333333331" y="12" width="41.666666666666686" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fK4-UP-4lR" userLabel="Login Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="288" y="6" width="30" height="32"/>
+                                                    <rect key="frame" x="256.33333333333331" y="5" width="30" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="HoO-AR-XeW" customClass="FirstConstraint" customModule="PointBasedShop" customModuleProvider="target"/>
                                                     </constraints>
@@ -117,7 +117,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sl5-Gw-moc" userLabel="Option Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="263.66666666666669" y="12" width="126.33333333333331" height="20"/>
+                                                    <rect key="frame" x="348.33333333333331" y="12.000000000000002" width="41.666666666666686" height="19.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -126,7 +126,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سطح کاربر" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZ4-Vy-DC3" userLabel="User Level Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="102.33333333333331" y="12" width="64.666666666666686" height="20"/>
+                                                    <rect key="frame" x="110" y="12.000000000000002" width="69.666666666666686" height="19.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -135,7 +135,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="۱٫۰۰۰ امتیاز" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BY9-Lt-hqw" userLabel="Points Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="24" y="12" width="66.333333333333329" height="20"/>
+                                                    <rect key="frame" x="24" y="12.000000000000002" width="74" height="19.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -170,7 +170,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="200" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oA4-GR-bFb" userLabel="Option Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="355.33333333333331" y="12.000000000000002" width="34.666666666666686" height="28.666666666666671"/>
+                                                    <rect key="frame" x="348.33333333333331" y="11.999999999999998" width="41.666666666666686" height="24.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -179,7 +179,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="300" verticalHuggingPriority="251" text="وارد شده به عنوان آرمان گروسی" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8D-7a-3qg" userLabel="Name Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="227.33333333333337" y="46.666666666666664" width="162.66666666666663" height="16.333333333333336"/>
+                                                    <rect key="frame" x="180" y="42.333333333333336" width="210" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -210,7 +210,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="200" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ku-fW-k6P" userLabel="Option Label" customClass="Label" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="364.66666666666669" y="19.666666666666668" width="25.333333333333314" height="20.000000000000004"/>
+                                                    <rect key="frame" x="348.33333333333331" y="19.333333333333332" width="41.666666666666686" height="19.999999999999996"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -248,7 +248,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Gaa-gI-IQa" customClass="StackView" customModule="PointBasedShop" customModuleProvider="target">
-                                                    <rect key="frame" x="210" y="12" width="180" height="36"/>
+                                                    <rect key="frame" x="162" y="12" width="228" height="36"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBZ-R9-tG1" userLabel="Facebook Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
@@ -298,6 +298,18 @@
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="firstTintColor" value="white"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Sf-fl-PVY" userLabel="Youtube Button" customClass="Button" customModule="PointBasedShop" customModuleProvider="target">
+                                                            <rect key="frame" x="192" y="0.0" width="36" height="36"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="36" id="PvH-UU-Q5T"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button" image="youtube"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="firstCornerRadius" value="half"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="firstBackgroundColor" value="asset"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="firstTintColor" value="white"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="Xoc-UG-xpo"/>
@@ -315,6 +327,7 @@
                                             <outlet property="instagramButton" destination="iis-w2-kJi" id="PGV-V6-W8X"/>
                                             <outlet property="linkedInButton" destination="2UT-Ug-RMF" id="xm4-ZG-bdW"/>
                                             <outlet property="twitterButton" destination="PmA-oT-T3C" id="L6C-5w-3jf"/>
+                                            <outlet property="youtubeButton" destination="9Sf-fl-PVY" id="cfO-fn-VIw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -352,5 +365,6 @@
         <image name="instagram" width="24" height="24"/>
         <image name="linkedIn" width="24" height="24"/>
         <image name="twitter" width="24" height="24"/>
+        <image name="youtube" width="24" height="24"/>
     </resources>
 </document>

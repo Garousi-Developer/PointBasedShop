@@ -672,6 +672,11 @@ func texts(_ text: Text) -> LocalizedText {
             persian: "عمومی",
             english: "General"
         )
+    case .faq:
+        return LocalizedText(
+            persian: "سوالات متداول",
+            english: "FAQ"
+        )
     case .howItWorks:
         return LocalizedText(
             persian: "چطور کار می کند",
@@ -745,6 +750,11 @@ func texts(_ text: Text) -> LocalizedText {
         return LocalizedText(
             persian: "حساب کاربری",
             english: "Account"
+        )
+    case .memberSince:
+        return LocalizedText(
+            persian: "عضو از",
+            english: "Member Since"
         )
     case .email:
         return LocalizedText(
@@ -972,6 +982,7 @@ enum Text: String {
     case persian
     case english
     case general
+    case faq
     case howItWorks
     case aboutUs
     case contactUs
@@ -990,6 +1001,7 @@ enum Text: String {
     // Profile Settings:
     case profileSettings
     case account
+    case memberSince
     case email
     case verify
     case saveChanges

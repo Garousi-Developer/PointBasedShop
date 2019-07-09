@@ -103,6 +103,8 @@
 		51A6A5F722C2BB9B002D3EEE /* OrderDetailsCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A6A5F622C2BB9B002D3EEE /* OrderDetailsCollectionController.swift */; };
 		51A6A5F922C2BC12002D3EEE /* OrderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A6A5F822C2BC12002D3EEE /* OrderDetails.swift */; };
 		51A6A5FB22C2BEFF002D3EEE /* OrderDetailsResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A6A5FA22C2BEFF002D3EEE /* OrderDetailsResponseController.swift */; };
+		51B12B3422D45BCA00755B67 /* SimpleProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B12B3322D45BCA00755B67 /* SimpleProfile.swift */; };
+		51B12B3622D45CF400755B67 /* SimpleProfileResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B12B3522D45CF400755B67 /* SimpleProfileResponseController.swift */; };
 		51B180BA227C01EB00D4F6EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51B180B8227C01EA00D4F6EA /* LaunchScreen.storyboard */; };
 		51B180BB227C01EB00D4F6EA /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51B180B9227C01EB00D4F6EA /* Tabs.storyboard */; };
 		51B25D9722CE2BF50014BF30 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51B25D9622CE2BF50014BF30 /* Popup.storyboard */; };
@@ -212,6 +214,7 @@
 		51D374AB22AB7E550000FD36 /* RetrievePasswordSecondStep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D374AA22AB7E550000FD36 /* RetrievePasswordSecondStep.storyboard */; };
 		51D374AD22AB84750000FD36 /* RetrievePasswordThirdStep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D374AC22AB84750000FD36 /* RetrievePasswordThirdStep.storyboard */; };
 		51D374AF22AB84B90000FD36 /* RetrievePasswordThirdStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D374AE22AB84B90000FD36 /* RetrievePasswordThirdStepViewController.swift */; };
+		51D57DC322D10CB800C6E253 /* AccountResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D57DC222D10CB800C6E253 /* AccountResponseController.swift */; };
 		51D83EEB22C7CA0500E6CDDE /* ProfileSettingsScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D83EEA22C7CA0500E6CDDE /* ProfileSettingsScrollController.swift */; };
 		51DA0EC222CCCB870028B54D /* InviteParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DA0EC122CCCB870028B54D /* InviteParameters.swift */; };
 		51DA0EC422CCCD280028B54D /* InviteResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DA0EC322CCCD280028B54D /* InviteResponseController.swift */; };
@@ -395,6 +398,8 @@
 		51A9F67A227E0A7500B40A6D /* Subview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subview.swift; sourceTree = "<group>"; };
 		51A9F67C227E168600B40A6D /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		51A9F67E227E987000B40A6D /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		51B12B3322D45BCA00755B67 /* SimpleProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleProfile.swift; sourceTree = "<group>"; };
+		51B12B3522D45CF400755B67 /* SimpleProfileResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleProfileResponseController.swift; sourceTree = "<group>"; };
 		51B180AE227B55D600D4F6EA /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		51B180B2227BFA3A00D4F6EA /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		51B180B8227C01EA00D4F6EA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -472,6 +477,7 @@
 		51D374AA22AB7E550000FD36 /* RetrievePasswordSecondStep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RetrievePasswordSecondStep.storyboard; sourceTree = "<group>"; };
 		51D374AC22AB84750000FD36 /* RetrievePasswordThirdStep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RetrievePasswordThirdStep.storyboard; sourceTree = "<group>"; };
 		51D374AE22AB84B90000FD36 /* RetrievePasswordThirdStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrievePasswordThirdStepViewController.swift; sourceTree = "<group>"; };
+		51D57DC222D10CB800C6E253 /* AccountResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountResponseController.swift; sourceTree = "<group>"; };
 		51D83EEA22C7CA0500E6CDDE /* ProfileSettingsScrollController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsScrollController.swift; sourceTree = "<group>"; };
 		51DA0EC122CCCB870028B54D /* InviteParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteParameters.swift; sourceTree = "<group>"; };
 		51DA0EC322CCCD280028B54D /* InviteResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteResponseController.swift; sourceTree = "<group>"; };
@@ -938,6 +944,7 @@
 				51F076B322B50EEE004DFD38 /* NewCity.swift */,
 				51F076B922B523DB004DFD38 /* NewProduct.swift */,
 				51F076B522B51057004DFD38 /* NewShoppingCenter.swift */,
+				51B12B3322D45BCA00755B67 /* SimpleProfile.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1100,9 +1107,11 @@
 			isa = PBXGroup;
 			children = (
 				51F9F66B22C744EC00F3F385 /* ProfileResponseController.swift */,
+				51B12B3522D45CF400755B67 /* SimpleProfileResponseController.swift */,
 				51DA0EC322CCCD280028B54D /* InviteResponseController.swift */,
 				51BDCDD122C1E768000F9158 /* FavoritesResponseController.swift */,
 				51BDCDD322C20027000F9158 /* AddAllToCartResponseController.swift */,
+				51D57DC222D10CB800C6E253 /* AccountResponseController.swift */,
 				51B25D9C22CF2BF40014BF30 /* UpdateProfileResponseController.swift */,
 				5190B28422CF5F9500A9E01F /* UpdateNumberResponseController.swift */,
 				51E5974922C8FEEB00440256 /* AddressesResponseController.swift */,
@@ -1438,6 +1447,7 @@
 				51B365CF2298ABC400CF2BA6 /* APIError.swift in Sources */,
 				51CE241E22A06AC7007A1EB2 /* SetConstraintMultiplier.swift in Sources */,
 				51B365D02298ABC400CF2BA6 /* MaterialColors.swift in Sources */,
+				51B12B3422D45BCA00755B67 /* SimpleProfile.swift in Sources */,
 				51F79DDE22B8EDFC0094F9A7 /* ProductDetailsTableController.swift in Sources */,
 				51F076B422B50EEE004DFD38 /* NewCity.swift in Sources */,
 				51B365D12298ABC400CF2BA6 /* BorderStyles.swift in Sources */,
@@ -1465,6 +1475,7 @@
 				517E6B7722B4FC150087A919 /* HomeResponseController.swift in Sources */,
 				51B25D9922CE31A40014BF30 /* PopupViewController.swift in Sources */,
 				51F79DE222B90A1D0094F9A7 /* CheckInResponseController.swift in Sources */,
+				51D57DC322D10CB800C6E253 /* AccountResponseController.swift in Sources */,
 				51DA0EC422CCCD280028B54D /* InviteResponseController.swift in Sources */,
 				51B365D82298ABC400CF2BA6 /* Texts.swift in Sources */,
 				51F076B822B51131004DFD38 /* NewBrand.swift in Sources */,
@@ -1620,6 +1631,7 @@
 				51902E6A22B0F1E400A0241C /* AddressesTableController.swift in Sources */,
 				51B366062298ABC400CF2BA6 /* TableController.swift in Sources */,
 				5185C46522B7913200E9069A /* FilterResultsResponseController.swift in Sources */,
+				51B12B3622D45CF400755B67 /* SimpleProfileResponseController.swift in Sources */,
 				51B366072298ABC400CF2BA6 /* ViewController.swift in Sources */,
 				51CE242222A13215007A1EB2 /* Navigate.swift in Sources */,
 				51876FC322BBAD1A00D3D6B8 /* AddFavoriteParameters.swift in Sources */,

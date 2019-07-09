@@ -33,7 +33,7 @@ class OrdersCollectionController: CollectionController {
             "\(order.totalPrice.priceFormatted) \(texts(.currency).english)"
         
         castedCell.orderStatusTitleLabel.text = languageIsPersian ? "\(texts(.orderStatus).persian):" : "\(texts(.orderStatus).english):"
-        castedCell.orderStatusLabel.text = order.status
+        castedCell.orderStatusLabel.text = languageIsPersian ? order.persianStatus : order.englishStatus
         
         castedCell.transactionNumberTitleLabel.text = languageIsPersian ?
             "\(texts(.transactionNumber).persian):" :

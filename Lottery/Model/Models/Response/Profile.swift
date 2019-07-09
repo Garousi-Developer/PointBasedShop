@@ -3,6 +3,12 @@ class Profile: Decodable {
     var lastName: String
     let userLevel: String
     let userPoints: String
+    let facebook: String
+    let instagram: String
+    let twitter: String
+    let linkedin: String
+    let youtube: String
+    var registerationDate: String
     var email: String
     var mobileNumber: String
     
@@ -11,6 +17,12 @@ class Profile: Decodable {
         case lastName = "last_name"
         case userLevel = "level"
         case userPoints = "point"
+        case facebook
+        case instagram
+        case twitter
+        case linkedin
+        case youtube
+        case registerationDate = "date"
         case email
         case mobileNumber = "username"
     }

@@ -23,6 +23,7 @@ class ProfileSettingsViewController: ViewController {
     @IBOutlet weak var addAddressButton: Button!
     @IBOutlet weak var addressesTableView: TableView!
     
+    var addresses: [NewAddress]!
     var profile: Profile!
     var section = PersonalInformationSection.account
     var addressesTableController: EditableAddressesTableController!
@@ -32,6 +33,7 @@ class ProfileSettingsViewController: ViewController {
     var updateNumberParameters: UpdateNumberParameters!
     var updateNumberResponseController: UpdateNumberResponseController!
     var addressesResponseController: AddressesResponseController!
+    var accountResponseController: AccountResponseController!
     
     @IBAction func showAccount() {
         section = .account
@@ -183,9 +185,6 @@ class ProfileSettingsViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameLabel.text = "\(profile.firstName) \(profile.lastName)"
-        registerationDateLabel.text = languageIsPersian ? "عضو از : ۲۰ فروردین ۹۸" : "Member since : 20 April 2019"
-        
         addressesTableController = EditableAddressesTableController(
             viewController: self,
             tableView: addressesTableView
@@ -212,14 +211,41 @@ class ProfileSettingsViewController: ViewController {
             didFail: addressesResponseController.didFail,
             blocking: true
         ))
+        accountResponseController = AccountResponseController(viewController: self)
+        accountResponseController.requestHolder = request(RequestHolder(
+            endPointName: .profile,
+            didSucceed: accountResponseController.didSucceed,
+            didFail: accountResponseController.didFail,
+            blocking: true
+        ))
         
         refreshControl.containerView = scrollView
-        refreshControl.requestHolder = addressesResponseController.requestHolder
+        refreshControl.requestHolders = [addressesResponseController.requestHolder!, accountResponseController.requestHolder!]
     }
 }
 
 extension ProfileSettingsViewController {
+    func updatePersonalInformation() {
+        if addresses != nil && profile != nil {
+            addressesTableController.data = addresses
+            addressesTableView.reloadData()
+            
+            fillTextFields()
+            
+            setLoadingState(.successful)
+            refreshControl.endRefreshing()
+            
+            addresses = nil
+            profile = nil
+        }
+    }
     func fillTextFields() {
+        nameLabel.text = "\(profile.firstName) \(profile.lastName)"
+        registerationDateLabel.text = languageIsPersian ? "عضو از : ۲۰ فروردین ۹۸" : "Member since : 20 April 2019"
+//        registerationDateLabel.text = languageIsPersian ?
+//            "\(texts(.memberSince).persian) : \(profile.registerationDate)" :
+//            "\(texts(.memberSince).english) : \(profile.registerationDate)"
+        
         if firstNameTextField.text!.isEmpty {
             firstNameTextField.prepareText()
         }

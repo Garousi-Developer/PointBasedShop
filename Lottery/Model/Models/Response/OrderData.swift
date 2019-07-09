@@ -2,7 +2,8 @@ class OrderData: Decodable {
     let id: Int
     let orderNumber: String
     let totalPrice: String
-    let status: String
+    let persianStatus: String
+    let englishStatus: String
     let transactionNumber: String
     let paymentDate: String
     let paymentTime: String
@@ -13,7 +14,8 @@ class OrderData: Decodable {
         case id
         case orderNumber = "order_number"
         case totalPrice = "final_price"
-        case status
+        case persianStatus = "fa_status"
+        case englishStatus = "en_status"
         case transactionNumber = "transaction_code"
         case paymentDate = "date"
         case paymentTime = "time"

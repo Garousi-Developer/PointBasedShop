@@ -4,13 +4,13 @@ import SnapKit
 class PopupViewController: ViewController {
     var type: PopupType!
     
-    @objc private func login(_ sender: Button) {
+    @objc private func popupLogin(_ sender: Button) {
         let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
         let loginViewController = loginStoryboard.instantiateViewController(withIdentifier: "login") as! LoginViewController
         
         present(loginViewController, animated: true, completion: nil)
     }
-    @objc private func register(_ sender: Button) {
+    @objc private func popupRegister(_ sender: Button) {
         navigateTo(.registerFirstStep)
     }
     
@@ -39,7 +39,7 @@ class PopupViewController: ViewController {
         loginButton.setTitleColor(colors(.white), for: .normal)
         loginButton.setLocalizedTitle(texts(.login), for: .normal)
         loginButton.firstInteractionAnimationType = InteractionAnimation.bounce
-        loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(popupLogin), for: .touchUpInside)
         
         let registerButton = Button(type: .custom)
         registerButton.layer.name = "registerButton"
@@ -48,7 +48,7 @@ class PopupViewController: ViewController {
         registerButton.setTitleColor(colors(.white), for: .normal)
         registerButton.setLocalizedTitle(texts(.register), for: .normal)
         registerButton.firstInteractionAnimationType = InteractionAnimation.bounce
-        registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(popupRegister), for: .touchUpInside)
         
         let noContentStackView: StackView
         noContentStackView = StackView(arrangedSubviews: [noContentImageView, noContentLabel, loginButton, registerButton])

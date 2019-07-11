@@ -1,7 +1,7 @@
 class CartData: Decodable {
     let products: [NewProduct]
     let count: Int
-    let totalPrice: Int
+    let totalPrice: Double
     let earnedPoints: Double
     let addresses: [NewAddress]
     

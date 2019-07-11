@@ -298,6 +298,11 @@ func texts(_ text: Text) -> LocalizedText {
             persian: "از",
             english: "out of"
         )
+    case .noProductFoundNearby:
+        return LocalizedText(
+            persian: "محصولی نزدیک شما پیدا نشد",
+            english: "No product found nearby"
+        )
     case .cities:
         return LocalizedText(
             persian: "شهرها",
@@ -505,6 +510,11 @@ func texts(_ text: Text) -> LocalizedText {
         return LocalizedText(
             persian: "کسب امتیاز",
             english: "Claim Points"
+        )
+    case .noShoppingCenterFound:
+        return LocalizedText(
+            persian: "مرکز خریدی نزدیک شما پیدا نشد",
+            english: "No shopping center found nearby"
         )
         
     // Claim Points:
@@ -890,6 +900,7 @@ enum Text: String {
     case addMore
     case sold
     case outOf
+    case noProductFoundNearby
     case cities
     case topShoppingCenters
     case topBrands
@@ -944,6 +955,7 @@ enum Text: String {
     case youEarnedPointsFromThisShoppingCenterForToday
     case takeYourTodaysInvoicesToXShoppingCenterCounter
     case claimPoints
+    case noShoppingCenterFound
     
     // Claim Points:
     case pleaseHaveAllYourTodaysInvoicesStampedBySalesman

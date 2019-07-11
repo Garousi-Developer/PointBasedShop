@@ -18,6 +18,7 @@ PODS:
   - PhoneNumberKit/PhoneNumberKitCore (2.6.0)
   - PhoneNumberKit/UIKit (2.6.0):
     - PhoneNumberKit/PhoneNumberKitCore
+  - SkeletonView (1.4.2)
   - SnapKit (4.2.0)
   - SVPinView (1.0.6)
 
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - Kingfisher
   - NVActivityIndicatorView
   - PhoneNumberKit
+  - SkeletonView
   - SnapKit
   - SVPinView
 
@@ -43,6 +45,7 @@ SPEC REPOS:
     - Kingfisher
     - NVActivityIndicatorView
     - PhoneNumberKit
+    - SkeletonView
     - SnapKit
     - SVPinView
 
@@ -55,9 +58,10 @@ SPEC CHECKSUMS:
   Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
   PhoneNumberKit: 167ee1f0bbb6efce7c62559e620eae745595532f
+  SkeletonView: c2523c3c8c6510e273e49a3bf364a434744c3914
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVPinView: 3dda372c7a1c051b41788f07bf7a8339aa19083e
 
-PODFILE CHECKSUM: 4a6bf7929ad0ed0ba28ea1f8b8506a793182926c
+PODFILE CHECKSUM: 1f033d27a76238c4aa1429c922b3a76dbf173e59
 
 COCOAPODS: 1.6.1
